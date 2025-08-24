@@ -13,13 +13,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
 		
-	if Input.is_action_pressed("move_right") and position.x <= 850:
+	if Input.is_action_pressed("move_right") and position.x <= 1050:
 		velocity.x += 1
-	if Input.is_action_pressed("move_left") and position.x >= -100:
+	if Input.is_action_pressed("move_left") and position.x >= 100:
 		velocity.x -= 1
-	if Input.is_action_pressed("move_down") and position.y <= 450:
+	if Input.is_action_pressed("move_down") and position.y <= 580:
 		velocity.y += 1
-	if Input.is_action_pressed("move_up") and position.y >= -20:
+	if Input.is_action_pressed("move_up") and position.y >= 70:
 		velocity.y -= 1
 		
 	if velocity != Vector2.ZERO:

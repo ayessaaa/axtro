@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=10 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dxiaic682bqca" path="res://scenes/line.tscn" id="2_gee14"]
 [ext_resource type="PackedScene" uid="uid://3uctjjxqt4e0" path="res://scenes/character.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://1iknwb6xs67y" path="res://scenes/bush.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://c3per4pc8fb83" path="res://scenes/land.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bu5qorbh82v1b" path="res://scenes/cloud_1.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cl027i6w4uwyg" path="res://scenes/star.tscn" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://3vqeu8sqc3vk" path="res://scenes/meteor.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://68qaayfj8vft" path="res://scenes/cloud_area.tscn" id="9_0tnpc"]
 
 [node name="Game" type="Node"]
 
@@ -14,21 +16,32 @@
 position = Vector2(576.719, 361.5)
 scale = Vector2(0.488415, 0.488415)
 
-[node name="Character" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Player" type="Node" parent="."]
+
+[node name="Object" parent="Player" instance=ExtResource("2_yqjtg")]
 z_index = 5
-position = Vector2(-58, 246)
+position = Vector2(176, 254)
 scale = Vector2(0.345171, 0.345171)
 
+[node name="Line" parent="Player" instance=ExtResource("2_gee14")]
+position = Vector2(180, 199)
+scale = Vector2(0.305804, 0.503027)
+object_path = NodePath("../Object")
+character = true
+
+[node name="Line2" parent="Player" instance=ExtResource("2_gee14")]
+position = Vector2(-443, 257)
+rotation = 1.5708
+scale = Vector2(0.314927, 0.550332)
+object_path = NodePath("../Object")
+character = true
+
 [node name="Bush" parent="." instance=ExtResource("3_iywne")]
-position = Vector2(234, 519)
-scale = Vector2(0.515849, 0.515849)
+position = Vector2(166, 537)
+scale = Vector2(0.365159, 0.365159)
 
 [node name="Land" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(576, 592)
-
-[node name="Cloud1" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(977, 106)
-scale = Vector2(0.334565, 0.334565)
 
 [node name="Star" parent="." instance=ExtResource("6_u5sy4")]
 position = Vector2(679, 203)
@@ -37,3 +50,20 @@ scale = Vector2(0.334565, 0.334565)
 [node name="Meteor" parent="." instance=ExtResource("7_gee14")]
 position = Vector2(1038, 428)
 scale = Vector2(0.314103, 0.314103)
+
+[node name="Cloud" type="Node" parent="."]
+
+[node name="Object" parent="Cloud" instance=ExtResource("4_lbhrr")]
+visible = false
+position = Vector2(977, 106)
+scale = Vector2(0.334565, 0.334565)
+
+[node name="Cloud1" type="Node" parent="."]
+
+[node name="Line" parent="Cloud1" instance=ExtResource("2_gee14")]
+position = Vector2(978, -181)
+scale = Vector2(0.351852, 0.213799)
+object_path = NodePath("../Object")
+
+[node name="Object" parent="Cloud1" instance=ExtResource("9_0tnpc")]
+position = Vector2(988, 97)
