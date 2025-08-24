@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1iknwb6xs67y"]
+
+[ext_resource type="Texture2D" uid="uid://cxg5x3nse0h8e" path="res://assets/IMG_1556.PNG" id="1_8cy4n"]
+
+[node name="Bush" type="Sprite2D"]
+position = Vector2(575, 329)
+texture = ExtResource("1_8cy4n")

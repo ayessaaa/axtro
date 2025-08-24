@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl027i6w4uwyg"]
+
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_mcqwg"]
+
+[node name="Star" type="Sprite2D"]
+texture = ExtResource("1_mcqwg")

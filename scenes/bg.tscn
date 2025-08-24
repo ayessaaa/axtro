@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cucp1iyq7jyle"]
+
+[ext_resource type="Texture2D" uid="uid://bsuqw2dg7awm5" path="res://assets/IMG_1551.PNG" id="1_anprf"]
+
+[node name="Bg" type="Sprite2D"]
+position = Vector2(576, 361)
+scale = Vector2(0.510976, 0.510976)
+texture = ExtResource("1_anprf")

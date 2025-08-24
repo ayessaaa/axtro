@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3per4pc8fb83"]
+
+[ext_resource type="Texture2D" uid="uid://qa4o1e24k0gq" path="res://assets/IMG_1552.PNG" id="1_r36lh"]
+
+[node name="Land" type="Sprite2D"]
+position = Vector2(575, 181)
+scale = Vector2(0.490458, 0.490458)
+texture = ExtResource("1_r36lh")
