@@ -2,7 +2,8 @@ extends Area2D
 
 var speed = 2
 var updown_cooldown = .05
-var up_or_down = -.10
+var up_or_down = -.3
+var rotate = -0.25
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,13 +14,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	updown_cooldown -= delta
 	position.y += up_or_down
-	rotation += up_or_down * .005
-	if updown_cooldown <= .5:
+	rotation += rotate * .005
+	if updown_cooldown <= 0.2:
 		up_or_down *= -1
+		rotate *= -1
 		updown_cooldown = 1
 			
 	if position.x <= -150:
 		position.x = 1500
 	else:
-		position.x -= speed
+		position.x -= speed * delta * 50
 		

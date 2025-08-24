@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=12 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dxiaic682bqca" path="res://scenes/line.tscn" id="2_gee14"]
@@ -11,31 +11,32 @@
 [ext_resource type="PackedScene" uid="uid://dq8iww0ovihrc" path="res://scenes/meteor.tscn" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://lbcnw0klaw6p" path="res://scenes/cloud_area_2.tscn" id="10_vtaks"]
 
+[sub_resource type="GDScript" id="GDScript_vtaks"]
+
 [node name="Game" type="Node"]
 
 [node name="Bg" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(576.719, 361.5)
 scale = Vector2(0.488415, 0.488415)
 
-[node name="Player" type="Node" parent="."]
-
-[node name="Object" parent="Player" instance=ExtResource("2_yqjtg")]
+[node name="Character" parent="." instance=ExtResource("2_yqjtg")]
 z_index = 5
 position = Vector2(176, 254)
 scale = Vector2(0.345171, 0.345171)
 collision_layer = 2
+player = true
 
-[node name="Line" parent="Player" instance=ExtResource("2_gee14")]
+[node name="Line" parent="." instance=ExtResource("2_gee14")]
 position = Vector2(180, 199)
 scale = Vector2(0.305804, 0.503027)
-object_path = NodePath("../Object")
+object_path = NodePath("../Character")
 character = true
 
-[node name="Line2" parent="Player" instance=ExtResource("2_gee14")]
+[node name="Line2" parent="." instance=ExtResource("2_gee14")]
 position = Vector2(-443, 257)
 rotation = 1.5708
 scale = Vector2(0.314927, 0.550332)
-object_path = NodePath("../Object")
+object_path = NodePath("../Character")
 character = true
 
 [node name="Bush" parent="." instance=ExtResource("3_iywne")]
@@ -73,14 +74,17 @@ object_path = NodePath("../cloud_area2")
 [node name="cloud_area2" parent="Cloud2" instance=ExtResource("10_vtaks")]
 position = Vector2(316.5, 106)
 
-[node name="Meteor" type="Node" parent="."]
+[node name="MeteorNode" type="Node" parent="."]
+script = SubResource("GDScript_vtaks")
 
-[node name="Line" parent="Meteor" instance=ExtResource("2_gee14")]
+[node name="Line" parent="MeteorNode" instance=ExtResource("2_gee14")]
 position = Vector2(1033, 101.468)
 scale = Vector2(0.259258, 0.275581)
 object_path = NodePath("../Meteor")
 
-[node name="Meteor" parent="Meteor" instance=ExtResource("10_kvpfn")]
+[node name="Meteor" parent="MeteorNode" instance=ExtResource("10_kvpfn")]
 position = Vector2(1024, 395)
 scale = Vector2(0.4, 0.4)
 collision_mask = 2
+
+[node name="Bullets" type="Node" parent="."]

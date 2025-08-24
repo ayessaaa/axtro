@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 	if position.x <= -150:
 		position.x = 1500
 	else:
-		position.x -= speed
+		position.x -= speed * delta * 50
 		

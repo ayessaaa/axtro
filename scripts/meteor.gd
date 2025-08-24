@@ -8,10 +8,11 @@ func _process(delta: float) -> void:
 	if position.x <= -150:
 		position.x = 1500
 	else:
-		position.x -= speed
+		position.x -= speed * delta * 70
 
 func _on_area_entered(area: Area2D) -> void:
-	print("dead")
-	get_tree().reload_current_scene()
+	if area.player:
+		print("dead")
+		get_tree().reload_current_scene()
 
 	
