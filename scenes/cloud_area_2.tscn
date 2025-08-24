@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://lbcnw0klaw6p"]
+
+[ext_resource type="Texture2D" uid="uid://dt1mwvakxieex" path="res://assets/IMG_1558.PNG" id="1_ldydh"]
+[ext_resource type="Script" uid="uid://bvniv046lt7xn" path="res://scenes/cloud_area_2.gd" id="1_vfk6v"]
+
+[sub_resource type="GDScript" id="GDScript_875gl"]
+
+[node name="cloud_area2" type="Area2D"]
+script = ExtResource("1_vfk6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -3)
+scale = Vector2(0.32587, 0.32587)
+texture = ExtResource("1_ldydh")
+script = SubResource("GDScript_875gl")

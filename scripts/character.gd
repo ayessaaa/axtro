@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		velocity.x += 1
 	if Input.is_action_pressed("move_left") and position.x >= 100:
 		velocity.x -= 1
-	if Input.is_action_pressed("move_down") and position.y <= 580:
+	if Input.is_action_pressed("move_down") and position.y <= 520:
 		velocity.y += 1
 	if Input.is_action_pressed("move_up") and position.y >= 70:
 		velocity.y -= 1

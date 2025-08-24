@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://3vqeu8sqc3vk"]
+[gd_scene load_steps=3 format=3 uid="uid://dq8iww0ovihrc"]
 
-[ext_resource type="Texture2D" uid="uid://chwg4kndylfkm" path="res://assets/IMG_1555.PNG" id="1_tcwo0"]
+[ext_resource type="Texture2D" uid="uid://chwg4kndylfkm" path="res://assets/IMG_1555.PNG" id="1_n51xl"]
+[ext_resource type="Script" uid="uid://cs5n6403pnyvv" path="res://scripts/meteor.gd" id="1_ohe0j"]
 
-[node name="Meteor" type="Sprite2D"]
-position = Vector2(531, 323)
-texture = ExtResource("1_tcwo0")
+[node name="Meteor" type="Area2D"]
+script = ExtResource("1_ohe0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n51xl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(56, -114, 94, -68, 97, -48, 117, -26, 120, 14, 99, 50, 62, 74, 16, 84, -20, 75, -46, 79, -82, 69, -108, 38, -122, 12, -122, -17, -80, -28, -58, -56, -50, -90, -8, -110, 27, -114)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -2,7 +2,7 @@ extends Area2D
 
 var speed = 2
 var updown_cooldown = .05
-var up_or_down = -.10
+var up_or_down = .10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
