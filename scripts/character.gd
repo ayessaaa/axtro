@@ -60,21 +60,20 @@ func _process(delta: float) -> void:
 				up_sub_counter += delta * 10
 		
 	if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up"):
-		pass
+		pass 
 	else:
 		
 		if down_sub_counter > 0:
 			animated_sprite_2d.play("down_sub")
 			down_sub_counter2 += delta * 10
-			print(down_sub_counter)
 			if down_sub_counter2 >= 1:
 				animated_sprite_2d.play("default")
 				down_sub_counter = 0
 				down_sub_counter2 = 0
+		
 		if up_sub_counter > 0:
 			animated_sprite_2d.play("up_sub")
 			up_sub_counter2 += delta * 10
-			print(up_sub_counter)
 			if up_sub_counter2 >= 1:
 				animated_sprite_2d.play("default")
 				up_sub_counter = 0

@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var speed = 400
-@export var object: Area2D 
+@export var object: Node 
 @export var character: bool 
 
 # Called when the node enters the scene tree for the first time.
