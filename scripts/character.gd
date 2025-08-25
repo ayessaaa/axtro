@@ -1,18 +1,27 @@
 extends Area2D
 
 @export var speed = 400
-@export var player: bool
+@export var player = true
 var screen_size
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+const METEOR = preload("res://scenes/meteor.tscn")
+@onready var meteors_container = get_parent().get_node("Meteors")
+
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
 
+var spawn_interval = 2.0
+var timer = 0.0
+
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-
-
+	spawn_meteor(Vector2(1200, randf_range(50, screen_size[1]-100)))
+	spawn_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
+	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
+	spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -29,13 +38,23 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	
-		
 	if velocity != Vector2.ZERO:
 		velocity = velocity.normalized()
 		position += velocity * speed * delta
+		
+	timer += delta
+	if timer >= spawn_interval:
+		timer = 0
+		spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		
 func shoot():
 	var bullet = BULLET.instantiate()
 	bullet.position = position
 	bullets_container.add_child(bullet)
+	
+func spawn_meteor(pos):
+	var meteor = METEOR.instantiate()
+	meteor.position = pos
+	meteors_container.add_child(meteor)
+	
 	

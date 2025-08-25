@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://t5w7yvubmsam"]
+[gd_scene load_steps=6 format=3 uid="uid://t5w7yvubmsam"]
 
 [ext_resource type="Texture2D" uid="uid://3mmtnsqy636k" path="res://assets/Capture.PNG" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://scgl5bt7vjmk" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="AudioStream" uid="uid://bdyxp801ah3js" path="res://assets/music/retro-laser-1-236669.mp3" id="3_l5glv"]
+[ext_resource type="AudioStream" uid="uid://d0nyshwvo3bwc" path="res://assets/music/8-bit-explosion-10-340462.mp3" id="4_eoqba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
 size = Vector2(24, 8)
@@ -16,3 +18,13 @@ texture = ExtResource("1_mkf8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mkf8s")
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576.719, 361.5)
+scale = Vector2(0.488415, 0.488415)
+stream = ExtResource("3_l5glv")
+
+[node name="MeteorExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eoqba")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

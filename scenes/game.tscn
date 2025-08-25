@@ -1,19 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=14 format=3 uid="uid://do2s7hf3rjwoa"]
 
+[ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dxiaic682bqca" path="res://scenes/line.tscn" id="2_gee14"]
 [ext_resource type="PackedScene" uid="uid://3uctjjxqt4e0" path="res://scenes/character.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://1iknwb6xs67y" path="res://scenes/bush.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://c3per4pc8fb83" path="res://scenes/land.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://wwrj3km7c1q4" path="res://scenes/bush1.tscn" id="5_vtaks"]
-[ext_resource type="PackedScene" uid="uid://cl027i6w4uwyg" path="res://scenes/star.tscn" id="6_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://bdyxp801ah3js" path="res://assets/music/retro-laser-1-236669.mp3" id="8_0tnpc"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://68qaayfj8vft" path="res://scenes/cloud_area.tscn" id="9_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://dq8iww0ovihrc" path="res://scenes/meteor.tscn" id="10_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://dkr2rwd8aai0k" path="res://assets/music/8-bit-explosion-10-340462_yiTi3WRq.mp3" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://lbcnw0klaw6p" path="res://scenes/cloud_area_2.tscn" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="12_dinhu"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_kvpfn")
 
 [node name="Bg" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(576.719, 361.5)
@@ -23,26 +26,19 @@ scale = Vector2(0.488415, 0.488415)
 z_index = 5
 position = Vector2(176, 254)
 scale = Vector2(0.345171, 0.345171)
-collision_layer = 2
-player = true
 
-[node name="Line" parent="." instance=ExtResource("2_gee14")]
+[node name="Line" parent="." node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
 position = Vector2(180, 199)
 scale = Vector2(0.305804, 0.503027)
-object_path = NodePath("../Character")
+object = NodePath("../Character")
 character = true
 
-[node name="Line2" parent="." instance=ExtResource("2_gee14")]
+[node name="Line2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
 position = Vector2(-443, 257)
 rotation = 1.5708
 scale = Vector2(0.314927, 0.550332)
-object_path = NodePath("../Character")
+object = NodePath("../Character")
 character = true
-
-[node name="Bush" parent="." instance=ExtResource("3_iywne")]
-visible = false
-position = Vector2(166, 537)
-scale = Vector2(0.365159, 0.365159)
 
 [node name="Bush2" parent="." instance=ExtResource("5_vtaks")]
 position = Vector2(256, 535)
@@ -50,26 +46,22 @@ position = Vector2(256, 535)
 [node name="Land" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(576, 592)
 
-[node name="Star" parent="." instance=ExtResource("6_u5sy4")]
-position = Vector2(679, 203)
-scale = Vector2(0.334565, 0.334565)
-
 [node name="Cloud1" type="Node" parent="."]
 
-[node name="Line" parent="Cloud1" instance=ExtResource("2_gee14")]
+[node name="Line" parent="Cloud1" node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
 position = Vector2(1052.5, -187)
 scale = Vector2(0.351852, 0.213799)
-object_path = NodePath("../Object")
+object = NodePath("../Object")
 
 [node name="Object" parent="Cloud1" instance=ExtResource("9_0tnpc")]
 position = Vector2(1062.5, 91)
 
 [node name="Cloud2" type="Node" parent="."]
 
-[node name="Line2" parent="Cloud2" instance=ExtResource("2_gee14")]
+[node name="Line2" parent="Cloud2" node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
 position = Vector2(311.5, -146)
 scale = Vector2(0.351852, 0.213799)
-object_path = NodePath("../cloud_area2")
+object = NodePath("../cloud_area2")
 
 [node name="cloud_area2" parent="Cloud2" instance=ExtResource("10_vtaks")]
 position = Vector2(316.5, 106)
@@ -77,14 +69,31 @@ position = Vector2(316.5, 106)
 [node name="MeteorNode" type="Node" parent="."]
 script = SubResource("GDScript_vtaks")
 
-[node name="Line" parent="MeteorNode" instance=ExtResource("2_gee14")]
-position = Vector2(1033, 101.468)
-scale = Vector2(0.259258, 0.275581)
-object_path = NodePath("../Meteor")
-
-[node name="Meteor" parent="MeteorNode" instance=ExtResource("10_kvpfn")]
-position = Vector2(1024, 395)
-scale = Vector2(0.4, 0.4)
-collision_mask = 2
-
 [node name="Bullets" type="Node" parent="."]
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="Bullets"]
+visible = false
+position = Vector2(576.719, 361.5)
+scale = Vector2(0.488415, 0.488415)
+stream = ExtResource("8_0tnpc")
+
+[node name="MeteorExplosionSound" type="AudioStreamPlayer2D" parent="Bullets"]
+stream = ExtResource("10_kvpfn")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 32.0
+offset_right = 661.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 53
+text = "SCORE: 0"
+
+[node name="Meteors" type="Node" parent="."]
+
+[node name="Lines" type="Node" parent="Meteors"]
+
+[node name="Stars" type="Node" parent="Meteors"]
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
+stream = ExtResource("12_dinhu")

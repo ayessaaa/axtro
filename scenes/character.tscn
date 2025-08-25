@@ -9,6 +9,7 @@ height = 226.066
 
 [node name="Character" type="Area2D"]
 position = Vector2(558, 309)
+collision_layer = 2
 script = ExtResource("2_rkhd4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

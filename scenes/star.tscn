@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl027i6w4uwyg"]
+[gd_scene load_steps=4 format=3 uid="uid://3nbcn8c773dl"]
 
-[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_mcqwg"]
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_46ao5"]
+[ext_resource type="Script" uid="uid://bc74e6lvbpmjn" path="res://scripts/star.gd" id="1_j6vao"]
 
-[node name="Star" type="Sprite2D"]
-texture = ExtResource("1_mcqwg")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ef0hr"]
+radius = 42.7992
+
+[node name="Star" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_j6vao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.261228, 0.261228)
+texture = ExtResource("1_46ao5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.261228, 0.261228)
+shape = SubResource("CircleShape2D_ef0hr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq8iww0ovihrc"]
+[gd_scene load_steps=4 format=3 uid="uid://dq8iww0ovihrc"]
 
 [ext_resource type="Texture2D" uid="uid://chwg4kndylfkm" path="res://assets/IMG_1555.PNG" id="1_n51xl"]
 [ext_resource type="Script" uid="uid://cs5n6403pnyvv" path="res://scripts/meteor.gd" id="1_ohe0j"]
+[ext_resource type="AudioStream" uid="uid://bdyxp801ah3js" path="res://assets/music/retro-laser-1-236669.mp3" id="3_8tfog"]
 
 [node name="Meteor" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+collision_mask = 2
 script = ExtResource("1_ohe0j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -13,6 +16,11 @@ texture = ExtResource("1_n51xl")
 polygon = PackedVector2Array(56, -114, 94, -68, 97, -48, 117, -26, 120, 14, 99, 50, 62, 74, 16, 84, -20, 75, -46, 79, -82, 69, -108, 38, -122, 12, -122, -17, -80, -28, -58, -56, -50, -90, -8, -110, 27, -114)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576.719, 361.5)
+scale = Vector2(0.488415, 0.488415)
+stream = ExtResource("3_8tfog")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

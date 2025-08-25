@@ -4,5 +4,7 @@
 [ext_resource type="Script" uid="uid://bhntxrgumf8hj" path="res://scripts/line.gd" id="2_ce3t5"]
 
 [node name="Line" type="Sprite2D"]
+position = Vector2(11, 1)
+scale = Vector2(0.259259, 1)
 texture = ExtResource("1_ce3t5")
 script = ExtResource("2_ce3t5")
