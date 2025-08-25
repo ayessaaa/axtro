@@ -13,7 +13,6 @@ const METEOR = preload("res://scenes/meteor.tscn")
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
 
-var spawn_interval = 2.0
 var timer = 0.0
 
 func _ready() -> void:
@@ -90,7 +89,7 @@ func _process(delta: float) -> void:
 		position += velocity * speed * delta
 		
 	timer += delta
-	if timer >= spawn_interval:
+	if timer >= Global.spawn_interval:
 		timer = 0
 		spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		

@@ -11,3 +11,6 @@ func _on_area_entered(area: Area2D) -> void:
 		Global.score += 1
 		score.text = "SCORE: "+ str(Global.score)
 		score.show()
+		Global.meteor_speed += .25
+		if Global.spawn_interval > 0.5:
+			Global.spawn_interval -= .1

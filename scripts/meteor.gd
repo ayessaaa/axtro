@@ -11,7 +11,6 @@ const STAR = preload("res://scenes/star.tscn")
 
 var line: Sprite2D
 
-var speed = 2
 var meteor_fall = false
 
 const GRAVITY = 800
@@ -32,6 +31,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("shoot"):
 			Global.dead = false
 			Global.score = 0
+			Global.meteor_speed = 2
+			Global.spawn_interval = 2
 			get_tree().reload_current_scene()
 			
 		return
@@ -42,13 +43,9 @@ func _physics_process(delta: float) -> void:
 		if position.y > 1000:
 			queue_free()
 	else:
-		position.x -= speed * delta * 70
+		position.x -= Global.meteor_speed * delta * 70
 		
 	
-		
-
-
-
 func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 	print("enter")
 	if area.player:
@@ -66,6 +63,8 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 		
 	if line and line.is_inside_tree():
 		line.queue_free()
+	
+	
 	
 	
 		
