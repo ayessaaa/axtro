@@ -32,6 +32,8 @@ var up_sub_counter2 = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.dead:
+		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 		

@@ -1,16 +1,12 @@
-extends Node
+extends Area2D
 
-@onready var bg_music: AudioStreamPlayer2D = $BgMusic
+@onready var score_label: Label = $Score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	bg_music.play()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_bg_music_finished() -> void:
-	bg_music.play()
+	score_label.text = str(Global.score)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=16 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dxiaic682bqca" path="res://scenes/line.tscn" id="2_gee14"]
+[ext_resource type="AudioStream" uid="uid://cx8f60vnygg0t" path="res://assets/music/BeepBox-Song.mp3" id="2_kvuet"]
+[ext_resource type="PackedScene" uid="uid://deqa3yd5kjv6d" path="res://scenes/gameover_bg.tscn" id="2_trtic"]
 [ext_resource type="PackedScene" uid="uid://3uctjjxqt4e0" path="res://scenes/character.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c3per4pc8fb83" path="res://scenes/land.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://wwrj3km7c1q4" path="res://scenes/bush1.tscn" id="5_vtaks"]
@@ -17,6 +19,15 @@
 
 [node name="Game" type="Node"]
 script = ExtResource("1_kvpfn")
+
+[node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
+z_index = 6
+position = Vector2(556, -683)
+
+[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-2, 28)
+stream = ExtResource("2_kvuet")
+volume_db = 5.0
 
 [node name="Bg" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(576.719, 361.5)
@@ -81,13 +92,15 @@ stream = ExtResource("8_0tnpc")
 stream = ExtResource("10_kvpfn")
 
 [node name="Score" type="Label" parent="."]
-offset_left = 498.0
-offset_top = 32.0
-offset_right = 661.0
-offset_bottom = 71.0
+offset_left = -2.0
+offset_top = 28.0
+offset_right = 1153.0
+offset_bottom = 67.0
 theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 53
 text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Meteors" type="Node" parent="."]
 
@@ -97,3 +110,5 @@ text = "SCORE: 0"
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
 stream = ExtResource("12_dinhu")
+
+[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://deqa3yd5kjv6d"]
+
+[ext_resource type="Texture2D" uid="uid://da1iitdc61t05" path="res://assets/IMG_1594.PNG" id="1_fulno"]
+[ext_resource type="Script" uid="uid://ck5paxfwectcd" path="res://gameover_bg.gd" id="1_kq1vm"]
+[ext_resource type="Texture2D" uid="uid://dqxwosnnwfd3g" path="res://assets/dfgdfg.PNG" id="1_tu3cd"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="2_1ud4k"]
+
+[node name="GameoverBg" type="Area2D"]
+script = ExtResource("1_kq1vm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(26, 82.375)
+scale = Vector2(2.81636, 3.09986)
+texture = ExtResource("1_tu3cd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.12498, -25.3035)
+scale = Vector2(0.406439, 0.406439)
+texture = ExtResource("1_fulno")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -108.875
+offset_top = 86.6965
+offset_right = 83.125
+offset_bottom = 116.697
+rotation = 0.0949766
+theme_override_colors/font_color = Color(0.337255, 0.423529, 0.52549, 1)
+theme_override_fonts/font = ExtResource("2_1ud4k")
+theme_override_font_sizes/font_size = 41
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_left = -113.806
+offset_top = 121.697
+offset_right = 78.1944
+offset_bottom = 185.697
+rotation = 0.0949766
+theme_override_colors/font_color = Color(0.211765, 0.243137, 0.337255, 1)
+theme_override_fonts/font = ExtResource("2_1ud4k")
+theme_override_font_sizes/font_size = 88
+text = "0"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = -114.875
+offset_top = 10.6965
+offset_right = 125.125
+offset_bottom = 47.6965
+rotation = 0.0949766
+theme_override_colors/font_color = Color(0.211765, 0.243137, 0.337255, 1)
+theme_override_colors/font_shadow_color = Color(0.337255, 0.423529, 0.52549, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_1ud4k")
+theme_override_font_sizes/font_size = 51
+text = "GAME OVER :("
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -204.875
+offset_top = 303.697
+offset_right = 173.125
+offset_bottom = 333.697
+rotation = 0.0949766
+theme_override_colors/font_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_1ud4k")
+theme_override_font_sizes/font_size = 41
+text = "Click SPACE to play again!"
+horizontal_alignment = 1

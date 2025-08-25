@@ -12,6 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.dead:
+		return
 	updown_cooldown -= delta
 	position.y += up_or_down
 	rotation += rotate * .005
