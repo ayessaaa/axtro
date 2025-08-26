@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var type = "meteor"
-@export var meteor_fall = false
+@export var small_meteor_fall = false
 
 const LINES = preload("res://scenes/line.tscn")
 @onready var lines_container = get_parent().get_node("Lines")
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			
 		return
 	#speed += 1 * delta
-	if meteor_fall:
+	if small_meteor_fall:
 		velocity.y += GRAVITY * delta
 		move_and_slide()
 		rotate(0.2*delta*50)
@@ -46,9 +46,9 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 	else:
 		position.x -= Global.meteor_speed * delta * 70 * random_speed
-		
-	
-func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
+
+
+func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 	print("enter")
 	if area.player:
 		print("dead")
@@ -61,17 +61,11 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 		#get_tree().paused = true
 		#Global.score = 0
 	else:
-		if !meteor_fall:
+		if !small_meteor_fall:
 			var star = STAR.instantiate()
 			star.position = position
 			stars_container.add_child(star)
-		meteor_fall = true
+		small_meteor_fall = true
 		
 	if line and line.is_inside_tree():
 		line.queue_free()
-	
-	
-	
-	
-		
-	

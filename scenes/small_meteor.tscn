@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbn3ohikirkqq"]
+
+[ext_resource type="Script" uid="uid://bf5hskn5p2xyj" path="res://scripts/small_meteor.gd" id="1_h3e30"]
+[ext_resource type="Texture2D" uid="uid://k8mkqoc7dd3m" path="res://assets/IMG_1635.PNG" id="1_xhlr7"]
+[ext_resource type="Script" uid="uid://druib04xk170o" path="res://scripts/small_meteor_area_2d.gd" id="2_hxs6u"]
+[ext_resource type="AudioStream" uid="uid://bdyxp801ah3js" path="res://assets/music/retro-laser-1-236669.mp3" id="3_4q63j"]
+
+[node name="SmallMeteor" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_h3e30")
+
+[node name="SmallMeteorArea2d" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_hxs6u")
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallMeteorArea2d"]
+position = Vector2(-9, -10)
+scale = Vector2(0.283688, 0.283688)
+texture = ExtResource("1_xhlr7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SmallMeteorArea2d"]
+position = Vector2(-8.90563, -9.49443)
+scale = Vector2(0.271526, 0.28288)
+polygon = PackedVector2Array(10, -95, 43, -89, 79, -56, 82, -9, 60, 29, 30, 41, 13, 40, -11, 61, -32, 61, -64, 39, -72, -2, -44, -42, -23, -85)
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576.719, 361.5)
+scale = Vector2(0.488415, 0.488415)
+stream = ExtResource("3_4q63j")
+
+[connection signal="area_entered" from="SmallMeteorArea2d" to="." method="_on_small_meteor_area_2d_area_entered"]

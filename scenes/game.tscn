@@ -29,7 +29,7 @@ position = Vector2(566, -350)
 [node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-2, 28)
 stream = ExtResource("2_kvuet")
-volume_db = 5.0
+volume_db = 7.0
 
 [node name="Bg" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(576.719, 361.5)
