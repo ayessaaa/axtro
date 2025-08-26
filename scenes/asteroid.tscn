@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7cs55oajnwnu"]
+
+[ext_resource type="Texture2D" uid="uid://cq7exocoiwjtx" path="res://assets/IMG_1637.PNG" id="1_akfqu"]
+[ext_resource type="Script" uid="uid://bhq0rkr1xpbv2" path="res://scripts/asteroid.gd" id="1_t4se3"]
+[ext_resource type="AudioStream" uid="uid://bdyxp801ah3js" path="res://assets/music/retro-laser-1-236669.mp3" id="2_pnq5b"]
+[ext_resource type="Script" uid="uid://3mhqdvw2jx3s" path="res://scripts/asteroid_area_2d.gd" id="2_pwrvu"]
+
+[node name="Asteroid" type="CharacterBody2D"]
+script = ExtResource("1_t4se3")
+
+[node name="AsteroidArea2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_pwrvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="AsteroidArea2D"]
+position = Vector2(5.72205e-06, 5.72205e-06)
+scale = Vector2(0.343651, 0.343651)
+texture = ExtResource("1_akfqu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AsteroidArea2D"]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.641654, 0.641654)
+polygon = PackedVector2Array(-6, -42, 30, -38, 37, -34, 49, 8, 19, 41, 9, 35, -6, 22, -28, 25, -44, 18, -46, -12, -26, -18, -20, -32)
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(576.719, 361.5)
+scale = Vector2(0.488415, 0.488415)
+stream = ExtResource("2_pnq5b")
+
+[connection signal="area_entered" from="AsteroidArea2D" to="." method="_on_asteroid_area_2d_area_entered"]

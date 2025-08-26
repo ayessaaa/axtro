@@ -11,6 +11,7 @@ var screen_size
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
+const ASTEROID = preload("res://scenes/asteroid.tscn")
 @onready var meteors_container = get_parent().get_node("Meteors")
 
 const BULLET = preload("res://scenes/bullet.tscn")
@@ -97,10 +98,13 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= Global.spawn_interval:
 		timer = 0
-		if randi_range(0,2) < 2:
-			spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+		if randi_range(0,30) < 1:
+			spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		else:
-			spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+			if randi_range(0,2) < 2:
+				spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+			else:
+				spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 			
 	if shoot_left == 1:
 		bullet_cooldown_area.available = true
@@ -143,6 +147,11 @@ func spawn_small_meteor(pos):
 	var small_meteor = SMALL_METEOR.instantiate()
 	small_meteor.position = pos
 	meteors_container.add_child(small_meteor)
+	
+func spawn_asteroid(pos):
+	var small_asteroid = ASTEROID.instantiate()
+	small_asteroid.position = pos
+	meteors_container.add_child(small_asteroid)
 	
 	
 	

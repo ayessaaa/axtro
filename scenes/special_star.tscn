@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bym1c60qqv7gu"]
+
+[ext_resource type="Script" uid="uid://dvuw3oj605l2c" path="res://scripts/special_star.gd" id="1_307g5"]
+[ext_resource type="Texture2D" uid="uid://dyb3wkx47yyub" path="res://assets/IMG_1636 (1).PNG" id="1_gxa8i"]
+
+[node name="SpecialStar" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_307g5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -4.76837e-07)
+scale = Vector2(0.260297, 0.260297)
+texture = ExtResource("1_gxa8i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4.76837e-07, 1)
+scale = Vector2(0.426574, 0.426574)
+polygon = PackedVector2Array(-28, -8, -8, -18, 2, -37, 12, -17, 25, -4, 11, 10, 0, 34, -13, 8)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
