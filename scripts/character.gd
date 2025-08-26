@@ -5,15 +5,19 @@ extends Area2D
 var screen_size
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var bullet_cooldown_area: Area2D = $"../BulletCooldown/BulletCooldownArea"
+@onready var bullet_cooldown_area_2: Area2D = $"../BulletCooldown/BulletCooldownArea2"
+@onready var bullet_cooldown_area_3: Area2D = $"../BulletCooldown/BulletCooldownArea3"
 
 const METEOR = preload("res://scenes/meteor.tscn")
-@onready var meteors_container = get_parent().get_node("Meteors")
-
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
+@onready var meteors_container = get_parent().get_node("Meteors")
 
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
+
+var shoot_left = 3
+var shoot_cooldown_time = 0
 
 var timer = 0.0
 
@@ -98,11 +102,37 @@ func _process(delta: float) -> void:
 		else:
 			spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 			
+	if shoot_left == 1:
+		bullet_cooldown_area.available = true
+		bullet_cooldown_area_2.available = false
+		bullet_cooldown_area_3.available = false
+	elif shoot_left == 2:
+		bullet_cooldown_area.available = true
+		bullet_cooldown_area_2.available = true
+		bullet_cooldown_area_3.available = false
+	elif shoot_left == 3:
+		bullet_cooldown_area.available = true
+		bullet_cooldown_area_2.available = true
+		bullet_cooldown_area_3.available = true
+	else:
+		bullet_cooldown_area.available = false
+		bullet_cooldown_area_2.available = false
+		bullet_cooldown_area_3.available = false
+		
+	if shoot_left < 3:
+		if shoot_cooldown_time > 2:
+			shoot_left+=1
+			shoot_cooldown_time = 0
+		else:
+			shoot_cooldown_time += delta
 			
 func shoot():
+	if shoot_left <= 0:
+		return
 	var bullet = BULLET.instantiate()
 	bullet.position = Vector2(position.x+100, position.y)
 	bullets_container.add_child(bullet)
+	shoot_left -= 1
 	
 func spawn_meteor(pos):
 	var meteor = METEOR.instantiate()
@@ -113,5 +143,6 @@ func spawn_small_meteor(pos):
 	var small_meteor = SMALL_METEOR.instantiate()
 	small_meteor.position = pos
 	meteors_container.add_child(small_meteor)
+	
 	
 	
