@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=18 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://lbcnw0klaw6p" path="res://scenes/cloud_area_2.tscn" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://m7yas53fpugy" path="res://scenes/controls.tscn" id="15_ir15t"]
+[ext_resource type="AudioStream" uid="uid://btxtex7831vhk" path="res://assets/music/videogame-death-sound-43894.mp3" id="16_ca42v"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -23,7 +24,7 @@ script = ExtResource("1_kvpfn")
 
 [node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
 z_index = 6
-position = Vector2(556, -683)
+position = Vector2(566, -350)
 
 [node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-2, 28)
@@ -116,5 +117,8 @@ position = Vector2(556, 260)
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
 stream = ExtResource("12_dinhu")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="Meteors"]
+stream = ExtResource("16_ca42v")
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

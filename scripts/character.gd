@@ -95,7 +95,7 @@ func _process(delta: float) -> void:
 		
 func shoot():
 	var bullet = BULLET.instantiate()
-	bullet.position = position
+	bullet.position = Vector2(position.x+100, position.y)
 	bullets_container.add_child(bullet)
 	
 func spawn_meteor(pos):

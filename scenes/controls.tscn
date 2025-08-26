@@ -69,22 +69,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_8sahj"]
-resource_name = "text"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [27, 29, 27]
-}
-
 [sub_resource type="Animation" id="Animation_bd2fc"]
 length = 0.001
 tracks/0/type = "value"
@@ -186,6 +170,22 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [27, 29, 27, 29, 27, 29, 27, 29, 27, 29, 27, 29, 27, 29, 27, 29, 27]
+}
+
+[sub_resource type="Animation" id="Animation_8sahj"]
+resource_name = "text"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [27, 29, 27]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qfrta"]
