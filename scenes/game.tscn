@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=22 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://dkr2rwd8aai0k" path="res://assets/music/8-bit-explosion-10-340462_yiTi3WRq.mp3" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://lbcnw0klaw6p" path="res://scenes/cloud_area_2.tscn" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://ddqhx7g8h52si" path="res://assets/IMG_1644.PNG" id="13_1kice"]
+[ext_resource type="PackedScene" uid="uid://cfclos6g8p4a7" path="res://scenes/score_area.tscn" id="14_264po"]
 [ext_resource type="PackedScene" uid="uid://m7yas53fpugy" path="res://scenes/controls.tscn" id="15_ir15t"]
 [ext_resource type="AudioStream" uid="uid://btxtex7831vhk" path="res://assets/music/videogame-death-sound-43894.mp3" id="16_ca42v"]
 [ext_resource type="AudioStream" uid="uid://diwagw3q2dvk4" path="res://assets/music/coin-upaif-14631.mp3" id="16_ssvqc"]
@@ -95,18 +97,29 @@ stream = ExtResource("8_0tnpc")
 [node name="MeteorExplosionSound" type="AudioStreamPlayer2D" parent="Bullets"]
 stream = ExtResource("10_kvpfn")
 
-[node name="Score" type="Label" parent="."]
-offset_left = -2.0
-offset_top = 28.0
-offset_right = 1153.0
-offset_bottom = 67.0
-theme_override_colors/font_outline_color = Color(0.282353, 0.313726, 0.407843, 1)
-theme_override_constants/outline_size = 9
+[node name="ScoreNode" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScoreNode"]
+position = Vector2(591, 58)
+rotation = 0.120428
+scale = Vector2(0.493869, 0.451389)
+texture = ExtResource("13_1kice")
+
+[node name="Score" type="Label" parent="ScoreNode"]
+offset_left = 496.0
+offset_top = 29.0
+offset_right = 707.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
 theme_override_fonts/font = ExtResource("8_gee14")
-theme_override_font_sizes/font_size = 53
+theme_override_font_sizes/font_size = 42
 text = "SCORE: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScoreArea" parent="." instance=ExtResource("14_264po")]
+visible = false
+position = Vector2(602, 69)
 
 [node name="Controls" parent="." instance=ExtResource("15_ir15t")]
 position = Vector2(556, 260)
@@ -136,5 +149,7 @@ position = Vector2(63, 53)
 
 [node name="BulletCooldownArea3" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
 position = Vector2(63, 86)
+
+[node name="Powerups" type="Node" parent="."]
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

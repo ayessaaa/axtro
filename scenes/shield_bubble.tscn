@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://rd7dmkoyycbr"]
+
+[ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="1_2ensy"]
+[ext_resource type="Script" uid="uid://b8noi0ptf5b5a" path="res://scenes/shield_bubble.gd" id="1_q30uk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q30uk"]
+radius = 114.158
+
+[node name="ShieldBubble" type="Area2D"]
+script = ExtResource("1_q30uk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, -0.999992)
+scale = Vector2(0.643182, 0.643182)
+texture = ExtResource("1_2ensy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -1)
+shape = SubResource("CircleShape2D_q30uk")

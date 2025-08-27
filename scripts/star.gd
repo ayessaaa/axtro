@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var score: Label = get_node("/root/Game/Score")
+
+@onready var score: Label = get_node("/root/Game/ScoreNode/Score")
 @export var type = "star"
 @onready var coin_sound = get_parent().get_node("CoinSound")
 

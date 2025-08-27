@@ -98,7 +98,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= Global.spawn_interval:
 		timer = 0
-		if randi_range(0,30) < 1:
+		if randi_range(0,25) < 1:
 			spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		else:
 			if randi_range(0,2) < 2:
