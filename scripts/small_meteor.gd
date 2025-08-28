@@ -8,7 +8,9 @@ const LINES = preload("res://scenes/line.tscn")
 @onready var lines_container = get_parent().get_node("Lines")
 
 const STAR = preload("res://scenes/star.tscn")
+const SHIBA_STAR = preload("res://scenes/shiba_star.tscn")
 @onready var stars_container = get_parent().get_node("Stars")
+var star
 
 var line: Sprite2D
 
@@ -49,9 +51,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
-	print("enter")
 	if area.player:
-		print("dead")
 		#get_tree().reload_current_scene()
 		Global.dead = true
 		death_sound.play()
@@ -62,7 +62,10 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 		#Global.score = 0
 	else:
 		if !small_meteor_fall:
-			var star = STAR.instantiate()
+			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):
+				star = SHIBA_STAR.instantiate()
+			else:
+				star = STAR.instantiate()
 			star.position = position
 			stars_container.add_child(star)
 		small_meteor_fall = true
