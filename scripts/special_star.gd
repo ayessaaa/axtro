@@ -7,6 +7,9 @@ extends Area2D
 @onready var powerup_name = get_parent().get_parent().get_parent().get_node("PowerupLabel/PowerupName")
 @onready var powerup_sprite = get_parent().get_parent().get_parent().get_node("PowerupLabel/PowerupSprite")
 
+@onready var double_points_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/PowerupsIcon/AnimationPlayer")
+@onready var double_points_icon = get_parent().get_parent().get_parent().get_node("Powerups/PowerupsIcon/AnimationPlayer")
+
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "SomethingAboutBullets"]
@@ -20,15 +23,17 @@ func _on_area_entered(area: Area2D) -> void:
 		print(powerup)
 		match powerup:
 			"Shield":
-				texture = load("res://assets/IMG_1645.PNG")
+				texture = load("res://assets/IMG_1665.PNG")
 				powerup_sprite.texture = texture
 				Global.powerup = "Shield"
 				powerup_name.text = "Shield"
 				slow_down()
 				powerup_animation.play("default")
 				Global.powerup_animation_finish = false
+				double_points_icon_animation.play("default")
+				
 			"DoublePoints":
-				texture = load("res://assets/IMG_1554.PNG")
+				texture = load("res://assets/IMG_1663.PNG")
 				powerup_sprite.texture = texture
 				Global.double_points = true
 				Global.powerup = "DoublePoints"
@@ -36,9 +41,11 @@ func _on_area_entered(area: Area2D) -> void:
 				slow_down()
 				powerup_animation.play("default")
 				Global.powerup_animation_finish = false
+				double_points_icon.play("default")
 				
 				
 func slow_down():
+	Global.prev_meteor_speed = Global.meteor_speed
 	Global.meteor_speed = 0
 	Global.speed = Global.speed / 10.0
 	Global.object_speed = Global.object_speed / 10.0

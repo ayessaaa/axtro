@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=27 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -23,7 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://cctb2dpjco3hs" path="res://scenes/bullet_cooldown_area.tscn" id="17_rysoc"]
 [ext_resource type="AudioStream" uid="uid://ct8rb5b6b7f0c" path="res://assets/music/game-start-6104.mp3" id="18_5newe"]
 [ext_resource type="AudioStream" uid="uid://k0a01iarovcw" path="res://assets/music/clear-combo-5-394488_jaLF4D1O.mp3" id="22_37s47"]
-[ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="24_e1j6l"]
+[ext_resource type="PackedScene" uid="uid://cerbqjrsit3g6" path="res://scenes/powerups_icon.tscn" id="23_pl11u"]
+[ext_resource type="Texture2D" uid="uid://b4htvnkktk0yb" path="res://assets/IMG_1665.PNG" id="25_pl11u"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -162,13 +163,16 @@ position = Vector2(63, 86)
 
 [node name="Powerups" type="Node" parent="."]
 
+[node name="PowerupsIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(1057, 37)
+
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="Powerups"]
 stream = ExtResource("22_37s47")
 volume_db = 3.0
 
 [node name="Shield" type="Sprite2D" parent="Powerups"]
-position = Vector2(1117, 35)
-scale = Vector2(0.0909091, 0.0909091)
-texture = ExtResource("24_e1j6l")
+position = Vector2(1118, 36)
+scale = Vector2(0.247986, 0.247986)
+texture = ExtResource("25_pl11u")
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

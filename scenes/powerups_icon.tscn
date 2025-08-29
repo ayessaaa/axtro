@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cerbqjrsit3g6"]
+
+[ext_resource type="Script" uid="uid://bidwy0dn32ryl" path="res://scripts/powerups_icon.gd" id="1_ft8x3"]
+[ext_resource type="Texture2D" uid="uid://ddln4m7ycovgk" path="res://assets/IMG_1663.PNG" id="2_ft8x3"]
+
+[sub_resource type="Animation" id="Animation_ft8x3"]
+resource_name = "default"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 13.7333, 14.2667, 14.7667, 15.2667, 15.7667, 16.0167, 16.2667, 16.5167, 16.7667, 17.0167),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ljxv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybsb5"]
+_data = {
+&"RESET": SubResource("Animation_ljxv2"),
+&"default": SubResource("Animation_ft8x3")
+}
+
+[node name="PowerupsIcon" type="Area2D"]
+script = ExtResource("1_ft8x3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.256658, 0.256658)
+texture = ExtResource("2_ft8x3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ybsb5")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

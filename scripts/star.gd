@@ -9,9 +9,14 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.player:
 		coin_sound.play()
 		queue_free()
-		Global.score += 1
+		if Global.double_points:
+			Global.score += 2
+			Global.meteor_speed += .5
+		else:
+			Global.score += 1
+			Global.meteor_speed += .25
 		score.text = "SCORE: "+ str(Global.score)
 		score.show()
-		Global.meteor_speed += .25
+		
 		if Global.spawn_interval > 0.5:
 			Global.spawn_interval -= .1

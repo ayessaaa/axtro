@@ -35,14 +35,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Global.dead:
-		
-		if Input.is_action_pressed("shoot"):
-			Global.dead = false
-			Global.score = 0
-			Global.meteor_speed = 2
-			Global.spawn_interval = 2
-			get_tree().reload_current_scene()
-			
 		return
 	#speed += 1 * delta
 	if asteroid_meteor_fall:
