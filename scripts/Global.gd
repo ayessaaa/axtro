@@ -15,6 +15,7 @@ var spawn_interval = 1.5
 var shield = false
 var shield_animation = false
 var double_points = false
+var magnet = false
 
 var powerup = null
 var powerup_showed = false

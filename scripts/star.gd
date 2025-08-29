@@ -4,6 +4,7 @@ extends Area2D
 @onready var score: Label = get_node("/root/Game/ScoreNode/Score")
 @export var type = "star"
 @onready var coin_sound = get_parent().get_node("CoinSound")
+@onready var character = get_parent().get_parent().get_parent().get_node("Character")
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
@@ -20,3 +21,7 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		if Global.spawn_interval > 0.5:
 			Global.spawn_interval -= .1
+
+func _process(delta: float) -> void:
+	if Global.magnet:
+		position = position.move_toward(character.position, Global.speed * delta)

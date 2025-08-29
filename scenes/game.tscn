@@ -163,8 +163,13 @@ position = Vector2(63, 86)
 
 [node name="Powerups" type="Node" parent="."]
 
-[node name="PowerupsIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+[node name="MagnetIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(975, 40)
+powerup_type = "Magnet"
+
+[node name="DoublePointIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
 position = Vector2(1057, 37)
+powerup_type = "DoublePoint"
 
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="Powerups"]
 stream = ExtResource("22_37s47")

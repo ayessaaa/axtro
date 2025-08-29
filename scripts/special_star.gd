@@ -7,13 +7,16 @@ extends Area2D
 @onready var powerup_name = get_parent().get_parent().get_parent().get_node("PowerupLabel/PowerupName")
 @onready var powerup_sprite = get_parent().get_parent().get_parent().get_node("PowerupLabel/PowerupSprite")
 
-@onready var double_points_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/PowerupsIcon/AnimationPlayer")
-@onready var double_points_icon = get_parent().get_parent().get_parent().get_node("Powerups/PowerupsIcon/AnimationPlayer")
+@onready var double_points_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/DoublePointIcon/AnimationPlayer")
+@onready var double_points_icon = get_parent().get_parent().get_parent().get_node("Powerups/DoublePointIcon/AnimationPlayer")
+
+@onready var magnet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
+@onready var magnet_icon = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
 
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "SomethingAboutBullets"]
-var powerups_array = ["Shield", "DoublePoints"]
+var powerups_array = ["Magnet"]
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
@@ -42,6 +45,17 @@ func _on_area_entered(area: Area2D) -> void:
 				powerup_animation.play("default")
 				Global.powerup_animation_finish = false
 				double_points_icon.play("default")
+				
+			"Magnet":
+				texture = load("res://assets/IMG_1676.PNG")
+				powerup_sprite.texture = texture
+				Global.magnet = true
+				Global.powerup = "Magnet"
+				powerup_name.text = "Magnet"
+				slow_down()
+				powerup_animation.play("default")
+				Global.powerup_animation_finish = false
+				magnet_icon.play("default")
 				
 				
 func slow_down():

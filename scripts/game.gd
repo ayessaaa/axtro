@@ -3,13 +3,16 @@ extends Node
 @onready var bg_music: AudioStreamPlayer2D = $BgMusic
 @onready var controls: Area2D = $Controls
 @onready var shield: Sprite2D = $Powerups/Shield
-@onready var powerups_icon: Area2D = $Powerups/PowerupsIcon
+@onready var double_point_icon: Area2D = $Powerups/DoublePointIcon
+@onready var magnet_icon: Area2D = $Powerups/MagnetIcon
+@onready var magnet_icon_sprite: Sprite2D = $Powerups/MagnetIcon/Sprite2D
 
 var timer = 0
 var double_points_timer = 0
 
 func _ready() -> void:
 	bg_music.play()
+	magnet_icon_sprite.texture = load("res://assets/IMG_1676.PNG")
 
 func _process(delta: float) -> void:
 	
@@ -29,7 +32,8 @@ func _process(delta: float) -> void:
 	else:
 		controls.visible = false
 	shield.visible = Global.shield
-	powerups_icon.visible = Global.double_points
+	double_point_icon.visible = Global.double_points
+	magnet_icon.visible = Global.magnet
 	
 	#if Global.controls_tutorial:
 		#if timer > 7.8:
