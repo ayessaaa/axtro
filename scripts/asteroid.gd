@@ -20,6 +20,13 @@ const GRAVITY = 800
 
 var random_speed = randf_range(1, 1.3)
 
+@onready var shield_pop_sound: AudioStreamPlayer2D = get_parent().get_parent().get_node("Powerups/ShieldPopSound")
+@onready var meteor_explosion_sound = get_parent().get_parent().get_node("Bullets/MeteorExplosionSound")
+
+var meteor_killed_from_shield = false
+
+@onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
+
 func _ready() -> void:
 	line = LINES.instantiate()
 	line.position = Vector2(position.x, position.y-1200)
@@ -48,17 +55,23 @@ func _physics_process(delta: float) -> void:
 		position.x -= Global.meteor_speed * delta * 70 * random_speed
 		
 func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
-	print("enter")
+	if meteor_killed_from_shield:
+		return
 	if area.player:
-		print("dead")
-		#get_tree().reload_current_scene()
+		if Global.shield:
+			character_animation.play("shield_fade_out")
+			meteor_killed_from_shield = true
+			Global.shield = false
+			asteroid_meteor_fall = true
+			if line and line.is_inside_tree():
+				line.queue_free()
+			shield_pop_sound.play()
+			meteor_explosion_sound.play()
+			return
 		Global.dead = true
 		death_sound.play()
 		Global.controls_tutorial = false
 		gameover_screen.play_animation("default")
-		#DarkBg.transition()
-		#get_tree().paused = true
-		#Global.score = 0
 	else:
 		if !asteroid_meteor_fall:
 			var special_star = SPECIAL_STAR.instantiate()
@@ -66,5 +79,5 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 			stars_container.add_child(special_star)
 		asteroid_meteor_fall = true
 		
-	if line and line.is_inside_tree():
-		line.queue_free()
+		if line and line.is_inside_tree():
+			line.queue_free()

@@ -1,19 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://rd7dmkoyycbr"]
+[gd_scene load_steps=6 format=3 uid="uid://rd7dmkoyycbr"]
 
 [ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="1_2ensy"]
 [ext_resource type="Script" uid="uid://b8noi0ptf5b5a" path="res://scripts/shield_bubble.gd" id="1_q30uk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q30uk"]
-radius = 114.158
+[sub_resource type="Animation" id="Animation_q30uk"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 0.737081, 1.06667, 1.2, 1.35, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.173864, 0.173864), Vector2(0.566193, 0.566193), Vector2(0.804029, 0.805451), Vector2(0.566193, 0.685369), Vector2(0.679458, 0.527024), Vector2(0.547404, 0.527024), Vector2(0.526288, 0.506694), Vector2(0.540796, 0.512438)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.4, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.176278, -0.178024, 0.0]
+}
 
-[node name="ShieldBubble" type="Area2D"]
+[sub_resource type="Animation" id="Animation_n0q1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.173864, 0.173864)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3dbb"]
+_data = {
+&"RESET": SubResource("Animation_n0q1p"),
+&"fade_in": SubResource("Animation_q30uk")
+}
+
+[node name="ShieldBubble" type="Node"]
 script = ExtResource("1_q30uk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7.62939e-06, -0.999992)
-scale = Vector2(0.643182, 0.643182)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.173864, 0.173864)
 texture = ExtResource("1_2ensy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -1)
-shape = SubResource("CircleShape2D_q30uk")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h3dbb")
+}
+autoplay = "fade_in"

@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://3uctjjxqt4e0"]
+[gd_scene load_steps=20 format=3 uid="uid://3uctjjxqt4e0"]
 
-[ext_resource type="Texture2D" uid="uid://civo6a7ocmmya" path="res://assets/IMG_1553.PNG" id="1_agfs1"]
 [ext_resource type="Script" uid="uid://dhtv3y13k47xv" path="res://scripts/character.gd" id="2_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="3_0lw5n"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="4_2cgup"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://pc1wqvvy6vw" path="res://assets/IMG_1581.PNG" id="10_lagn4"]
 [ext_resource type="Texture2D" uid="uid://c1srjx04o7e5v" path="res://assets/IMG_1582.PNG" id="11_x8k1v"]
 [ext_resource type="Texture2D" uid="uid://ceprvr0bw6b7o" path="res://assets/IMG_1580.PNG" id="12_ih8y6"]
+[ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="13_50cep"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hyy3"]
 animations = [{
@@ -75,16 +75,153 @@ animations = [{
 radius = 86.0365
 height = 226.066
 
+[sub_resource type="Animation" id="Animation_50cep"]
+resource_name = "shield_fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.733333, 1.06667, 1.3, 1.56667, 1.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.148502, 0.135764), Vector2(0.402735, 0.393062), Vector2(0.769631, 0.941971), Vector2(1.02816, 0.74144), Vector2(0.947487, 0.867813), Vector2(0.955536, 0.90086), Vector2(0.955536, 0.90086)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.33333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.354302, 0.0, -0.176278, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8yvht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.148502, 0.135764)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.354302]
+}
+
+[sub_resource type="Animation" id="Animation_7eonc"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.955536, 0.90086), Vector2(0.975589, 0.923386)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_lagn4"]
+resource_name = "shield_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.955536, 0.90086), Vector2(4.33243, 4.08452)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lagn4"]
+_data = {
+&"RESET": SubResource("Animation_8yvht"),
+&"default": SubResource("Animation_7eonc"),
+&"shield_fade_in": SubResource("Animation_50cep"),
+&"shield_fade_out": SubResource("Animation_lagn4")
+}
+
 [node name="Character" type="Area2D"]
 position = Vector2(558, 309)
 collision_layer = 2
 script = ExtResource("2_rkhd4")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-39, 13)
-scale = Vector2(0.834992, 0.818182)
-texture = ExtResource("1_agfs1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, -3)
@@ -95,3 +232,15 @@ autoplay = "default"
 position = Vector2(96, -8)
 rotation = 1.55509
 shape = SubResource("CapsuleShape2D_agfs1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(96, -5.99988)
+rotation = 0.354302
+scale = Vector2(0.148502, 0.135764)
+texture = ExtResource("13_50cep")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lagn4")
+}

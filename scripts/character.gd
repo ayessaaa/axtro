@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var speed = 400
 @export var player = true
 var screen_size
 
@@ -22,9 +21,12 @@ var shoot_cooldown_time = 0
 
 var timer = 0.0
 
+@onready var shield_bubble: Node = $ShieldBubble
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	spawn_meteor(Vector2(1200, randf_range(50, screen_size[1]-100)))
+	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
 	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
 	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
 	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
@@ -42,6 +44,13 @@ func _process(delta: float) -> void:
 		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
+	#shield_bubble.visible = Global.shield
+	
+	if Global.shield_animation:
+		animation_player.play("shield_fade_in")
+		animation_player.queue("default")
+		Global.shield_animation = false
+		
 		
 	if Input.is_action_pressed("move_right") and position.x <= 1050:
 		velocity.x += 1
@@ -93,12 +102,12 @@ func _process(delta: float) -> void:
 	
 	if velocity != Vector2.ZERO:
 		velocity = velocity.normalized()
-		position += velocity * speed * delta
+		position += velocity * Global.speed * delta
 		
 	timer += delta
 	if timer >= Global.spawn_interval:
 		timer = 0
-		if randi_range(0,25) < 1:
+		if randi_range(0,1) < 1:
 			spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		else:
 			if randi_range(0,2) < 2:

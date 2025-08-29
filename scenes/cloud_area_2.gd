@@ -1,6 +1,5 @@
 extends Area2D
 
-var speed = 2
 var updown_cooldown = .05
 var up_or_down = .10
 
@@ -23,5 +22,5 @@ func _process(delta: float) -> void:
 	if position.x <= -150:
 		position.x = 1500
 	else:
-		position.x -= speed * delta * 50
+		position.x -= Global.object_speed * delta * 50
 		

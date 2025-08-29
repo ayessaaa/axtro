@@ -1,6 +1,5 @@
 extends Sprite2D
 
-@export var speed = 400
 @export var object: Node 
 @export var character: bool 
 
@@ -30,6 +29,6 @@ func _process(delta: float) -> void:
 			
 		if velocity != Vector2.ZERO:
 			velocity = velocity.normalized()
-			position += velocity * speed * delta
+			position += velocity * Global.speed * delta
 	else:
 		position.x = object.position.x

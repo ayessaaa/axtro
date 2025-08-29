@@ -5,12 +5,9 @@ extends Node
 
 var timer = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bg_music.play()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.controls_tutorial:
 		if timer > 7.8:
@@ -18,8 +15,10 @@ func _process(delta: float) -> void:
 		timer += delta
 	else:
 		controls.visible = false
-	
+	if Global.powerup != null:
+		pass
 
 
 func _on_bg_music_finished() -> void:
 	bg_music.play()
+	

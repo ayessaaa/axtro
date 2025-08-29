@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 2
+
 @export var player = false
 @onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
 @onready var meteor_explosion_sound = get_parent().get_node("MeteorExplosionSound")
@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if position.x > screen_size.x+50:
 		queue_free()
-	position.x += speed * delta * 200
+	position.x += Global.object_speed * delta * 200
 
 
 func _on_area_entered(area: Area2D) -> void:

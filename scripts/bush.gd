@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 2
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var texture
@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 			texture = load("res://assets/IMG_1648.PNG")
 			sprite_2d.texture = texture
 	else:
-		position.x -= speed * delta * 60
+		position.x -= Global.object_speed * delta * 60

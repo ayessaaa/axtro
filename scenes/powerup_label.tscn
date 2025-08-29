@@ -1,0 +1,234 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfmfyfmo4h1vu"]
+
+[ext_resource type="Script" uid="uid://djui0khrs6jn8" path="res://scripts/powerup_label.gd" id="1_2rsl1"]
+[ext_resource type="Texture2D" uid="uid://dqxwosnnwfd3g" path="res://assets/dfgdfg.PNG" id="1_4f1ch"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="2_d74f8"]
+[ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="3_2rsl1"]
+
+[sub_resource type="Animation" id="Animation_gwi4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-339, 265)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PowerupSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.103409, 0.103409)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PowerupSprite:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PowerupName:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qmke8"]
+resource_name = "default"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.627451), Color(1, 1, 1, 0.627451), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.393333, 1.22667, 1.36667, 1.66, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-339, 265), Vector2(450, 189), Vector2(465, 185), Vector2(449, 189), Vector2(449, 189)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupSprite:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.42333, 2.09667, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PowerupSprite:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.42333, 2.09667, 2.23667, 2.59667, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.103409, 0.103409), Vector2(0.103409, 0.103409), Vector2(0.495171, 0.49517), Vector2(0.535433, 0.535433), Vector2(0.520792, 0.520792), Vector2(0.520792, 0.520792)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PowerupSprite:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.42333, 2.39333, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 6.28319]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PowerupName:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.61667, 2.90667, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:modulate")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxkn"]
+_data = {
+&"RESET": SubResource("Animation_gwi4f"),
+&"default": SubResource("Animation_qmke8")
+}
+
+[node name="PowerupLabel" type="Node"]
+script = ExtResource("1_2rsl1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(577, 321)
+scale = Vector2(2.14807, 2.14807)
+texture = ExtResource("1_4f1ch")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ktxkn")
+}
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+offset_left = -339.0
+offset_top = 265.0
+offset_right = -84.0
+offset_bottom = 314.0
+rotation = -0.0890118
+theme_override_fonts/font = ExtResource("2_d74f8")
+theme_override_font_sizes/font_size = 67
+text = "POWER UP!"
+
+[node name="PowerupSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(588, 369)
+scale = Vector2(0.103409, 0.103409)
+texture = ExtResource("3_2rsl1")
+
+[node name="PowerupName" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_left = 521.0
+offset_top = 507.0
+offset_right = 624.0
+offset_bottom = 540.0
+rotation = -0.0872665
+theme_override_fonts/font = ExtResource("2_d74f8")
+theme_override_font_sizes/font_size = 45
+text = "SHIELD"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

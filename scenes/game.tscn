@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=26 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dfmfyfmo4h1vu" path="res://scenes/powerup_label.tscn" id="2_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://dxiaic682bqca" path="res://scenes/line.tscn" id="2_gee14"]
 [ext_resource type="AudioStream" uid="uid://cx8f60vnygg0t" path="res://assets/music/BeepBox-Song.mp3" id="2_kvuet"]
 [ext_resource type="PackedScene" uid="uid://deqa3yd5kjv6d" path="res://scenes/gameover_bg.tscn" id="2_trtic"]
@@ -21,6 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://diwagw3q2dvk4" path="res://assets/music/coin-upaif-14631.mp3" id="16_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://cctb2dpjco3hs" path="res://scenes/bullet_cooldown_area.tscn" id="17_rysoc"]
 [ext_resource type="AudioStream" uid="uid://ct8rb5b6b7f0c" path="res://assets/music/game-start-6104.mp3" id="18_5newe"]
+[ext_resource type="AudioStream" uid="uid://k0a01iarovcw" path="res://assets/music/clear-combo-5-394488_jaLF4D1O.mp3" id="22_37s47"]
+[ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="24_e1j6l"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -155,6 +158,17 @@ position = Vector2(63, 53)
 [node name="BulletCooldownArea3" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
 position = Vector2(63, 86)
 
+[node name="PowerupLabel" parent="." instance=ExtResource("2_bt5mj")]
+
 [node name="Powerups" type="Node" parent="."]
+
+[node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="Powerups"]
+stream = ExtResource("22_37s47")
+volume_db = 3.0
+
+[node name="Shield" type="Sprite2D" parent="Powerups"]
+position = Vector2(1117, 35)
+scale = Vector2(0.0909091, 0.0909091)
+texture = ExtResource("24_e1j6l")
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
