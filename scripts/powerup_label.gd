@@ -11,8 +11,8 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	Global.meteor_speed = Global.prev_meteor_speed
-	Global.speed = Global.speed * 10.0
-	Global.object_speed = Global.object_speed * 10.0
+	Global.speed = Global.prev_speed
+	Global.object_speed = Global.prev_object_speed
 	
 	match Global.powerup:
 		"Shield":

@@ -5,7 +5,12 @@ var meteor_speed: float = 4.0
 var speed = 400.0
 var object_speed = 2.0
 
-var prev_meteor_speed = 0
+var shoot_left = 3
+
+var prev_meteor_speed = 0.0
+var prev_speed = 0.0
+var prev_object_speed = 2.0
+
 
 var dead = false
 var controls_tutorial = true
@@ -16,6 +21,7 @@ var shield = false
 var shield_animation = false
 var double_points = false
 var magnet = false
+var unli_bullet = false
 
 var powerup = null
 var powerup_showed = false

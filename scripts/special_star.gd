@@ -13,10 +13,13 @@ extends Area2D
 @onready var magnet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
 @onready var magnet_icon = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
 
+@onready var unli_bullet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var unli_bullet_icon = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
+
 var texture 
 
-#var powerups_array = ["Shield", "DoublePoints", "Magnet", "SomethingAboutBullets"]
-var powerups_array = ["Magnet"]
+#var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
+var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
@@ -45,6 +48,7 @@ func _on_area_entered(area: Area2D) -> void:
 				powerup_animation.play("default")
 				Global.powerup_animation_finish = false
 				double_points_icon.play("default")
+				double_points_icon.seek(0, true)
 				
 			"Magnet":
 				texture = load("res://assets/IMG_1676.PNG")
@@ -56,12 +60,30 @@ func _on_area_entered(area: Area2D) -> void:
 				powerup_animation.play("default")
 				Global.powerup_animation_finish = false
 				magnet_icon.play("default")
+				magnet_icon.seek(0, true)
+				
+				
+			"UnliBullet":
+				texture = load("res://assets/IMG_1677.PNG")
+				powerup_sprite.texture = texture
+				Global.unli_bullet = true
+				Global.powerup = "UnliBullet"
+				powerup_name.text = "Unlimited Bullets"
+				slow_down()
+				powerup_animation.play("default")
+				Global.powerup_animation_finish = false
+				unli_bullet_icon.play("default")
+				unli_bullet_icon.seek(0, true)
+				Global.shoot_left = 100
 				
 				
 func slow_down():
 	Global.prev_meteor_speed = Global.meteor_speed
+	Global.prev_speed = Global.speed
+	Global.prev_object_speed = Global.object_speed
+	
 	Global.meteor_speed = 0
-	Global.speed = Global.speed / 10.0
+	Global.speed = 0
 	Global.object_speed = Global.object_speed / 10.0
 	
 		

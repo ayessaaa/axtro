@@ -8,4 +8,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			Global.double_points = false
 		"Magnet":
 			Global.magnet = false
-			
+		"UnliBullet":
+			Global.unli_bullet = false
+			Global.shoot_left = 3

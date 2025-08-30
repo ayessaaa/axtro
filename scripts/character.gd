@@ -16,7 +16,7 @@ const ASTEROID = preload("res://scenes/asteroid.tscn")
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
 
-var shoot_left = 3
+
 var shoot_cooldown_time = 0
 
 var timer = 0.0
@@ -115,15 +115,15 @@ func _process(delta: float) -> void:
 			else:
 				spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 			
-	if shoot_left == 1:
+	if Global.shoot_left == 1:
 		bullet_cooldown_area.available = true
 		bullet_cooldown_area_2.available = false
 		bullet_cooldown_area_3.available = false
-	elif shoot_left == 2:
+	elif Global.shoot_left == 2:
 		bullet_cooldown_area.available = true
 		bullet_cooldown_area_2.available = true
 		bullet_cooldown_area_3.available = false
-	elif shoot_left == 3:
+	elif Global.shoot_left >= 3:
 		bullet_cooldown_area.available = true
 		bullet_cooldown_area_2.available = true
 		bullet_cooldown_area_3.available = true
@@ -132,20 +132,20 @@ func _process(delta: float) -> void:
 		bullet_cooldown_area_2.available = false
 		bullet_cooldown_area_3.available = false
 		
-	if shoot_left < 3:
+	if Global.shoot_left < 3:
 		if shoot_cooldown_time > 2:
-			shoot_left+=1
+			Global.shoot_left+=1
 			shoot_cooldown_time = 0
 		else:
 			shoot_cooldown_time += delta
 			
 func shoot():
-	if shoot_left <= 0:
+	if Global.shoot_left <= 0:
 		return
 	var bullet = BULLET.instantiate()
 	bullet.position = Vector2(position.x+100, position.y)
 	bullets_container.add_child(bullet)
-	shoot_left -= 1
+	Global.shoot_left -= 1
 	
 func spawn_meteor(pos):
 	var meteor = METEOR.instantiate()

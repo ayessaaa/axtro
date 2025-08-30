@@ -163,6 +163,10 @@ position = Vector2(63, 86)
 
 [node name="Powerups" type="Node" parent="."]
 
+[node name="UnliBulletIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(901, 37)
+powerup_type = "UnliBullet"
+
 [node name="MagnetIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
 position = Vector2(975, 40)
 powerup_type = "Magnet"
