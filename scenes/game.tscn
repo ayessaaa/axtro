@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=28 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cctb2dpjco3hs" path="res://scenes/bullet_cooldown_area.tscn" id="17_rysoc"]
 [ext_resource type="AudioStream" uid="uid://ct8rb5b6b7f0c" path="res://assets/music/game-start-6104.mp3" id="18_5newe"]
 [ext_resource type="AudioStream" uid="uid://k0a01iarovcw" path="res://assets/music/clear-combo-5-394488_jaLF4D1O.mp3" id="22_37s47"]
+[ext_resource type="PackedScene" uid="uid://7xhorwuao4jo" path="res://scenes/progress_area.tscn" id="23_bhx41"]
 [ext_resource type="PackedScene" uid="uid://cerbqjrsit3g6" path="res://scenes/powerups_icon.tscn" id="23_pl11u"]
 [ext_resource type="Texture2D" uid="uid://b4htvnkktk0yb" path="res://assets/IMG_1665.PNG" id="25_pl11u"]
 
@@ -66,7 +67,8 @@ character = true
 position = Vector2(256, 535)
 
 [node name="Land" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(576, 592)
+position = Vector2(577, 584.875)
+scale = Vector2(0.490458, 0.504771)
 
 [node name="Cloud1" type="Node" parent="."]
 
@@ -100,6 +102,7 @@ scale = Vector2(0.488415, 0.488415)
 stream = ExtResource("8_0tnpc")
 
 [node name="MeteorExplosionSound" type="AudioStreamPlayer2D" parent="Bullets"]
+position = Vector2(2, 49)
 stream = ExtResource("10_kvpfn")
 
 [node name="ScoreNode" type="Node" parent="."]
@@ -136,16 +139,20 @@ position = Vector2(556, 260)
 [node name="Stars" type="Node" parent="Meteors"]
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
+position = Vector2(0, 47)
 stream = ExtResource("12_dinhu")
 
 [node name="ShibaCoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
+position = Vector2(1, 47)
 stream = ExtResource("18_5newe")
 volume_db = 3.0
 
 [node name="PowerupSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
+position = Vector2(1, 41)
 stream = ExtResource("16_ssvqc")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="Meteors"]
+position = Vector2(-1, 40)
 stream = ExtResource("16_ca42v")
 
 [node name="BulletCooldown" type="Node" parent="."]
@@ -164,11 +171,11 @@ position = Vector2(63, 86)
 [node name="Powerups" type="Node" parent="."]
 
 [node name="UnliBulletIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
-position = Vector2(901, 37)
+position = Vector2(938, 35)
 powerup_type = "UnliBullet"
 
 [node name="MagnetIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
-position = Vector2(975, 40)
+position = Vector2(998, 35)
 powerup_type = "Magnet"
 
 [node name="DoublePointIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
@@ -176,6 +183,7 @@ position = Vector2(1057, 37)
 powerup_type = "DoublePoint"
 
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="Powerups"]
+position = Vector2(-2, 29)
 stream = ExtResource("22_37s47")
 volume_db = 3.0
 
@@ -183,5 +191,8 @@ volume_db = 3.0
 position = Vector2(1118, 36)
 scale = Vector2(0.247986, 0.247986)
 texture = ExtResource("25_pl11u")
+
+[node name="ProgressArea" parent="." instance=ExtResource("23_bhx41")]
+position = Vector2(46, 615)
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

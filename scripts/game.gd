@@ -30,6 +30,17 @@ func _process(delta: float) -> void:
 				Global.magnet = false
 				Global.unli_bullet = false
 				get_tree().reload_current_scene()
+				
+	if Global.is_angle_dash:
+		Global.meteor_speed = 0
+		Global.spawn_interval = 0
+		Global.object_speed = 0
+		Global.speed = 0
+		Global.shield = false
+		Global.double_points = false
+		Global.magnet = false
+		Global.unli_bullet = false
+		bg_music.stop()
 			
 			
 	if Global.controls_tutorial:

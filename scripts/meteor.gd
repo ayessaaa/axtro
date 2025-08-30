@@ -39,6 +39,9 @@ func _physics_process(delta: float) -> void:
 	if Global.dead:
 		return
 	#speed += 1 * delta
+	if Global.free_regular_mode_objects:
+		self.queue_free()
+		return
 	if meteor_fall:
 		velocity.y += GRAVITY * delta
 		move_and_slide()

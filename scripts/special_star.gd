@@ -23,6 +23,8 @@ var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
+		if Global.is_angle_dash:
+			return
 		powerup_sound.play()
 		queue_free()
 		var powerup = powerups_array[randi_range(0, len(powerups_array)-1)]

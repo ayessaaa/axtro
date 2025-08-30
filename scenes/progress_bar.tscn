@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgt53mog5df74"]
+
+[ext_resource type="Texture2D" uid="uid://baoy0wn8jvbny" path="res://assets/IMG_1678.PNG" id="1_48q1i"]
+[ext_resource type="Script" uid="uid://doqk0u01skd5s" path="res://scripts/progress_bar.gd" id="1_eu8db"]
+[ext_resource type="Texture2D" uid="uid://blk2r8kbnnnfw" path="res://assets/IMG_1679.PNG" id="3_tumid"]
+[ext_resource type="Texture2D" uid="uid://db6c3ht17txkr" path="res://assets/IMG_1680.PNG" id="4_relan"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dk1bo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tumid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_relan")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="ProgressBar" type="Area2D"]
+scale = Vector2(0.438446, 0.438446)
+script = ExtResource("1_eu8db")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_48q1i")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-606, -110)
+texture = ExtResource("3_tumid")
+polygon = PackedVector2Array(105.383, 93.7357, 96.3834, 111.736, 97.3834, 122.736, 101.383, 134.736, 113.383, 138.736, 264.383, 139.736, 440.383, 133.736, 727.383, 141.736, 1136.38, 129.736, 1140.38, 105.736, 1143.38, 78.7357, 1126.38, 61.7357, 1098.38, 54.7357, 695.383, 63.7357, 495.383, 69.7357, 131.383, 77.7357)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Polygon2D"]
+visible = false
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_dk1bo")
+frame_progress = 0.492349

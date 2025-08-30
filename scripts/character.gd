@@ -42,6 +42,9 @@ var up_sub_counter2 = 0
 func _process(delta: float) -> void:
 	if Global.dead:
 		return
+	if Global.free_regular_mode_objects:
+		self.queue_free()
+		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 	#shield_bubble.visible = Global.shield
@@ -107,7 +110,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= Global.spawn_interval and Global.meteor_speed != 0:
 		timer = 0
-		if randi_range(0,2) < 1:
+		if randi_range(0,20) < 1:
 			spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
 		else:
 			if randi_range(0,2) < 2:

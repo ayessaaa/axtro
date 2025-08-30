@@ -15,6 +15,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.dead:
 		return
+	if Global.free_regular_mode_objects:
+		self.queue_free()
+		return
 	if position.x <= -150:
 		position.x = 1700
 		if randi_range(0,2) > 1:

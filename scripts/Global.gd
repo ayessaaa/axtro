@@ -26,3 +26,6 @@ var unli_bullet = false
 var powerup = null
 var powerup_showed = false
 var powerup_animation_finish = false
+
+var is_angle_dash = false
+var free_regular_mode_objects = false
