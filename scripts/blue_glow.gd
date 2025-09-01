@@ -12,20 +12,23 @@ func start(pos: Vector2, dir: int) -> void:
 	if dir < 0:
 		texture = load("res://assets/IMG_1695.PNG")
 		self.texture = texture
-	scale.x = 0.1   # start tiny
+	scale.x = 0.1   
 
 func extend_to(new_end: Vector2, delta: float) -> void:
-	# Move both start and end left
 	start_pos.x -= Global.angle_dash_speed * delta
 	end_pos = new_end
 	end_pos.x -= Global.angle_dash_speed * delta
 
-	# Middle point
 	global_position = (start_pos + end_pos) / 2
 
-	# Stretch
 	var length = start_pos.distance_to(end_pos)
 	scale.x = length / texture.get_size().x
 	
 func _process(delta: float) -> void:
-	global_position.x -= Global.angle_dash_speed * delta
+	if Global.dead:
+		return
+	if global_position.x < -500:
+		queue_free()
+	else:
+		global_position.x -= Global.angle_dash_speed * delta
+	

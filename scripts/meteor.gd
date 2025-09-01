@@ -14,7 +14,7 @@ var star
 
 var line: Sprite2D
 
-@onready var death_sound = get_parent().get_node("DeathSound")
+@onready var death_sound = get_parent().get_parent().get_node("DeathSound")
 
 const GRAVITY = 800
 

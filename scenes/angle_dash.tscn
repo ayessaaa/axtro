@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dqw1bxj252d4b" path="res://assets/angle_dash_assets/IMG_1681.PNG" id="1_8oe1t"]
 [ext_resource type="Texture2D" uid="uid://d3humcwwjqiji" path="res://assets/angle_dash_assets/IMG_1682.PNG" id="2_acke4"]
 [ext_resource type="PackedScene" uid="uid://cjqf4d1l3qt0" path="res://scenes/angle_dash_character.tscn" id="3_acke4"]
-[ext_resource type="PackedScene" uid="uid://cq2mx8ukdcf8u" path="res://scenes/angle_dash_spikes.tscn" id="4_0rhe6"]
 [ext_resource type="PackedScene" uid="uid://b42sfk7pqk552" path="res://scenes/blue_glow.tscn" id="7_w5fjk"]
 
 [sub_resource type="Animation" id="Animation_acke4"]
@@ -40,18 +39,6 @@ tracks/2/path = NodePath("AngleDashCharacter:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AngleDashSpikes:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -97,23 +84,51 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AngleDashSpikes:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(7.5, 8.25),
-"transitions": PackedFloat32Array(1, 1),
+
+[sub_resource type="Animation" id="Animation_w5fjk"]
+resource_name = "restart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgGlow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AngleDashCharacter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0rhe6"]
 _data = {
 &"RESET": SubResource("Animation_acke4"),
-&"fade_in": SubResource("Animation_8oe1t")
+&"fade_in": SubResource("Animation_8oe1t"),
+&"restart": SubResource("Animation_w5fjk")
 }
 
 [sub_resource type="Animation" id="Animation_38rdi"]
@@ -203,11 +218,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = 17
 position = Vector2(287.638, 351.638)
 
-[node name="AngleDashSpikes" parent="." instance=ExtResource("4_0rhe6")]
-modulate = Color(1, 1, 1, 0)
-z_index = 16
-position = Vector2(1785, 327)
-
 [node name="BlueGlow" parent="." instance=ExtResource("7_w5fjk")]
 position = Vector2(-166.238, 137.754)
 scale = Vector2(0.250573, 0.556769)
@@ -216,5 +226,7 @@ scale = Vector2(0.250573, 0.556769)
 libraries = {
 &"": SubResource("AnimationLibrary_w5fjk")
 }
+
+[node name="Obstacles" type="Node" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

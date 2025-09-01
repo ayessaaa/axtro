@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://brjn5lqjjvwky"]
+
+[ext_resource type="Texture2D" uid="uid://cywr2cntnknog" path="res://assets/angle_dash_assets/IMG_1698.PNG" id="1_mo7ux"]
+[ext_resource type="Texture2D" uid="uid://b1a6rmekfpcy0" path="res://assets/angle_dash_assets/IMG_1699.PNG" id="2_wtxh3"]
+
+[node name="Spikes3" type="Area2D"]
+z_index = 16
+position = Vector2(68, 6)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(744, 153)
+scale = Vector2(0.471233, 0.471233)
+texture = ExtResource("1_mo7ux")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(485, 424)
+scale = Vector2(0.350516, 0.350516)
+texture = ExtResource("2_wtxh3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]

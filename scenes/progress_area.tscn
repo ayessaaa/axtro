@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7xhorwuao4jo"]
+[gd_scene load_steps=14 format=3 uid="uid://7xhorwuao4jo"]
 
 [ext_resource type="Script" uid="uid://0d348ryhfyj0" path="res://scripts/progress_area.gd" id="1_cp4ms"]
 [ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_g01fv"]
@@ -105,7 +105,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -117,7 +117,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -275,6 +275,18 @@ tracks/21/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../Score:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cp4ms"]
 resource_name = "add_score"
@@ -325,6 +337,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.227451, 0.254902, 0.345098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cnthx"]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Score:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dwmub"]
@@ -587,6 +639,7 @@ tracks/20/keys = {
 _data = {
 &"RESET": SubResource("Animation_ch33g"),
 &"add_score": SubResource("Animation_cp4ms"),
+&"fade_in": SubResource("Animation_cnthx"),
 &"next_mode": SubResource("Animation_dwmub")
 }
 
@@ -616,6 +669,7 @@ scale = Vector2(0.509498, 0.414634)
 texture = ExtResource("3_cnthx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.348618, 0.348618)
 texture = ExtResource("1_g01fv")
 
@@ -626,6 +680,7 @@ libraries = {
 }
 
 [node name="Score" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 40.0
 offset_top = -26.0
 offset_right = 304.0
@@ -637,6 +692,7 @@ text = "10/10"
 metadata/_edit_use_anchors_ = true
 
 [node name="Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 41.0
 offset_top = -3.0
 offset_right = 305.0

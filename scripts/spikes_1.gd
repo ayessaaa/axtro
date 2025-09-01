@@ -12,6 +12,9 @@ func _process(delta: float) -> void:
 	if Global.angle_dash_animation_finished:
 		position.x -= delta * Global.spike_speed
 		
+	if position.x > 1000:
+		queue_free()
+		
 
 func _on_area_entered(area: Area2D) -> void:
 	if Global.is_angle_dash:

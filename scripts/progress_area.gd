@@ -2,11 +2,20 @@ extends Area2D
 
 @onready var score: Label = $Score
 
+@onready var progress_area = get_parent().get_node("ProgressArea/AnimationPlayer")
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 func  _process(delta: float) -> void:
 	score.text = str(Global.score) + "/10"
-#AnimationMixer: 'RESET', couldn't resolve track:  '../Sprite2D3:modulate'. This warning can be disabled in Project Settings.
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if Global.is_angle_dash:
 		Global.free_regular_mode_objects = true
+		if !Global.progress_area_displayed:
+			sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
+			score.add_theme_color_override("font_color", Color(238,183,86))
+			progress_area.play("RESET")
+			progress_area.queue("fade_in")
+			print("finished")
+			Global.progress_area_displayed = true

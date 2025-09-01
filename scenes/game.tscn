@@ -36,14 +36,19 @@
 script = ExtResource("1_kvpfn")
 
 [node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
-z_index = 6
+z_index = 20
 position = Vector2(566, -311)
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 40)
+stream = ExtResource("16_ca42v")
 
 [node name="NewModeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_sww3w")
 
 [node name="AngleDashBg" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_suyxu")
+volume_db = -2.0
 
 [node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-2, 28)
@@ -159,10 +164,6 @@ volume_db = 3.0
 [node name="PowerupSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
 position = Vector2(1, 41)
 stream = ExtResource("16_ssvqc")
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="Meteors"]
-position = Vector2(-1, 40)
-stream = ExtResource("16_ca42v")
 
 [node name="BulletCooldown" type="Node" parent="."]
 

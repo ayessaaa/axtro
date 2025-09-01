@@ -13,28 +13,37 @@ extends Node
 @onready var unli_bullet_icon_sprite: Sprite2D = $Powerups/UnliBulletIcon/Sprite2D
 
 @onready var angle_dash: Node = $AngleDash
+@onready var progress_area_animation = $ProgressArea/AnimationPlayer
 
 var timer = 0
 var double_points_timer = 0
 
 func _ready() -> void:
-	bg_music.play()
+	if Global.is_angle_dash:
+		angle_dash_bg.play()
+	else:
+		bg_music.play()
 	magnet_icon_sprite.texture = load("res://assets/IMG_1676.PNG")
 	unli_bullet_icon_sprite.texture = load("res://assets/IMG_1677.PNG")
+	progress_area_animation.play("fade_in")
 
 func _process(delta: float) -> void:
 	
 	if Global.dead:
-		if Input.is_action_pressed("shoot"):
-				Global.dead = false
-				Global.score = 0
-				Global.meteor_speed = 4.0
-				Global.spawn_interval = 1.5
-				Global.shield = false
-				Global.double_points = false
-				Global.magnet = false
-				Global.unli_bullet = false
-				get_tree().reload_current_scene()
+		if Global.is_angle_dash:
+			pass
+		else:
+			if Input.is_action_pressed("shoot"):
+					Global.dead = false
+					Global.score = 0
+					Global.meteor_speed = 4.0
+					Global.spawn_interval = 1.5
+					Global.shield = false
+					Global.double_points = false
+					Global.magnet = false
+					Global.unli_bullet = false
+					Global.shoot_left = 3
+					get_tree().reload_current_scene()
 				
 
 				
