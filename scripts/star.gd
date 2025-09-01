@@ -6,12 +6,12 @@ extends Area2D
 @onready var coin_sound = get_parent().get_node("CoinSound")
 @onready var character = get_parent().get_parent().get_parent().get_node("Character")
 @onready var progress_animation = get_parent().get_parent().get_parent().get_node("ProgressArea/AnimationPlayer")
+@onready var angle_dash = get_parent().get_parent().get_parent().get_node("AngleDash/AnimationPlayer")
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
 		coin_sound.play()
 		queue_free()
-		
 		
 		if Global.double_points:
 			Global.score += 2
@@ -28,6 +28,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if Global.score >= 10:
 			progress_animation.play("next_mode")
 			Global.is_angle_dash = true
+			angle_dash.play("fade_in")
 		else:
 			progress_animation.play("add_score")
 			

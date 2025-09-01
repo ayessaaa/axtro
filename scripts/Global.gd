@@ -1,9 +1,12 @@
 extends Node
 
-var score: int = 0
+var score: int = 9
 var meteor_speed: float = 4.0
 var speed = 400.0
 var object_speed = 2.0
+
+var angle_dash_speed = 300.0
+var spike_speed = 300.0
 
 var shoot_left = 3
 
@@ -29,3 +32,4 @@ var powerup_animation_finish = false
 
 var is_angle_dash = false
 var free_regular_mode_objects = false
+var angle_dash_animation_finished = false

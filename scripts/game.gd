@@ -1,6 +1,9 @@
 extends Node
 
 @onready var bg_music: AudioStreamPlayer2D = $BgMusic
+@onready var angle_dash_bg: AudioStreamPlayer2D = $AngleDashBg
+@onready var new_mode_sound: AudioStreamPlayer2D = $NewModeSound
+
 @onready var controls: Area2D = $Controls
 @onready var shield: Sprite2D = $Powerups/Shield
 @onready var double_point_icon: Area2D = $Powerups/DoublePointIcon
@@ -8,6 +11,8 @@ extends Node
 @onready var magnet_icon_sprite: Sprite2D = $Powerups/MagnetIcon/Sprite2D
 @onready var unli_bullet_icon: Area2D = $Powerups/UnliBulletIcon
 @onready var unli_bullet_icon_sprite: Sprite2D = $Powerups/UnliBulletIcon/Sprite2D
+
+@onready var angle_dash: Node = $AngleDash
 
 var timer = 0
 var double_points_timer = 0
@@ -31,7 +36,9 @@ func _process(delta: float) -> void:
 				Global.unli_bullet = false
 				get_tree().reload_current_scene()
 				
-	if Global.is_angle_dash:
+
+				
+	if Global.is_angle_dash and Global.meteor_speed > 0:
 		Global.meteor_speed = 0
 		Global.spawn_interval = 0
 		Global.object_speed = 0
@@ -41,6 +48,8 @@ func _process(delta: float) -> void:
 		Global.magnet = false
 		Global.unli_bullet = false
 		bg_music.stop()
+		angle_dash_bg.play()
+		new_mode_sound.play()
 			
 			
 	if Global.controls_tutorial:

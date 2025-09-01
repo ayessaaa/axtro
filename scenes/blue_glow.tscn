@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42sfk7pqk552"]
+
+[ext_resource type="Texture2D" uid="uid://cigvfcc8lqeis" path="res://assets/IMG_1694.PNG" id="1_h8ap4"]
+[ext_resource type="Script" uid="uid://dmiqjwaj7nv3k" path="res://scripts/blue_glow.gd" id="2_h8ap4"]
+
+[node name="BlueGlow" type="Sprite2D"]
+z_index = 16
+position = Vector2(-1, 1)
+rotation = -0.785398
+scale = Vector2(0.709176, 0.415772)
+texture = ExtResource("1_h8ap4")
+script = ExtResource("2_h8ap4")

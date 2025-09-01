@@ -1,0 +1,220 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6g5vegiqpuqk"]
+
+[ext_resource type="Script" uid="uid://b0h320h3d7m8k" path="res://scripts/angle_dash.gd" id="1_7hudy"]
+[ext_resource type="Texture2D" uid="uid://dqw1bxj252d4b" path="res://assets/angle_dash_assets/IMG_1681.PNG" id="1_8oe1t"]
+[ext_resource type="Texture2D" uid="uid://d3humcwwjqiji" path="res://assets/angle_dash_assets/IMG_1682.PNG" id="2_acke4"]
+[ext_resource type="PackedScene" uid="uid://cjqf4d1l3qt0" path="res://scenes/angle_dash_character.tscn" id="3_acke4"]
+[ext_resource type="PackedScene" uid="uid://cq2mx8ukdcf8u" path="res://scenes/angle_dash_spikes.tscn" id="4_0rhe6"]
+[ext_resource type="PackedScene" uid="uid://b42sfk7pqk552" path="res://scenes/blue_glow.tscn" id="7_w5fjk"]
+
+[sub_resource type="Animation" id="Animation_acke4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgGlow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AngleDashCharacter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AngleDashSpikes:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8oe1t"]
+resource_name = "fade_in"
+length = 8.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgGlow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.5, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AngleDashCharacter:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.5, 8.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AngleDashSpikes:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7.5, 8.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rhe6"]
+_data = {
+&"RESET": SubResource("Animation_acke4"),
+&"fade_in": SubResource("Animation_8oe1t")
+}
+
+[sub_resource type="Animation" id="Animation_38rdi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueGlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-166.238, 137.754)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AngleDashCharacter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(287.638, 351.638)]
+}
+
+[sub_resource type="Animation" id="Animation_6682v"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueGlow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(58.1418, 572.858), Vector2(-61, 511)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AngleDashCharacter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(287.638, 351.638), Vector2(287.638, 170)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5fjk"]
+_data = {
+&"RESET": SubResource("Animation_38rdi"),
+&"new_animation": SubResource("Animation_6682v")
+}
+
+[node name="AngleDash" type="Node"]
+script = ExtResource("1_7hudy")
+
+[node name="Bg" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 15
+position = Vector2(578, 311)
+scale = Vector2(0.511935, 0.461521)
+texture = ExtResource("1_8oe1t")
+
+[node name="BgGlow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 15
+position = Vector2(576, 326)
+scale = Vector2(0.492373, 0.403659)
+texture = ExtResource("2_acke4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0rhe6")
+}
+
+[node name="AngleDashCharacter" parent="." instance=ExtResource("3_acke4")]
+modulate = Color(1, 1, 1, 0)
+z_index = 17
+position = Vector2(287.638, 351.638)
+
+[node name="AngleDashSpikes" parent="." instance=ExtResource("4_0rhe6")]
+modulate = Color(1, 1, 1, 0)
+z_index = 16
+position = Vector2(1785, 327)
+
+[node name="BlueGlow" parent="." instance=ExtResource("7_w5fjk")]
+position = Vector2(-166.238, 137.754)
+scale = Vector2(0.250573, 0.556769)
+
+[node name="TestAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w5fjk")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

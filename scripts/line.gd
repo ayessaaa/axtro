@@ -12,6 +12,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.dead:
 		return
+	if Global.free_regular_mode_objects:
+		self.queue_free()
+		return
 	if object == null:
 		return
 		
