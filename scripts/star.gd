@@ -15,9 +15,11 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		if Global.double_points:
 			Global.score += 2
+			Global.next_mode_score += 2
 			Global.meteor_speed += .5
 		else:
 			Global.score += 1
+			Global.next_mode_score += 1
 			Global.meteor_speed += .25
 		score.text = "SCORE: "+ str(Global.score)
 		score.show()

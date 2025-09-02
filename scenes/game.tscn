@@ -207,4 +207,5 @@ position = Vector2(46, 615)
 
 [node name="AngleDash" parent="." instance=ExtResource("29_suyxu")]
 
+[connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

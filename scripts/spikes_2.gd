@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if Global.is_angle_dash:
 		if area.player:
+			print("ded")
 			Global.dead = true
 			death_sound.play()
 			bg_music.stop()

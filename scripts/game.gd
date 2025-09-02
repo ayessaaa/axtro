@@ -33,9 +33,10 @@ func _process(delta: float) -> void:
 		if Global.is_angle_dash:
 			pass
 		else:
-			if Input.is_action_pressed("shoot"):
+			if Input.is_action_pressed("enter"):
 					Global.dead = false
 					Global.score = 0
+					Global.next_mode_score = 0
 					Global.meteor_speed = 4.0
 					Global.spawn_interval = 1.5
 					Global.shield = false

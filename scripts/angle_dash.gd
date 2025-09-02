@@ -2,8 +2,11 @@ extends Node
 
 @onready var gameover_screen = get_parent().get_node("GameoverBg")
 @onready var death_sound = get_parent().get_node("DeathSound")
+@onready var bg_music = get_parent().get_node("AngleDashBg")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var angle_dash_character: Area2D = $AngleDashCharacter
+@onready var label_2: Label = $Label2
+@onready var label: Label = $Label
 
 var playerScreen=preload("res://scenes/angle_dash_character.tscn")
 var t = playerScreen.instantiate()
@@ -26,18 +29,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	label_2.visible = Global.is_angle_dash
+	label.visible = Global.is_angle_dash
 	if Global.gameover_and_restart_angle_dash:
 		animation_player.play("restart")
 		Global.gameover_and_restart_angle_dash = false
+		timer = 3
+		Global.spike_speed = 450
+		Global.angle_dash_speed = 450
+		
 	if Global.dead and Global.is_angle_dash:
-		if Input.is_action_pressed("shoot"):
+		if Input.is_action_pressed("enter"):
 			Global.dead = false
-			#if t: 
-				#queue_free()
-				#add_child(t)
 			get_tree().reload_current_scene()
 			Global.gameover_and_restart_angle_dash = true
-			#angle_dash_character.position = Vector2(0,0)
 			
 	if Global.is_angle_dash and !Global.dead:
 		timer += delta
@@ -46,6 +51,11 @@ func _process(delta: float) -> void:
 			var random_int = randi_range(0, len(obstacles_array)-1)
 			spawn_obstacle(obstacles_array[random_int], obs_position_y_array[random_int])
 			print("spawn " + str(random_int))
+	Global.spike_speed += delta * 2
+	Global.angle_dash_speed += delta * 2
+	
+	if Global.free_regular_mode_objects:
+		Global.next_mode_score = 0
 		
 
 
@@ -56,3 +66,7 @@ func spawn_obstacle(obs, position_y):
 	var obstacle = obs.instantiate()
 	obstacle.position = Vector2(2000, position_y)
 	obstacles.add_child(obstacle)
+
+
+func _on_angle_dash_bg_finished() -> void:
+	bg_music.play()

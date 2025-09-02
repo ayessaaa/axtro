@@ -4,9 +4,12 @@ extends Area2D
 
 @onready var progress_area = get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var score_label: Label = $Score
 
 func  _process(delta: float) -> void:
-	score.text = str(Global.score) + "/10"
+	score.text = str(Global.next_mode_score) + "/10"
+	if Global.is_angle_dash and Global.progress_area_displayed:
+		sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -16,6 +19,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
 			score.add_theme_color_override("font_color", Color(238,183,86))
 			progress_area.play("RESET")
-			progress_area.queue("fade_in")
+			progress_area.queue("fade_in_angle_dash")
 			print("finished")
 			Global.progress_area_displayed = true

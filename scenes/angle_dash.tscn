@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6g5vegiqpuqk"]
+[gd_scene load_steps=14 format=3 uid="uid://c6g5vegiqpuqk"]
 
 [ext_resource type="Script" uid="uid://b0h320h3d7m8k" path="res://scripts/angle_dash.gd" id="1_7hudy"]
 [ext_resource type="Texture2D" uid="uid://dqw1bxj252d4b" path="res://assets/angle_dash_assets/IMG_1681.PNG" id="1_8oe1t"]
 [ext_resource type="Texture2D" uid="uid://d3humcwwjqiji" path="res://assets/angle_dash_assets/IMG_1682.PNG" id="2_acke4"]
 [ext_resource type="PackedScene" uid="uid://cjqf4d1l3qt0" path="res://scenes/angle_dash_character.tscn" id="3_acke4"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="6_6682v"]
 [ext_resource type="PackedScene" uid="uid://b42sfk7pqk552" path="res://scenes/blue_glow.tscn" id="7_w5fjk"]
 
 [sub_resource type="Animation" id="Animation_acke4"]
@@ -44,10 +45,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8oe1t"]
 resource_name = "fade_in"
-length = 8.25
+length = 9.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,6 +105,30 @@ tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(7.5, 8.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.25, 8.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.6, 9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -228,5 +277,27 @@ libraries = {
 }
 
 [node name="Obstacles" type="Node" parent="."]
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 17
+offset_left = 38.0
+offset_top = 536.0
+offset_right = 393.0
+offset_bottom = 565.0
+theme_override_fonts/font = ExtResource("6_6682v")
+theme_override_font_sizes/font_size = 30
+text = "SPACE to switch position"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 17
+offset_left = 37.0
+offset_top = 557.0
+offset_right = 374.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("6_6682v")
+theme_override_font_sizes/font_size = 20
+text = "more obstacles on future updates!"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

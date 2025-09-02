@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7xhorwuao4jo"]
+[gd_scene load_steps=15 format=3 uid="uid://7xhorwuao4jo"]
 
 [ext_resource type="Script" uid="uid://0d348ryhfyj0" path="res://scripts/progress_area.gd" id="1_cp4ms"]
 [ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_g01fv"]
@@ -635,11 +635,64 @@ tracks/20/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_o5fcg"]
+resource_name = "fade_in_angle_dash"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Score:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Score:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.933333, 0.717647, 0.337255, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwmub"]
 _data = {
 &"RESET": SubResource("Animation_ch33g"),
 &"add_score": SubResource("Animation_cp4ms"),
 &"fade_in": SubResource("Animation_cnthx"),
+&"fade_in_angle_dash": SubResource("Animation_o5fcg"),
 &"next_mode": SubResource("Animation_dwmub")
 }
 
