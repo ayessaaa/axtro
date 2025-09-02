@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq2mx8ukdcf8u"]
+[gd_scene load_steps=5 format=3 uid="uid://cq2mx8ukdcf8u"]
 
 [ext_resource type="Script" uid="uid://ck7jth1untcbl" path="res://scripts/angle_dash_spikes.gd" id="1_a14os"]
 [ext_resource type="Texture2D" uid="uid://cg3si1m40pa3a" path="res://assets/angle_dash_assets/IMG_1683.PNG" id="1_bpefo"]
+[ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="3_a8q5u"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="4_jg8bc"]
 
 [node name="AngleDashSpikes" type="Area2D"]
 z_index = 16
@@ -22,5 +24,18 @@ polygon = PackedVector2Array(-160, -320, -144, -296, -112, -264, -64, -216, -32,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(255.4, 2.20001)
 polygon = PackedVector2Array(-184, 320, -176, 296, -160, 264, -136, 248, -112, 232, -96, 200, -72, 160, -48, 112, -40, 112, -25, 130, -16, 152, -8, 160, 0, 192, 14, 222, 30, 203, 48, 176, 66, 205, 80, 208, 96, 176, 114, 153, 128, 128, 149, 103, 174, 45, 180, 40, 184, 51, 184, 88, 191, 113, 216, 144, 236, 171, 250, 193, 258, 189, 276, 158, 282, 161, 288, 192, 303, 199, 324, 241, 344, 283, 364, 329)
+
+[node name="angle_dash_star1" parent="." instance=ExtResource("3_a8q5u")]
+position = Vector2(316, -21)
+
+[node name="angle_dash_star2" parent="." instance=ExtResource("3_a8q5u")]
+position = Vector2(445, -125)
+
+[node name="angle_dash_star3" parent="." instance=ExtResource("3_a8q5u")]
+position = Vector2(554, 95)
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 47)
+stream = ExtResource("4_jg8bc")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

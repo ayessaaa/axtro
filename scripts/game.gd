@@ -15,17 +15,19 @@ extends Node
 @onready var angle_dash: Node = $AngleDash
 @onready var progress_area_animation = $ProgressArea/AnimationPlayer
 
-var timer = 0
+var timer = 5
 var double_points_timer = 0
 
 func _ready() -> void:
 	if Global.is_angle_dash:
 		angle_dash_bg.play()
+		progress_area_animation.play("fade_in_angle_dash")
+		
 	else:
 		bg_music.play()
+		progress_area_animation.play("fade_in")
 	magnet_icon_sprite.texture = load("res://assets/IMG_1676.PNG")
 	unli_bullet_icon_sprite.texture = load("res://assets/IMG_1677.PNG")
-	progress_area_animation.play("fade_in")
 
 func _process(delta: float) -> void:
 	

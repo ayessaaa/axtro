@@ -297,6 +297,7 @@ _data = {
 }
 
 [node name="GameoverBg" type="Area2D"]
+z_index = 100
 script = ExtResource("1_kq1vm")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

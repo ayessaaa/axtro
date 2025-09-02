@@ -17,7 +17,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		Global.free_regular_mode_objects = true
 		if !Global.progress_area_displayed:
 			sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
-			score.add_theme_color_override("font_color", Color(238,183,86))
 			progress_area.play("RESET")
 			progress_area.queue("fade_in_angle_dash")
 			print("finished")

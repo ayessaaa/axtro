@@ -2,7 +2,7 @@ extends Node
 
 var screen_size 
 
-var score: int = 9
+var score: int = 0
 var next_mode_score = 0
 var meteor_speed: float = 4.0
 var speed = 400.0
@@ -39,3 +39,4 @@ var angle_dash_animation_finished = false
 var progress_area_displayed = null
 var gameover_and_restart_angle_dash = false
 var obstacle_spawn_interval = 5
+var direction = 0

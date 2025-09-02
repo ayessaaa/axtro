@@ -7,6 +7,7 @@ extends Node
 @onready var angle_dash_character: Area2D = $AngleDashCharacter
 @onready var label_2: Label = $Label2
 @onready var label: Label = $Label
+@onready var score: Label = $Score
 
 var playerScreen=preload("res://scenes/angle_dash_character.tscn")
 var t = playerScreen.instantiate()
@@ -18,7 +19,7 @@ const SPIKES3 = preload("res://scenes/angle_dash_spikes.tscn")
 
 @onready var obstacles: Node = $Obstacles
 
-var timer = -5
+var timer = 4
 var obstacles_array = [SPIKES2, SPIKES3]
 var obs_position_y_array = [117.0, 325.0]
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	score.text = "SCORE: " + str(Global.score)
 	label_2.visible = Global.is_angle_dash
 	label.visible = Global.is_angle_dash
 	if Global.gameover_and_restart_angle_dash:
@@ -37,6 +39,7 @@ func _process(delta: float) -> void:
 		timer = 3
 		Global.spike_speed = 450
 		Global.angle_dash_speed = 450
+		Global.direction = 0
 		
 	if Global.dead and Global.is_angle_dash:
 		if Input.is_action_pressed("enter"):
@@ -44,7 +47,7 @@ func _process(delta: float) -> void:
 			get_tree().reload_current_scene()
 			Global.gameover_and_restart_angle_dash = true
 			
-	if Global.is_angle_dash and !Global.dead:
+	if Global.is_angle_dash and !Global.dead and Global.direction != 0:
 		timer += delta
 		if timer >= 5:
 			timer = 0

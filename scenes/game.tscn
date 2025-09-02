@@ -36,7 +36,6 @@
 script = ExtResource("1_kvpfn")
 
 [node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
-z_index = 20
 position = Vector2(566, -311)
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
