@@ -7,11 +7,12 @@ extends Area2D
 @onready var character = get_parent().get_parent().get_parent().get_node("Character")
 @onready var progress_animation = get_parent().get_parent().get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var angle_dash = get_parent().get_parent().get_parent().get_node("AngleDash/AnimationPlayer")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
 		coin_sound.play()
-		queue_free()
+		animation_player.play("pick_up")
 		
 		if Global.double_points:
 			Global.score += 2
@@ -40,3 +41,7 @@ func _process(delta: float) -> void:
 		return
 	if Global.magnet:
 		position = position.move_toward(character.position, Global.speed * delta)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

@@ -80,7 +80,7 @@ character = true
 position = Vector2(256, 535)
 
 [node name="Land" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(577, 584.875)
+position = Vector2(577, 573)
 scale = Vector2(0.490458, 0.504771)
 
 [node name="Cloud1" type="Node" parent="."]
