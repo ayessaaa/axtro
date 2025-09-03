@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxxnu6n4cuc7"]
+
+[ext_resource type="Script" uid="uid://twpphrcq4f4c" path="res://scripts/diamond_purple.gd" id="1_c2gff"]
+[ext_resource type="Texture2D" uid="uid://b11vmoyqs2xdu" path="res://assets/angle_dash_assets/IMG_1697.PNG" id="1_ptg2d"]
+
+[node name="DiamondPurple" type="Area2D"]
+z_index = 16
+collision_mask = 4
+script = ExtResource("1_c2gff")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 16
+texture = ExtResource("1_ptg2d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+z_index = 16
+position = Vector2(0.550015, 1.40001)
+scale = Vector2(1.57212, 1.57212)
+polygon = PackedVector2Array(-112.301, -5.97921, -5.43854, -107.753, 14.9162, -102.664, 60.7144, -61.9547, 106.513, -5.97921, 65.8031, 49.9963, 14.9162, 95.7945, -15.6159, 111.061, -91.9462, 39.819)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

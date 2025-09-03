@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxibwuv6cotbs"]
+
+[ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="1_57fqg"]
+[ext_resource type="PackedScene" uid="uid://drxxnu6n4cuc7" path="res://scenes/diamond_purple.tscn" id="2_mrkqd"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="3_mrkqd"]
+
+[node name="DiamondScene2" type="Area2D"]
+position = Vector2(0, 64)
+
+[node name="DiamondBlue" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(96, 160)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondBlue2" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(96, 376)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondBlue3" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(312, 160)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondBlue4" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(312, 376)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondBlue5" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(528, 160)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondBlue6" parent="." instance=ExtResource("1_57fqg")]
+position = Vector2(528, 376)
+scale = Vector2(0.233698, 0.233698)
+
+[node name="DiamondPurple" parent="." instance=ExtResource("2_mrkqd")]
+position = Vector2(208, 160)
+scale = Vector2(0.236435, 0.236435)
+
+[node name="DiamondPurple2" parent="." instance=ExtResource("2_mrkqd")]
+position = Vector2(208, 376)
+scale = Vector2(0.236435, 0.236435)
+
+[node name="DiamondPurple3" parent="." instance=ExtResource("2_mrkqd")]
+position = Vector2(424, 160)
+scale = Vector2(0.236435, 0.236435)
+
+[node name="DiamondPurple4" parent="." instance=ExtResource("2_mrkqd")]
+position = Vector2(424, 376)
+scale = Vector2(0.236435, 0.236435)
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 47)
+stream = ExtResource("3_mrkqd")

@@ -34,6 +34,9 @@ position = Vector2(445, -125)
 [node name="angle_dash_star3" parent="." instance=ExtResource("3_a8q5u")]
 position = Vector2(554, 95)
 
+[node name="angle_dash_star4" parent="." instance=ExtResource("3_a8q5u")]
+position = Vector2(434, -4)
+
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 47)
 stream = ExtResource("4_jg8bc")

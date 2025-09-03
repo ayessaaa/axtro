@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn5d3nk5fnjeb"]
+[gd_scene load_steps=6 format=3 uid="uid://dn5d3nk5fnjeb"]
 
 [ext_resource type="Script" uid="uid://dwg0qp2iapt88" path="res://scripts/spikes_2.gd" id="1_h5be2"]
 [ext_resource type="Texture2D" uid="uid://b4f4vhqo56w1g" path="res://assets/angle_dash_assets/IMG_1700.PNG" id="1_punw6"]
 [ext_resource type="Texture2D" uid="uid://co4bdoykumxo3" path="res://assets/angle_dash_assets/IMG_1701.PNG" id="2_h5be2"]
+[ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="4_3in7s"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="5_a8tob"]
 
 [node name="Spikes2" type="Area2D"]
 z_index = 16
@@ -26,5 +28,33 @@ polygon = PackedVector2Array(-763.841, -270.965, -738.146, -217.239, -717.123, -
 
 [node name="BottomCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-455.502, 1329.13, -436.814, 1212.33, -404.112, 1051.16, -366.737, 1079.19, -324.691, 1104.88, -296.66, 1093.2, -280.309, 1037.14, -235.927, 915.675, -205.56, 911.003, -161.177, 768.513, -114.459, 677.413, -86.4285, 612.007, -65.4054, 614.343, -30.3668, 677.413, 2.33588, 721.795, 39.7104, 775.521, 119.131, 840.926, 147.162, 857.277, 175.193, 852.606, 193.88, 822.239, 224.247, 754.497, 252.278, 705.443, 266.293, 712.451, 280.309, 770.849, 310.675, 838.59, 359.729, 896.988, 390.096, 953.049, 427.471, 1009.11, 471.853, 1044.15, 504.556, 1025.46, 520.907, 953.049, 541.93, 976.409, 558.281, 1009.11, 586.312, 1016.12, 619.015, 1034.81, 649.382, 997.432, 670.405, 913.339, 693.764, 829.246, 735.81, 749.826, 768.513, 775.521, 819.903, 840.926, 845.598, 873.629, 946.042, 726.467, 964.729, 733.474, 1023.13, 934.362, 1086.2, 1086.2, 1125.91, 1233.36, 1160.95, 1324.46)
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 47)
+stream = ExtResource("5_a8tob")
+
+[node name="angle_dash_star1" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(112.124, 588.649)
+scale = Vector2(2, 2)
+
+[node name="angle_dash_star2" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(0, 193.88)
+scale = Vector2(2, 2)
+
+[node name="angle_dash_star3" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(-126.139, 413.456)
+scale = Vector2(2, 2)
+
+[node name="angle_dash_star4" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(824.576, 443.823)
+scale = Vector2(2, 2)
+
+[node name="angle_dash_star5" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(532.587, 492.877)
+scale = Vector2(2, 2)
+
+[node name="angle_dash_star6" parent="." instance=ExtResource("4_3in7s")]
+position = Vector2(490.541, 710.116)
+scale = Vector2(2, 2)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

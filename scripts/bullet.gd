@@ -15,6 +15,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.free_regular_mode_objects:
+		self.queue_free()
+		return
 	if position.x > screen_size.x+50:
 		queue_free()
 	position.x += Global.object_speed * delta * 200

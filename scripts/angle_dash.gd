@@ -15,13 +15,15 @@ var t = playerScreen.instantiate()
 const SPIKES1 = preload("res://scenes/spikes_1.tscn")
 const SPIKES2 = preload("res://scenes/spikes_2.tscn")
 const SPIKES3 = preload("res://scenes/angle_dash_spikes.tscn")
+const DIAMOND_SCENE = preload("res://scenes/diamond_scene.tscn")
+const DIAMOND_SCENE2 = preload("res://scenes/diamond_scene_2.tscn")
 @onready var obstacles_container = get_parent().get_node("Obstacles")
 
 @onready var obstacles: Node = $Obstacles
 
 var timer = 4
-var obstacles_array = [SPIKES2, SPIKES3]
-var obs_position_y_array = [117.0, 325.0]
+var obstacles_array = [SPIKES2, DIAMOND_SCENE, DIAMOND_SCENE2]
+var obs_position_y_array = [117.0, 0, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +32,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	score.text = "SCORE: " + str(Global.score)
 	label_2.visible = Global.is_angle_dash
 	label.visible = Global.is_angle_dash
 	if Global.gameover_and_restart_angle_dash:
@@ -49,7 +50,7 @@ func _process(delta: float) -> void:
 			
 	if Global.is_angle_dash and !Global.dead and Global.direction != 0:
 		timer += delta
-		if timer >= 5:
+		if timer >= 3:
 			timer = 0
 			var random_int = randi_range(0, len(obstacles_array)-1)
 			spawn_obstacle(obstacles_array[random_int], obs_position_y_array[random_int])

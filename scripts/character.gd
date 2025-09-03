@@ -26,6 +26,7 @@ var timer = 0.0
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	Global.screen_size = get_viewport_rect().size
 	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
 	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
 	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))

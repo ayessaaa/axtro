@@ -4,6 +4,20 @@ extends Area2D
 @onready var gameover_screen = get_parent().get_parent().get_parent().get_node("GameoverBg")
 @onready var death_sound = get_parent().get_parent().get_parent().get_node("DeathSound")
 @onready var bg_music = get_parent().get_parent().get_parent().get_node("AngleDashBg")
+@onready var angle_dash_star_1: Area2D = $angle_dash_star1
+@onready var angle_dash_star_2: Area2D = $angle_dash_star2
+@onready var angle_dash_star_3: Area2D = $angle_dash_star3
+@onready var angle_dash_star_4: Area2D = $angle_dash_star4
+
+@onready var stars_array = [angle_dash_star_1, angle_dash_star_2, angle_dash_star_3, angle_dash_star_4]
+
+func _ready() -> void:
+	var random_int = randi_range(0, len(stars_array)-1)
+	var selected_star = stars_array[random_int]
+	for star in stars_array:
+		star.visible = false
+		if star == selected_star:
+			star.visible = true
 
 func _process(delta: float) -> void:
 	self.visible = Global.is_angle_dash

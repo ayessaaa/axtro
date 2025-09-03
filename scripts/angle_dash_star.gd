@@ -11,7 +11,7 @@ extends Area2D
 		#position.x -= delta * Global.spike_speed
 #
 func _on_area_entered(area: Area2D) -> void:
-	if area.player:
+	if area.player and self.visible:
 		Global.score += 1
 		print("lol "+str(Global.score))
 		coin_sound.play()
