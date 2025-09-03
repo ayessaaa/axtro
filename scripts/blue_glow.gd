@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 var start_pos: Vector2
 var end_pos: Vector2
@@ -9,9 +9,12 @@ func start(pos: Vector2, dir: int) -> void:
 	end_pos = pos
 	direction = dir
 	rotation_degrees = 42 if dir > 0 else -44
-	if dir < 0:
-		texture = load("res://assets/IMG_1695.PNG")
-		self.texture = texture
+	if dir > 0:
+		if sprite_frames and sprite_frames.has_animation("blue"):
+			play("blue")
+	else:
+		if sprite_frames and sprite_frames.has_animation("purple"):
+			play("purple")
 	scale.x = 0.1   
 
 func extend_to(new_end: Vector2, delta: float) -> void:
@@ -21,8 +24,10 @@ func extend_to(new_end: Vector2, delta: float) -> void:
 
 	global_position = (start_pos + end_pos) / 2
 
-	var length = start_pos.distance_to(end_pos)
-	scale.x = length / texture.get_size().x
+	var tex := sprite_frames.get_frame_texture(animation, 0)
+	if tex:
+		var length = start_pos.distance_to(end_pos)
+		scale.x = length / tex.get_size().x
 	
 func _process(delta: float) -> void:
 	if Global.dead:

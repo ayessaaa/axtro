@@ -40,3 +40,4 @@ var progress_area_displayed = null
 var gameover_and_restart_angle_dash = false
 var obstacle_spawn_interval = 5
 var direction = 0
+var angle_dash_score = 0

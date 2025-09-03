@@ -22,8 +22,8 @@ const DIAMOND_SCENE2 = preload("res://scenes/diamond_scene_2.tscn")
 @onready var obstacles: Node = $Obstacles
 
 var timer = 4
-var obstacles_array = [SPIKES2, DIAMOND_SCENE, DIAMOND_SCENE2]
-var obs_position_y_array = [117.0, 0, 0]
+var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2]
+var obs_position_y_array = [117.0, 322.0, 0, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		Global.spike_speed = 450
 		Global.angle_dash_speed = 450
 		Global.direction = 0
+		Global.angle_dash_score = 0
 		
 	if Global.dead and Global.is_angle_dash:
 		if Input.is_action_pressed("enter"):

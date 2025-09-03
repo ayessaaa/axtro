@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var coin_sound = get_parent().get_node("CoinSound")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 #func _process(delta: float) -> void:
@@ -12,7 +13,11 @@ extends Area2D
 #
 func _on_area_entered(area: Area2D) -> void:
 	if area.player and self.visible:
-		Global.score += 1
+		Global.angle_dash_score += 1
 		print("lol "+str(Global.score))
 		coin_sound.play()
-		queue_free()
+		animation_player.play("pick_up")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

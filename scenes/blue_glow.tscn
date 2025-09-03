@@ -1,12 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://b42sfk7pqk552"]
+[gd_scene load_steps=7 format=3 uid="uid://b42sfk7pqk552"]
 
-[ext_resource type="Texture2D" uid="uid://cigvfcc8lqeis" path="res://assets/IMG_1694.PNG" id="1_h8ap4"]
+[ext_resource type="Texture2D" uid="uid://bjwqdx10n7njn" path="res://assets/IMG_1693.PNG" id="1_bdnab"]
 [ext_resource type="Script" uid="uid://dmiqjwaj7nv3k" path="res://scripts/blue_glow.gd" id="2_h8ap4"]
+[ext_resource type="Texture2D" uid="uid://ggfdcllmjlaf" path="res://assets/IMG_1694 - Copy.PNG" id="2_l3n0r"]
+[ext_resource type="Texture2D" uid="uid://buuy6aldnnirb" path="res://assets/IMG_1695 - Copy.PNG" id="3_j65xx"]
+[ext_resource type="Texture2D" uid="uid://dugct8y1qe2xs" path="res://assets/IMG_1695.PNG" id="4_nglg3"]
 
-[node name="BlueGlow" type="Sprite2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_j65xx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bdnab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l3n0r")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j65xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nglg3")
+}],
+"loop": true,
+"name": &"purple",
+"speed": 4.0
+}]
+
+[node name="BlueGlow" type="AnimatedSprite2D"]
 z_index = 16
 position = Vector2(-4, -1)
 rotation = -0.785398
 scale = Vector2(0.709176, 0.415772)
-texture = ExtResource("1_h8ap4")
+sprite_frames = SubResource("SpriteFrames_j65xx")
+animation = &"blue"
+frame_progress = 0.642756
 script = ExtResource("2_h8ap4")

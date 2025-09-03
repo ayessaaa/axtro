@@ -1,52 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxibwuv6cotbs"]
+[gd_scene load_steps=7 format=3 uid="uid://bxibwuv6cotbs"]
 
+[ext_resource type="Script" uid="uid://dpvbd32dijjc6" path="res://scripts/diamond_scene_2.gd" id="1_5auyq"]
 [ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="1_57fqg"]
 [ext_resource type="PackedScene" uid="uid://drxxnu6n4cuc7" path="res://scenes/diamond_purple.tscn" id="2_mrkqd"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="3_mrkqd"]
+[ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="4_4e0aw"]
+
+[sub_resource type="GDScript" id="GDScript_mrkqd"]
+script/source = "extends AudioStreamPlayer2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="DiamondScene2" type="Area2D"]
-position = Vector2(0, 64)
+position = Vector2(0, 48)
+script = ExtResource("1_5auyq")
 
 [node name="DiamondBlue" parent="." instance=ExtResource("1_57fqg")]
 position = Vector2(96, 160)
-scale = Vector2(0.233698, 0.233698)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue2" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(96, 376)
-scale = Vector2(0.233698, 0.233698)
+position = Vector2(96, 440)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue3" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(312, 160)
-scale = Vector2(0.233698, 0.233698)
+position = Vector2(320, 160)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue4" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(312, 376)
-scale = Vector2(0.233698, 0.233698)
+position = Vector2(320, 440)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue5" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(528, 160)
-scale = Vector2(0.233698, 0.233698)
+position = Vector2(544, 160)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue6" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(528, 376)
-scale = Vector2(0.233698, 0.233698)
+position = Vector2(544, 440)
+scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondPurple" parent="." instance=ExtResource("2_mrkqd")]
 position = Vector2(208, 160)
-scale = Vector2(0.236435, 0.236435)
+scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple2" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(208, 376)
-scale = Vector2(0.236435, 0.236435)
+position = Vector2(208, 440)
+scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple3" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(424, 160)
-scale = Vector2(0.236435, 0.236435)
+position = Vector2(432, 160)
+scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple4" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(424, 376)
-scale = Vector2(0.236435, 0.236435)
+position = Vector2(432, 440)
+scale = Vector2(0.283127, 0.283127)
+
+[node name="angle_dash_star" parent="." instance=ExtResource("4_4e0aw")]
+position = Vector2(488, 280)
+
+[node name="angle_dash_star2" parent="." instance=ExtResource("4_4e0aw")]
+position = Vector2(376, 328)
+
+[node name="angle_dash_star3" parent="." instance=ExtResource("4_4e0aw")]
+position = Vector2(152, 248)
+
+[node name="angle_dash_star4" parent="." instance=ExtResource("4_4e0aw")]
+position = Vector2(264, 304)
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 47)
 stream = ExtResource("3_mrkqd")
+script = SubResource("GDScript_mrkqd")
