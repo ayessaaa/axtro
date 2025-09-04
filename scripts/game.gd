@@ -80,6 +80,11 @@ func _process(delta: float) -> void:
 	magnet_icon.visible = Global.magnet
 	unli_bullet_icon.visible = Global.unli_bullet
 	
+	if Input.is_action_just_pressed("esc") and !Global.start_screen:
+		Global.start_screen = true
+		Global.is_angle_dash = false
+		get_tree().reload_current_scene()
+	
 	#if Global.controls_tutorial:
 		#if timer > 7.8:
 			#Global.controls_tutorial = false

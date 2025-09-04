@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6g5vegiqpuqk"]
+[gd_scene load_steps=12 format=3 uid="uid://c6g5vegiqpuqk"]
 
 [ext_resource type="Script" uid="uid://b0h320h3d7m8k" path="res://scripts/angle_dash.gd" id="1_7hudy"]
 [ext_resource type="Texture2D" uid="uid://dqw1bxj252d4b" path="res://assets/angle_dash_assets/IMG_1681.PNG" id="1_8oe1t"]
@@ -60,7 +60,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Label:modulate")
+tracks/4/path = NodePath("Score:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -69,17 +69,56 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Score:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+
+[sub_resource type="Animation" id="Animation_6682v"]
+resource_name = "angle_dash_selected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AngleDashCharacter:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Score:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.48, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.49, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8oe1t"]
@@ -136,22 +175,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Label:modulate")
+tracks/4/path = NodePath("Score:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(8.6, 9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Score:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(8.6, 9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -196,10 +223,23 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Score:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0rhe6"]
 _data = {
 &"RESET": SubResource("Animation_acke4"),
+&"angle_dash_selected": SubResource("Animation_6682v"),
 &"fade_in": SubResource("Animation_8oe1t"),
 &"restart": SubResource("Animation_w5fjk")
 }
@@ -247,19 +287,7 @@ theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 30
 text = "SPACE to switch position"
 
-[node name="Label" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
-z_index = 17
-offset_left = 37.0
-offset_top = 557.0
-offset_right = 374.0
-offset_bottom = 580.0
-theme_override_fonts/font = ExtResource("6_6682v")
-theme_override_font_sizes/font_size = 20
-text = "more obstacles on future updates!"
-
 [node name="Score" type="Label" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 17
 offset_left = 509.0
@@ -268,6 +296,6 @@ offset_right = 643.0
 offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 50
-text = "SCORE: "
+text = "SCORE: 0"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

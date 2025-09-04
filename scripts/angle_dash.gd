@@ -6,7 +6,6 @@ extends Node
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var angle_dash_character: Area2D = $AngleDashCharacter
 @onready var label_2: Label = $Label2
-@onready var label: Label = $Label
 @onready var score: Label = $Score
 
 var playerScreen=preload("res://scenes/angle_dash_character.tscn")
@@ -32,8 +31,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.start_screen:
+		return
 	label_2.visible = Global.is_angle_dash
-	label.visible = Global.is_angle_dash
 	if Global.gameover_and_restart_angle_dash:
 		animation_player.play("restart")
 		Global.gameover_and_restart_angle_dash = false
@@ -62,11 +62,15 @@ func _process(delta: float) -> void:
 		else:
 			Global.spike_speed += delta * 3
 			Global.angle_dash_speed += delta * 3
-		
-		print(Global.spike_speed)
+	
 	
 	if Global.free_regular_mode_objects:
 		Global.next_mode_score = 0
+		
+	if !Global.marathon:
+		score.text = "SCORE: "+str(Global.angle_dash_score)
+		
+	score.visible = !Global.marathon
 		
 
 

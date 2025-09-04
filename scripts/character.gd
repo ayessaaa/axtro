@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 	if Global.free_regular_mode_objects:
 		queue_free()
 		return
+	if Global.is_angle_dash:
+		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 	#shield_bubble.visible = Global.shield

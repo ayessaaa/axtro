@@ -2,7 +2,7 @@ extends Node
 
 var screen_size 
 
-var score: int = 9
+var score: int = 0
 var next_mode_score = 0
 var meteor_speed: float = 4.0
 var speed = 400.0
@@ -43,3 +43,5 @@ var direction = 0
 var angle_dash_score = 0
 
 var start_screen = true
+
+var marathon = true

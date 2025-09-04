@@ -27,13 +27,15 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		if Global.spawn_interval > 0.5:
 			Global.spawn_interval -= .1
+			
+		if Global.marathon:
 
-		if Global.score >= 10:
-			progress_animation.play("next_mode")
-			Global.is_angle_dash = true
-			angle_dash.play("fade_in")
-		else:
-			progress_animation.play("add_score")
+			if Global.score >= 10:
+				progress_animation.play("next_mode")
+				Global.is_angle_dash = true
+				angle_dash.play("fade_in")
+			else:
+				progress_animation.play("add_score")
 			
 func _process(delta: float) -> void:
 	if Global.start_screen:

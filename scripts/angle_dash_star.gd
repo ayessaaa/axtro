@@ -14,7 +14,6 @@ extends Area2D
 func _on_area_entered(area: Area2D) -> void:
 	if area.player and self.visible:
 		Global.angle_dash_score += 1
-		print("lol "+str(Global.score))
 		coin_sound.play()
 		animation_player.play("pick_up")
 

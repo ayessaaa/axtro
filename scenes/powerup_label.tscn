@@ -191,7 +191,7 @@ script = ExtResource("1_2rsl1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = 20
+z_index = 30
 position = Vector2(562, 321)
 scale = Vector2(2.14807, 2.14807)
 texture = ExtResource("1_4f1ch")
@@ -202,7 +202,7 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="."]
-z_index = 20
+z_index = 30
 offset_left = -339.0
 offset_top = 265.0
 offset_right = -84.0
@@ -214,14 +214,14 @@ text = "POWER UP!"
 
 [node name="PowerupSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = 20
+z_index = 30
 position = Vector2(566, 374)
 scale = Vector2(0.236622, 0.236622)
 texture = ExtResource("4_2rsl1")
 
 [node name="PowerupName" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = 20
+z_index = 30
 offset_left = -1.0
 offset_top = 553.0
 offset_right = 1156.0

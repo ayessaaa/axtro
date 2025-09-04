@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7xhorwuao4jo"]
+[gd_scene load_steps=16 format=3 uid="uid://7xhorwuao4jo"]
 
 [ext_resource type="Script" uid="uid://0d348ryhfyj0" path="res://scripts/progress_area.gd" id="1_cp4ms"]
 [ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_g01fv"]
@@ -350,6 +350,9 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.227451, 0.254902, 0.345098, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_fc77i"]
+resource_name = "angle_dash_selected"
 
 [sub_resource type="Animation" id="Animation_cnthx"]
 resource_name = "fade_in"
@@ -715,6 +718,7 @@ tracks/20/keys = {
 _data = {
 &"RESET": SubResource("Animation_ch33g"),
 &"add_score": SubResource("Animation_cp4ms"),
+&"angle_dash_selected": SubResource("Animation_fc77i"),
 &"fade_in": SubResource("Animation_cnthx"),
 &"fade_in_angle_dash": SubResource("Animation_o5fcg"),
 &"next_mode": SubResource("Animation_dwmub")
@@ -759,9 +763,9 @@ libraries = {
 [node name="Score" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 40.0
-offset_top = -26.0
+offset_top = -29.0
 offset_right = 304.0
-offset_bottom = 7.0
+offset_bottom = 4.0
 theme_override_colors/font_color = Color(0.227451, 0.254902, 0.345098, 1)
 theme_override_fonts/font = ExtResource("2_tk7vm")
 theme_override_font_sizes/font_size = 42

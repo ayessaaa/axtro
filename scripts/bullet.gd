@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.start_screen:
+	if Global.start_screen or Global.is_angle_dash:
 		return
 	if Global.free_regular_mode_objects:
 		queue_free()

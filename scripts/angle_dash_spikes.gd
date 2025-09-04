@@ -20,6 +20,8 @@ func _ready() -> void:
 			star.visible = true
 
 func _process(delta: float) -> void:
+	if Global.start_screen or !Global.is_angle_dash:
+		return
 	self.visible = Global.is_angle_dash
 	if Global.dead or Global.start_screen:
 		return

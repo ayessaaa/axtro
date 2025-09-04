@@ -6,12 +6,19 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var score_label: Label = $Score
 @onready var real_score: Label = $RealScore
+@onready var next_mode: Label = $Text
+
 
 func  _process(delta: float) -> void:
-	if Global.start_screen:
+	score_label.visible = Global.marathon
+	sprite_2d.visible = Global.marathon
+	next_mode.visible = Global.marathon
+	real_score.visible = Global.marathon
+	
+	if Global.start_screen or !Global.marathon:
 		return
 	
-	if Global.is_angle_dash and Global.progress_area_displayed:
+	if Global.is_angle_dash and Global.progress_area_displayed and Global.marathon:
 		real_score.text = "SCORE: "+str(Global.score+Global.angle_dash_score)
 		score.text = str(Global.angle_dash_score) + "/10"
 		sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")

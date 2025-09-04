@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 		return
 	if Global.free_regular_mode_objects or Global.start_screen:
 		return
+	#print("returningggg")
+	
 	if position.x <= -150:
 		position.x = 1700
 		if randi_range(0,2) > 1:
