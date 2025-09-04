@@ -11,10 +11,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.dead:
+	if Global.dead or Global.start_screen:
 		return
 	if Global.free_regular_mode_objects:
-		self.queue_free()
+		queue_free()
 		return
 	updown_cooldown -= delta
 	position.y += up_or_down

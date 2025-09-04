@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	self.visible = Global.is_angle_dash
-	if Global.dead:
+	if Global.dead or Global.start_screen:
 		return
 	if Global.angle_dash_animation_finished:
 		position.x -= delta * Global.spike_speed

@@ -38,8 +38,8 @@ func _process(delta: float) -> void:
 		animation_player.play("restart")
 		Global.gameover_and_restart_angle_dash = false
 		timer = 3
-		Global.spike_speed = 450
-		Global.angle_dash_speed = 450
+		Global.spike_speed = 300
+		Global.angle_dash_speed = 300
 		Global.direction = 0
 		Global.angle_dash_score = 0
 		
@@ -56,8 +56,14 @@ func _process(delta: float) -> void:
 			var random_int = randi_range(0, len(obstacles_array)-1)
 			spawn_obstacle(obstacles_array[random_int], obs_position_y_array[random_int])
 			print("spawn " + str(random_int))
-	Global.spike_speed += delta * 2
-	Global.angle_dash_speed += delta * 2
+		if Global.spike_speed > 450:
+			Global.spike_speed += delta * 1.5
+			Global.angle_dash_speed += delta * 1.5
+		else:
+			Global.spike_speed += delta * 3
+			Global.angle_dash_speed += delta * 3
+		
+		print(Global.spike_speed)
 	
 	if Global.free_regular_mode_objects:
 		Global.next_mode_score = 0

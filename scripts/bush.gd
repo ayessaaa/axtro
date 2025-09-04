@@ -15,8 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.dead:
 		return
-	if Global.free_regular_mode_objects:
-		self.queue_free()
+	if Global.free_regular_mode_objects or Global.start_screen:
 		return
 	if position.x <= -150:
 		position.x = 1700

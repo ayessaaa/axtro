@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://upcs3348kak3"]
+
+[ext_resource type="Texture2D" uid="uid://f2568kl2f72f" path="res://assets/IMG_1559.PNG" id="1_ooaps"]
+[ext_resource type="Texture2D" uid="uid://wxje5pu67b5o" path="res://assets/IMG_1559 - Copy.PNG" id="2_myqvb"]
+[ext_resource type="Texture2D" uid="uid://bh3givlxfl5rq" path="res://assets/IMG_1717.PNG" id="3_hrg8k"]
+[ext_resource type="Texture2D" uid="uid://1a10ck5u52fc" path="res://assets/IMG_1718.PNG" id="4_snulo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrg8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ooaps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_myqvb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0dgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hrg8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_snulo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="PaperBg" type="Area2D"]
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -20)
+rotation = 1.5708
+scale = Vector2(1, 2.26726)
+sprite_frames = SubResource("SpriteFrames_hrg8k")
+autoplay = "default"
+frame_progress = 0.775817
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.0174533
+sprite_frames = SubResource("SpriteFrames_h0dgl")
+autoplay = "default"
+frame_progress = 0.623676

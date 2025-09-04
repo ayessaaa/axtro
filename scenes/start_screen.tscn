@@ -1,0 +1,652 @@
+[gd_scene load_steps=25 format=3 uid="uid://d35180c1kam1s"]
+
+[ext_resource type="Script" uid="uid://b1wy1ffebssu4" path="res://scripts/start_screen.gd" id="1_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://ijvagogd04wl" path="res://assets/IMG_1560.PNG" id="2_ecdxc"]
+[ext_resource type="Texture2D" uid="uid://2q2ltegtdajj" path="res://assets/IMG_1710.PNG" id="2_he1sj"]
+[ext_resource type="Texture2D" uid="uid://bsuqw2dg7awm5" path="res://assets/IMG_1551.PNG" id="2_qls88"]
+[ext_resource type="Texture2D" uid="uid://cauf1vucyjqde" path="res://assets/IMG_1711.PNG" id="3_r2jwc"]
+[ext_resource type="PackedScene" uid="uid://upcs3348kak3" path="res://paper_bg.tscn" id="4_hm208"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="5_5pab1"]
+[ext_resource type="Texture2D" uid="uid://qa4o1e24k0gq" path="res://assets/IMG_1552.PNG" id="5_ws7p0"]
+[ext_resource type="Texture2D" uid="uid://cxg5x3nse0h8e" path="res://assets/IMG_1556.PNG" id="6_ka6nf"]
+[ext_resource type="Texture2D" uid="uid://ht25sc76cxci" path="res://assets/IMG_1557.PNG" id="7_ws7p0"]
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="8_ecdxc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm208"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_he1sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r2jwc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_r2jwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ControlsLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PaperBg:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_he1sj"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.25, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ControlsLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PaperBg:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hm208"]
+_data = {
+&"RESET": SubResource("Animation_r2jwc"),
+&"fade_in": SubResource("Animation_he1sj")
+}
+
+[sub_resource type="Animation" id="Animation_5pab1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlsLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [35]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Star:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(949, 126)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(952, -253)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.23911]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128.966, 90.625)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, -276)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Line3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26.0001, -298)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cloud:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hm208"]
+resource_name = "controls"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlsLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [35, 36]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Star:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(949, 126), Vector2(949, 154)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(952, -253), Vector2(952, -225)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Star:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.23911, -0.0890118]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(128.966, 103.625), Vector2(128.966, 90.625)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(259, -263), Vector2(259, -276)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Line3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(26.0001, -285), Vector2(26.0001, -298)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cloud:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o30b1"]
+_data = {
+&"RESET": SubResource("Animation_5pab1"),
+&"controls": SubResource("Animation_hm208")
+}
+
+[sub_resource type="Animation" id="Animation_ka6nf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperBg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(582, 291)]
+}
+
+[sub_resource type="Animation" id="Animation_ws7p0"]
+resource_name = "down_angle"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperBg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(582, 430), Vector2(582, 478), Vector2(582, 474)]
+}
+
+[sub_resource type="Animation" id="Animation_o30b1"]
+resource_name = "down_mecha"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperBg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(582, 291), Vector2(582, 431), Vector2(582, 430)]
+}
+
+[sub_resource type="Animation" id="Animation_ecdxc"]
+resource_name = "up_mecha"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperBg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(582, 474), Vector2(582, 429), Vector2(582, 431)]
+}
+
+[sub_resource type="Animation" id="Animation_qls88"]
+resource_name = "up_play"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaperBg:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(582, 431), Vector2(582, 289), Vector2(582, 291)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcj7n"]
+_data = {
+&"RESET": SubResource("Animation_ka6nf"),
+&"down_angle": SubResource("Animation_ws7p0"),
+&"down_mecha": SubResource("Animation_o30b1"),
+&"up_mecha": SubResource("Animation_ecdxc"),
+&"up_play": SubResource("Animation_qls88")
+}
+
+[node name="StartScreen" type="Node"]
+script = ExtResource("1_o7i0r")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(577.835, 326.25)
+scale = Vector2(0.528106, 0.439939)
+texture = ExtResource("2_qls88")
+
+[node name="Line2" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(259, -276)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_ecdxc")
+
+[node name="Line3" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(26.0001, -298)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_ecdxc")
+
+[node name="Line" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(952, -253)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_ecdxc")
+
+[node name="Bush" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(256, 530)
+scale = Vector2(0.415644, 0.415644)
+texture = ExtResource("6_ka6nf")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(128.966, 90.625)
+scale = Vector2(0.372423, 0.372423)
+texture = ExtResource("7_ws7p0")
+
+[node name="Star" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(949, 126)
+rotation = 0.23911
+scale = Vector2(0.384422, 0.384422)
+texture = ExtResource("8_ecdxc")
+
+[node name="Land" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(577, 591)
+scale = Vector2(0.492163, 0.469466)
+texture = ExtResource("5_ws7p0")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+position = Vector2(564, 133)
+scale = Vector2(0.334112, 0.334112)
+sprite_frames = SubResource("SpriteFrames_hm208")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hm208")
+}
+
+[node name="PaperBg" parent="." instance=ExtResource("4_hm208")]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+position = Vector2(582, 291)
+scale = Vector2(0.367291, 0.367291)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 449.0
+offset_top = 263.0
+offset_right = 728.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 50
+text = "PLAY MARATHON"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 446.0
+offset_top = 356.0
+offset_right = 725.0
+offset_bottom = 383.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 30
+text = "game modes"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 449.0
+offset_top = 405.0
+offset_right = 728.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 40
+text = "MECHA FLIGHT"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 449.0
+offset_top = 450.0
+offset_right = 728.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 40
+text = "ANGLE DASH"
+horizontal_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 223.0
+offset_top = 600.0
+offset_right = 974.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 35
+text = "use W and S to choose and ENTER to select game mode!"
+horizontal_alignment = 1
+
+[node name="ControlsAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o30b1")
+}
+autoplay = "controls"
+
+[node name="Selector" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pcj7n")
+}

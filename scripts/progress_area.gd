@@ -8,12 +8,13 @@ extends Area2D
 @onready var real_score: Label = $RealScore
 
 func  _process(delta: float) -> void:
+	if Global.start_screen:
+		return
 	
-	if Global.is_angle_dash:
+	if Global.is_angle_dash and Global.progress_area_displayed:
 		real_score.text = "SCORE: "+str(Global.score+Global.angle_dash_score)
 		score.text = str(Global.angle_dash_score) + "/10"
-		if Global.progress_area_displayed:
-			sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
+		sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
 	else:
 		score.text = str(Global.next_mode_score) + "/10"
 

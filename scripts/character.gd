@@ -41,10 +41,10 @@ var up_sub_counter2 = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.dead:
+	if Global.dead or Global.start_screen:
 		return
 	if Global.free_regular_mode_objects:
-		self.queue_free()
+		queue_free()
 		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	

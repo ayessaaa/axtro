@@ -36,11 +36,10 @@ func _ready() -> void:
 	lines_container.add_child(line)
 
 func _physics_process(delta: float) -> void:
-	if Global.dead:
+	if Global.dead or Global.start_screen:
 		return
-	#speed += 1 * delta
 	if Global.free_regular_mode_objects:
-		self.queue_free()
+		queue_free()
 		return
 	if meteor_fall:
 		velocity.y += GRAVITY * delta

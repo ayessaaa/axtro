@@ -40,8 +40,7 @@ func _physics_process(delta: float) -> void:
 	if Global.dead:
 		return
 	#speed += 1 * delta
-	if Global.free_regular_mode_objects:
-		self.queue_free()
+	if Global.free_regular_mode_objects or Global.start_screen:
 		return
 	if small_meteor_fall:
 		velocity.y += GRAVITY * delta

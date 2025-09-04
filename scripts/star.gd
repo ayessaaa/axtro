@@ -36,8 +36,10 @@ func _on_area_entered(area: Area2D) -> void:
 			progress_animation.play("add_score")
 			
 func _process(delta: float) -> void:
+	if Global.start_screen:
+		return
 	if Global.free_regular_mode_objects:
-		self.queue_free()
+		queue_free()
 		return
 	if Global.magnet:
 		position = position.move_toward(character.position, Global.speed * delta)

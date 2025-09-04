@@ -16,6 +16,7 @@ extends Area2D
 @onready var unli_bullet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
 @onready var unli_bullet_icon = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
@@ -31,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if Global.is_angle_dash:
 			return
 		powerup_sound.play()
-		queue_free()
+		animation_player.play("pick_up")
 		var powerup = powerups_array[randi_range(0, len(powerups_array)-1)]
 		print(powerup)
 		match powerup:
@@ -94,3 +95,7 @@ func slow_down():
 	Global.object_speed = Global.object_speed / 10.0
 	
 		
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

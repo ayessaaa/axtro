@@ -10,8 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.start_screen:
+		return
 	if Global.free_regular_mode_objects:
-		self.queue_free()
+		queue_free()
 		return
 	if available:
 		sprite_2d.modulate = Color(1,1,1,1)
