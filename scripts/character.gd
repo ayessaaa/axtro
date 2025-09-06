@@ -16,6 +16,7 @@ const ASTEROID = preload("res://scenes/asteroid.tscn")
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
 
+@onready var selected_sound = get_parent().get_node("SelectedSound")
 
 var shoot_cooldown_time = 0
 

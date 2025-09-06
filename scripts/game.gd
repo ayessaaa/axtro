@@ -3,6 +3,7 @@ extends Node
 @onready var bg_music: AudioStreamPlayer2D = $BgMusic
 @onready var angle_dash_bg: AudioStreamPlayer2D = $AngleDashBg
 @onready var new_mode_sound: AudioStreamPlayer2D = $NewModeSound
+@onready var selected_sound: AudioStreamPlayer2D = $SelectedSound
 
 @onready var controls: Area2D = $Controls
 @onready var shield: Sprite2D = $Powerups/Shield
@@ -22,7 +23,8 @@ var double_points_timer = 0
 
 func _ready() -> void:
 	if Global.is_angle_dash:
-		angle_dash_bg.play()
+		if Global.marathon:
+			angle_dash_bg.play()
 		progress_area_animation.play("fade_in_angle_dash")
 		
 	else:
@@ -52,9 +54,13 @@ func _process(delta: float) -> void:
 					Global.unli_bullet = false
 					Global.shoot_left = 3
 					get_tree().reload_current_scene()
-				
-
-				
+					
+	if !Global.selected_sound_played:
+		if Global.marathon or Global.is_mecha_flight:
+			selected_sound.play()
+			Global.selected_sound_played = true
+		
+		
 	if Global.is_angle_dash and Global.meteor_speed > 0:
 		Global.meteor_speed = 0
 		Global.spawn_interval = 0
@@ -65,8 +71,14 @@ func _process(delta: float) -> void:
 		Global.magnet = false
 		Global.unli_bullet = false
 		bg_music.stop()
-		angle_dash_bg.play()
-		new_mode_sound.play()
+		#selected_sound.play()
+		
+		if Global.marathon:
+			angle_dash_bg.play()
+			new_mode_sound.play()
+		#else:
+			#selected_sound.play()
+		
 			
 			
 	if Global.controls_tutorial and !Global.start_screen:

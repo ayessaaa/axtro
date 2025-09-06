@@ -34,6 +34,7 @@ var powerup_showed = false
 var powerup_animation_finish = false
 
 var is_angle_dash = false
+var is_angle_dash_selected_sound = false
 var free_regular_mode_objects = false
 var angle_dash_animation_finished = false
 var progress_area_displayed = null
@@ -44,7 +45,9 @@ var angle_dash_score = 0
 
 var start_screen = true
 
-var marathon = true
+var marathon = false
+
+var is_mecha_flight = false
 
 var is_space_ray = false
-var is_mecha_flight = false
+var selected_sound_played = false

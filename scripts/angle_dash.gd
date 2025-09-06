@@ -3,6 +3,7 @@ extends Node
 @onready var gameover_screen = get_parent().get_node("GameoverBg")
 @onready var death_sound = get_parent().get_node("DeathSound")
 @onready var bg_music = get_parent().get_node("AngleDashBg")
+@onready var selected_sound = get_parent().get_node("SelectedSound")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var angle_dash_character: Area2D = $AngleDashCharacter
 @onready var label_2: Label = $Label2
@@ -33,6 +34,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.start_screen:
 		return
+	if !Global.selected_sound_played and Global.is_angle_dash:
+		selected_sound.play()
+		Global.selected_sound_played = true
+		
 	label_2.visible = Global.is_angle_dash
 	if Global.gameover_and_restart_angle_dash:
 		animation_player.play("restart")

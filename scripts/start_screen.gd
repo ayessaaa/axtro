@@ -9,6 +9,12 @@ extends Node
 @onready var switch_sound = get_parent().get_node("SwitchGamemode")
 @onready var bg_player: AnimationPlayer = $BgPlayer
 @onready var paper_bg_animation = get_node("PaperBg/Lines")
+
+@onready var bg_music = get_parent().get_node("BgMusic")
+@onready var angle_dash_music = get_parent().get_node("AngleDashMusic")
+@onready var space_ray_music = get_parent().get_node("SpaceRayMusic")
+
+
 #@onready var paper_bg: Area2D = $PaperBg
 
 var selected_index = 0
@@ -29,14 +35,21 @@ func _process(delta: float) -> void:
 		match selected_index:
 			1:
 				selector.play("down_mecha")
+				
 			2:
 				
 				selector.play("down_angle")
 				bg_player.play("angle_dash")
+				angle_dash_music.play()
+				bg_music.stop()
+				space_ray_music.stop()
 			3:
 				selector.play("down_space_ray")
 				paper_bg_animation.play("space_ray")
 				bg_player.play("space_ray")
+				bg_music.stop()
+				angle_dash_music.stop()
+				space_ray_music.play()
 				#bg_player.play("angle_dash")
 	if Input.is_action_just_pressed("move_up") and selected_index > 0:
 		selected_index -= 1
@@ -47,14 +60,21 @@ func _process(delta: float) -> void:
 			1:
 				selector.play("up_mecha")
 				bg_player.play("mecha_flight")
+				bg_music.play()
+				angle_dash_music.stop()
+				space_ray_music.stop()
 			2:
 				selector.play("up_angle")
 				paper_bg_animation.play("default")
 				bg_player.play("up_angle_dash")
+				angle_dash_music.play()
+				bg_music.stop()
+				space_ray_music.stop()
 				#bg_player.play("space_ray")
 
 				
 	if Input.is_action_just_pressed("enter"):
+		
 		match selected_index:
 			0:
 				Global.start_screen = false
@@ -64,6 +84,7 @@ func _process(delta: float) -> void:
 				Global.spawn_interval = 1.5
 				Global.object_speed = 2
 				Global.speed = 400
+				Global.selected_sound_played = false
 				queue_free()
 			1:
 				Global.start_screen = false
@@ -74,12 +95,14 @@ func _process(delta: float) -> void:
 				Global.object_speed = 2
 				Global.speed = 400
 				Global.is_mecha_flight = true
+				Global.selected_sound_played = false
 				queue_free()
 			2:
 				Global.start_screen = false
 				Global.is_angle_dash = true
 				Global.marathon = false
 				angle_dash.play("angle_dash_selected")
+				Global.selected_sound_played = false
 				queue_free()
 			3:
 				Global.start_screen = false
@@ -87,6 +110,8 @@ func _process(delta: float) -> void:
 				Global.marathon = false
 				Global.is_space_ray = true
 				space_ray.play("fade_in")
+				Global.selected_sound_played = false
+				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				queue_free()
 				
