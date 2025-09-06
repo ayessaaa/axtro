@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	if Global.free_regular_mode_objects:
 		queue_free()
 		return
-	if Global.is_angle_dash:
+	if Global.is_angle_dash or Global.is_space_ray:
 		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	

@@ -38,7 +38,7 @@ func _on_area_entered(area: Area2D) -> void:
 				progress_animation.play("add_score")
 			
 func _process(delta: float) -> void:
-	if Global.start_screen:
+	if Global.start_screen or Global.is_space_ray:
 		return
 	if Global.free_regular_mode_objects:
 		queue_free()

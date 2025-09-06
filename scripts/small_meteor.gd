@@ -37,7 +37,7 @@ func _ready() -> void:
 	lines_container.add_child(line)
 
 func _physics_process(delta: float) -> void:
-	if Global.dead:
+	if Global.dead or Global.is_space_ray:
 		return
 	#speed += 1 * delta
 	if Global.free_regular_mode_objects or Global.start_screen:

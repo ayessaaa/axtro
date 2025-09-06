@@ -5,8 +5,11 @@ extends Node
 
 @onready var progress_area = get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var angle_dash = get_parent().get_node("AngleDash/AnimationPlayer")
+@onready var space_ray = get_parent().get_node("SpaceRay/AnimationPlayer")
 @onready var switch_sound = get_parent().get_node("SwitchGamemode")
 @onready var bg_player: AnimationPlayer = $BgPlayer
+@onready var paper_bg_animation = get_node("PaperBg/Lines")
+#@onready var paper_bg: Area2D = $PaperBg
 
 var selected_index = 0
 
@@ -20,7 +23,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_down") and selected_index < 2:
+	if Input.is_action_just_pressed("move_down") and selected_index < 3:
 		selected_index += 1
 		switch_sound.play()
 		match selected_index:
@@ -30,6 +33,11 @@ func _process(delta: float) -> void:
 				
 				selector.play("down_angle")
 				bg_player.play("angle_dash")
+			3:
+				selector.play("down_space_ray")
+				paper_bg_animation.play("space_ray")
+				bg_player.play("space_ray")
+				#bg_player.play("angle_dash")
 	if Input.is_action_just_pressed("move_up") and selected_index > 0:
 		selected_index -= 1
 		switch_sound.play()
@@ -39,6 +47,12 @@ func _process(delta: float) -> void:
 			1:
 				selector.play("up_mecha")
 				bg_player.play("mecha_flight")
+			2:
+				selector.play("up_angle")
+				paper_bg_animation.play("default")
+				bg_player.play("up_angle_dash")
+				#bg_player.play("space_ray")
+
 				
 	if Input.is_action_just_pressed("enter"):
 		match selected_index:
@@ -59,12 +73,21 @@ func _process(delta: float) -> void:
 				Global.spawn_interval = 1.5
 				Global.object_speed = 2
 				Global.speed = 400
+				Global.is_mecha_flight = true
 				queue_free()
 			2:
 				Global.start_screen = false
 				Global.is_angle_dash = true
 				Global.marathon = false
 				angle_dash.play("angle_dash_selected")
+				queue_free()
+			3:
+				Global.start_screen = false
+				Global.is_angle_dash = false
+				Global.marathon = false
+				Global.is_space_ray = true
+				space_ray.play("fade_in")
+				#angle_dash.play("angle_dash_selected")
 				queue_free()
 				
 			

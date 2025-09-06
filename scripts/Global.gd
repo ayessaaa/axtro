@@ -45,3 +45,6 @@ var angle_dash_score = 0
 var start_screen = true
 
 var marathon = true
+
+var is_space_ray = false
+var is_mecha_flight = false

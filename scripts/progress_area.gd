@@ -15,7 +15,7 @@ func  _process(delta: float) -> void:
 	next_mode.visible = Global.marathon
 	real_score.visible = Global.marathon
 	
-	if Global.start_screen or !Global.marathon:
+	if Global.start_screen or !Global.marathon or Global.is_space_ray:
 		return
 	
 	if Global.is_angle_dash and Global.progress_area_displayed and Global.marathon:

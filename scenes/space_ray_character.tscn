@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjsf2wjjp3ong"]
+
+[ext_resource type="Script" uid="uid://dd1fi515pj7ug" path="res://scripts/space_ray_character.gd" id="1_lhfhl"]
+[ext_resource type="Texture2D" uid="uid://dnmix8vwn8el" path="res://assets/space_ray_assets/IMG_1739.PNG" id="1_oucrd"]
+
+[node name="SpaceRayCharacter" type="CharacterBody2D"]
+script = ExtResource("1_lhfhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oucrd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -16, -64, -40, -32, -72, 0, -88, 32, -88, 64, -64, 80, -40, 88, -16, 104, -16, 136, 0, 128, 16, 80, 40, 48, 48, -24, 48, -80, 32, -120, 16, -112, 8, -72, -8)
