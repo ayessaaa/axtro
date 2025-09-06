@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=7 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
+[ext_resource type="PackedScene" uid="uid://canf54estujb8" path="res://scenes/space_ray_laser.tscn" id="2_6tpi4"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -72,9 +73,15 @@ position = Vector2(576, 328)
 scale = Vector2(0.513559, 0.419512)
 texture = ExtResource("1_inwbe")
 
+[node name="SpaceRayLaser" parent="." instance=ExtResource("2_6tpi4")]
+visible = false
+z_index = 6
+position = Vector2(640, 344)
+scale = Vector2(0.635635, 0.234216)
+
 [node name="SpaceRayCharacter" parent="." instance=ExtResource("2_1hfli")]
 modulate = Color(1, 1, 1, 0)
-z_index = 6
+z_index = 7
 position = Vector2(312, 352)
 scale = Vector2(0.392981, 0.392981)
 

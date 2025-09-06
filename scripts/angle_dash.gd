@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 		return
 	if !Global.selected_sound_played and Global.is_angle_dash:
 		selected_sound.play()
+		bg_music.play()
 		Global.selected_sound_played = true
 		
 	label_2.visible = Global.is_angle_dash
@@ -47,6 +48,7 @@ func _process(delta: float) -> void:
 		Global.angle_dash_speed = 300
 		Global.direction = 0
 		Global.angle_dash_score = 0
+		bg_music.play()
 		
 	if Global.dead and Global.is_angle_dash:
 		if Input.is_action_pressed("enter"):

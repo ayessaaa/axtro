@@ -26,16 +26,23 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_pressed("move_right"):
 		velocity += Vector2.RIGHT * thrust_accel * delta
-
+		
 	if Input.is_action_pressed("move_left"):
 		velocity += Vector2.LEFT * thrust_accel * delta
-
 	if Input.is_action_pressed("move_down"):
 		velocity += Vector2.DOWN * thrust_accel * delta
-
 	if Input.is_action_pressed("move_up"):
 		velocity += Vector2.UP * thrust_accel * delta
-
+		
+	if position.x > 1075:
+		position.x = 1075
+	if position.x < 70:
+		position.x = 70
+	if position.y > 600:
+		position.y = 600
+	if position.y < 55:
+		position.y = 55
+		
 	if damping > 0.0:
 		velocity = velocity.move_toward(Vector2.ZERO, damping * delta)
 	if velocity.length() > max_speed:
@@ -44,5 +51,5 @@ func _physics_process(delta: float) -> void:
 	rotation_velocity = clamp(rotation_velocity, -max_rotation_speed, max_rotation_speed)
 	rotation += rotation_velocity * delta
 		
-
+	
 	move_and_slide()

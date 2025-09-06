@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://canf54estujb8"]
+
+[ext_resource type="Texture2D" uid="uid://c5ogvyromyael" path="res://assets/space_ray_assets/IMG_1761 - Copy.PNG" id="1_0didw"]
+[ext_resource type="Script" uid="uid://bhm61vo43hevr" path="res://scripts/space_ray_laser.gd" id="1_wjmgq"]
+[ext_resource type="Texture2D" uid="uid://mngcihx8la4r" path="res://assets/space_ray_assets/IMG_1761.PNG" id="2_g4wk4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3oek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0didw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g4wk4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25yvv"]
+size = Vector2(2060, 20)
+
+[node name="SpaceRayLaser" type="Area2D"]
+script = ExtResource("1_wjmgq")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, 0)
+sprite_frames = SubResource("SpriteFrames_s3oek")
+autoplay = "default"
+frame_progress = 0.760189
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_25yvv")

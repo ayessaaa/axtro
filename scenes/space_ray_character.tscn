@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjsf2wjjp3ong"]
+[gd_scene load_steps=4 format=3 uid="uid://cjsf2wjjp3ong"]
 
 [ext_resource type="Script" uid="uid://dd1fi515pj7ug" path="res://scripts/space_ray_character.gd" id="1_lhfhl"]
 [ext_resource type="Texture2D" uid="uid://dnmix8vwn8el" path="res://assets/space_ray_assets/IMG_1739.PNG" id="1_oucrd"]
+[ext_resource type="PackedScene" uid="uid://canf54estujb8" path="res://scenes/space_ray_laser.tscn" id="3_ihlob"]
 
 [node name="SpaceRayCharacter" type="CharacterBody2D"]
 script = ExtResource("1_lhfhl")
 
+[node name="SpaceRayLaser" parent="." instance=ExtResource("3_ihlob")]
+z_index = 6
+position = Vector2(1672, -32)
+scale = Vector2(1.60312, 0.739387)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 7
 texture = ExtResource("1_oucrd")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

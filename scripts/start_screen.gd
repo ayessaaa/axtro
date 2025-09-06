@@ -103,6 +103,7 @@ func _process(delta: float) -> void:
 				Global.marathon = false
 				angle_dash.play("angle_dash_selected")
 				Global.selected_sound_played = false
+				angle_dash_music.stop()
 				queue_free()
 			3:
 				Global.start_screen = false
