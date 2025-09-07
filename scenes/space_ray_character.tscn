@@ -1,20 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjsf2wjjp3ong"]
+[gd_scene load_steps=7 format=3 uid="uid://cjsf2wjjp3ong"]
 
 [ext_resource type="Script" uid="uid://dd1fi515pj7ug" path="res://scripts/space_ray_character.gd" id="1_lhfhl"]
 [ext_resource type="Texture2D" uid="uid://dnmix8vwn8el" path="res://assets/space_ray_assets/IMG_1739.PNG" id="1_oucrd"]
 [ext_resource type="PackedScene" uid="uid://canf54estujb8" path="res://scenes/space_ray_laser.tscn" id="3_ihlob"]
 
+[sub_resource type="Animation" id="Animation_ihlob"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceRayLaser:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vqtqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceRayLaser:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ss1x2"]
+_data = {
+&"RESET": SubResource("Animation_vqtqb"),
+&"fade_in": SubResource("Animation_ihlob")
+}
+
 [node name="SpaceRayCharacter" type="CharacterBody2D"]
 script = ExtResource("1_lhfhl")
 
 [node name="SpaceRayLaser" parent="." instance=ExtResource("3_ihlob")]
+modulate = Color(1, 1, 1, 0)
 z_index = 6
 position = Vector2(1672, -32)
 scale = Vector2(1.60312, 0.739387)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 z_index = 7
 texture = ExtResource("1_oucrd")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-64, -16, -64, -40, -32, -72, 0, -88, 32, -88, 64, -64, 80, -40, 88, -16, 104, -16, 136, 0, 128, 16, 80, 40, 48, 48, -24, 48, -80, 32, -120, 16, -112, 8, -72, -8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ss1x2")
+}
+autoplay = "fade_in"

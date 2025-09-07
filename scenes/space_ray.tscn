@@ -28,12 +28,11 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1hfli"]
 resource_name = "fade_in"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,10 +52,10 @@ tracks/1/path = NodePath("SpaceRayCharacter:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ovt60"]
@@ -80,7 +79,6 @@ position = Vector2(640, 344)
 scale = Vector2(0.635635, 0.234216)
 
 [node name="SpaceRayCharacter" parent="." instance=ExtResource("2_1hfli")]
-modulate = Color(1, 1, 1, 0)
 z_index = 7
 position = Vector2(312, 352)
 scale = Vector2(0.392981, 0.392981)
