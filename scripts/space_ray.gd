@@ -3,6 +3,7 @@ extends Node
 
 @onready var selected_sound = get_parent().get_node("SelectedSound")
 @onready var animation = get_node("SpaceRayCharacter/AnimationPlayer")
+@onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +16,9 @@ func _process(delta: float) -> void:
 	if !Global.selected_sound_played and Global.is_space_ray:
 		selected_sound.play()
 		animation.play("fade_in")
+		laser.play()
 		Global.selected_sound_played = true
+
+
+func _on_laser_finished() -> void:
+	laser.play()

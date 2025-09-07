@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var damping: float = 0.0 
 @export var friction_factor: float = 0.98 
 
-@export var rotation_accel: float = 2.0   # how fast angular velocity ramps up
+@export var rotation_accel: float = 1.5   # how fast angular velocity ramps up
 @export var rotation_decel: float = 3.0   # how fast it slows when you let go
 @export var max_rotation_speed: float = 2.0 # max radians per second
 

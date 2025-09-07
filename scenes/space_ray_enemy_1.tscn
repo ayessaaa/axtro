@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxhcq4lb8h64t"]
+
+[ext_resource type="Script" uid="uid://bgcq7tuonkx23" path="res://scripts/enemy_follower_2d.gd" id="1_tby7a"]
+[ext_resource type="PackedScene" uid="uid://d20ccntc163yq" path="res://scenes/space_ray_enemy.tscn" id="2_f7mng"]
+
+[sub_resource type="Curve2D" id="Curve2D_eejie"]
+_data = {
+"points": PackedVector2Array(-81.7926, -45.306, 81.7926, 45.306, 1060.95, 15.9477, 0, 0, 0, 0, 1088, 216, 0, 0, 0, 0, 1064, 384, 19.0083, -15.7025, -19.0083, 15.7025, 1060.95, 558.17, 40.4959, 19.0083, -40.4959, -19.0083, 950.102, 661.831, -24.5378, 31.3023, 24.5378, -31.3023, 902.597, 430.589, -50.7114, 19.7699, 50.7114, -19.7699, 984, 192, 0, 0, 0, 0, 1048, 240, 0, 0, 0, 0, 1048, 312, 23.9669, -19.0083, -23.9669, 19.0083, 1021.36, 414.641, 23.1405, 10.7438, -23.1405, -10.7438, 950.102, 462.484, 4.90755, 60.1334, -4.90755, -60.1334, 928, 224, -26.1736, 38.7161, 26.1736, -38.7161, 926.35, -7.97386, 0, 0, 0, 0, 1060.95, 15.9477)
+}
+point_count = 14
+
+[node name="SpaceRayEnemy1" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+scale = Vector2(1.01042, 1.00328)
+curve = SubResource("Curve2D_eejie")
+
+[node name="EnemyFollower2d" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1060.95, 15.9477)
+scale = Vector2(1.71826, 1.71826)
+rotates = false
+script = ExtResource("1_tby7a")
+
+[node name="SpaceRayEnemy" parent="Path2D/EnemyFollower2d" instance=ExtResource("2_f7mng")]
+scale = Vector2(0.140571, 0.140571)

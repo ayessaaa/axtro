@@ -1,35 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjsf2wjjp3ong"]
+[gd_scene load_steps=16 format=3 uid="uid://cjsf2wjjp3ong"]
 
 [ext_resource type="Script" uid="uid://dd1fi515pj7ug" path="res://scripts/space_ray_character.gd" id="1_lhfhl"]
-[ext_resource type="Texture2D" uid="uid://dnmix8vwn8el" path="res://assets/space_ray_assets/IMG_1739.PNG" id="1_oucrd"]
+[ext_resource type="Texture2D" uid="uid://vxj7vbxhuhiw" path="res://assets/space_ray_assets/ufo/IMG_1764.PNG" id="3_6f656"]
 [ext_resource type="PackedScene" uid="uid://canf54estujb8" path="res://scenes/space_ray_laser.tscn" id="3_ihlob"]
+[ext_resource type="Texture2D" uid="uid://e2ie5xs7ero" path="res://assets/space_ray_assets/ufo/IMG_1784.PNG" id="4_mpdw5"]
+[ext_resource type="Texture2D" uid="uid://b80yvhybsnr5y" path="res://assets/space_ray_assets/ufo/IMG_1766.PNG" id="5_p004b"]
+[ext_resource type="Texture2D" uid="uid://bnt6c1g8ylrtg" path="res://assets/space_ray_assets/ufo/IMG_1786.PNG" id="6_pnh4k"]
+[ext_resource type="Texture2D" uid="uid://duiti8euj3o15" path="res://assets/space_ray_assets/ufo/IMG_1768.PNG" id="7_fjntf"]
+[ext_resource type="Texture2D" uid="uid://pgl5afbm74w2" path="res://assets/space_ray_assets/ufo/IMG_1788.PNG" id="8_4jepu"]
+[ext_resource type="Texture2D" uid="uid://dlq68b7f48uqo" path="res://assets/space_ray_assets/ufo/IMG_1770.PNG" id="9_htfy8"]
+[ext_resource type="Texture2D" uid="uid://bos6j124srd2g" path="res://assets/space_ray_assets/ufo/IMG_1790.PNG" id="10_w02di"]
 
-[sub_resource type="Animation" id="Animation_ihlob"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpaceRayLaser:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_okp0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6f656")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mpdw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p004b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pnh4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fjntf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4jepu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_htfy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w02di")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_vqtqb"]
 length = 0.001
@@ -58,11 +70,70 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ihlob"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpaceRayLaser:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ss1x2"]
 _data = {
 &"RESET": SubResource("Animation_vqtqb"),
 &"fade_in": SubResource("Animation_ihlob")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43cey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6f656")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mpdw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p004b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pnh4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fjntf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4jepu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_htfy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w02di")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="SpaceRayCharacter" type="CharacterBody2D"]
 script = ExtResource("1_lhfhl")
@@ -73,10 +144,11 @@ z_index = 6
 position = Vector2(1672, -32)
 scale = Vector2(1.60312, 0.739387)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 z_index = 7
-texture = ExtResource("1_oucrd")
+sprite_frames = SubResource("SpriteFrames_okp0w")
+autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-64, -16, -64, -40, -32, -72, 0, -88, 32, -88, 64, -64, 80, -40, 88, -16, 104, -16, 136, 0, 128, 16, 80, 40, 48, 48, -24, 48, -80, 32, -120, 16, -112, 8, -72, -8)
@@ -86,3 +158,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_ss1x2")
 }
 autoplay = "fade_in"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_43cey")
+frame_progress = 0.518522
