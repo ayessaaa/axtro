@@ -51,3 +51,4 @@ var is_mecha_flight = false
 
 var is_space_ray = false
 var selected_sound_played = false
+var space_ray_weapon = "laser"

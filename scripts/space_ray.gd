@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 		animation.play("fade_in")
 		laser.play()
 		Global.selected_sound_played = true
+		
+	if Global.space_ray_weapon != "laser":
+		laser.stop()
 
 
 func _on_laser_finished() -> void:

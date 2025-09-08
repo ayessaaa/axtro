@@ -14,10 +14,20 @@ extends CharacterBody2D
 
 var rotation_velocity: float = 0.0
 
+const BOMB = preload("res://scenes/space_ray_bomb.tscn")
+@onready var bombs: Node = $Bombs
+
 func _physics_process(delta: float) -> void:
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
 	velocity *= friction_factor
+	
+	if Input.is_action_just_pressed("q"):
+		Global.space_ray_weapon = "bomb"
+		
+	if Input.is_action_just_pressed("e") and Global.space_ray_weapon == "bomb":
+		spawn_bomb(position)
+		
 	# rotate
 	if Input.is_action_pressed("move_left") and rotation > -.1:
 		rotation_velocity -= rotation_accel * delta
@@ -66,3 +76,8 @@ func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
 		return
 	if area.type == "enemy":
 		print("dead")
+		
+func spawn_bomb(pos):
+	var bomb = BOMB.instantiate()
+	bomb.position = pos
+	bombs.add_child(bomb)

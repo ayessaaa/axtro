@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d20ccntc163yq"]
+[gd_scene load_steps=12 format=3 uid="uid://d20ccntc163yq"]
 
 [ext_resource type="Script" uid="uid://nhlku44dw0r7" path="res://scripts/space_ray_enemy.gd" id="1_5yjip"]
 [ext_resource type="Texture2D" uid="uid://i03wdllh0kqx" path="res://assets/space_ray_assets/IMG_1805.PNG" id="2_l8w07"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dv77yf6nu2stm" path="res://scripts/space_ray_gun.gd" id="6_pyiuh"]
 [ext_resource type="Texture2D" uid="uid://cf11fi08mgpux" path="res://assets/space_ray_assets/IMG_1797.PNG" id="6_uk56m"]
 [ext_resource type="Texture2D" uid="uid://cxm0nxlf705qt" path="res://assets/space_ray_assets/IMG_1808.PNG" id="7_cexbg"]
+[ext_resource type="Texture2D" uid="uid://cuj4qgwo2nmq2" path="res://assets/space_ray_assets/IMG_1800.PNG" id="9_806v4"]
+[ext_resource type="AudioStream" uid="uid://baip8tigjbwjb" path="res://assets/music/shoot-3-81138.mp3" id="10_4j3lw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yg7ut"]
 animations = [{
@@ -69,8 +71,29 @@ scale = Vector2(1.0259, 1.02012)
 texture = ExtResource("7_cexbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gun"]
-z_index = 8
+z_index = 9
 texture = ExtResource("6_uk56m")
+
+[node name="Fireballs" type="Node" parent="."]
+
+[node name="Health" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Health"]
+position = Vector2(-80, -248)
+texture = ExtResource("9_806v4")
+
+[node name="ColorRect" type="ColorRect" parent="Health"]
+z_index = 8
+offset_left = -185.0
+offset_top = -262.0
+offset_right = 18.0
+offset_bottom = -246.0
+rotation = -0.0349066
+scale = Vector2(1.02378, 1.08287)
+color = Color(0.694118, 0.243137, 0.32549, 1)
+
+[node name="FireballSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4j3lw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

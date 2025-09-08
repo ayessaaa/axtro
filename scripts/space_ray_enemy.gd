@@ -4,11 +4,23 @@ extends Area2D
 @onready var enemy: AnimatedSprite2D = $Enemy
 @onready var laser_beam: AudioStreamPlayer2D = $LaserBeam
 @onready var gun: Area2D = $Gun
+@onready var health_area: Area2D = $Health
+@onready var health_color_rect: ColorRect = $Health/ColorRect
+
+const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
+@onready var fireballs: Node = $Fireballs
+@onready var fireball_sound: AudioStreamPlayer2D = $FireballSound
 
 @onready var character = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter")
 
 var health = 100
-#
+var timer = 0.0
+
+var health_rect_width
+
+func _ready() -> void:
+	health_rect_width = health_color_rect.size.x
+
 func _on_area_entered(area: Area2D) -> void:
 	print(area.type)
 	if area.type == "laser":
@@ -35,3 +47,18 @@ func _process(delta: float) -> void:
 			#print(health)
 	if health < 0:
 		queue_free()
+		
+	timer += delta
+	if timer >= Global.spawn_interval and Global.meteor_speed != 0:
+		print("spawn")
+		timer = 0
+		spawn_fireball(gun.global_position)
+		fireball_sound.play()
+		
+	health_color_rect.size.x = health_rect_width * (health/100)
+		
+
+func spawn_fireball(pos):
+	var fireball = FIREBALL.instantiate()
+	fireball.position = pos
+	fireballs.add_child(fireball)

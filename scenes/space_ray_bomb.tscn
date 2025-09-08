@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmomohy8s72lb"]
+
+[ext_resource type="Script" uid="uid://cgduw3gsuf32o" path="res://scripts/space_ray_bomb.gd" id="1_n5pj8"]
+[ext_resource type="Texture2D" uid="uid://d24pstn3h2k1l" path="res://assets/space_ray_assets/IMG_1742.PNG" id="2_cov6g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4j1y"]
+radius = 24.0
+
+[node name="SpaceRayBomb" type="Area2D"]
+scale = Vector2(0.282455, 0.282455)
+collision_mask = 8
+script = ExtResource("1_n5pj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 7
+texture = ExtResource("2_cov6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 7
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_i4j1y")
