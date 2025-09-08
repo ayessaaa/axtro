@@ -1,18 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://d20ccntc163yq"]
+[gd_scene load_steps=10 format=3 uid="uid://d20ccntc163yq"]
 
 [ext_resource type="Script" uid="uid://nhlku44dw0r7" path="res://scripts/space_ray_enemy.gd" id="1_5yjip"]
-[ext_resource type="Texture2D" uid="uid://ceefgkxfpuvge" path="res://assets/space_ray_assets/IMG_1794.PNG" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://i03wdllh0kqx" path="res://assets/space_ray_assets/IMG_1805.PNG" id="2_l8w07"]
+[ext_resource type="Texture2D" uid="uid://c2svybqola662" path="res://assets/space_ray_assets/IMG_1804.PNG" id="3_ddyth"]
+[ext_resource type="Texture2D" uid="uid://yah4g2nsy2ci" path="res://assets/space_ray_assets/IMG_1806.PNG" id="4_ddyth"]
+[ext_resource type="AudioStream" uid="uid://btpoimhrds7cb" path="res://assets/music/laser-beam-76426.mp3" id="5_yg7ut"]
+[ext_resource type="Script" uid="uid://dv77yf6nu2stm" path="res://scripts/space_ray_gun.gd" id="6_pyiuh"]
+[ext_resource type="Texture2D" uid="uid://cf11fi08mgpux" path="res://assets/space_ray_assets/IMG_1797.PNG" id="6_uk56m"]
+[ext_resource type="Texture2D" uid="uid://cxm0nxlf705qt" path="res://assets/space_ray_assets/IMG_1808.PNG" id="7_cexbg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yg7ut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ddyth")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ddyth")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
 
 [node name="SpaceRayEnemy" type="Area2D"]
 z_index = 7
 collision_mask = 8
 script = ExtResource("1_5yjip")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7p1mj")
+[node name="Gray" type="Sprite2D" parent="."]
+position = Vector2(16, 40)
+texture = ExtResource("2_l8w07")
+
+[node name="Gray2" type="Sprite2D" parent="."]
+z_index = 7
+position = Vector2(16, 40)
+texture = ExtResource("3_ddyth")
+
+[node name="Enemy" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+z_index = 7
+position = Vector2(16, 40)
+sprite_frames = SubResource("SpriteFrames_yg7ut")
+animation = &"hurt"
+autoplay = "default"
+frame_progress = 0.855089
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-272, 80, -192, -40, -80, -160, 40, -208, 120, -216, 256, -184, 280, -72, 280, 144, 264, 248, 192, 296, 64, 320, -40, 320, -152, 304, -232, 280, -296, 240, -312, 192, -304, 136)
+visibility_layer = 8
+z_index = 7
+polygon = PackedVector2Array(-192, -88, -144, -120, -72, -152, 16, -160, 64, -160, 88, -176, 136, -200, 176, -208, 208, -216, 232, -208, 304, -216, 272, -160, 240, -88, 240, -56, 240, -16, 240, 32, 232, 152, 216, 184, 168, 200, 40, 200, -160, 200, -200, 184, -224, 152, -224, 80, -240, 80, -240, 40, -232, -16)
+
+[node name="LaserBeam" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yg7ut")
+
+[node name="Gun" type="Area2D" parent="."]
+position = Vector2(-16, 168)
+script = ExtResource("6_pyiuh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gun"]
+position = Vector2(24, 8)
+scale = Vector2(1.0259, 1.02012)
+texture = ExtResource("7_cexbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gun"]
+z_index = 8
+texture = ExtResource("6_uk56m")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

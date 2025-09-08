@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvc85idf12jdj"]
+
+[ext_resource type="Texture2D" uid="uid://c5d04e8tl38h3" path="res://assets/space_ray_assets/IMG_1798.PNG" id="1_pldbt"]
+
+[node name="LaserEnd" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pldbt")

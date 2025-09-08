@@ -22,4 +22,4 @@ rotates = false
 script = ExtResource("1_tby7a")
 
 [node name="SpaceRayEnemy" parent="Path2D/EnemyFollower2d" instance=ExtResource("2_f7mng")]
-scale = Vector2(0.140571, 0.140571)
+scale = Vector2(0.211926, 0.211926)

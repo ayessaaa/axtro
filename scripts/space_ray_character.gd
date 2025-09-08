@@ -55,6 +55,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		print("Collision point: ", collision.get_position())
 
 
 func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
