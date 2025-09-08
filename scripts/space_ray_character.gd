@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var type = "player"
+
 @export var thrust_accel: float = 400.0
 @export var rotation_speed: float = 3.0
 @export var max_speed: float = 600.0
@@ -53,3 +55,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	move_and_slide()
+
+
+func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
+	if !Global.is_space_ray:
+		return
+	if area.type == "enemy":
+		print("dead")

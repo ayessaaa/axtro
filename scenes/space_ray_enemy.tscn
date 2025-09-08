@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d20ccntc163yq"]
+[gd_scene load_steps=3 format=3 uid="uid://d20ccntc163yq"]
 
+[ext_resource type="Script" uid="uid://nhlku44dw0r7" path="res://scripts/space_ray_enemy.gd" id="1_5yjip"]
 [ext_resource type="Texture2D" uid="uid://ceefgkxfpuvge" path="res://assets/space_ray_assets/IMG_1794.PNG" id="1_7p1mj"]
 
 [node name="SpaceRayEnemy" type="Area2D"]
 z_index = 7
+collision_mask = 8
+script = ExtResource("1_5yjip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7p1mj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-272, 80, -192, -40, -80, -160, 40, -208, 120, -216, 256, -184, 280, -72, 280, 144, 264, 248, 192, 296, 64, 320, -40, 320, -152, 304, -232, 280, -296, 240, -312, 192, -304, 136)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

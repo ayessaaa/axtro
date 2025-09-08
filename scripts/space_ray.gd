@@ -2,7 +2,7 @@ extends Node
 @onready var bg: Sprite2D = $Bg
 
 @onready var selected_sound = get_parent().get_node("SelectedSound")
-@onready var animation = get_node("SpaceRayCharacter/AnimationPlayer")
+@onready var animation = get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
 
 # Called when the node enters the scene tree for the first time.

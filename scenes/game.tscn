@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=35 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://c6g5vegiqpuqk" path="res://scenes/angle_dash.tscn" id="29_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d35180c1kam1s" path="res://scenes/start_screen.tscn" id="30_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://dlacxrd4fdqch" path="res://scenes/space_ray.tscn" id="30_wljb1"]
-[ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="31_v2yb1"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -220,7 +219,6 @@ position = Vector2(46, 615)
 [node name="AngleDash" parent="." instance=ExtResource("29_suyxu")]
 
 [node name="SpaceRay" parent="." instance=ExtResource("30_wljb1")]
-script = ExtResource("31_v2yb1")
 
 [node name="StartScreen" parent="." instance=ExtResource("30_sgl2t")]
 

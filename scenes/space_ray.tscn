@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=9 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
-[ext_resource type="PackedScene" uid="uid://canf54estujb8" path="res://scenes/space_ray_laser.tscn" id="2_6tpi4"]
 [ext_resource type="AudioStream" uid="uid://d1iyfyejn40o2" path="res://assets/music/space-distortion-1-225938_J7d3nb6Z.mp3" id="4_ovt60"]
-[ext_resource type="PackedScene" uid="uid://d20ccntc163yq" path="res://scenes/space_ray_enemy.tscn" id="6_jcus3"]
 [ext_resource type="PackedScene" uid="uid://dxhcq4lb8h64t" path="res://scenes/space_ray_enemy_1.tscn" id="7_050lw"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
@@ -77,12 +75,6 @@ position = Vector2(576, 328)
 scale = Vector2(0.513559, 0.419512)
 texture = ExtResource("1_inwbe")
 
-[node name="SpaceRayLaser" parent="." instance=ExtResource("2_6tpi4")]
-visible = false
-z_index = 6
-position = Vector2(640, 344)
-scale = Vector2(0.635635, 0.234216)
-
 [node name="SpaceRayCharacter" parent="." instance=ExtResource("2_1hfli")]
 z_index = 7
 position = Vector2(312, 352)
@@ -100,11 +92,6 @@ stream = ExtResource("4_ovt60")
 volume_db = -15.0
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("6_jcus3")]
-visible = false
-position = Vector2(1128, 184)
-scale = Vector2(0.228719, 0.228719)
 
 [node name="SpaceRayEnemy1" parent="Enemies" instance=ExtResource("7_050lw")]
 
