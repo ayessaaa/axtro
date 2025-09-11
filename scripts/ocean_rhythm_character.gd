@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var type = "player"
 
-@export var thrust_accel: float = 400.0
+@export var thrust_accel: float = 450.0
 @export var rotation_speed: float = 3.0
 @export var max_speed: float = 600.0
 @export var damping: float = 0.0 
-@export var friction_factor: float = 0.98 
+@export var friction_factor: float = 0.96
 
 @export var rotation_accel: float = 1.5   # how fast angular velocity ramps up
 @export var rotation_decel: float = 3.0   # how fast it slows when you let go
@@ -14,22 +14,12 @@ extends CharacterBody2D
 
 var rotation_velocity: float = 0.0
 
-const BOMB = preload("res://scenes/space_ray_bomb.tscn")
-@onready var bombs: Node = $Bombs
 
 func _physics_process(delta: float) -> void:
-	visible = Global.is_space_ray
-	if !Global.is_space_ray:
-		return
-	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
+	if Global.start_screen or !Global.is_ocean_rhythm:
 		return
 	velocity *= friction_factor
 	
-	if Input.is_action_just_pressed("q"):
-		Global.space_ray_weapon = "bomb"
-		
-	if Input.is_action_just_pressed("e") and Global.space_ray_weapon == "bomb":
-		spawn_bomb(position)
 		
 	# rotate
 	if Input.is_action_pressed("move_left") and rotation > -.1:
@@ -65,22 +55,5 @@ func _physics_process(delta: float) -> void:
 		
 	rotation_velocity = clamp(rotation_velocity, -max_rotation_speed, max_rotation_speed)
 	rotation += rotation_velocity * delta
-		
 	
 	move_and_slide()
-	
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		print("Collision point: ", collision.get_position())
-
-
-func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
-	if !Global.is_space_ray:
-		return
-	if area.type == "enemy":
-		print("dead")
-		
-func spawn_bomb(pos):
-	var bomb = BOMB.instantiate()
-	bomb.position = pos
-	bombs.add_child(bomb)

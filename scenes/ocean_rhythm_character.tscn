@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://doid5cb4uwows"]
+
+[ext_resource type="Texture2D" uid="uid://bmuo633m7ilqq" path="res://assets/ocean_rhythm_assets/IMG_1819.PNG" id="1_swssg"]
+[ext_resource type="Script" uid="uid://bibbnm1xchqo6" path="res://scripts/ocean_rhythm_character.gd" id="1_v6d1c"]
+[ext_resource type="Script" uid="uid://bq2ci7dcekamd" path="res://scripts/ocean_rhythm_character_area.gd" id="2_0v0qn"]
+
+[node name="OceanRhythmCharacter" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_v6d1c")
+
+[node name="OceanRhythmCharacterArea" type="Area2D" parent="."]
+collision_layer = 16
+script = ExtResource("2_0v0qn")
+
+[node name="Sprite2D" type="Sprite2D" parent="OceanRhythmCharacterArea"]
+texture = ExtResource("1_swssg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OceanRhythmCharacterArea"]
+polygon = PackedVector2Array(-143, -47, -109, -86, -73, -86, -65, -50, -19, -66, 9, -107, 40, -113, 97, -109, 102, -101, 103, -75, 143, -53, 169, -26, 182, 6, 183, 34, 165, 75, 145, 95, 96, 112, 29, 120, -17, 112, -58, 96, -73, 89, -99, 125, -126, 127, -152, 82, -92, 77, -117, 54, -124, 25, -117, -8, -89, -35, -148, -39)

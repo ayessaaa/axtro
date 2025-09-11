@@ -49,6 +49,8 @@ func _process(delta: float) -> void:
 		return
 	if Global.is_angle_dash or Global.is_space_ray:
 		return
+	if !Global.marathon and !Global.is_mecha_flight:
+		return
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 	#shield_bubble.visible = Global.shield

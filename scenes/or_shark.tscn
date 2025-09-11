@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnbj1vyxkbbjq"]
+
+[ext_resource type="Texture2D" uid="uid://d4m3p6mjs6q3e" path="res://assets/ocean_rhythm_assets/IMG_1825.PNG" id="1_e56ov"]
+[ext_resource type="Script" uid="uid://bb05q12x00nch" path="res://scripts/or_shark.gd" id="2_rbdp8"]
+
+[node name="Shark" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.564706)
+z_index = 20
+position = Vector2(554, 562)
+scale = Vector2(0.413853, 0.413854)
+texture = ExtResource("1_e56ov")
+script = ExtResource("2_rbdp8")

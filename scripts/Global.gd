@@ -52,3 +52,8 @@ var is_mecha_flight = false
 var is_space_ray = false
 var selected_sound_played = false
 var space_ray_weapon = "laser"
+
+var is_ocean_rhythm = false
+var bubble_spawn_interval = 1.5
+var coral_spawn_interval = 8
+var fish_spawn_interval = 15

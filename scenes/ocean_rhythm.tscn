@@ -1,0 +1,268 @@
+[gd_scene load_steps=18 format=3 uid="uid://nlrc2nopu13v"]
+
+[ext_resource type="Texture2D" uid="uid://cipey4yohnx4v" path="res://assets/ocean_rhythm_assets/IMG_1818.PNG" id="1_1gsre"]
+[ext_resource type="Script" uid="uid://d4lwloes6200x" path="res://scripts/ocean_rhythm.gd" id="1_rrtb4"]
+[ext_resource type="PackedScene" uid="uid://doid5cb4uwows" path="res://scenes/ocean_rhythm_character.tscn" id="2_356gd"]
+[ext_resource type="Texture2D" uid="uid://codsp27pan5hj" path="res://assets/ocean_rhythm_assets/IMG_1826.PNG" id="8_qg5um"]
+[ext_resource type="AudioStream" uid="uid://cti4qa8dkwkvd" path="res://assets/music/notes/a.mp3" id="10_angug"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="11_85of2"]
+[ext_resource type="AudioStream" uid="uid://cej4sgxxajsqn" path="res://assets/music/notes/c.mp3" id="11_xlgsa"]
+[ext_resource type="AudioStream" uid="uid://b5i0770g35j44" path="res://assets/music/notes/d1.mp3" id="12_kqi3c"]
+[ext_resource type="AudioStream" uid="uid://b2js8xko2xean" path="res://assets/music/notes/d2.mp3" id="13_7qv76"]
+[ext_resource type="AudioStream" uid="uid://0n4x0cqmvf1o" path="res://assets/music/notes/f.mp3" id="14_m0vvt"]
+[ext_resource type="AudioStream" uid="uid://cvd0ofunu3boh" path="res://assets/music/notes/g.mp3" id="15_hls4g"]
+
+[sub_resource type="Animation" id="Animation_bhafd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OceanRhythmCharacter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rrtb4"]
+resource_name = "ocean_rhythm_selected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0392157)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OceanRhythmCharacter:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qg5um"]
+_data = {
+&"RESET": SubResource("Animation_bhafd"),
+&"ocean_rhythm_selected": SubResource("Animation_rrtb4")
+}
+
+[sub_resource type="Animation" id="Animation_adylf"]
+resource_name = "text_animation"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.48, 1.98, 2.49333, 3.01333, 3.49333, 3.99333, 4.49, 5.01, 5.49, 5.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(349, 56), Vector2(349, 58), Vector2(349, 56), Vector2(349, 58), Vector2(349, 56), Vector2(349, 58), Vector2(349, 56), Vector2(349, 58), Vector2(349, 56), Vector2(349, 58), Vector2(349, 56), Vector2(349, 58), Vector2(349, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.03333, 6.63333, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3, 1.8, 6.2, 6.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g7d86"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(349, 58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2was"]
+_data = {
+&"RESET": SubResource("Animation_g7d86"),
+&"text_animation": SubResource("Animation_adylf")
+}
+
+[node name="OceanRhythm" type="Node"]
+script = ExtResource("1_rrtb4")
+
+[node name="Bg" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(574.5, 324)
+scale = Vector2(0.507203, 0.407317)
+texture = ExtResource("1_1gsre")
+
+[node name="OceanRhythmCharacter" parent="." instance=ExtResource("2_356gd")]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+position = Vector2(182, 295)
+scale = Vector2(0.384564, 0.384564)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 20
+
+[node name="Corals" type="Node" parent="."]
+
+[node name="Fishes" type="Node" parent="."]
+
+[node name="Light" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(596, 406)
+scale = Vector2(0.520339, 0.531098)
+texture = ExtResource("8_qg5um")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qg5um")
+}
+
+[node name="Bubbles" type="Node" parent="."]
+
+[node name="Notes" type="Node" parent="."]
+
+[node name="a" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("10_angug")
+
+[node name="c" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("11_xlgsa")
+
+[node name="d1" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("12_kqi3c")
+
+[node name="d2" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("13_7qv76")
+
+[node name="f" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("14_m0vvt")
+
+[node name="g" type="AudioStreamPlayer2D" parent="Notes"]
+stream = ExtResource("15_hls4g")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+offset_left = 349.0
+offset_top = 58.0
+offset_right = 829.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("11_85of2")
+theme_override_font_sizes/font_size = 27
+text = "this is a special game mode for a shiba challenge!
+"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+offset_left = 362.0
+offset_top = 85.0
+offset_right = 813.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(3.7542e-06, 0.774868, 0.784087, 1)
+theme_override_fonts/font = ExtResource("11_85of2")
+theme_override_font_sizes/font_size = 24
+text = "just a chill and music good for winding before sleep"
+
+[node name="TextAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g2was")
+}

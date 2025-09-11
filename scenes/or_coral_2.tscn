@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://2i1dxw3lo158"]
+
+[ext_resource type="Texture2D" uid="uid://c5lm3yg3bu2l2" path="res://assets/ocean_rhythm_assets/IMG_1823.PNG" id="1_lntl0"]
+[ext_resource type="Script" uid="uid://yoety1mb0nsy" path="res://scripts/or_coral_2.gd" id="2_1rghs"]
+
+[node name="Coral2" type="Sprite2D"]
+z_index = 20
+position = Vector2(146.866, 584.5)
+scale = Vector2(0.57563, 0.57563)
+texture = ExtResource("1_lntl0")
+script = ExtResource("2_1rghs")

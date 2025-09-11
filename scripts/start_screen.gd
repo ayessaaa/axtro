@@ -6,6 +6,8 @@ extends Node
 @onready var progress_area = get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var angle_dash = get_parent().get_node("AngleDash/AnimationPlayer")
 @onready var space_ray = get_parent().get_node("SpaceRay/AnimationPlayer")
+@onready var ocean_rhythm = get_parent().get_node("OceanRhythm/AnimationPlayer")
+@onready var ocean_rhythm_text = get_parent().get_node("OceanRhythm/TextAnimation")
 @onready var switch_sound = get_parent().get_node("SwitchGamemode")
 @onready var bg_player: AnimationPlayer = $BgPlayer
 @onready var paper_bg_animation = get_node("PaperBg/Lines")
@@ -97,6 +99,8 @@ func _process(delta: float) -> void:
 				Global.start_screen = false
 				Global.marathon = true
 				Global.is_angle_dash = false
+				Global.is_ocean_rhythm = false
+				Global.is_space_ray = false
 				Global.meteor_speed = 4
 				Global.spawn_interval = 1.5
 				Global.object_speed = 2
@@ -107,6 +111,8 @@ func _process(delta: float) -> void:
 				Global.start_screen = false
 				Global.marathon = false
 				Global.is_angle_dash = false
+				Global.is_ocean_rhythm = false
+				Global.is_space_ray = false
 				Global.meteor_speed = 4
 				Global.spawn_interval = 1.5
 				Global.object_speed = 2
@@ -118,6 +124,8 @@ func _process(delta: float) -> void:
 				Global.start_screen = false
 				Global.is_angle_dash = true
 				Global.marathon = false
+				Global.is_ocean_rhythm = false
+				Global.is_space_ray = false
 				angle_dash.play("angle_dash_selected")
 				Global.selected_sound_played = false
 				angle_dash_music.stop()
@@ -127,8 +135,22 @@ func _process(delta: float) -> void:
 				Global.is_angle_dash = false
 				Global.marathon = false
 				Global.is_space_ray = true
+				Global.is_ocean_rhythm = false
 				space_ray.play("fade_in")
 				Global.selected_sound_played = false
+				#bg_music.stop()
+				#angle_dash.play("angle_dash_selected")
+				queue_free()
+				
+			4:
+				Global.start_screen = false
+				Global.is_angle_dash = false
+				Global.marathon = false
+				Global.is_space_ray = false
+				Global.is_ocean_rhythm = true
+				ocean_rhythm.play("ocean_rhythm_selected")
+				Global.selected_sound_played = false
+				ocean_rhythm_text.play("text_animation")
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				queue_free()
