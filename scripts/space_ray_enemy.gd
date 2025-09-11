@@ -32,9 +32,9 @@ func _on_area_exited(area: Area2D) -> void:
 		
 
 func _process(delta: float) -> void:
-		
-	if !Global.is_space_ray:
+	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
+		
 	for area in get_overlapping_areas():
 		if area.type == "laser":
 			health -= 10 *delta

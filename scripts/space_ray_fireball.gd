@@ -11,5 +11,7 @@ func _ready() -> void:
 	rotation = gun.rotation
 
 func _process(delta: float) -> void:
+	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
+		return
 	position -= direction * speed * delta
 	
