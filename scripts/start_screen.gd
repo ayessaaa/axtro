@@ -13,6 +13,7 @@ extends Node
 @onready var bg_music = get_parent().get_node("BgMusic")
 @onready var angle_dash_music = get_parent().get_node("AngleDashMusic")
 @onready var space_ray_music = get_parent().get_node("SpaceRayMusic")
+@onready var ocean_rhythm_music = get_parent().get_node("OceanRhythmMusic")
 
 
 #@onready var paper_bg: Area2D = $PaperBg
@@ -29,7 +30,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_down") and selected_index < 3:
+	if Input.is_action_just_pressed("move_down") and selected_index < 4:
 		selected_index += 1
 		switch_sound.play()
 		match selected_index:
@@ -51,6 +52,15 @@ func _process(delta: float) -> void:
 				angle_dash_music.stop()
 				space_ray_music.play()
 				#bg_player.play("angle_dash")
+			4:
+				selector.play("down_ocean_rhythm")
+				#paper_bg_animation.play("space_ray")
+				bg_player.play("ocean_rhythm")
+				ocean_rhythm_music.play()
+				bg_music.stop()
+				angle_dash_music.stop()
+				space_ray_music.stop()
+				
 	if Input.is_action_just_pressed("move_up") and selected_index > 0:
 		selected_index -= 1
 		switch_sound.play()
@@ -70,7 +80,14 @@ func _process(delta: float) -> void:
 				angle_dash_music.play()
 				bg_music.stop()
 				space_ray_music.stop()
-				#bg_player.play("space_ray")
+			3:
+				selector.play("up_space_ray")
+				paper_bg_animation.play("default")
+				bg_player.play("up_space_ray")
+				angle_dash_music.stop()
+				bg_music.stop()
+				space_ray_music.play()
+				ocean_rhythm_music.stop()
 
 				
 	if Input.is_action_just_pressed("enter"):

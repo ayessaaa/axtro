@@ -18,6 +18,7 @@ const BOMB = preload("res://scenes/space_ray_bomb.tscn")
 @onready var bombs: Node = $Bombs
 
 func _physics_process(delta: float) -> void:
+	visible = Global.is_space_ray
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
 	velocity *= friction_factor
