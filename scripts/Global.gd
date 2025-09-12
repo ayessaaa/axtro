@@ -8,8 +8,8 @@ var meteor_speed: float = 4.0
 var speed = 400.0
 var object_speed = 2.0
 
-var angle_dash_speed = 300.0
-var spike_speed = 300.0
+var angle_dash_speed = 250.0
+var spike_speed = 250.0
 
 var shoot_left = 3
 

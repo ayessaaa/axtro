@@ -17,6 +17,7 @@ extends Node
 @onready var space_ray_music = get_parent().get_node("SpaceRayMusic")
 @onready var ocean_rhythm_music = get_parent().get_node("OceanRhythmMusic")
 
+@onready var wip: Label = $Label7
 
 #@onready var paper_bg: Area2D = $PaperBg
 
@@ -32,13 +33,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("move_down") and selected_index < 4:
 		selected_index += 1
 		switch_sound.play()
 		match selected_index:
 			1:
 				selector.play("down_mecha")
-				
+				wip.visible = false
 			2:
 				
 				selector.play("down_angle")
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 				angle_dash_music.play()
 				bg_music.stop()
 				space_ray_music.stop()
+				wip.visible = false
 			3:
 				selector.play("down_space_ray")
 				paper_bg_animation.play("space_ray")
@@ -54,6 +57,7 @@ func _process(delta: float) -> void:
 				angle_dash_music.stop()
 				space_ray_music.play()
 				#bg_player.play("angle_dash")
+				wip.visible = true
 			4:
 				selector.play("down_ocean_rhythm")
 				#paper_bg_animation.play("space_ray")
@@ -62,6 +66,7 @@ func _process(delta: float) -> void:
 				bg_music.stop()
 				angle_dash_music.stop()
 				space_ray_music.stop()
+				wip.visible = false
 				
 	if Input.is_action_just_pressed("move_up") and selected_index > 0:
 		selected_index -= 1
@@ -69,12 +74,14 @@ func _process(delta: float) -> void:
 		match selected_index:
 			0:
 				selector.play("up_play")
+				wip.visible = false
 			1:
 				selector.play("up_mecha")
 				bg_player.play("mecha_flight")
 				bg_music.play()
 				angle_dash_music.stop()
 				space_ray_music.stop()
+				wip.visible = false
 			2:
 				selector.play("up_angle")
 				paper_bg_animation.play("default")
@@ -82,6 +89,7 @@ func _process(delta: float) -> void:
 				angle_dash_music.play()
 				bg_music.stop()
 				space_ray_music.stop()
+				wip.visible = false
 			3:
 				selector.play("up_space_ray")
 				paper_bg_animation.play("default")
@@ -90,6 +98,7 @@ func _process(delta: float) -> void:
 				bg_music.stop()
 				space_ray_music.play()
 				ocean_rhythm_music.stop()
+				wip.visible = true
 
 				
 	if Input.is_action_just_pressed("enter"):

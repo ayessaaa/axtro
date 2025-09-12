@@ -232,3 +232,4 @@ position = Vector2(46, 615)
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
+[connection signal="finished" from="OceanRhythmMusic" to="." method="_on_ocean_rhythm_music_finished"]

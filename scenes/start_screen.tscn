@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://d35180c1kam1s"]
+[gd_scene load_steps=61 format=3 uid="uid://d35180c1kam1s"]
 
 [ext_resource type="Script" uid="uid://b1wy1ffebssu4" path="res://scripts/start_screen.gd" id="1_o7i0r"]
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="2_53rsf"]
@@ -903,7 +903,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(582, 291)]
+"values": [Vector2(583, 278)]
 }
 
 [sub_resource type="Animation" id="Animation_ws7p0"]
@@ -916,10 +916,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.533333),
+"times": PackedFloat32Array(0, 0.302912, 0.44831),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 430), Vector2(582, 478), Vector2(582, 474)]
+"values": [Vector2(582.007, 396), Vector2(582.007, 443), Vector2(582.007, 439)]
 }
 
 [sub_resource type="Animation" id="Animation_o30b1"]
@@ -932,10 +932,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.7),
+"times": PackedFloat32Array(0, 0.49, 0.633333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 291), Vector2(582, 431), Vector2(582, 430)]
+"values": [Vector2(583, 278), Vector2(582.007, 400), Vector2(582.007, 396)]
 }
 
 [sub_resource type="Animation" id="Animation_y5w4g"]
@@ -948,10 +948,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.533333),
+"times": PackedFloat32Array(0, 0.343301, 0.472543),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 520), Vector2(582, 562), Vector2(582, 559)]
+"values": [Vector2(582.007, 485), Vector2(582.007, 530), Vector2(582.007, 527)]
 }
 
 [sub_resource type="Animation" id="Animation_a4px2"]
@@ -964,10 +964,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.39, 0.55),
+"times": PackedFloat32Array(0, 0.333333, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 474), Vector2(582, 524), Vector2(582, 520)]
+"values": [Vector2(582.007, 439), Vector2(582.007, 488), Vector2(582.007, 485)]
 }
 
 [sub_resource type="Animation" id="Animation_a7uje"]
@@ -980,10 +980,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.533333),
+"times": PackedFloat32Array(0, 0.3, 0.44831),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 520), Vector2(582, 472), Vector2(582, 474)]
+"values": [Vector2(582.007, 485), Vector2(582.007, 436), Vector2(582.007, 441)]
 }
 
 [sub_resource type="Animation" id="Animation_ecdxc"]
@@ -996,10 +996,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.5),
+"times": PackedFloat32Array(0, 0.286757, 0.424077),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 474), Vector2(582, 429), Vector2(582, 431)]
+"values": [Vector2(582.007, 441), Vector2(582.007, 390), Vector2(582.007, 394)]
 }
 
 [sub_resource type="Animation" id="Animation_qls88"]
@@ -1012,10 +1012,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.733333),
+"times": PackedFloat32Array(0, 0.466667, 0.654291),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 431), Vector2(582, 289), Vector2(582, 291)]
+"values": [Vector2(582.007, 394), Vector2(582, 271), Vector2(582, 276)]
 }
 
 [sub_resource type="Animation" id="Animation_37qom"]
@@ -1028,10 +1028,10 @@ tracks/0/path = NodePath("PaperBg:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.38, 0.55),
+"times": PackedFloat32Array(0, 0.333333, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(582, 559), Vector2(582, 513), Vector2(582, 516)]
+"values": [Vector2(582.007, 527), Vector2(582.007, 482), Vector2(582.007, 485)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pcj7n"]
@@ -1873,6 +1873,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.164706, 0.211765, 0.427451, 1)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label6:theme_override_colors/font_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.176471, 0.25098, 0.466667, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ce0he"]
 resource_name = "ocean_rhythm"
@@ -2438,6 +2450,22 @@ tracks/8/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.164706, 0.211765, 0.427451, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1jj22"]
+resource_name = "up_mecha_flight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label6:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.164706, 0.211765, 0.427451, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_bjnkw"]
 resource_name = "up_ocean_rhythm"
 
@@ -2621,6 +2649,7 @@ _data = {
 &"ocean_rhythm": SubResource("Animation_ce0he"),
 &"space_ray": SubResource("Animation_53rsf"),
 &"up_angle_dash": SubResource("Animation_qlcmr"),
+&"up_mecha_flight": SubResource("Animation_1jj22"),
 &"up_ocean_rhythm": SubResource("Animation_bjnkw"),
 &"up_space_ray": SubResource("Animation_v6sgr")
 }
@@ -2836,7 +2865,7 @@ texture = ExtResource("2_ecdxc")
 
 [node name="Bush" type="Sprite2D" parent="."]
 z_index = 50
-position = Vector2(184, 575)
+position = Vector2(184.499, 561.625)
 scale = Vector2(0.415644, 0.415644)
 texture = ExtResource("6_ka6nf")
 
@@ -2855,7 +2884,7 @@ texture = ExtResource("8_ecdxc")
 
 [node name="Land" type="Sprite2D" parent="."]
 z_index = 50
-position = Vector2(579, 602)
+position = Vector2(579.499, 588.625)
 rotation = 0.0349066
 scale = Vector2(0.492163, 0.469466)
 texture = ExtResource("7_qls88")
@@ -2876,16 +2905,16 @@ libraries = {
 [node name="PaperBg" parent="." instance=ExtResource("4_hm208")]
 modulate = Color(1, 1, 1, 0)
 z_index = 50
-position = Vector2(582, 291)
+position = Vector2(583, 278)
 scale = Vector2(0.367291, 0.367291)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 263.0
+offset_top = 248.0
 offset_right = 728.0
-offset_bottom = 300.0
+offset_bottom = 285.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2896,9 +2925,9 @@ text = "PLAY MARATHON"
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 446.0
-offset_top = 356.0
+offset_top = 326.0
 offset_right = 725.0
-offset_bottom = 383.0
+offset_bottom = 353.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2910,9 +2939,9 @@ horizontal_alignment = 1
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 400.0
+offset_top = 370.0
 offset_right = 728.0
-offset_bottom = 429.0
+offset_bottom = 399.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2924,9 +2953,9 @@ horizontal_alignment = 1
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 445.0
+offset_top = 415.0
 offset_right = 728.0
-offset_bottom = 474.0
+offset_bottom = 444.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2937,10 +2966,10 @@ horizontal_alignment = 1
 [node name="ControlsLabel" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 z_index = 50
-offset_left = 220.0
-offset_top = 613.0
-offset_right = 971.0
-offset_bottom = 642.0
+offset_left = 219.0
+offset_top = 604.0
+offset_right = 970.0
+offset_bottom = 633.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2968,9 +2997,9 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 450.0
-offset_top = 490.0
+offset_top = 460.0
 offset_right = 729.0
-offset_bottom = 519.0
+offset_bottom = 489.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -2982,9 +3011,9 @@ horizontal_alignment = 1
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 532.0
+offset_top = 502.0
 offset_right = 728.0
-offset_bottom = 561.0
+offset_bottom = 531.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")

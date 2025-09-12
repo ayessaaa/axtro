@@ -25,43 +25,43 @@ position = Vector2(0, 48)
 script = ExtResource("1_5auyq")
 
 [node name="DiamondBlue" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(96, 160)
+position = Vector2(96, 105)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue2" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(96, 440)
+position = Vector2(96, 488)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue3" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(320, 160)
+position = Vector2(320, 105)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue4" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(320, 440)
+position = Vector2(320, 488)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue5" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(544, 160)
+position = Vector2(544, 105)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondBlue6" parent="." instance=ExtResource("1_57fqg")]
-position = Vector2(544, 440)
+position = Vector2(544, 488)
 scale = Vector2(0.27985, 0.27985)
 
 [node name="DiamondPurple" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(208, 160)
+position = Vector2(208, 105)
 scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple2" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(208, 440)
+position = Vector2(208, 488)
 scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple3" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(432, 160)
+position = Vector2(432, 105)
 scale = Vector2(0.283127, 0.283127)
 
 [node name="DiamondPurple4" parent="." instance=ExtResource("2_mrkqd")]
-position = Vector2(432, 440)
+position = Vector2(432, 488)
 scale = Vector2(0.283127, 0.283127)
 
 [node name="angle_dash_star" parent="." instance=ExtResource("4_4e0aw")]
@@ -77,6 +77,6 @@ position = Vector2(152, 248)
 position = Vector2(264, 304)
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, 47)
+position = Vector2(0, -8)
 stream = ExtResource("3_mrkqd")
 script = SubResource("GDScript_mrkqd")

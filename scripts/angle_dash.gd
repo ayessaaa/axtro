@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 		animation_player.play("restart")
 		Global.gameover_and_restart_angle_dash = false
 		timer = 3
-		Global.spike_speed = 300
-		Global.angle_dash_speed = 300
+		Global.spike_speed = 250
+		Global.angle_dash_speed = 250
 		Global.direction = 0
 		Global.angle_dash_score = 0
 		bg_music.play()

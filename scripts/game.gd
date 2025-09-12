@@ -4,6 +4,7 @@ extends Node
 @onready var angle_dash_bg: AudioStreamPlayer2D = $AngleDashBg
 @onready var new_mode_sound: AudioStreamPlayer2D = $NewModeSound
 @onready var selected_sound: AudioStreamPlayer2D = $SelectedSound
+@onready var ocean_rhythm_music: AudioStreamPlayer2D = $OceanRhythmMusic
 
 @onready var controls: Area2D = $Controls
 @onready var shield: Sprite2D = $Powerups/Shield
@@ -109,3 +110,7 @@ func _process(delta: float) -> void:
 func _on_bg_music_finished() -> void:
 	bg_music.play()
 	
+
+
+func _on_ocean_rhythm_music_finished() -> void:
+	ocean_rhythm_music.play()

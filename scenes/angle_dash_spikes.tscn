@@ -13,29 +13,31 @@ script = ExtResource("1_a14os")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-213, -324)
-scale = Vector2(0.397561, 0.397561)
+scale = Vector2(0.395816, 0.476742)
 texture = ExtResource("1_bpefo")
 centered = false
 
 [node name="TopCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(255.4, 2.20001)
+position = Vector2(251, 53)
+scale = Vector2(0.99561, 1.19917)
 polygon = PackedVector2Array(-160, -320, -144, -296, -112, -264, -64, -216, -32, -176, -16, -128, 0, -184, 24, -240, 48, -216, 72, -184, 96, -160, 120, -232, 160, -312, 176, -320, 192, -312, 240, -240, 272, -176, 312, -112, 328, -64, 328, -96, 336, -128, 344, -152, 352, -184, 368, -232, 392, -272, 416, -312, 432, -328, -160, -328)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(255.4, 2.20001)
+position = Vector2(252, 71)
+scale = Vector2(0.99561, 1.19917)
 polygon = PackedVector2Array(-184, 320, -176, 296, -160, 264, -136, 248, -112, 232, -96, 200, -72, 160, -48, 112, -40, 112, -25, 130, -16, 152, -8, 160, 0, 192, 14, 222, 30, 203, 48, 176, 66, 205, 80, 208, 96, 176, 114, 153, 128, 128, 149, 103, 174, 45, 180, 40, 184, 51, 184, 88, 191, 113, 216, 144, 236, 171, 250, 193, 258, 189, 276, 158, 282, 161, 288, 192, 303, 199, 324, 241, 344, 283, 364, 329)
 
 [node name="angle_dash_star1" parent="." instance=ExtResource("3_a8q5u")]
-position = Vector2(316, -21)
+position = Vector2(294, 44)
 
 [node name="angle_dash_star2" parent="." instance=ExtResource("3_a8q5u")]
-position = Vector2(445, -125)
+position = Vector2(440, -80)
 
 [node name="angle_dash_star3" parent="." instance=ExtResource("3_a8q5u")]
-position = Vector2(554, 95)
+position = Vector2(537, 90)
 
 [node name="angle_dash_star4" parent="." instance=ExtResource("3_a8q5u")]
-position = Vector2(434, -4)
+position = Vector2(421, 12)
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 47)
