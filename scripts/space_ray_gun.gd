@@ -8,6 +8,9 @@ func _process(delta: float) -> void:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
+	#if Global.space_ray_game_time < 10:
+		#Global.space_ray_game_time += delta
+		#return
 	if character:
 		var target_angle = (character.global_position - global_position).angle()
 		rotation = lerp_angle(rotation, target_angle+deg_to_rad(180), 5 * delta)

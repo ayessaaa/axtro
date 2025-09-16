@@ -96,6 +96,18 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc") and !Global.start_screen:
 		Global.start_screen = true
 		Global.is_angle_dash = false
+		Global.is_angle_dash = false
+		Global.is_angle_dash = false
+		Global.score = 0
+		Global.next_mode_score = 0
+		Global.dead = false
+		Global.is_angle_dash = false
+		Global.angle_dash_score = 0
+		Global.start_screen = true
+		Global.marathon = false
+		Global.is_mecha_flight = false
+		Global.is_space_ray = false
+		Global.is_ocean_rhythm = false
 		get_tree().reload_current_scene()
 	
 	#if Global.controls_tutorial:

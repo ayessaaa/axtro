@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=13 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
 [ext_resource type="AudioStream" uid="uid://d1iyfyejn40o2" path="res://assets/music/space-distortion-1-225938_J7d3nb6Z.mp3" id="4_ovt60"]
-[ext_resource type="PackedScene" uid="uid://dxhcq4lb8h64t" path="res://scenes/space_ray_enemy_1.tscn" id="7_050lw"]
+[ext_resource type="PackedScene" uid="uid://benld2bhd07pu" path="res://scenes/sr_saturn.tscn" id="6_tt1cq"]
+[ext_resource type="PackedScene" uid="uid://b5vsx8qegt3td" path="res://scenes/sr_moon.tscn" id="7_e4p76"]
+[ext_resource type="PackedScene" uid="uid://ch3ripyge23v7" path="res://scenes/space_ray_meteor.tscn" id="7_tt1cq"]
+[ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
+[ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -85,6 +89,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_ovt60")
 }
 
+[node name="BgObjects" type="Node" parent="."]
+
+[node name="SRSaturn" parent="BgObjects" instance=ExtResource("6_tt1cq")]
+position = Vector2(1011, 524)
+
+[node name="SRMoon" parent="BgObjects" instance=ExtResource("7_e4p76")]
+position = Vector2(774, 135)
+
+[node name="SREarth" parent="BgObjects" instance=ExtResource("8_ju80h")]
+position = Vector2(179, 154)
+
+[node name="SpaceRayMeteor" parent="BgObjects" instance=ExtResource("7_tt1cq")]
+position = Vector2(1040, 107)
+
 [node name="SoundEffects" type="Node" parent="."]
 
 [node name="Laser" type="AudioStreamPlayer2D" parent="SoundEffects"]
@@ -93,6 +111,24 @@ volume_db = -15.0
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="SpaceRayEnemy1" parent="Enemies" instance=ExtResource("7_050lw")]
+[node name="Hearts" type="Node" parent="."]
+
+[node name="SpaceRayHeart" parent="Hearts" instance=ExtResource("10_e4p76")]
+z_index = 7
+position = Vector2(47, 49.875004)
+scale = Vector2(0.38190183, 0.3819018)
+frame_progress = 0.5480585
+
+[node name="SpaceRayHeart2" parent="Hearts" instance=ExtResource("10_e4p76")]
+z_index = 7
+position = Vector2(108, 49.875004)
+scale = Vector2(0.38190183, 0.3819018)
+frame_progress = 0.5480585
+
+[node name="SpaceRayHeart3" parent="Hearts" instance=ExtResource("10_e4p76")]
+z_index = 7
+position = Vector2(169.00002, 49.875004)
+scale = Vector2(0.38190183, 0.3819018)
+frame_progress = 0.5480585
 
 [connection signal="finished" from="SoundEffects/Laser" to="." method="_on_laser_finished"]

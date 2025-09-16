@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2wa50487d282"]
+
+[ext_resource type="Texture2D" uid="uid://ct7om71el3y2l" path="res://assets/IMG_1839.PNG" id="1_ior7h"]
+[ext_resource type="Texture2D" uid="uid://m78ynq5nlrqt" path="res://assets/IMG_1840.PNG" id="2_kw5vh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc6uj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ior7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kw5vh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="SpaceRayHeart" type="AnimatedSprite2D"]
+position = Vector2(-5, 11)
+sprite_frames = SubResource("SpriteFrames_xc6uj")
+autoplay = "default"
+frame_progress = 0.72377753

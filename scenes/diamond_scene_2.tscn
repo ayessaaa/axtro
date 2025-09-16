@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 "
 
 [node name="DiamondScene2" type="Area2D"]
-position = Vector2(0, 48)
 script = ExtResource("1_5auyq")
 
 [node name="DiamondBlue" parent="." instance=ExtResource("1_57fqg")]

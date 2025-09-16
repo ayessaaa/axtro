@@ -95,7 +95,5 @@ func slow_down():
 	Global.object_speed = Global.object_speed / 10.0
 	
 		
-
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	queue_free()

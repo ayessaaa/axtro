@@ -5,6 +5,23 @@ extends Node
 @onready var animation = get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
 
+const EARTH = preload("res://scenes/sr_earth.tscn")
+const MOON = preload("res://scenes/sr_moon.tscn")
+const SATURN = preload("res://scenes/sr_saturn.tscn")
+var bg_obj_array = [EARTH, MOON, SATURN]
+var bg_obj_index = 0
+@onready var bg_objects: Node = $BgObjects
+
+const GIBBIOR = preload("res://scenes/space_ray_enemy_1.tscn")
+const ROCKET = preload("res://scenes/sr_rocket.tscn")
+@onready var enemies: Node = $Enemies
+
+var timer = 20
+var bg_spawn_interval = 12
+var gibbior_spawned = false
+var gibbior_timer = 0.0
+var rocket_timer = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,7 +38,45 @@ func _process(delta: float) -> void:
 		
 	if Global.space_ray_weapon != "laser":
 		laser.stop()
+		
+	timer += delta
+	if timer >= bg_spawn_interval:
+		print("spawn")
+		timer = 0
+		spawn_bg_obj(Vector2(1500, randf_range(50, 500)), bg_obj_array[bg_obj_index])
+		if bg_obj_index < len(bg_obj_array)-1:
+			bg_obj_index += 1
+		else:
+			bg_obj_index = 0
+			
+	rocket_timer += delta
+	if rocket_timer >= 2:
+		rocket_timer = 0
+		print("rocket")
+		spawn_rocket(Vector2(1500, randf_range(50, 600)))
+			
+	gibbior_timer += delta
+	if gibbior_timer >= 100:
+		if !gibbior_spawned:
+			print("gibbior")
+			spawn_gibbior()
+			gibbior_spawned = true
 
 
 func _on_laser_finished() -> void:
 	laser.play()
+	
+func spawn_bg_obj(pos, obj):
+	var bg_obj = obj.instantiate()
+	bg_obj.position = pos
+	bg_objects.add_child(bg_obj)
+	
+func spawn_gibbior():
+	var gibbior = GIBBIOR.instantiate()
+	gibbior.position = Vector2(0, 0)
+	enemies.add_child(gibbior)
+	
+func spawn_rocket(pos):
+	var rocket = ROCKET.instantiate()
+	rocket.position = pos
+	enemies.add_child(rocket)

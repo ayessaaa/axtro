@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch3ripyge23v7"]
+
+[ext_resource type="Script" uid="uid://dk1jal8g78hq2" path="res://scripts/space_ray_meteor.gd" id="1_mrx0e"]
+[ext_resource type="Texture2D" uid="uid://d24pstn3h2k1l" path="res://assets/space_ray_assets/IMG_1742.PNG" id="1_xrc8n"]
+
+[node name="SpaceRayMeteor" type="Area2D"]
+z_index = 7
+collision_mask = 8
+script = ExtResource("1_mrx0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(0.33152175, 0.33152175)
+texture = ExtResource("1_xrc8n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-7, -5, -2, -7, 3, -10, 7, -6, 9, -1, 5, 4, 1, 5, -5, 5, -9, 1)

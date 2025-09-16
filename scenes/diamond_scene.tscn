@@ -8,6 +8,7 @@
 
 [node name="DiamondScene" type="Area2D"]
 z_index = 15
+position = Vector2(0, -8)
 script = ExtResource("1_my4ie")
 
 [node name="DiamondBlue" parent="." instance=ExtResource("1_bai1a")]

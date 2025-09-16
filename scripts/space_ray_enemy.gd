@@ -36,6 +36,11 @@ func _process(delta: float) -> void:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
+	#if Global.space_ray_game_time < 10:
+		#Global.space_ray_game_time += delta
+		#return
+	
+	position = Vector2(500, 500)
 		
 	for area in get_overlapping_areas():
 		if area.type == "laser":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bym1c60qqv7gu"]
+[gd_scene load_steps=7 format=3 uid="uid://bym1c60qqv7gu"]
 
 [ext_resource type="Script" uid="uid://dvuw3oj605l2c" path="res://scripts/special_star.gd" id="1_307g5"]
 [ext_resource type="Texture2D" uid="uid://dyb3wkx47yyub" path="res://assets/IMG_1636 (1).PNG" id="1_gxa8i"]
@@ -81,9 +81,26 @@ tracks/2/keys = {
 "values": [Vector2(0.260297, 0.260297), Vector2(0.306394, 0.306394), Vector2(0.271971, 0.271971)]
 }
 
+[sub_resource type="Animation" id="Animation_x80cy"]
+resource_name = "disappearing"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.4666667, 2.9866667, 3.4666667, 3.9766667, 4.216666, 4.47, 4.4766665, 4.709999, 4.9699993),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x80cy"]
 _data = {
 &"RESET": SubResource("Animation_7p4gh"),
+&"disappearing": SubResource("Animation_x80cy"),
 &"pick_up": SubResource("Animation_307g5")
 }
 
@@ -105,6 +122,7 @@ polygon = PackedVector2Array(-28, -8, -8, -18, 2, -37, 12, -17, 25, -4, 11, 10, 
 libraries = {
 &"": SubResource("AnimationLibrary_x80cy")
 }
+autoplay = "disappearing"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

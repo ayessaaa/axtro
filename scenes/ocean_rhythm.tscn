@@ -239,7 +239,6 @@ stream = ExtResource("14_m0vvt")
 stream = ExtResource("15_hls4g")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 21
 offset_left = 349.0
@@ -252,7 +251,6 @@ text = "this is a special game mode for a shiba challenge!
 "
 
 [node name="Label2" type="Label" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 21
 offset_left = 362.0
