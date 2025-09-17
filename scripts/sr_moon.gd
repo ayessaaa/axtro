@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	visible = Global.is_space_ray
-	if !Global.is_space_ray:
+	if !Global.is_space_ray or Global.dead:
 		return
 	if position.x < -200:
 		queue_free()

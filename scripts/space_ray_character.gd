@@ -17,13 +17,21 @@ var rotation_velocity: float = 0.0
 const BOMB = preload("res://scenes/space_ray_bomb.tscn")
 @onready var bombs: Node = $Bombs
 
+@onready var sprite = get_node("SpaceRayCharacterArea/Sprite2D")
+@onready var animation = get_node("SpaceRayCharacterArea/AnimationPlayer")
+
 func _physics_process(delta: float) -> void:
 	visible = Global.is_space_ray
+	if Global.dead:
+		sprite.pause()
+		animation.stop()
+		return
 	if !Global.is_space_ray:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
 	velocity *= friction_factor
+	
 	
 	if Input.is_action_just_pressed("q"):
 		Global.space_ray_weapon = "bomb"
