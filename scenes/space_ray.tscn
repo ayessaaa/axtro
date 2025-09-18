@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=16 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
 [ext_resource type="Script" uid="uid://blaadrsnmp4kb" path="res://scripts/space_ray_hearts_node.gd" id="9_e4p76"]
 [ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="10_ju80h"]
+[ext_resource type="Texture2D" uid="uid://c5ogvyromyael" path="res://assets/space_ray_assets/IMG_1761 - Copy.PNG" id="11_ju80h"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -70,6 +72,13 @@ _data = {
 &"fade_in": SubResource("Animation_1hfli")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4p76"]
+bg_color = Color(0.396, 0.51500005, 0.6, 0.81960785)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="SpaceRay" type="Node"]
 script = ExtResource("1_x4byx")
 
@@ -128,5 +137,78 @@ z_index = 7
 position = Vector2(169.00002, 49.875004)
 scale = Vector2(0.38190183, 0.3819018)
 frame_progress = 0.5480585
+
+[node name="CurrentWeapon" type="Node" parent="."]
+
+[node name="CurrentWeaponLabel" type="Label" parent="CurrentWeapon"]
+z_index = 6
+offset_left = 22.0
+offset_top = 552.0
+offset_right = 151.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 24
+text = "current weapon"
+
+[node name="WeaponSprite" type="Sprite2D" parent="CurrentWeapon"]
+z_index = 6
+position = Vector2(89, 585)
+scale = Vector2(0.064406775, 0.1624594)
+texture = ExtResource("11_ju80h")
+
+[node name="NameLabel" type="Label" parent="CurrentWeapon"]
+z_index = 6
+offset_left = 23.0
+offset_top = 610.0
+offset_right = 71.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 24
+text = "LASER"
+
+[node name="DamageLabel" type="Label" parent="CurrentWeapon"]
+z_index = 6
+offset_left = 23.0
+offset_top = 624.0
+offset_right = 120.0
+offset_bottom = 647.0
+theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 19
+text = "damage: 50"
+
+[node name="NextWeapon" type="Node" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="NextWeapon"]
+z_index = 6
+offset_left = 429.0
+offset_top = 594.0
+offset_right = 768.0
+offset_bottom = 621.0
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_e4p76")
+show_percentage = false
+
+[node name="NextWeapon" type="Label" parent="NextWeapon"]
+z_index = 6
+offset_left = 537.0
+offset_top = 568.0
+offset_right = 679.0
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(0.585, 0.69875, 0.78, 1)
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 28
+text = "next weapon"
+
+[node name="QuestionMark" type="Label" parent="NextWeapon"]
+z_index = 6
+offset_left = 590.0
+offset_top = 600.0
+offset_right = 623.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(0.585, 0.69875, 0.78, 1)
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 25
+text = "???"
 
 [connection signal="finished" from="SoundEffects/Laser" to="." method="_on_laser_finished"]

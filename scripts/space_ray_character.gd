@@ -15,7 +15,8 @@ extends CharacterBody2D
 var rotation_velocity: float = 0.0
 
 const BOMB = preload("res://scenes/space_ray_bomb.tscn")
-@onready var bombs: Node = $Bombs
+const BULLET = preload("res://scenes/space_ray_bullet.tscn")
+@onready var shooters: Node = $Shooters
 
 @onready var sprite = get_node("SpaceRayCharacterArea/Sprite2D")
 @onready var animation = get_node("SpaceRayCharacterArea/AnimationPlayer")
@@ -34,10 +35,18 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("q"):
-		Global.space_ray_weapon = "bomb"
+		#Global.space_ray_weapon = "bomb"
+		Global.space_ray_weapon = "bullet"
 		
 	if Input.is_action_just_pressed("e") and Global.space_ray_weapon == "bomb":
-		spawn_bomb(position)
+		spawn_shoot(position, BOMB)
+	
+	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
+		if rotation < 0:
+			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET)
+		else:
+			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET)
+			
 		
 	# rotate
 	if Input.is_action_pressed("move_left") and rotation > -.1:
@@ -88,7 +97,7 @@ func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
 	if area.type == "enemy":
 		print("dead")
 		
-func spawn_bomb(pos):
-	var bomb = BOMB.instantiate()
-	bomb.position = pos
-	bombs.add_child(bomb)
+func spawn_shoot(pos, shooter_scene):
+	var shooter = shooter_scene.instantiate()
+	shooter.position = pos
+	shooters.add_child(shooter)

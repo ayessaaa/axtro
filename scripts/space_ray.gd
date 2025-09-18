@@ -24,6 +24,8 @@ var gibbior_timer = 0.0
 var rocket_timer = 0.0
 var meteor_timer = 2.0
 
+@onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -71,6 +73,8 @@ func _process(delta: float) -> void:
 		if !gibbior_spawned:
 			spawn_gibbior()
 			gibbior_spawned = true
+			
+	progress_bar.value += delta * 3
 
 
 func _on_laser_finished() -> void:

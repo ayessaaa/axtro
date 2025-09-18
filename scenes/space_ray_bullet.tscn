@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drr1goqcjt5i1"]
+
+[ext_resource type="Script" uid="uid://cqjic6jly7vwr" path="res://scripts/space_ray_bullet.gd" id="1_ogk50"]
+[ext_resource type="Texture2D" uid="uid://3mmtnsqy636k" path="res://assets/Capture.PNG" id="1_wj6bw"]
+
+[node name="SpaceRayBullet" type="Area2D"]
+z_index = 7
+scale = Vector2(0.29999977, 0.35999984)
+collision_layer = 8
+script = ExtResource("1_ogk50")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.41048035, 0.20454545)
+texture = ExtResource("1_wj6bw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-46, -9, 47, -9, 47, 8, -47, 8)
