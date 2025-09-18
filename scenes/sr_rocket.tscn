@@ -71,18 +71,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/ProgressBar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_p7f1k"]
 resource_name = "default"
@@ -139,18 +127,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ovsy0"]
 resource_name = "health_bar_fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/ProgressBar:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ovsy0"]
 _data = {
@@ -176,7 +152,6 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("1_p7f1k")
 
 [node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
-modulate = Color(1, 1, 1, 0)
 offset_left = -132.65805
 offset_top = -177.4739
 offset_right = 67.83798

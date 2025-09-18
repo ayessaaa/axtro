@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("e"):
 		sprite_2d.play("explosion")
 		
 	if sprite_2d.animation != "explosion":

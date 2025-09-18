@@ -54,6 +54,7 @@ var selected_sound_played = false
 var space_ray_weapon = "laser"
 var space_ray_game_time = 0.0
 var space_ray_hearts = 3
+var space_ray_gameover_screen = false
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5

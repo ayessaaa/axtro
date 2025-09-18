@@ -21,6 +21,11 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var sprite = get_node("SpaceRayCharacterArea/Sprite2D")
 @onready var animation = get_node("SpaceRayCharacterArea/AnimationPlayer")
 
+@onready var laser_sound = get_parent().get_node("SoundEffects/Laser")
+
+var weapons_arr = ["laser", "bomb", "bullet"]
+var weapon_index = 0
+
 func _physics_process(delta: float) -> void:
 	visible = Global.is_space_ray
 	if Global.dead:
@@ -36,9 +41,15 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("q"):
 		#Global.space_ray_weapon = "bomb"
-		Global.space_ray_weapon = "bullet"
+		if weapon_index < len(weapons_arr)-1:
+			weapon_index += 1
+		else:
+			weapon_index = 0
+		Global.space_ray_weapon = weapons_arr[weapon_index]
+		if Global.space_ray_weapon == "laser":
+			laser_sound.play()
 		
-	if Input.is_action_just_pressed("e") and Global.space_ray_weapon == "bomb":
+	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bomb":
 		spawn_shoot(position, BOMB)
 	
 	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":

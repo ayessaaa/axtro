@@ -8,5 +8,6 @@ func _process(delta: float) -> void:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
-	if Global.space_ray_weapon != "laser":
-		queue_free()
+	#if Global.space_ray_weapon != "laser":
+		#queue_free()
+	visible = Global.space_ray_weapon == "laser"

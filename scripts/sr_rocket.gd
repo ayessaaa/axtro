@@ -34,5 +34,5 @@ func _on_area_entered(area: Area2D) -> void:
 			queue_free()
 	if area.type == "bullet":
 		queue_free()
-	if area.type == "laser":
+	if area.type == "laser" and Global.space_ray_weapon == "laser":
 		health -= 10

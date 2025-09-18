@@ -1,7 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://drr1goqcjt5i1"]
+[gd_scene load_steps=8 format=3 uid="uid://drr1goqcjt5i1"]
 
 [ext_resource type="Script" uid="uid://cqjic6jly7vwr" path="res://scripts/space_ray_bullet.gd" id="1_ogk50"]
-[ext_resource type="Texture2D" uid="uid://3mmtnsqy636k" path="res://assets/Capture.PNG" id="1_wj6bw"]
+[ext_resource type="Texture2D" uid="uid://daucn03ycin12" path="res://assets/space_ray_assets/IMG_1846.PNG" id="2_c477v"]
+[ext_resource type="Texture2D" uid="uid://bd51bk8srcfwo" path="res://assets/space_ray_assets/IMG_1847.PNG" id="3_sho7v"]
+[ext_resource type="Texture2D" uid="uid://byeghou6sruha" path="res://assets/space_ray_assets/IMG_1848.PNG" id="4_p0xyk"]
+[ext_resource type="Texture2D" uid="uid://bt3h2y2cgmcef" path="res://assets/space_ray_assets/IMG_1849.PNG" id="5_6ceko"]
+[ext_resource type="Texture2D" uid="uid://c21dvvi60lj8j" path="res://assets/space_ray_assets/IMG_1850.PNG" id="6_loohk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l6xq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c477v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sho7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p0xyk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6ceko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_loohk")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 4.0
+}]
 
 [node name="SpaceRayBullet" type="Area2D"]
 z_index = 7
@@ -9,9 +41,16 @@ scale = Vector2(0.29999977, 0.35999984)
 collision_layer = 8
 script = ExtResource("1_ogk50")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.41048035, 0.20454545)
-texture = ExtResource("1_wj6bw")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5.555558)
+scale = Vector2(1.2560613, 1.0702696)
+sprite_frames = SubResource("SpriteFrames_1l6xq")
+animation = &"loop"
+autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-46, -9, 47, -9, 47, 8, -47, 8)
+position = Vector2(35.00001, 3.4926462)
+scale = Vector2(0.86436206, 1.4297391)
+polygon = PackedVector2Array(-46, -9, 47, -9, 47.00003, -0.05644989, 47, 8, 8.917725, 8, -47, 8)
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

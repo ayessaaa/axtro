@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=38 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://d35180c1kam1s" path="res://scenes/start_screen.tscn" id="30_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://dlacxrd4fdqch" path="res://scenes/space_ray.tscn" id="30_wljb1"]
 [ext_resource type="PackedScene" uid="uid://nlrc2nopu13v" path="res://scenes/ocean_rhythm.tscn" id="34_gxtfn"]
+[ext_resource type="Texture2D" uid="uid://b6vbfqsqahk5x" path="res://assets/space_ray_assets/IMG_1855.PNG" id="36_twgab"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -229,6 +230,13 @@ position = Vector2(46, 615)
 [node name="OceanRhythm" parent="." instance=ExtResource("34_gxtfn")]
 
 [node name="StartScreen" parent="." instance=ExtResource("30_sgl2t")]
+
+[node name="Home" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(1090, 593)
+scale = Vector2(0.48379663, 0.48379657)
+texture = ExtResource("36_twgab")
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

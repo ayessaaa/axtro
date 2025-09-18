@@ -2,6 +2,7 @@ extends Node
 
 @onready var bg_music: AudioStreamPlayer2D = $BgMusic
 @onready var angle_dash_bg: AudioStreamPlayer2D = $AngleDashBg
+@onready var space_ray_bg: AudioStreamPlayer2D = $SpaceRayMusic
 @onready var new_mode_sound: AudioStreamPlayer2D = $NewModeSound
 @onready var selected_sound: AudioStreamPlayer2D = $SelectedSound
 @onready var ocean_rhythm_music: AudioStreamPlayer2D = $OceanRhythmMusic
@@ -27,7 +28,8 @@ func _ready() -> void:
 		if Global.marathon:
 			angle_dash_bg.play()
 		progress_area_animation.play("fade_in_angle_dash")
-		
+	elif Global.is_space_ray:
+		space_ray_bg.play()
 	else:
 		bg_music.play()
 		progress_area_animation.play("fade_in")
@@ -40,7 +42,7 @@ func _process(delta: float) -> void:
 	score_sprite_2d.visible = !Global.start_screen
 	
 	if Global.dead:
-		if Global.is_angle_dash:
+		if Global.is_angle_dash or Global.is_space_ray:
 			pass
 		else:
 			if Input.is_action_pressed("enter"):
