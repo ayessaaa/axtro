@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjsf2wjjp3ong"]
+[gd_scene load_steps=18 format=3 uid="uid://cjsf2wjjp3ong"]
 
 [ext_resource type="Script" uid="uid://dd1fi515pj7ug" path="res://scripts/space_ray_character.gd" id="1_lhfhl"]
 [ext_resource type="Texture2D" uid="uid://vxj7vbxhuhiw" path="res://assets/space_ray_assets/ufo/IMG_1764.PNG" id="3_6f656"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://pgl5afbm74w2" path="res://assets/space_ray_assets/ufo/IMG_1788.PNG" id="8_4jepu"]
 [ext_resource type="Texture2D" uid="uid://dlq68b7f48uqo" path="res://assets/space_ray_assets/ufo/IMG_1770.PNG" id="9_htfy8"]
 [ext_resource type="Texture2D" uid="uid://bos6j124srd2g" path="res://assets/space_ray_assets/ufo/IMG_1790.PNG" id="10_w02di"]
+[ext_resource type="AudioStream" uid="uid://dscmw7fimetkd" path="res://assets/music/retro-hurt-1-236672.mp3" id="12_p004b"]
 
 [sub_resource type="Animation" id="Animation_vqtqb"]
 length = 0.001
@@ -391,7 +392,7 @@ script = ExtResource("1_lhfhl")
 
 [node name="SpaceRayLaser" parent="." instance=ExtResource("3_ihlob")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(1418, -31)
+position = Vector2(109.16675, -20.833332)
 scale = Vector2(1.32, 0.76)
 
 [node name="SpaceRayCharacterArea" type="Area2D" parent="."]
@@ -416,5 +417,8 @@ z_index = 7
 polygon = PackedVector2Array(-69, -18, -64, -40, -42, -66, -10, -82, 26, -78, 63, -60, 77, -39, 85, -22, 97, -22, 132, -7, 120, 10, 74, 27, 37, 42, -7, 49, -79, 28, -117, 10, -109, -5, -77, -15)
 
 [node name="Shooters" type="Node" parent="."]
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_p004b")
 
 [connection signal="area_entered" from="SpaceRayCharacterArea" to="." method="_on_space_ray_character_area_area_entered"]

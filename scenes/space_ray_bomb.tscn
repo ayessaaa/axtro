@@ -1,8 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmomohy8s72lb"]
+[gd_scene load_steps=19 format=3 uid="uid://dmomohy8s72lb"]
 
 [ext_resource type="Script" uid="uid://cgduw3gsuf32o" path="res://scripts/space_ray_bomb.gd" id="1_n5pj8"]
 [ext_resource type="Texture2D" uid="uid://d77ub31lqyft" path="res://assets/space_ray_assets/IMG_1852.PNG" id="2_cov6g"]
 [ext_resource type="Texture2D" uid="uid://ctwfh0di5dyup" path="res://assets/space_ray_assets/Free Smoke Fx  Pixel 06.png" id="3_cov6g"]
+[ext_resource type="Texture2D" uid="uid://cha656yiqpwt2" path="res://assets/space_ray_assets/image (23).png" id="3_wpj05"]
+[ext_resource type="Texture2D" uid="uid://d70eoe6y5den" path="res://assets/space_ray_assets/image (24).png" id="4_dhe7l"]
+[ext_resource type="Texture2D" uid="uid://b8dbixvbdtn1j" path="res://assets/space_ray_assets/image (25).png" id="5_xy5eq"]
+[ext_resource type="Texture2D" uid="uid://blv52bkphsxmr" path="res://assets/space_ray_assets/image (26).png" id="6_cq0v6"]
+[ext_resource type="Texture2D" uid="uid://n8bjjdhwxd3d" path="res://assets/space_ray_assets/image (27).png" id="7_f3vaa"]
+[ext_resource type="Texture2D" uid="uid://bj2nq8n3fga73" path="res://assets/space_ray_assets/image (28).png" id="8_h55y7"]
+[ext_resource type="Texture2D" uid="uid://dauehe7t14oag" path="res://assets/space_ray_assets/image (29).png" id="9_c6pfo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dhe7l"]
 atlas = ExtResource("3_cov6g")
@@ -33,6 +40,27 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_cov6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wpj05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dhe7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xy5eq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cq0v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f3vaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h55y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c6pfo")
 }],
 "loop": true,
 "name": &"default",
@@ -66,7 +94,7 @@ animations = [{
 radius = 17.8949
 
 [node name="SpaceRayBomb" type="Area2D"]
-z_index = 7
+z_index = 6
 scale = Vector2(0.780285, 0.780285)
 collision_mask = 8
 script = ExtResource("1_n5pj8")
@@ -77,6 +105,7 @@ position = Vector2(2.5631654, -14.097413)
 scale = Vector2(0.6458129, 0.645813)
 sprite_frames = SubResource("SpriteFrames_dhe7l")
 autoplay = "default"
+frame_progress = 0.65668637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 7

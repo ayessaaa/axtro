@@ -23,15 +23,21 @@ z_index = 6
 collision_layer = 8
 script = ExtResource("1_wjmgq")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1029, -1)
+scale = Vector2(0.87118644, 1)
+texture = ExtResource("1_0didw")
+
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, 0)
+position = Vector2(1039.5, 3)
+scale = Vector2(0.9851695, 1)
 sprite_frames = SubResource("SpriteFrames_s3oek")
 autoplay = "default"
 frame_progress = 0.760189
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(1038.1001, -3.5)
 polygon = PackedVector2Array(-1040, -8, 1015, -7, 1014, 7, -1042, 3)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]

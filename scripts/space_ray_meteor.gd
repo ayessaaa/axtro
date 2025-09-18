@@ -3,6 +3,7 @@ extends Area2D
 @export var type = "enemy_meteor"
 
 @onready var character_animation = get_parent().get_parent().get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
+@onready var hurt_sound = get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
 
 var x_speed 
 var y_speed
@@ -24,5 +25,6 @@ func _on_area_entered(area: Area2D) -> void:
 		if Global.space_ray_hearts > 0:
 			Global.space_ray_hearts -= 1
 			character_animation.play("hurt")
+			hurt_sound.play()
 			queue_free()
 		
