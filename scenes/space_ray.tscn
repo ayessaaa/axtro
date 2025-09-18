@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=18 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://benld2bhd07pu" path="res://scenes/sr_saturn.tscn" id="6_tt1cq"]
 [ext_resource type="PackedScene" uid="uid://b5vsx8qegt3td" path="res://scenes/sr_moon.tscn" id="7_e4p76"]
 [ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
+[ext_resource type="AudioStream" uid="uid://d02gmwgemsm6q" path="res://assets/music/retro-game-shot-152052.mp3" id="8_s6bc4"]
 [ext_resource type="Script" uid="uid://blaadrsnmp4kb" path="res://scripts/space_ray_hearts_node.gd" id="9_e4p76"]
+[ext_resource type="AudioStream" uid="uid://c2xsb43mbpt0o" path="res://assets/music/retro-explode-1-236678 (mp3cut.net).mp3" id="9_plxqw"]
 [ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="10_ju80h"]
 [ext_resource type="Texture2D" uid="uid://yeklntc6mcjp" path="res://assets/space_ray_assets/IMG_1851.PNG" id="11_ju80h"]
@@ -114,6 +116,12 @@ position = Vector2(179, 154)
 [node name="Laser" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("4_ovt60")
 volume_db = -15.0
+
+[node name="BulletSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("8_s6bc4")
+
+[node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("9_plxqw")
 
 [node name="Enemies" type="Node" parent="."]
 

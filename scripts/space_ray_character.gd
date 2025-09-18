@@ -22,8 +22,9 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var animation = get_node("SpaceRayCharacterArea/AnimationPlayer")
 
 @onready var laser_sound = get_parent().get_node("SoundEffects/Laser")
+@onready var bullet_sound = get_parent().get_node("SoundEffects/BulletSound")
 
-var weapons_arr = ["laser", "bomb", "bullet"]
+var weapons_arr = ["bomb", "bullet"]
 var weapon_index = 0
 
 func _physics_process(delta: float) -> void:
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		spawn_shoot(position, BOMB)
 	
 	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
+		bullet_sound.play()
 		if rotation < 0:
 			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET)
 		else:

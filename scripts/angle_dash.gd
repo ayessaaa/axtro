@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 			
 	if Global.is_angle_dash and !Global.dead and Global.direction != 0:
 		timer += delta
-		if timer >= 3:
+		if timer >= 4:
 			timer = 0
 			var random_int = randi_range(0, len(obstacles_array)-1)
 			spawn_obstacle(obstacles_array[random_int], obs_position_y_array[random_int])

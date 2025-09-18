@@ -14,9 +14,9 @@ func _process(delta: float) -> void:
 		return
 	if Global.start_screen or Global.is_space_ray:
 		return
-	if Global.free_regular_mode_objects:
-		queue_free()
-		return
+	#if Global.free_regular_mode_objects:
+		#queue_free()
+		#return
 	if available:
 		sprite_2d.modulate = Color(1,1,1,1)
 	else:

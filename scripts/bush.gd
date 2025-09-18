@@ -17,8 +17,8 @@ func _process(delta: float) -> void:
 		return
 	if Global.dead or Global.is_space_ray:
 		return
-	if Global.free_regular_mode_objects or Global.start_screen:
-		return
+	#if Global.free_regular_mode_objects or Global.start_screen:
+		#return
 	#print("returningggg")
 	
 	if position.x <= -150:

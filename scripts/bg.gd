@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.visible = !Global.free_regular_mode_objects
+	self.visible = Global.marathon or Global.is_mecha_flight
 		

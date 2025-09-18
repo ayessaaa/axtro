@@ -23,9 +23,10 @@ var texture
 var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
 
 func _process(delta: float) -> void:
-	if Global.free_regular_mode_objects:
-		self.queue_free()
-		return
+	pass
+	#if Global.free_regular_mode_objects:
+		#self.queue_free()
+		#return
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:

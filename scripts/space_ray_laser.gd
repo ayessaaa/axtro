@@ -15,10 +15,10 @@ func _process(delta: float) -> void:
 		#queue_free()
 	visible = Global.space_ray_weapon == "laser"
 	#scale.x = .25
-	if Global.laser_enter:
-		var length = character.position.distance_to(Global.rocket_position_laser)
-		scale.x = length / sprite_2d_2.texture.get_size().x 
-		print(scale.x)
+	#if Global.laser_enter:
+		#var length = character.position.distance_to(Global.rocket_position_laser)
+		#scale.x = length / sprite_2d_2.texture.get_size().x 
+		#print(scale.x)
 		#print("laser running")
 	#if !Global.laser_enter:
 		#scale.x = 1

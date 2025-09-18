@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 	if Global.dead or Global.is_space_ray:
 		return
 	#speed += 1 * delta
-	if Global.free_regular_mode_objects or Global.start_screen:
-		return
+	#if Global.free_regular_mode_objects or Global.start_screen:
+		#return
 	if small_meteor_fall:
 		velocity.y += GRAVITY * delta
 		move_and_slide()

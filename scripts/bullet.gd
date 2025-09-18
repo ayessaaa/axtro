@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_space_ray:
 		return
-	if Global.free_regular_mode_objects:
-		queue_free()
-		return
+	#if Global.free_regular_mode_objects:
+		#queue_free()
+		#return
 	if position.x > screen_size.x+50:
 		queue_free()
 	position.x += Global.object_speed * delta * 200

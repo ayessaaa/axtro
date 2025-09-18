@@ -43,12 +43,12 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bullet":
 		queue_free()
 	if area.type == "laser" and Global.space_ray_weapon == "laser":
-		Global.laser_enter = true
-		Global.rocket_position_laser = position
+		#Global.laser_enter = true
+		#Global.rocket_position_laser = position
 		health -= 10
 
 
-func _on_area_exited(area: Area2D) -> void:
-	if area.type == "laser" and Global.space_ray_weapon == "laser":
-		Global.laser_enter = false
-		#Global.rocket_position_laser = Vector2(0,0)
+#func _on_area_exited(area: Area2D) -> void:
+	#if area.type == "laser" and Global.space_ray_weapon == "laser":
+		#Global.laser_enter = false
+		##Global.rocket_position_laser = Vector2(0,0)

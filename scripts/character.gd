@@ -44,9 +44,9 @@ var up_sub_counter2 = 0
 func _process(delta: float) -> void:
 	if Global.dead or Global.start_screen:
 		return
-	if Global.free_regular_mode_objects:
-		queue_free()
-		return
+	#if Global.free_regular_mode_objects:
+		##queue_free()
+		#return
 	if Global.is_angle_dash or Global.is_space_ray:
 		return
 	if !Global.marathon and !Global.is_mecha_flight:

@@ -232,7 +232,6 @@ position = Vector2(46, 615)
 [node name="StartScreen" parent="." instance=ExtResource("30_sgl2t")]
 
 [node name="Home" type="Sprite2D" parent="."]
-visible = false
 z_index = 100
 position = Vector2(1090, 593)
 scale = Vector2(0.48379663, 0.48379657)

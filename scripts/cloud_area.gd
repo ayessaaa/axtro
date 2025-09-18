@@ -15,9 +15,9 @@ func _process(delta: float) -> void:
 		return
 	if Global.dead or Global.start_screen or Global.is_space_ray:
 		return
-	if Global.free_regular_mode_objects:
-		queue_free()
-		return
+	#if Global.free_regular_mode_objects:
+		#queue_free()
+		#return
 	updown_cooldown -= delta
 	position.y += up_or_down
 	rotation += rotate * .005

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://canf54estujb8"]
+[gd_scene load_steps=6 format=3 uid="uid://canf54estujb8"]
 
 [ext_resource type="Texture2D" uid="uid://c5ogvyromyael" path="res://assets/space_ray_assets/IMG_1761 - Copy.PNG" id="1_0didw"]
 [ext_resource type="Script" uid="uid://bhm61vo43hevr" path="res://scripts/space_ray_laser.gd" id="1_wjmgq"]
 [ext_resource type="Texture2D" uid="uid://mngcihx8la4r" path="res://assets/space_ray_assets/IMG_1761.PNG" id="2_g4wk4"]
+[ext_resource type="Script" uid="uid://dj7v4sih2n6eq" path="res://scripts/space_ray_ray_cast_2d.gd" id="4_lj1n2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s3oek"]
 animations = [{
@@ -39,5 +40,13 @@ frame_progress = 0.760189
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1038.1001, -3.5)
 polygon = PackedVector2Array(-1040, -8, 1015, -7, 1014, 7, -1042, 3)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+z_index = 6
+target_position = Vector2(2054, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("4_lj1n2")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
