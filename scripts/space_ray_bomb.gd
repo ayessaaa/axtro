@@ -13,13 +13,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("e"):
+	if Input.is_action_just_pressed("shoot") and Global.theres_bomb:
 		sprite_2d.play("explosion")
+		
 		
 	if sprite_2d.animation != "explosion":
 		position += direction * speed * delta
+		
+	Global.theres_bomb = true
 	
 
 
 func _on_sprite_2d_animation_finished() -> void:
+	Global.theres_bomb = false
 	queue_free()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmomohy8s72lb"]
+[gd_scene load_steps=17 format=3 uid="uid://dmomohy8s72lb"]
 
 [ext_resource type="Script" uid="uid://cgduw3gsuf32o" path="res://scripts/space_ray_bomb.gd" id="1_n5pj8"]
 [ext_resource type="Texture2D" uid="uid://d77ub31lqyft" path="res://assets/space_ray_assets/IMG_1852.PNG" id="2_cov6g"]
-[ext_resource type="Texture2D" uid="uid://ctwfh0di5dyup" path="res://assets/space_ray_assets/Free Smoke Fx  Pixel 06.png" id="3_cov6g"]
 [ext_resource type="Texture2D" uid="uid://cha656yiqpwt2" path="res://assets/space_ray_assets/image (23).png" id="3_wpj05"]
 [ext_resource type="Texture2D" uid="uid://d70eoe6y5den" path="res://assets/space_ray_assets/image (24).png" id="4_dhe7l"]
 [ext_resource type="Texture2D" uid="uid://b8dbixvbdtn1j" path="res://assets/space_ray_assets/image (25).png" id="5_xy5eq"]
@@ -10,30 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://n8bjjdhwxd3d" path="res://assets/space_ray_assets/image (27).png" id="7_f3vaa"]
 [ext_resource type="Texture2D" uid="uid://bj2nq8n3fga73" path="res://assets/space_ray_assets/image (28).png" id="8_h55y7"]
 [ext_resource type="Texture2D" uid="uid://dauehe7t14oag" path="res://assets/space_ray_assets/image (29).png" id="9_c6pfo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhe7l"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(640, 4480, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xy5eq"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(1920, 4480, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cq0v6"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(3200, 4480, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f3vaa"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(4480, 4480, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h55y7"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(5760, 4480, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6pfo"]
-atlas = ExtResource("3_cov6g")
-region = Rect2(7040, 4480, 640, 640)
+[ext_resource type="Texture2D" uid="uid://djs2om6iqv4oy" path="res://assets/space_ray_assets/IMG_1887.PNG" id="10_h55y7"]
+[ext_resource type="Texture2D" uid="uid://byt4335af4dfj" path="res://assets/space_ray_assets/IMG_1888.PNG" id="11_c6pfo"]
+[ext_resource type="Texture2D" uid="uid://bsulx0vgmxyj0" path="res://assets/space_ray_assets/IMG_1890.PNG" id="13_v0qf4"]
+[ext_resource type="Texture2D" uid="uid://cfh3jnm4sc7h3" path="res://assets/space_ray_assets/IMG_1891.PNG" id="14_danrh"]
+[ext_resource type="Texture2D" uid="uid://bfo5tav6vynck" path="res://assets/space_ray_assets/IMG_1892.PNG" id="15_t4lwm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dhe7l"]
 animations = [{
@@ -68,26 +48,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dhe7l")
+"texture": ExtResource("10_h55y7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xy5eq")
+"texture": ExtResource("11_c6pfo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cq0v6")
+"texture": ExtResource("13_v0qf4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f3vaa")
+"texture": ExtResource("14_danrh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h55y7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c6pfo")
+"texture": ExtResource("15_t4lwm")
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i4j1y"]
@@ -104,8 +81,8 @@ z_index = 7
 position = Vector2(2.5631654, -14.097413)
 scale = Vector2(0.6458129, 0.645813)
 sprite_frames = SubResource("SpriteFrames_dhe7l")
+animation = &"explosion"
 autoplay = "default"
-frame_progress = 0.65668637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 7

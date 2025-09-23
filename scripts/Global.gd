@@ -2,7 +2,7 @@ extends Node
 
 var screen_size 
 
-var score: int = 9
+var score: int = 0
 var next_mode_score = 0
 var meteor_speed: float = 4.0
 var speed = 400.0
@@ -57,6 +57,7 @@ var space_ray_hearts = 3
 var space_ray_gameover_screen = false
 var rocket_position_laser = Vector2(0,0)
 var laser_enter = false
+var theres_bomb = false
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5

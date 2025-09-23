@@ -50,8 +50,9 @@ func _physics_process(delta: float) -> void:
 		if Global.space_ray_weapon == "laser":
 			laser_sound.play()
 		
-	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bomb":
+	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bomb" and !Global.theres_bomb:
 		spawn_shoot(position, BOMB)
+		
 	
 	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
 		bullet_sound.play()
