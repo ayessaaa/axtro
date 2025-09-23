@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://crmwjuwjydhqw"]
+
+[ext_resource type="Script" uid="uid://dpwrvgppu0doh" path="res://scripts/space_ray_spike.gd" id="1_5m3re"]
+[ext_resource type="Texture2D" uid="uid://duid1083xpcd0" path="res://assets/ocean_rhythm_assets/IMG_1895.PNG" id="2_iwmxm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bffix"]
+radius = 7.0
+
+[node name="SpaceRaySpike" type="CharacterBody2D"]
+z_index = 6
+scale = Vector2(1.7599998, 1.7599998)
+collision_layer = 8
+script = ExtResource("1_5m3re")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.16237102, 0.16237102)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_iwmxm")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6.158735, 6.158735)
+shape = SubResource("CircleShape2D_bffix")

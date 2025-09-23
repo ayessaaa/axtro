@@ -6,6 +6,7 @@ extends Area2D
 @onready var hurt_sound = get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
 @onready var progress_bar: ProgressBar = $Sprite2D/ProgressBar
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var sprite_animation: AnimationPlayer = $AnimationPlayer
 
 var speed = 0
 var health = 100
@@ -39,16 +40,25 @@ func _on_area_entered(area: Area2D) -> void:
 			Global.space_ray_hearts -= 1
 			character_animation.play("hurt")
 			hurt_sound.play()
-			queue_free()
+			sprite_animation.play("hurt")
 	if area.type == "bullet":
-		queue_free()
+		sprite_animation.play("hurt")
+		#queue_free()
 	if area.type == "laser" and Global.space_ray_weapon == "laser":
 		#Global.laser_enter = true
 		#Global.rocket_position_laser = position
 		health -= 10
+	if area.type == "bomb":
+		print("bomb")
+		sprite_animation.play("hurt")
+		#queue_free()
 
 
 #func _on_area_exited(area: Area2D) -> void:
 	#if area.type == "laser" and Global.space_ray_weapon == "laser":
 		#Global.laser_enter = false
 		##Global.rocket_position_laser = Vector2(0,0)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

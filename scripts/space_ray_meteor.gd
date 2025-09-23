@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		return
 	position.y += y_speed
 	position.x -= x_speed
+	
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -27,4 +28,8 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			queue_free()
+	if area.type == "bullet":
+		queue_free()
+	if area.type == "bomb":
+		queue_free()
 		
