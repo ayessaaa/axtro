@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=18 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="10_ju80h"]
 [ext_resource type="Texture2D" uid="uid://yeklntc6mcjp" path="res://assets/space_ray_assets/IMG_1851.PNG" id="11_ju80h"]
-[ext_resource type="PackedScene" uid="uid://crmwjuwjydhqw" path="res://scenes/space_ray_spike.tscn" id="14_l2t3o"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -81,9 +80,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2t3o"]
-size = Vector2(1186, 10)
 
 [node name="SpaceRay" type="Node"]
 script = ExtResource("1_x4byx")
@@ -256,21 +252,5 @@ offset_bottom = 623.0
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 22
 text = "however, press 'q' to explore the current weapons "
-
-[node name="Walls" type="Node" parent="."]
-
-[node name="SpaceRaySpike" parent="Walls" instance=ExtResource("14_l2t3o")]
-position = Vector2(375, 268)
-scale = Vector2(2.5942774, 2.5942774)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Walls/SpaceRaySpike"]
-position = Vector2(-144.54892, -98.29327)
-scale = Vector2(0.3854638, 0.3854638)
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SpaceRaySpike/StaticBody2D2"]
-z_index = 7
-position = Vector2(583, -5)
-shape = SubResource("RectangleShape2D_l2t3o")
 
 [connection signal="finished" from="SoundEffects/Laser" to="." method="_on_laser_finished"]

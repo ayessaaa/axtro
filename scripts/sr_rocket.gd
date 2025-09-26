@@ -49,7 +49,6 @@ func _on_area_entered(area: Area2D) -> void:
 		#Global.rocket_position_laser = position
 		health -= 10
 	if area.type == "bomb":
-		print("bomb")
 		sprite_animation.play("hurt")
 		#queue_free()
 

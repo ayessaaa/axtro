@@ -5,7 +5,8 @@ extends Area2D
 @onready var laser_beam: AudioStreamPlayer2D = $LaserBeam
 @onready var gun: Area2D = $Gun
 @onready var health_area: Area2D = $Health
-@onready var health_color_rect: ColorRect = $Health/ColorRect
+#@onready var health_color_rect: ColorRect = $Health/ColorRect
+@onready var progress_bar: ProgressBar = $Health/ProgressBar
 
 const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 @onready var fireballs: Node = $Fireballs
@@ -19,16 +20,22 @@ var timer = 0.0
 var health_rect_width
 
 func _ready() -> void:
-	health_rect_width = health_color_rect.size.x
+	progress_bar.value = health
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area.type)
-	if area.type == "laser":
-		laser_beam.play()
+	if area.type == "bullet":
+		health -= 10
+		print(health)
+	elif  area.type == "red_bullet":
+		health -= 20
+		print(health)
+	#if area.type == "laser":
+		#laser_beam.play()
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.type == "laser":
-		laser_beam.stop()
+	pass
+	#if area.type == "laser":
+		#laser_beam.stop()
 		
 
 func _process(delta: float) -> void:
@@ -42,27 +49,27 @@ func _process(delta: float) -> void:
 	
 	position = Vector2(500, 500)
 		
-	for area in get_overlapping_areas():
-		if area.type == "laser":
-			health -= 10 *delta
-			enemy.play("hurt")
-		else:
-			enemy.play("default")
+	#for area in get_overlapping_areas():
+		#if area.type == "bullet":
+			##health -= 10 *delta
+			##enemy.play("hurt")
+			#health -= 20
+		#else:
+			#enemy.play("default")
 			
 	if len(get_overlapping_areas()) <= 0:
 		enemy.play("default")
 			#print(health)
-	if health < 0:
+	if health <= 0:
 		queue_free()
 		
 	timer += delta
 	if timer >= Global.spawn_interval and Global.meteor_speed != 0:
-		print("spawn")
 		timer = 0
 		spawn_fireball(gun.global_position)
-		fireball_sound.play()
+		#fireball_sound.play()
 		
-	health_color_rect.size.x = health_rect_width * (health/100)
+	progress_bar.value = health
 		
 
 func spawn_fireball(pos):

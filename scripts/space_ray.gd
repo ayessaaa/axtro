@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 			gameover_screen.play_animation("default")
 		if Input.is_action_pressed("enter"):
 			Global.space_ray_hearts = 3
-			Global.space_ray_weapon = "laser"
+			Global.space_ray_weapon = "bullet"
 			Global.space_ray_gameover_screen = false
 			Global.dead = false
 			Global.is_space_ray = true
@@ -87,7 +87,6 @@ func _process(delta: float) -> void:
 		
 	timer += delta
 	if timer >= bg_spawn_interval:
-		print("spawn")
 		timer = 0
 		spawn_bg_obj(Vector2(1500, randf_range(50, 500)), bg_obj_array[bg_obj_index])
 		if bg_obj_index < len(bg_obj_array)-1:
@@ -106,7 +105,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 100:
+	if gibbior_timer >= 1:
 		if !gibbior_spawned:
 			spawn_gibbior()
 			gibbior_spawned = true

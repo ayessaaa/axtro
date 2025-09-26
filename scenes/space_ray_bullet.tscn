@@ -1,23 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://drr1goqcjt5i1"]
+[gd_scene load_steps=10 format=3 uid="uid://drr1goqcjt5i1"]
 
 [ext_resource type="Script" uid="uid://cqjic6jly7vwr" path="res://scripts/space_ray_bullet.gd" id="1_ogk50"]
-[ext_resource type="Texture2D" uid="uid://daucn03ycin12" path="res://assets/space_ray_assets/IMG_1846.PNG" id="2_c477v"]
-[ext_resource type="Texture2D" uid="uid://bd51bk8srcfwo" path="res://assets/space_ray_assets/IMG_1847.PNG" id="3_sho7v"]
-[ext_resource type="Texture2D" uid="uid://byeghou6sruha" path="res://assets/space_ray_assets/IMG_1848.PNG" id="4_p0xyk"]
-[ext_resource type="Texture2D" uid="uid://bt3h2y2cgmcef" path="res://assets/space_ray_assets/IMG_1849.PNG" id="5_6ceko"]
-[ext_resource type="Texture2D" uid="uid://c21dvvi60lj8j" path="res://assets/space_ray_assets/IMG_1850.PNG" id="6_loohk"]
+[ext_resource type="Texture2D" uid="uid://qugplw2q5jt2" path="res://assets/space_ray_assets/IMG_1900.PNG" id="2_p0xyk"]
+[ext_resource type="Texture2D" uid="uid://p2x7o3nymq5n" path="res://assets/space_ray_assets/IMG_1901.PNG" id="3_6ceko"]
+[ext_resource type="Texture2D" uid="uid://jljv5et5kxg5" path="res://assets/space_ray_assets/IMG_1902.PNG" id="4_loohk"]
+[ext_resource type="Texture2D" uid="uid://bdajwysw5q6xs" path="res://assets/space_ray_assets/IMG_1903.PNG" id="5_1l6xq"]
+[ext_resource type="Texture2D" uid="uid://cqady5b33tvcn" path="res://assets/space_ray_assets/IMG_1905.PNG" id="6_eiowf"]
+[ext_resource type="Texture2D" uid="uid://di0k48uq0bqgu" path="res://assets/space_ray_assets/IMG_1904.PNG" id="7_i574j"]
+[ext_resource type="Texture2D" uid="uid://cj326tf6jvsoc" path="res://assets/space_ray_assets/IMG_1906.PNG" id="8_u1nhc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1l6xq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_c477v")
+"texture": ExtResource("2_p0xyk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_sho7v")
+"texture": ExtResource("3_6ceko")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_p0xyk")
+"texture": ExtResource("4_loohk")
 }],
 "loop": false,
 "name": &"default",
@@ -25,14 +27,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_6ceko")
+"texture": ExtResource("5_1l6xq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_loohk")
+"texture": ExtResource("6_eiowf")
 }],
 "loop": true,
 "name": &"loop",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i574j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u1nhc")
+}],
+"loop": true,
+"name": &"red_loop",
+"speed": 5.0
 }]
 
 [node name="SpaceRayBullet" type="Area2D"]
@@ -42,10 +55,10 @@ collision_layer = 8
 script = ExtResource("1_ogk50")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 5.555558)
+position = Vector2(16.66668, 11.111116)
 scale = Vector2(1.2560613, 1.0702696)
 sprite_frames = SubResource("SpriteFrames_1l6xq")
-animation = &"loop"
+animation = &"red_loop"
 autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
