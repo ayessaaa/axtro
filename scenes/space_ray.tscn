@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=23 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
 [ext_resource type="AudioStream" uid="uid://d1iyfyejn40o2" path="res://assets/music/space-distortion-1-225938_J7d3nb6Z.mp3" id="4_ovt60"]
-[ext_resource type="Script" uid="uid://b83u31t8a1ldx" path="res://scripts/space_ray_star.gd" id="5_87l4u"]
 [ext_resource type="PackedScene" uid="uid://benld2bhd07pu" path="res://scenes/sr_saturn.tscn" id="6_tt1cq"]
 [ext_resource type="PackedScene" uid="uid://b5vsx8qegt3td" path="res://scenes/sr_moon.tscn" id="7_e4p76"]
 [ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
@@ -14,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="10_ju80h"]
 [ext_resource type="Texture2D" uid="uid://yeklntc6mcjp" path="res://assets/space_ray_assets/IMG_1851.PNG" id="11_ju80h"]
-[ext_resource type="PackedScene" uid="uid://bxcb51gs0ytxw" path="res://scenes/space_ray_star.tscn" id="12_l2t3o"]
 [ext_resource type="AudioStream" uid="uid://byo2gd5f0dgkc" path="res://assets/music/8-bit-melody-loop-37872.mp3" id="12_qfd3k"]
 [ext_resource type="Script" uid="uid://otmrrujhqcxq" path="res://scripts/space_ray_score.gd" id="16_tbhyd"]
 
@@ -78,6 +76,67 @@ _data = {
 &"fade_in": SubResource("Animation_1hfli")
 }
 
+[sub_resource type="Animation" id="Animation_87l4u"]
+resource_name = "new_weapon"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.32062918, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.20903262, 0.21759346), Vector2(0.25178477, 0.2620965), Vector2(0.209, 0.209)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NameLabel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.32062918, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2045238, 1.2045238), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tbhyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.20903262, 0.21759346)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NameLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfd3k"]
+_data = {
+&"RESET": SubResource("Animation_tbhyd"),
+&"new_weapon": SubResource("Animation_87l4u")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4p76"]
 bg_color = Color(0.396, 0.51500005, 0.6, 0.81960785)
 corner_radius_top_left = 8
@@ -105,12 +164,6 @@ libraries = {
 }
 
 [node name="Stars" type="Node" parent="."]
-
-[node name="SpaceRayStar" parent="Stars" instance=ExtResource("12_l2t3o")]
-visible = false
-z_index = 7
-position = Vector2(193, 315)
-script = ExtResource("5_87l4u")
 
 [node name="BgObjects" type="Node" parent="."]
 
@@ -165,51 +218,56 @@ frame_progress = 0.5480585
 
 [node name="CurrentWeaponLabel" type="Label" parent="CurrentWeapon"]
 z_index = 6
-offset_left = 22.0
-offset_top = 552.0
-offset_right = 151.0
-offset_bottom = 575.0
+offset_left = 17.997326
+offset_top = 558.0
+offset_right = 152.99733
+offset_bottom = 581.0
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 24
 text = "current weapon"
 
 [node name="WeaponSprite" type="Sprite2D" parent="CurrentWeapon"]
 z_index = 6
-position = Vector2(38, 584)
+position = Vector2(35.000004, 597)
 scale = Vector2(0.20903262, 0.21759346)
 texture = ExtResource("11_ju80h")
 
 [node name="NameLabel" type="Label" parent="CurrentWeapon"]
 z_index = 6
-offset_left = 63.0
-offset_top = 578.0
-offset_right = 111.0
-offset_bottom = 601.0
+offset_left = 64.138
+offset_top = 585.7547
+offset_right = 131.138
+offset_bottom = 610.7547
 theme_override_fonts/font = ExtResource("10_ju80h")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 34
 text = "LASER"
 
 [node name="DamageLabel" type="Label" parent="CurrentWeapon"]
 z_index = 6
-offset_left = 23.0
-offset_top = 607.0
-offset_right = 120.0
-offset_bottom = 630.0
+offset_left = 21.0
+offset_top = 620.0
+offset_right = 118.0
+offset_bottom = 643.0
 theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 19
-text = "damage: 50"
+text = "dmg: 50"
 
-[node name="DamageLabel2" type="Label" parent="CurrentWeapon"]
+[node name="CooldownLabel" type="Label" parent="CurrentWeapon"]
 z_index = 6
-offset_left = 23.0
-offset_top = 621.0
-offset_right = 120.0
-offset_bottom = 644.0
+offset_left = 93.0
+offset_top = 620.0
+offset_right = 190.0
+offset_bottom = 643.0
 theme_override_colors/font_color = Color(0.23137255, 0.3647059, 0.7882353, 1)
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 19
-text = "cooldown: -"
+text = "cooldown: one bomb at a time"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CurrentWeapon"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfd3k")
+}
 
 [node name="NextWeapon" type="Node" parent="."]
 
@@ -249,6 +307,7 @@ theme_override_font_sizes/font_size = 25
 text = "???"
 
 [node name="WIP" type="Label" parent="NextWeapon"]
+visible = false
 z_index = 6
 offset_left = 362.0
 offset_top = 581.0
@@ -259,6 +318,7 @@ theme_override_font_sizes/font_size = 20
 text = "weapons & automatic weapon switch are still in progress!"
 
 [node name="WIP2" type="Label" parent="NextWeapon"]
+visible = false
 z_index = 6
 offset_left = 373.0
 offset_top = 600.0

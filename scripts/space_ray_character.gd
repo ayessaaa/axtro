@@ -24,7 +24,13 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var laser_sound = get_parent().get_node("SoundEffects/Laser")
 @onready var bullet_sound = get_parent().get_node("SoundEffects/BulletSound")
 
+@onready var weapon_text_animation = get_parent().get_node("CurrentWeapon/AnimationPlayer")
+@onready var damage_label: Label = $"../CurrentWeapon/DamageLabel"
+@onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
+
 var weapons_arr = ["bomb", "bullet"]
+var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"}, 
+					"bullet": {"dmg": "10", "cooldown" : "1s"}}
 var weapon_index = 0
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +47,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("q"):
-		#Global.space_ray_weapon = "bomb"
+		weapon_text_animation.play("new_weapon")
+		damage_label.text = "dmg: "+weapons_stats[weapons_arr[weapon_index]]["dmg"]
+		cooldown_label.text = "dmg: "+weapons_stats[weapons_arr[weapon_index]]["cooldown"]
 		if weapon_index < len(weapons_arr)-1:
 			weapon_index += 1
 		else:

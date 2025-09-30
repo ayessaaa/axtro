@@ -10,7 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	score_label.text = str(Global.score+ Global.angle_dash_score)
+	if Global.is_space_ray:
+		score_label.text = str(Global.space_ray_score)
+	else:
+		score_label.text = str(Global.score+ Global.angle_dash_score)
 	
 func play_animation(animation):
 	animation_player.play("dark_screen")

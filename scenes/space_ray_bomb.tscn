@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dmomohy8s72lb"]
+[gd_scene load_steps=22 format=3 uid="uid://dmomohy8s72lb"]
 
 [ext_resource type="Script" uid="uid://cgduw3gsuf32o" path="res://scripts/space_ray_bomb.gd" id="1_n5pj8"]
 [ext_resource type="Texture2D" uid="uid://d77ub31lqyft" path="res://assets/space_ray_assets/IMG_1852.PNG" id="2_cov6g"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfh3jnm4sc7h3" path="res://assets/space_ray_assets/IMG_1891.PNG" id="14_danrh"]
 [ext_resource type="AudioStream" uid="uid://xcc13p3se2y6" path="res://assets/music/explosion-8-bit-8-314694.mp3" id="15_h55y7"]
 [ext_resource type="Texture2D" uid="uid://bfo5tav6vynck" path="res://assets/space_ray_assets/IMG_1892.PNG" id="15_t4lwm"]
+[ext_resource type="AudioStream" uid="uid://dh4kgp2lvan4j" path="res://assets/music/retro-game-sfx-explosion-104422.mp3" id="16_c6pfo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dhe7l"]
 animations = [{
@@ -131,8 +132,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_c6pfo")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_h55y7")
+
+[node name="BombSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_c6pfo")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="finished" from="BombSound" to="." method="_on_bomb_sound_finished"]

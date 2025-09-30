@@ -38,7 +38,7 @@ var star_timer = 2.0
 @onready var weapon_sprite: Sprite2D = $CurrentWeapon/WeaponSprite
 @onready var name_label: Label = $CurrentWeapon/NameLabel
 @onready var damage_label: Label = $CurrentWeapon/DamageLabel
-@onready var damage_label_2: Label = $CurrentWeapon/DamageLabel2
+@onready var cooldown_label: Label = $CurrentWeapon/CooldownLabel
 @onready var wip: Label = $NextWeapon/WIP
 @onready var wip_2: Label = $NextWeapon/WIP2
 
@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	weapon_sprite.visible = Global.is_space_ray
 	name_label.visible = Global.is_space_ray
 	damage_label.visible = Global.is_space_ray
-	damage_label_2.visible = Global.is_space_ray
+	cooldown_label.visible = Global.is_space_ray
 	wip.visible = Global.is_space_ray
 	wip_2.visible = Global.is_space_ray
 	current_weapon_label.visible = Global.is_space_ray
@@ -71,9 +71,10 @@ func _process(delta: float) -> void:
 			death_sound.play()
 			Global.controls_tutorial = false
 			enemy_loop_sound.stop()
-			Global.space_ray_score = 0
 			gameover_screen.play_animation("default")
+			Global.theres_bomb = false
 		if Input.is_action_pressed("enter"):
+			Global.space_ray_score = 0
 			Global.space_ray_hearts = 3
 			Global.space_ray_weapon = "bullet"
 			Global.space_ray_gameover_screen = false
@@ -112,11 +113,17 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 1:
+	if gibbior_timer >= 10:
 		if !gibbior_spawned:
 			spawn_gibbior()
 			gibbior_spawned = true
 			enemy_loop_sound.play()
+			
+	star_timer += delta
+	if star_timer >= 2:
+		if randi_range(0, 5) < 1:
+			spawn_star(Vector2(randf_range(50, 1100), -100))
+		star_timer = 0
 			
 	progress_bar.value += delta * 3
 	
@@ -148,10 +155,10 @@ func spawn_enemy(pos, enemy_scene):
 	enemy.position = pos
 	enemies.add_child(enemy)
 	
-func spawn_star(pos, enemy_scene):
-	var enemy = enemy_scene.instantiate()
-	enemy.position = pos
-	enemies.add_child(enemy)
+func spawn_star(pos):
+	var star = STAR.instantiate()
+	star.position = pos
+	stars.add_child(star)
 
 
 func _on_enemy_loop_sound_finished() -> void:
