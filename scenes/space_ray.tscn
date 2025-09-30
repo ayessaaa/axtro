@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=22 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
 [ext_resource type="AudioStream" uid="uid://d1iyfyejn40o2" path="res://assets/music/space-distortion-1-225938_J7d3nb6Z.mp3" id="4_ovt60"]
+[ext_resource type="Script" uid="uid://b83u31t8a1ldx" path="res://scripts/space_ray_star.gd" id="5_87l4u"]
 [ext_resource type="PackedScene" uid="uid://benld2bhd07pu" path="res://scenes/sr_saturn.tscn" id="6_tt1cq"]
 [ext_resource type="PackedScene" uid="uid://b5vsx8qegt3td" path="res://scenes/sr_moon.tscn" id="7_e4p76"]
 [ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
@@ -13,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b2wa50487d282" path="res://scenes/space_ray_heart.tscn" id="10_e4p76"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="10_ju80h"]
 [ext_resource type="Texture2D" uid="uid://yeklntc6mcjp" path="res://assets/space_ray_assets/IMG_1851.PNG" id="11_ju80h"]
+[ext_resource type="PackedScene" uid="uid://bxcb51gs0ytxw" path="res://scenes/space_ray_star.tscn" id="12_l2t3o"]
+[ext_resource type="AudioStream" uid="uid://byo2gd5f0dgkc" path="res://assets/music/8-bit-melody-loop-37872.mp3" id="12_qfd3k"]
+[ext_resource type="Script" uid="uid://otmrrujhqcxq" path="res://scripts/space_ray_score.gd" id="16_tbhyd"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -100,6 +104,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_ovt60")
 }
 
+[node name="Stars" type="Node" parent="."]
+
+[node name="SpaceRayStar" parent="Stars" instance=ExtResource("12_l2t3o")]
+visible = false
+z_index = 7
+position = Vector2(193, 315)
+script = ExtResource("5_87l4u")
+
 [node name="BgObjects" type="Node" parent="."]
 
 [node name="SRSaturn" parent="BgObjects" instance=ExtResource("6_tt1cq")]
@@ -122,6 +134,9 @@ stream = ExtResource("8_s6bc4")
 
 [node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("9_plxqw")
+
+[node name="EnemyLoopSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("12_qfd3k")
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -253,4 +268,16 @@ theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 22
 text = "however, press 'q' to explore the current weapons "
 
+[node name="Score" type="Label" parent="."]
+z_index = 7
+offset_left = 504.0
+offset_top = 35.0
+offset_right = 645.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 46
+text = "SCORE: 0"
+script = ExtResource("16_tbhyd")
+
 [connection signal="finished" from="SoundEffects/Laser" to="." method="_on_laser_finished"]
+[connection signal="finished" from="SoundEffects/EnemyLoopSound" to="." method="_on_enemy_loop_sound_finished"]

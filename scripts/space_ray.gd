@@ -7,6 +7,7 @@ extends Node
 @onready var bg_music = get_parent().get_node("SpaceRayMusic")
 @onready var animation = get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
+@onready var enemy_loop_sound: AudioStreamPlayer2D = $SoundEffects/EnemyLoopSound
 
 const EARTH = preload("res://scenes/sr_earth.tscn")
 const MOON = preload("res://scenes/sr_moon.tscn")
@@ -20,12 +21,16 @@ const ROCKET = preload("res://scenes/sr_rocket.tscn")
 const METEOR = preload("res://scenes/space_ray_meteor.tscn")
 @onready var enemies: Node = $Enemies
 
+const STAR = preload("res://scenes/space_ray_star.tscn")
+@onready var stars: Node = $Stars
+
 var timer = 20
 var bg_spawn_interval = 12
 var gibbior_spawned = false
 var gibbior_timer = 0.0
 var rocket_timer = 0.0
 var meteor_timer = 2.0
+var star_timer = 2.0
 
 @onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
 
@@ -65,6 +70,8 @@ func _process(delta: float) -> void:
 			bg_music.stop()
 			death_sound.play()
 			Global.controls_tutorial = false
+			enemy_loop_sound.stop()
+			Global.space_ray_score = 0
 			gameover_screen.play_animation("default")
 		if Input.is_action_pressed("enter"):
 			Global.space_ray_hearts = 3
@@ -109,6 +116,7 @@ func _process(delta: float) -> void:
 		if !gibbior_spawned:
 			spawn_gibbior()
 			gibbior_spawned = true
+			enemy_loop_sound.play()
 			
 	progress_bar.value += delta * 3
 	
@@ -139,3 +147,12 @@ func spawn_enemy(pos, enemy_scene):
 	var enemy = enemy_scene.instantiate()
 	enemy.position = pos
 	enemies.add_child(enemy)
+	
+func spawn_star(pos, enemy_scene):
+	var enemy = enemy_scene.instantiate()
+	enemy.position = pos
+	enemies.add_child(enemy)
+
+
+func _on_enemy_loop_sound_finished() -> void:
+	enemy_loop_sound.play()

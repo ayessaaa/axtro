@@ -4,6 +4,7 @@ extends Area2D
 
 @onready var character_animation = get_parent().get_parent().get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var hurt_sound = get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var x_speed 
 var y_speed
@@ -28,8 +29,14 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			queue_free()
-	if area.type == "bullet":
-		queue_free()
+	if area.type == "bullet" or  area.type == "red_bullet":
+		Global.space_ray_score += 1
+		animation_player.play("hurt")
 	if area.type == "bomb":
-		queue_free()
+		Global.space_ray_score += 1
+		animation_player.play("hurt")
 		
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

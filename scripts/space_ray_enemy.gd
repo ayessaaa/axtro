@@ -13,6 +13,7 @@ const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 @onready var fireball_sound: AudioStreamPlayer2D = $FireballSound
 
 @onready var character = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter")
+@onready var enemy_loop_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyLoopSound")
 
 var health = 100
 var timer = 0.0
@@ -29,45 +30,33 @@ func _on_area_entered(area: Area2D) -> void:
 	elif  area.type == "red_bullet":
 		health -= 20
 		print(health)
+	if area.type == "bomb":
+		health -= 20
+		print("healthbomb")
 	#if area.type == "laser":
 		#laser_beam.play()
 
-func _on_area_exited(area: Area2D) -> void:
-	pass
-	#if area.type == "laser":
-		#laser_beam.stop()
 		
 
 func _process(delta: float) -> void:
 	if !Global.is_space_ray or Global.dead:
 		return
-	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
-		return
-	#if Global.space_ray_game_time < 10:
-		#Global.space_ray_game_time += delta
-		#return
 	
 	position = Vector2(500, 500)
 		
-	#for area in get_overlapping_areas():
-		#if area.type == "bullet":
-			##health -= 10 *delta
-			##enemy.play("hurt")
-			#health -= 20
-		#else:
-			#enemy.play("default")
 			
 	if len(get_overlapping_areas()) <= 0:
 		enemy.play("default")
 			#print(health)
 	if health <= 0:
+		enemy_loop_sound.stop()
 		queue_free()
 		
 	timer += delta
-	if timer >= Global.spawn_interval and Global.meteor_speed != 0:
+	if timer >= Global.space_ray_spawn_interval:
 		timer = 0
 		spawn_fireball(gun.global_position)
-		#fireball_sound.play()
+		fireball_sound.play()
 		
 	progress_bar.value = health
 		

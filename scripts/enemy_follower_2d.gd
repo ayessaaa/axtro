@@ -4,7 +4,7 @@ extends PathFollow2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !Global.is_space_ray:
+	if !Global.is_space_ray or Global.dead:
 		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return

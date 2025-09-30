@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxcb51gs0ytxw"]
+
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_sc5ys"]
+
+[node name="SpaceRayStar" type="Area2D"]
+z_index = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(-9.536743e-07, -1.9073486e-06)
+scale = Vector2(0.28266332, 0.28266332)
+texture = ExtResource("1_sc5ys")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+z_index = 6
+polygon = PackedVector2Array(-5, -11, 0, -19, 2, -19, 5, -11, 15, -8, 14, -5, 10, 0, 13, 8, 11, 9, 1, 7, -9, 10, -11, 9, -8, 0, -16, -7)

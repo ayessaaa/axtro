@@ -1,7 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://ch3ripyge23v7"]
+[gd_scene load_steps=6 format=3 uid="uid://ch3ripyge23v7"]
 
 [ext_resource type="Script" uid="uid://dk1jal8g78hq2" path="res://scripts/space_ray_meteor.gd" id="1_mrx0e"]
 [ext_resource type="Texture2D" uid="uid://d24pstn3h2k1l" path="res://assets/space_ray_assets/IMG_1742.PNG" id="1_xrc8n"]
+
+[sub_resource type="Animation" id="Animation_mrx0e"]
+resource_name = "hurt"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_f2utl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_do4oa"]
+_data = {
+&"RESET": SubResource("Animation_f2utl"),
+&"hurt": SubResource("Animation_mrx0e")
+}
 
 [node name="SpaceRayMeteor" type="Area2D"]
 z_index = 7
@@ -9,11 +70,16 @@ collision_mask = 8
 script = ExtResource("1_mrx0e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.8146973e-06, 0)
 scale = Vector2(0.33152175, 0.33152175)
 texture = ExtResource("1_xrc8n")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-7, -5, -2, -7, 3, -10, 7, -6, 9, -1, 5, 4, 1, 5, -5, 5, -9, 1)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_do4oa")
+}
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
