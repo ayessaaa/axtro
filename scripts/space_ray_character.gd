@@ -33,6 +33,8 @@ var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"},
 var weapon_index = 0
 
 func _physics_process(delta: float) -> void:
+	if Global.space_ray_stop:
+		return
 	visible = Global.is_space_ray
 	if Global.dead:
 		sprite.pause()
@@ -51,8 +53,12 @@ func _physics_process(delta: float) -> void:
 		cooldown_label.text = "cooldown: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["cooldown"]
 		if weapon_index < len(Global.space_ray_weapons)-1:
 			weapon_index += 1
+			print("+1")
 		else:
 			weapon_index = 0
+			print("0")
+		print(Global.space_ray_weapons)
+			
 		Global.space_ray_weapon = Global.space_ray_weapons[weapon_index]
 		if Global.space_ray_weapon == "laser":
 			laser_sound.play()

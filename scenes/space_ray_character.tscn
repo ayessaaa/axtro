@@ -386,6 +386,7 @@ animations = [{
 }]
 
 [node name="SpaceRayCharacter" type="CharacterBody2D"]
+z_index = 7
 scale = Vector2(1.2, 1.2)
 collision_layer = 8
 script = ExtResource("1_lhfhl")

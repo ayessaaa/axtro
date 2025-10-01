@@ -20,6 +20,8 @@ func _process(delta: float) -> void:
 	
 	if !Global.is_space_ray or Global.dead:
 		return
+	if Global.space_ray_stop:
+		return
 	
 	if Input.is_action_just_pressed("shoot") and Global.theres_bomb:
 		sprite_2d.play("explosion")

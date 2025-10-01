@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 	visible = Global.is_space_ray
 	if !Global.is_space_ray or Global.dead:
 		return
+	if Global.space_ray_stop:
+		return
 	position.y += y_speed
 	position.x -= x_speed
 	
@@ -31,9 +33,11 @@ func _on_area_entered(area: Area2D) -> void:
 			queue_free()
 	if area.type == "bullet" or  area.type == "red_bullet":
 		Global.space_ray_score += 1
+		Global.space_ray_weapon_score += 1
 		animation_player.play("hurt")
 	if area.type == "bomb":
 		Global.space_ray_score += 1
+		Global.space_ray_weapon_score += 1
 		animation_player.play("hurt")
 		
 

@@ -8,6 +8,7 @@ extends Node
 @onready var animation = get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
 @onready var enemy_loop_sound: AudioStreamPlayer2D = $SoundEffects/EnemyLoopSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const EARTH = preload("res://scenes/sr_earth.tscn")
 const MOON = preload("res://scenes/sr_moon.tscn")
@@ -51,6 +52,7 @@ var weapon_list_index = 0
 var weapon_score = {"bomb": 20}
 var progress_bar_value
 
+@onready var bomb_animated: AnimatedSprite2D = $NextWeapon/BombArea/Bomb
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -70,6 +72,13 @@ func _process(delta: float) -> void:
 	progress_text.visible = Global.is_space_ray
 	
 	if !Global.is_space_ray:
+		return
+	if animation_player.current_animation == "new_weapon":
+		if Input.is_action_just_pressed("shoot"):
+			animation_player.play("fade_out_weapon")
+			Global.space_ray_stop = false
+			bomb_animated.play("explode")
+	if Global.space_ray_stop:
 		return
 	if Global.dead:
 		if !Global.space_ray_gameover_screen:
@@ -120,7 +129,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 10:
+	if gibbior_timer >= 20:
 		if !gibbior_spawned:
 			spawn_gibbior()
 			gibbior_spawned = true
@@ -142,13 +151,21 @@ func _process(delta: float) -> void:
 	elif Global.space_ray_weapon == "bullet":
 		weapon_sprite.texture = bullet_img
 		
-	progress_bar_value = Global.space_ray_score/weapon_score[weapon_list[weapon_list_index]]
+	next_weapon_text.text = "next weapon: " + weapon_list[weapon_list_index]
+		
+	progress_bar_value = Global.space_ray_weapon_score/weapon_score[weapon_list[weapon_list_index]]
 	progress_bar.value = progress_bar_value
-	progress_text.text = str(int(Global.space_ray_score)) + " / " + str(weapon_score[weapon_list[weapon_list_index]])
+	progress_text.text = str(int(Global.space_ray_weapon_score)) + " / " + str(weapon_score[weapon_list[weapon_list_index]])
 	if progress_bar_value >= 1:
-		progress_bar_value = 0
-		#weapon_list_index += 1
 		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
+		animation_player.play("new_weapon")
+		Global.space_ray_weapon_score = 0.0
+		Global.space_ray_stop = true
+		#weapon_list_index += 1w   
+		
+	
+			
+		
 
 
 func _on_laser_finished() -> void:

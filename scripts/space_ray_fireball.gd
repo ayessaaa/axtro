@@ -16,6 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !Global.is_space_ray or Global.dead:
 		return
+	if Global.space_ray_stop:
+		return
 	position -= direction * speed * delta
 	
 	if position.x < -100 or position.y >700 or position.y < -100:

@@ -40,13 +40,16 @@ func _on_area_entered(area: Area2D) -> void:
 		animation_player.play("dead")
 		enemy_dead_sound.play()
 		enemy_loop_sound.stop()
+		Global.space_ray_score += 20
+		Global.space_ray_weapon_score += 20
+
 	#if area.type == "laser":
 		#laser_beam.play()
 
-		
-
 func _process(delta: float) -> void:
 	if !Global.is_space_ray or Global.dead:
+		return
+	if Global.space_ray_stop:
 		return
 	
 	position = Vector2(500, 500)

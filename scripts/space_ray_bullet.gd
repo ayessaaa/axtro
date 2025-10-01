@@ -13,6 +13,8 @@ func _ready() -> void:
 	rotation = character.rotation
 
 func _process(delta: float) -> void:
+	if Global.space_ray_stop or !Global.is_space_ray:
+		return
 	position += direction * speed * delta
 	
 	if position.y <= -100 or position.y >= 700 or position.x >= 1200:

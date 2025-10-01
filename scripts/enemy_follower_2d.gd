@@ -6,6 +6,8 @@ extends PathFollow2D
 func _process(delta: float) -> void:
 	if !Global.is_space_ray or Global.dead:
 		return
+	if Global.space_ray_stop:
+		return
 	if Global.start_screen or Global.is_angle_dash or Global.is_mecha_flight or Global.marathon:
 		return
 	set_progress(get_progress() + runSpeed * delta)

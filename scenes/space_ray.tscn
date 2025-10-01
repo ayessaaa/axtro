@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=41 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -15,7 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://yeklntc6mcjp" path="res://assets/space_ray_assets/IMG_1851.PNG" id="11_ju80h"]
 [ext_resource type="AudioStream" uid="uid://x8srcxyx81yl" path="res://assets/music/8-bit-fireball-81148.mp3" id="11_tbhyd"]
 [ext_resource type="AudioStream" uid="uid://byo2gd5f0dgkc" path="res://assets/music/8-bit-melody-loop-37872.mp3" id="12_qfd3k"]
+[ext_resource type="Texture2D" uid="uid://dqxwosnnwfd3g" path="res://assets/dfgdfg.PNG" id="16_j5r7u"]
 [ext_resource type="Script" uid="uid://otmrrujhqcxq" path="res://scripts/space_ray_score.gd" id="16_tbhyd"]
+[ext_resource type="Texture2D" uid="uid://cha656yiqpwt2" path="res://assets/space_ray_assets/image (23).png" id="17_f8caw"]
+[ext_resource type="Texture2D" uid="uid://d70eoe6y5den" path="res://assets/space_ray_assets/image (24).png" id="18_r4y16"]
+[ext_resource type="Texture2D" uid="uid://b8dbixvbdtn1j" path="res://assets/space_ray_assets/image (25).png" id="19_c8mn4"]
+[ext_resource type="Texture2D" uid="uid://blv52bkphsxmr" path="res://assets/space_ray_assets/image (26).png" id="20_wou5t"]
+[ext_resource type="Texture2D" uid="uid://n8bjjdhwxd3d" path="res://assets/space_ray_assets/image (27).png" id="21_o34iy"]
+[ext_resource type="Texture2D" uid="uid://bj2nq8n3fga73" path="res://assets/space_ray_assets/image (28).png" id="22_08js7"]
+[ext_resource type="Texture2D" uid="uid://dauehe7t14oag" path="res://assets/space_ray_assets/image (29).png" id="23_rugs0"]
+[ext_resource type="Texture2D" uid="uid://djs2om6iqv4oy" path="res://assets/space_ray_assets/IMG_1887.PNG" id="24_bbut0"]
+[ext_resource type="Texture2D" uid="uid://byt4335af4dfj" path="res://assets/space_ray_assets/IMG_1888.PNG" id="25_rar07"]
+[ext_resource type="Texture2D" uid="uid://c62uibhr7yc8y" path="res://assets/space_ray_assets/IMG_1889.PNG" id="26_llvyy"]
+[ext_resource type="Texture2D" uid="uid://bsulx0vgmxyj0" path="res://assets/space_ray_assets/IMG_1890.PNG" id="27_vot2l"]
+[ext_resource type="Texture2D" uid="uid://cfh3jnm4sc7h3" path="res://assets/space_ray_assets/IMG_1891.PNG" id="28_qxr3h"]
+[ext_resource type="Texture2D" uid="uid://bfo5tav6vynck" path="res://assets/space_ray_assets/IMG_1892.PNG" id="29_oopde"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -42,6 +56,90 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextWeapon/NewWeaponText:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextWeapon/NewWeaponText2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NextWeapon/SpaceText:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NextWeapon/SwitchWeaponText:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NextWeapon/SpaceText:theme_override_font_sizes/font_size")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [29]
 }
 
 [sub_resource type="Animation" id="Animation_1hfli"]
@@ -71,10 +169,176 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qfd3k"]
+resource_name = "new_weapon"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.9137255)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4333334, 1.7333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NextWeapon/NewWeaponText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6866667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextWeapon/NewWeaponText2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.0333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextWeapon/SpaceText:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.6666665, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextWeapon/SwitchWeaponText:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.8333334, 2.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NextWeapon/SpaceText:theme_override_font_sizes/font_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3, 3.5, 4.0099063, 4.5099063, 5.0089617, 5.5089617, 5.994331, 6.494331, 7.007072, 7.507072, 8.006127, 8.506127, 9.005182, 9.505182, 10, 10.5, 11.003292, 11.503292, 12.016033, 12.516033, 13.015088, 13.515088, 14.000458, 14.500458, 14.999513, 15.499513),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29, 31, 29]
+}
+
+[sub_resource type="Animation" id="Animation_j5r7u"]
+resource_name = "fade_out_weapon"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.96666664, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.9137255), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NextWeapon/NewWeaponText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.39999998, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NextWeapon/NewWeaponText2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.39999998, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NextWeapon/SwitchWeaponText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.39999998, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextWeapon/SpaceText:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.39999998, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.39999998, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ovt60"]
 _data = {
 &"RESET": SubResource("Animation_6tpi4"),
-&"fade_in": SubResource("Animation_1hfli")
+&"fade_in": SubResource("Animation_1hfli"),
+&"fade_out_weapon": SubResource("Animation_j5r7u"),
+&"new_weapon": SubResource("Animation_qfd3k")
 }
 
 [sub_resource type="Animation" id="Animation_tbhyd"]
@@ -145,6 +409,58 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ic0j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_f8caw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_r4y16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_c8mn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wou5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_o34iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_08js7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rugs0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_bbut0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_rar07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_llvyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vot2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qxr3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_oopde")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}]
+
 [node name="SpaceRay" type="Node"]
 script = ExtResource("1_x4byx")
 
@@ -155,7 +471,6 @@ scale = Vector2(0.513559, 0.419512)
 texture = ExtResource("1_inwbe")
 
 [node name="SpaceRayCharacter" parent="." instance=ExtResource("2_1hfli")]
-z_index = 7
 position = Vector2(312, 352)
 scale = Vector2(0.392981, 0.392981)
 
@@ -255,7 +570,7 @@ offset_bottom = 643.0
 theme_override_colors/font_color = Color(0.69411767, 0.24313726, 0.3254902, 1)
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 19
-text = "dmg: 50"
+text = "dmg: 10"
 
 [node name="CooldownLabel" type="Label" parent="CurrentWeapon"]
 z_index = 6
@@ -266,14 +581,71 @@ offset_bottom = 643.0
 theme_override_colors/font_color = Color(0.23137255, 0.3647059, 0.7882353, 1)
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 19
-text = "cooldown: one bomb at a time"
+text = "cooldown: 1s"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CurrentWeapon"]
 libraries = {
 &"": SubResource("AnimationLibrary_qfd3k")
 }
 
+[node name="BlackScreen" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+position = Vector2(562.49994, 316.5)
+scale = Vector2(2.278182, 2.063361)
+texture = ExtResource("16_j5r7u")
+
 [node name="NextWeapon" type="Node" parent="."]
+
+[node name="NewWeaponText" type="Label" parent="NextWeapon"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_left = 447.0
+offset_top = 88.0
+offset_right = 709.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0.5313136, 0.6094197, 0.6720489, 1)
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 38
+text = "NEW WEAPON"
+horizontal_alignment = 1
+
+[node name="NewWeaponText2" type="Label" parent="NextWeapon"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_left = 447.0
+offset_top = 131.0
+offset_right = 709.0
+offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 44
+text = "BOMB"
+horizontal_alignment = 1
+
+[node name="SwitchWeaponText" type="Label" parent="NextWeapon"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_left = 374.0
+offset_top = 522.0
+offset_right = 807.0
+offset_bottom = 581.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 34
+text = "press 'q' to switch weapons"
+horizontal_alignment = 1
+
+[node name="SpaceText" type="Label" parent="NextWeapon"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+offset_left = 374.0
+offset_top = 563.0
+offset_right = 807.0
+offset_bottom = 622.0
+theme_override_colors/font_color = Color(0.5294118, 0.60784316, 0.6666667, 1)
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 29
+text = "press SPACE to continue the game"
+horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="NextWeapon"]
 z_index = 6
@@ -310,6 +682,18 @@ theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 25
 text = "0/20"
 horizontal_alignment = 1
+
+[node name="BombArea" type="Area2D" parent="NextWeapon"]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+
+[node name="Bomb" type="AnimatedSprite2D" parent="NextWeapon/BombArea"]
+z_index = 8
+position = Vector2(584, 327)
+scale = Vector2(0.8381295, 0.84210527)
+sprite_frames = SubResource("SpriteFrames_0ic0j")
+autoplay = "default"
+frame_progress = 0.18387416
 
 [node name="Score" type="Label" parent="."]
 z_index = 7

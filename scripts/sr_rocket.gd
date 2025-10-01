@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	visible = Global.is_space_ray
 	if !Global.is_space_ray or Global.dead:
 		return
+	if Global.space_ray_stop:
+		return
 	if health < 0:
 		queue_free()
 	if health < 100:
@@ -44,6 +46,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bullet" or area.type == "red_bullet":
 		sprite_animation.play("hurt")
 		Global.space_ray_score += 2
+		Global.space_ray_weapon_score += 2
 	if area.type == "laser" and Global.space_ray_weapon == "laser":
 		#Global.laser_enter = true
 		#Global.rocket_position_laser = position
@@ -51,6 +54,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bomb":
 		sprite_animation.play("hurt")
 		Global.space_ray_score += 2
+		Global.space_ray_weapon_score += 2
+		
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
