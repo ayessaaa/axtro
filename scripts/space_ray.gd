@@ -32,19 +32,24 @@ var rocket_timer = 0.0
 var meteor_timer = 2.0
 var star_timer = 2.0
 
-@onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
-
 @onready var current_weapon_label: Label = $CurrentWeapon/CurrentWeaponLabel
 @onready var weapon_sprite: Sprite2D = $CurrentWeapon/WeaponSprite
 @onready var name_label: Label = $CurrentWeapon/NameLabel
 @onready var damage_label: Label = $CurrentWeapon/DamageLabel
 @onready var cooldown_label: Label = $CurrentWeapon/CooldownLabel
-@onready var wip: Label = $NextWeapon/WIP
-@onready var wip_2: Label = $NextWeapon/WIP2
 
 @onready var laser_img = preload("res://assets/space_ray_assets/IMG_1851.PNG")
 @onready var bomb_img = preload("res://assets/space_ray_assets/IMG_1852.PNG")
 @onready var bullet_img = preload("res://assets/space_ray_assets/IMG_1848.PNG")
+
+@onready var next_weapon_text: Label = $NextWeapon/NextWeapon
+@onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
+@onready var progress_text: Label = $NextWeapon/ProgressText
+
+var weapon_list = ["bomb"]
+var weapon_list_index = 0
+var weapon_score = {"bomb": 20}
+var progress_bar_value
 
 
 # Called when the node enters the scene tree for the first time.
@@ -59,9 +64,11 @@ func _process(delta: float) -> void:
 	name_label.visible = Global.is_space_ray
 	damage_label.visible = Global.is_space_ray
 	cooldown_label.visible = Global.is_space_ray
-	wip.visible = Global.is_space_ray
-	wip_2.visible = Global.is_space_ray
 	current_weapon_label.visible = Global.is_space_ray
+	next_weapon_text.visible = Global.is_space_ray
+	progress_bar.visible = Global.is_space_ray
+	progress_text.visible = Global.is_space_ray
+	
 	if !Global.is_space_ray:
 		return
 	if Global.dead:
@@ -125,7 +132,6 @@ func _process(delta: float) -> void:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
 			
-	progress_bar.value += delta * 3
 	
 	name_label.text = Global.space_ray_weapon
 	
@@ -135,6 +141,14 @@ func _process(delta: float) -> void:
 		weapon_sprite.texture = bomb_img
 	elif Global.space_ray_weapon == "bullet":
 		weapon_sprite.texture = bullet_img
+		
+	progress_bar_value = Global.space_ray_score/weapon_score[weapon_list[weapon_list_index]]
+	progress_bar.value = progress_bar_value
+	progress_text.text = str(int(Global.space_ray_score)) + " / " + str(weapon_score[weapon_list[weapon_list_index]])
+	if progress_bar_value >= 1:
+		progress_bar_value = 0
+		#weapon_list_index += 1
+		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
 
 
 func _on_laser_finished() -> void:

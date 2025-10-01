@@ -14,6 +14,9 @@ const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 
 @onready var character = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter")
 @onready var enemy_loop_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyLoopSound")
+@onready var enemy_dead_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyDead")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 var health = 100
 var timer = 0.0
@@ -26,13 +29,17 @@ func _ready() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bullet":
 		health -= 10
-		print(health)
+		animation_player.play("hurt")
 	elif  area.type == "red_bullet":
 		health -= 20
-		print(health)
+		animation_player.play("hurt")
 	if area.type == "bomb":
 		health -= 20
-		print("healthbomb")
+		animation_player.play("hurt")
+	if health <= 0:
+		animation_player.play("dead")
+		enemy_dead_sound.play()
+		enemy_loop_sound.stop()
 	#if area.type == "laser":
 		#laser_beam.play()
 
@@ -49,11 +56,15 @@ func _process(delta: float) -> void:
 		enemy.play("default")
 			#print(health)
 	if health <= 0:
-		enemy_loop_sound.stop()
-		queue_free()
+		
+		collision_polygon_2d.disabled = true
+		
+		if fireballs.get_child_count() == 0:
+			queue_free()
+		#queue_free()
 		
 	timer += delta
-	if timer >= Global.space_ray_spawn_interval:
+	if timer >= Global.space_ray_spawn_interval and health > 0:
 		timer = 0
 		spawn_fireball(gun.global_position)
 		fireball_sound.play()

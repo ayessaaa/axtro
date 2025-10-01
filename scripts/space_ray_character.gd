@@ -28,7 +28,6 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var damage_label: Label = $"../CurrentWeapon/DamageLabel"
 @onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
 
-var weapons_arr = ["bomb", "bullet"]
 var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"}, 
 					"bullet": {"dmg": "10", "cooldown" : "1s"}}
 var weapon_index = 0
@@ -48,13 +47,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("q"):
 		weapon_text_animation.play("new_weapon")
-		damage_label.text = "dmg: "+weapons_stats[weapons_arr[weapon_index]]["dmg"]
-		cooldown_label.text = "dmg: "+weapons_stats[weapons_arr[weapon_index]]["cooldown"]
-		if weapon_index < len(weapons_arr)-1:
+		damage_label.text = "dmg: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["dmg"]
+		cooldown_label.text = "cooldown: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["cooldown"]
+		if weapon_index < len(Global.space_ray_weapons)-1:
 			weapon_index += 1
 		else:
 			weapon_index = 0
-		Global.space_ray_weapon = weapons_arr[weapon_index]
+		Global.space_ray_weapon = Global.space_ray_weapons[weapon_index]
 		if Global.space_ray_weapon == "laser":
 			laser_sound.play()
 		

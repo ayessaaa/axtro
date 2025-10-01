@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	visible = Global.is_space_ray
 	if !Global.is_space_ray:
 		return
-	text = "SCORE: "+str(Global.space_ray_score)
+	text = "SCORE: "+str(int(Global.space_ray_score))

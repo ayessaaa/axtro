@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
 		return
 	position -= direction * speed * delta
 	
+	if position.x < -100 or position.y >700 or position.y < -100:
+		queue_free()
+	
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
