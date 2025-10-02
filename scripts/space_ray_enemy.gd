@@ -13,6 +13,7 @@ const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 @onready var fireball_sound: AudioStreamPlayer2D = $FireballSound
 
 @onready var character = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter")
+@onready var bg_music = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayMusic")
 @onready var enemy_loop_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyLoopSound")
 @onready var enemy_dead_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyDead")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -59,6 +60,7 @@ func _process(delta: float) -> void:
 		enemy.play("default")
 			#print(health)
 	if health <= 0:
+		bg_music.volume_db = 0
 		
 		collision_polygon_2d.disabled = true
 		

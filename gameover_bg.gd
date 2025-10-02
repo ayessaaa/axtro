@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.is_space_ray:
-		score_label.text = str(Global.space_ray_score)
+		score_label.text = str(int(Global.space_ray_score))
 	else:
 		score_label.text = str(Global.score+ Global.angle_dash_score)
 	

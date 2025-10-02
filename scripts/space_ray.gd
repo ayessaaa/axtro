@@ -54,6 +54,9 @@ var progress_bar_value
 
 @onready var bomb_animated: AnimatedSprite2D = $NextWeapon/BombArea/Bomb
 
+@onready var corner_laser: AnimatedSprite2D = $CornerLaser
+@onready var corner_laser_2: AnimatedSprite2D = $CornerLaser2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -108,6 +111,9 @@ func _process(delta: float) -> void:
 		
 	if Global.space_ray_hearts == 0:
 		Global.dead = true
+	
+	if Global.dead:
+		return
 		
 	timer += delta
 	if timer >= bg_spawn_interval:
@@ -129,17 +135,21 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 20:
+	if gibbior_timer >= 10:
 		if !gibbior_spawned:
+			corner_laser.play("yellow")
+			corner_laser_2.play("yellow")
+			animation_player.play("gibbior_spawned")
 			spawn_gibbior()
 			gibbior_spawned = true
 			enemy_loop_sound.play()
+			bg_music.volume_db = -10
 			
-	star_timer += delta
-	if star_timer >= 2:
-		if randi_range(0, 5) < 1:
-			spawn_star(Vector2(randf_range(50, 1100), -100))
-		star_timer = 0
+	#star_timer += delta
+	#if star_timer >= 2:
+		#if randi_range(0, 5) < 1:
+			#spawn_star(Vector2(randf_range(50, 1100), -100))
+		#star_timer = 0
 			
 	
 	name_label.text = Global.space_ray_weapon

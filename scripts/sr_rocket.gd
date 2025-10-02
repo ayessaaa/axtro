@@ -3,7 +3,12 @@ extends Area2D
 @export var type = "enemy_rocket"
 
 @onready var character_animation = get_parent().get_parent().get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
+@onready var space_ray_animation = get_parent().get_parent().get_node("AnimationPlayer")
 @onready var hurt_sound = get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
+
+@onready var corner_laser = get_parent().get_parent().get_node("CornerLaser")
+@onready var corner_laser_2 = get_parent().get_parent().get_node("CornerLaser2")
+
 @onready var progress_bar: ProgressBar = $Sprite2D/ProgressBar
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_animation: AnimationPlayer = $AnimationPlayer
@@ -40,6 +45,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
 		if Global.space_ray_hearts > 0:
 			Global.space_ray_hearts -= 1
+			corner_laser.play("red")
+			corner_laser_2.play("red")
+			space_ray_animation.play("player_hurt")
 			character_animation.play("hurt")
 			hurt_sound.play()
 			sprite_animation.play("hurt")
