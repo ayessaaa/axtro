@@ -6,9 +6,11 @@ extends Node
 @onready var selected_sound = get_parent().get_node("SelectedSound")
 @onready var bg_music = get_parent().get_node("SpaceRayMusic")
 @onready var animation = get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
+@onready var enemy_hit_sound: AudioStreamPlayer2D = $SoundEffects/EnemyHitSound
 @onready var laser: AudioStreamPlayer2D = $SoundEffects/Laser
 @onready var enemy_loop_sound: AudioStreamPlayer2D = $SoundEffects/EnemyLoopSound
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var powerup_animation: AnimationPlayer = $PowerupAnimation
 
 const EARTH = preload("res://scenes/sr_earth.tscn")
 const MOON = preload("res://scenes/sr_moon.tscn")
@@ -56,6 +58,7 @@ var progress_bar_value
 
 @onready var corner_laser: AnimatedSprite2D = $CornerLaser
 @onready var corner_laser_2: AnimatedSprite2D = $CornerLaser2
+@onready var powerup_progress_bar: ProgressBar = $PowerupProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -115,6 +118,20 @@ func _process(delta: float) -> void:
 	if Global.dead:
 		return
 		
+	if Global.space_ray_powerup == "shrink":
+		if !Global.space_ray_powerup_animation:
+			powerup_animation.play("shrink")
+			corner_laser.play("blue")
+			corner_laser_2.play("blue")
+			Global.space_ray_powerup_animation = true
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			powerup_animation.play("unshrink")
+			Global.space_ray_powerup = ""
+			Global.space_ray_powerup_animation = false
+			
+		
 	timer += delta
 	if timer >= bg_spawn_interval:
 		timer = 0
@@ -145,11 +162,11 @@ func _process(delta: float) -> void:
 			enemy_loop_sound.play()
 			bg_music.volume_db = -10
 			
-	#star_timer += delta
-	#if star_timer >= 2:
-		#if randi_range(0, 5) < 1:
-			#spawn_star(Vector2(randf_range(50, 1100), -100))
-		#star_timer = 0
+	star_timer += delta
+	if star_timer >= 2:
+		if randi_range(0, 5) < 1:
+			spawn_star(Vector2(randf_range(50, 1100), -100))
+		star_timer = 0
 			
 	
 	name_label.text = Global.space_ray_weapon
@@ -171,13 +188,9 @@ func _process(delta: float) -> void:
 		animation_player.play("new_weapon")
 		Global.space_ray_weapon_score = 0.0
 		Global.space_ray_stop = true
-		#weapon_list_index += 1w   
+		#weapon_list_index += 1
 		
 	
-			
-		
-
-
 func _on_laser_finished() -> void:
 	laser.play()
 	
@@ -204,3 +217,7 @@ func spawn_star(pos):
 
 func _on_enemy_loop_sound_finished() -> void:
 	enemy_loop_sound.play()
+
+
+func _on_enemy_hit_sound_finished() -> void:
+	enemy_hit_sound.volume_db = 0

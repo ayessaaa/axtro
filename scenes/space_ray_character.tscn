@@ -392,6 +392,7 @@ collision_layer = 8
 script = ExtResource("1_lhfhl")
 
 [node name="SpaceRayLaser" parent="." instance=ExtResource("3_ihlob")]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(109.16675, -20.833332)
 scale = Vector2(1.32, 0.76)

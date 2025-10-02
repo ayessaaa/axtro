@@ -2,6 +2,8 @@ extends Area2D
 
 @export var type = "sr_star"
 
+var powerups = ["shrink"]
+
 func _process(delta: float) -> void:
 	#position.x -= 2
 	visible = Global.is_space_ray
@@ -15,4 +17,5 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
 		print("player caught star")
+		Global.space_ray_powerup = powerups[randi_range(0, len(powerups)-1)]
 		queue_free()

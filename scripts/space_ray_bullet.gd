@@ -30,6 +30,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "enemy_rocket" or area.type == "enemy":
 		hit_sound.play()
 		queue_free()
+	if area.type == "enemy_meteor":
+		hit_sound.volume_db = -5
+		hit_sound.play()
 	if area.type == "fireball":
 		sprite_2d.play("red_loop")
 		type = "red_bullet"

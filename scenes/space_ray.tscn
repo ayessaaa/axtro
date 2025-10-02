@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=59 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -31,10 +31,12 @@
 [ext_resource type="Texture2D" uid="uid://bsulx0vgmxyj0" path="res://assets/space_ray_assets/IMG_1890.PNG" id="27_vot2l"]
 [ext_resource type="Texture2D" uid="uid://cfh3jnm4sc7h3" path="res://assets/space_ray_assets/IMG_1891.PNG" id="28_qxr3h"]
 [ext_resource type="Texture2D" uid="uid://bfo5tav6vynck" path="res://assets/space_ray_assets/IMG_1892.PNG" id="29_oopde"]
-[ext_resource type="Texture2D" uid="uid://nanihb3wx5cs" path="res://assets/space_ray_assets/IMG_1762.PNG" id="31_f8caw"]
-[ext_resource type="Texture2D" uid="uid://6f0oge0t08ec" path="res://assets/space_ray_assets/IMG_1762 - Copy.PNG" id="31_r4y16"]
-[ext_resource type="Texture2D" uid="uid://c5ogvyromyael" path="res://assets/space_ray_assets/IMG_1761 - Copy.PNG" id="34_08js7"]
-[ext_resource type="Texture2D" uid="uid://mngcihx8la4r" path="res://assets/space_ray_assets/IMG_1761.PNG" id="35_rugs0"]
+[ext_resource type="Texture2D" uid="uid://cv1teeu04rui7" path="res://assets/space_ray_assets/IMG_1966.PNG" id="32_rugs0"]
+[ext_resource type="Texture2D" uid="uid://b4qlkkmd1f7dx" path="res://assets/space_ray_assets/IMG_1970.PNG" id="33_bbut0"]
+[ext_resource type="Texture2D" uid="uid://bu7qafc7dt135" path="res://assets/space_ray_assets/IMG_1968.PNG" id="34_rar07"]
+[ext_resource type="Texture2D" uid="uid://bstsog08x6mso" path="res://assets/space_ray_assets/IMG_1972.PNG" id="35_llvyy"]
+[ext_resource type="Texture2D" uid="uid://d2jtuuatm040e" path="res://assets/space_ray_assets/IMG_1967.PNG" id="36_vot2l"]
+[ext_resource type="Texture2D" uid="uid://bn5xbtg4e5blf" path="res://assets/space_ray_assets/IMG_1971.PNG" id="37_qxr3h"]
 
 [sub_resource type="Animation" id="Animation_6tpi4"]
 length = 0.001
@@ -218,6 +220,18 @@ tracks/14/keys = {
 "update": 1,
 "values": ["gibbior spawned"]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Enemies/Label:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_1hfli"]
 resource_name = "fade_in"
@@ -320,6 +334,82 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bbut0"]
+resource_name = "gibbior_spawned"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CornerLaser:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2333333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CornerLaser2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.2333333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemies/Label:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.47333336, 1.1666666, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(943, -58), Vector2(943, 47), Vector2(943, 44)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Enemies/Sprite2D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.0666666, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1217, 54), Vector2(900, 54)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Enemies/Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.8666666, 3.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Enemies/Label:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.4, 2.43, 2.5, 2.59, 2.72, 2.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["gibbior spawned", "gibbior spawne", "gibbior spa", "gibbior ", "gib", ""]
 }
 
 [sub_resource type="Animation" id="Animation_qfd3k"]
@@ -437,9 +527,9 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_bbut0"]
-resource_name = "gibbior_spawned"
-length = 3.5
+[sub_resource type="Animation" id="Animation_rugs0"]
+resource_name = "shrink_powerup"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -447,7 +537,7 @@ tracks/0/path = NodePath("CornerLaser:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.2333333, 1.6),
+"times": PackedFloat32Array(0, 0.36666667, 2.6999998, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -459,7 +549,7 @@ tracks/1/path = NodePath("CornerLaser2:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 1.2333333, 1.6),
+"times": PackedFloat32Array(0, 0.36666667, 2.6999998, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -467,50 +557,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Enemies/Label:position")
-tracks/2/interp = 2
+tracks/2/path = NodePath("Enemies/Label:text")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.47333336, 1.1666666, 1.3666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(943, -58), Vector2(943, 47), Vector2(943, 44)]
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["", "SHRINK !!"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Enemies/Sprite2D:position")
+tracks/3/path = NodePath("Enemies/Label:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.0666666, 3.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.19, 1.25, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1217, 54), Vector2(900, 54)]
+"values": [Vector2(1181, 44), Vector2(1018, 44), Vector2(1020, 44)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Enemies/Sprite2D:modulate")
+tracks/4/path = NodePath("Enemies/Label:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.8666666, 3.0666666),
+"times": PackedFloat32Array(2.38, 2.88),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Enemies/Label:text")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2.4, 2.43, 2.5, 2.59, 2.72, 2.84),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": ["gibbior spawned", "gibbior spawne", "gibbior spa", "gibbior ", "gib", ""]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ovt60"]
@@ -520,7 +598,158 @@ _data = {
 &"fade_out_weapon": SubResource("Animation_j5r7u"),
 &"gibbior_spawned": SubResource("Animation_bbut0"),
 &"new_weapon": SubResource("Animation_qfd3k"),
-&"player_hurt": SubResource("Animation_f8caw")
+&"player_hurt": SubResource("Animation_f8caw"),
+&"shrink_powerup": SubResource("Animation_rugs0")
+}
+
+[sub_resource type="Animation" id="Animation_o34iy"]
+resource_name = "shrink"
+length = 3.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceRayCharacter:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.2999997, 3.0333333, 3.1299996),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.392981, 0.392981), Vector2(0.23, 0.23), Vector2(0.24, 0.24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CornerLaser:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.6999998, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CornerLaser2:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 2.6999998, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PowerupText:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.87, 1.58, 1.66),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-132, 92), Vector2(29, 92), Vector2(27, 92)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PowerupProgressBar:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.27, 1.9666667, 2.0666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-130, 118), Vector2(31, 118), Vector2(29, 118)]
+}
+
+[sub_resource type="Animation" id="Animation_08js7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceRayCharacter:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.392981, 0.392981)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerupText:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-132, 92)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-130, 118)]
+}
+
+[sub_resource type="Animation" id="Animation_rar07"]
+resource_name = "unshrink"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpaceRayCharacter:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02117002, 0.8410529, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.24, 0.24), Vector2(0.41, 0.41), Vector2(0.392981, 0.392981)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerupText:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.6666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27, 92), Vector2(-132, 92)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupProgressBar:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1333333, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(29, 118), Vector2(-130, 118)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rugs0"]
+_data = {
+&"RESET": SubResource("Animation_08js7"),
+&"shrink": SubResource("Animation_o34iy"),
+&"unshrink": SubResource("Animation_rar07")
 }
 
 [sub_resource type="Animation" id="Animation_tbhyd"]
@@ -647,10 +876,21 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("31_r4y16")
+"texture": ExtResource("32_rugs0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_f8caw")
+"texture": ExtResource("33_bbut0")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_rar07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_llvyy")
 }],
 "loop": true,
 "name": &"red",
@@ -658,10 +898,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_08js7")
+"texture": ExtResource("36_vot2l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_rugs0")
+"texture": ExtResource("37_qxr3h")
 }],
 "loop": true,
 "name": &"yellow",
@@ -672,10 +912,21 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("31_f8caw")
+"texture": ExtResource("32_rugs0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_r4y16")
+"texture": ExtResource("33_bbut0")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_rar07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_llvyy")
 }],
 "loop": true,
 "name": &"red",
@@ -683,15 +934,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_08js7")
+"texture": ExtResource("36_vot2l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_rugs0")
+"texture": ExtResource("37_qxr3h")
 }],
 "loop": true,
 "name": &"yellow",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rugs0"]
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbut0"]
+bg_color = Color(0.25490198, 0.6392157, 0.94509804, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="SpaceRay" type="Node"]
 script = ExtResource("1_x4byx")
@@ -709,6 +974,11 @@ scale = Vector2(0.392981, 0.392981)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ovt60")
+}
+
+[node name="PowerupAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rugs0")
 }
 
 [node name="Stars" type="Node" parent="."]
@@ -748,7 +1018,7 @@ stream = ExtResource("11_tbhyd")
 z_index = 8
 offset_left = 943.0
 offset_top = -58.0
-offset_right = 1129.0
+offset_right = 1129.0002
 offset_bottom = -34.0
 theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 32
@@ -837,6 +1107,7 @@ libraries = {
 }
 
 [node name="BlackScreen" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 20
 position = Vector2(562.49994, 316.5)
@@ -957,11 +1228,12 @@ script = ExtResource("16_tbhyd")
 [node name="CornerLaser" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 z_index = 7
-position = Vector2(530, -5)
+position = Vector2(530, -5.0000005)
 scale = Vector2(0.78601694, 0.6140065)
 sprite_frames = SubResource("SpriteFrames_c8mn4")
-animation = &"red"
+animation = &"blue"
 autoplay = "red"
+frame_progress = 0.33704275
 
 [node name="CornerLaser2" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -969,8 +1241,31 @@ z_index = 7
 position = Vector2(553, 652.00006)
 scale = Vector2(0.78601694, 0.6140065)
 sprite_frames = SubResource("SpriteFrames_r4y16")
-animation = &"red"
+animation = &"yellow"
 autoplay = "red"
+frame_progress = 0.7765358
+
+[node name="PowerupText" type="Label" parent="."]
+z_index = 8
+offset_left = -132.0
+offset_top = 92.0
+offset_right = 54.000244
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("10_ju80h")
+theme_override_font_sizes/font_size = 28
+text = "SHRINK !!"
+
+[node name="PowerupProgressBar" type="ProgressBar" parent="."]
+z_index = 7
+offset_left = -130.0
+offset_top = 118.0
+offset_right = -34.0
+offset_bottom = 124.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rugs0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bbut0")
+value = 100.0
+show_percentage = false
 
 [connection signal="finished" from="SoundEffects/Laser" to="." method="_on_laser_finished"]
+[connection signal="finished" from="SoundEffects/EnemyHitSound" to="." method="_on_enemy_hit_sound_finished"]
 [connection signal="finished" from="SoundEffects/EnemyLoopSound" to="." method="_on_enemy_loop_sound_finished"]

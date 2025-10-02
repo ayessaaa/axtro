@@ -11,6 +11,7 @@ extends Area2D
 @onready var hurt_sound = get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 var x_speed 
 var y_speed
 

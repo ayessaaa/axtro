@@ -63,6 +63,9 @@ var space_ray_spawn_interval = 1.5
 var space_ray_score = 0.0
 var space_ray_weapon_score = 0.0
 var space_ray_stop = false
+var space_ray_powerup = ""
+var space_ray_powerup_animation = false
+var space_ray_powerup_time = 100.0
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5
