@@ -2,7 +2,8 @@ extends Area2D
 
 @export var type = "sr_star"
 
-var powerups = ["shrink"]
+#var powerups = ["shrink", "triple"]
+var powerups = ["triple"]
 
 func _process(delta: float) -> void:
 	#position.x -= 2

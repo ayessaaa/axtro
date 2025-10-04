@@ -7,8 +7,8 @@ var direction: Vector2
 @onready var gun = get_parent().get_parent().get_node("Gun")
 @onready var character_animation = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
 @onready var space_ray_animation = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("AnimationPlayer")
-@onready var corner_laser = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("CornerLaser")
-@onready var corner_laser_2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("CornerLaser2")
+@onready var corner_laser = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser")
+@onready var corner_laser_2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser2")
 @onready var hurt_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
 
 func _ready() -> void:

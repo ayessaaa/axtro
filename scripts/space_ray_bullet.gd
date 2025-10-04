@@ -9,8 +9,9 @@ var direction: Vector2
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 func _ready() -> void:
-	direction = Vector2.RIGHT.rotated(character.rotation)
-	rotation = character.rotation
+	pass
+	#direction = Vector2.RIGHT.rotated(character.rotation)
+	#rotation = character.rotation
 
 func _process(delta: float) -> void:
 	if Global.space_ray_stop or !Global.is_space_ray:

@@ -56,9 +56,11 @@ var progress_bar_value
 
 @onready var bomb_animated: AnimatedSprite2D = $NextWeapon/BombArea/Bomb
 
-@onready var corner_laser: AnimatedSprite2D = $CornerLaser
-@onready var corner_laser_2: AnimatedSprite2D = $CornerLaser2
-@onready var powerup_progress_bar: ProgressBar = $PowerupProgressBar
+@onready var corner_laser: AnimatedSprite2D = $Powerup/CornerLaser
+@onready var corner_laser_2: AnimatedSprite2D = $Powerup/CornerLaser2
+@onready var powerup_progress_bar: ProgressBar = $Powerup/PowerupProgressBar
+@onready var powerup_text: Label = $Powerup/PowerupText
+var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER"}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -120,6 +122,7 @@ func _process(delta: float) -> void:
 		
 	if Global.space_ray_powerup == "shrink":
 		if !Global.space_ray_powerup_animation:
+			powerup_text.text = powerup_names[Global.space_ray_powerup]
 			powerup_animation.play("shrink")
 			corner_laser.play("blue")
 			corner_laser_2.play("blue")
@@ -130,6 +133,19 @@ func _process(delta: float) -> void:
 			powerup_animation.play("unshrink")
 			Global.space_ray_powerup = ""
 			Global.space_ray_powerup_animation = false
+	elif Global.space_ray_powerup == "triple":
+		if !Global.space_ray_powerup_animation:
+			powerup_text.text = powerup_names[Global.space_ray_powerup]
+			powerup_animation.play("triple")
+			corner_laser.play("blue")
+			corner_laser_2.play("blue")
+			Global.space_ray_powerup_animation = true
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		#if Global.space_ray_powerup_time <= 0:
+			#powerup_animation.play("unshrink")
+			#Global.space_ray_powerup = ""
+			#Global.space_ray_powerup_animation = false
 			
 		
 	timer += delta
@@ -163,7 +179,7 @@ func _process(delta: float) -> void:
 			bg_music.volume_db = -10
 			
 	star_timer += delta
-	if star_timer >= 2:
+	if star_timer >= 2 and Global.space_ray_powerup == "":
 		if randi_range(0, 5) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
