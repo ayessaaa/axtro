@@ -43,6 +43,8 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
+		if Global.space_ray_powerup == "invisible":
+			return
 		if Global.space_ray_hearts > 0:
 			Global.space_ray_hearts -= 1
 			corner_laser.play("red")

@@ -76,9 +76,14 @@ func _physics_process(delta: float) -> void:
 			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
 		else:
 			bullet_sound.play()
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
 			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
+			
+			
+	if Global.space_ray_powerup == "invisible":
+		type = "invisible"
+	else:
+		type = "player"
+		
 			
 		
 	# rotate

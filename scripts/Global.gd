@@ -66,6 +66,7 @@ var space_ray_stop = false
 var space_ray_powerup = ""
 var space_ray_powerup_animation = false
 var space_ray_powerup_time = 100.0
+var space_ray_new_weapon = false
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5

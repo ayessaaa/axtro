@@ -60,7 +60,10 @@ var progress_bar_value
 @onready var corner_laser_2: AnimatedSprite2D = $Powerup/CornerLaser2
 @onready var powerup_progress_bar: ProgressBar = $Powerup/PowerupProgressBar
 @onready var powerup_text: Label = $Powerup/PowerupText
-var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER"}
+var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE"}
+
+var next_weapon_animation_done
+@onready var powerup_sound: AudioStreamPlayer2D = $SoundEffects/PowerupSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -81,11 +84,12 @@ func _process(delta: float) -> void:
 	
 	if !Global.is_space_ray:
 		return
-	if animation_player.current_animation == "new_weapon":
+	if Global.space_ray_new_weapon and next_weapon_animation_done:
 		if Input.is_action_just_pressed("shoot"):
 			animation_player.play("fade_out_weapon")
 			Global.space_ray_stop = false
 			bomb_animated.play("explode")
+			Global.space_ray_new_weapon = false
 	if Global.space_ray_stop:
 		return
 	if Global.dead:
@@ -104,6 +108,9 @@ func _process(delta: float) -> void:
 			Global.space_ray_gameover_screen = false
 			Global.dead = false
 			Global.is_space_ray = true
+			Global.space_ray_powerup = ""
+			Global.space_ray_powerup_animation = false
+			Global.space_ray_powerup_time = 100.0
 			get_tree().reload_current_scene()
 	if !Global.selected_sound_played and Global.is_space_ray:
 		selected_sound.play()
@@ -122,30 +129,34 @@ func _process(delta: float) -> void:
 		
 	if Global.space_ray_powerup == "shrink":
 		if !Global.space_ray_powerup_animation:
-			powerup_text.text = powerup_names[Global.space_ray_powerup]
-			powerup_animation.play("shrink")
-			corner_laser.play("blue")
-			corner_laser_2.play("blue")
-			Global.space_ray_powerup_animation = true
+			Global.space_ray_powerup_time = 100.0
+			powerup_progress_bar.max_value = 100.0
+			powerup_start()
 		Global.space_ray_powerup_time -= delta * 4
 		powerup_progress_bar.value = Global.space_ray_powerup_time
 		if Global.space_ray_powerup_time <= 0:
-			powerup_animation.play("unshrink")
-			Global.space_ray_powerup = ""
-			Global.space_ray_powerup_animation = false
+			powerup_end()
 	elif Global.space_ray_powerup == "triple":
 		if !Global.space_ray_powerup_animation:
-			powerup_text.text = powerup_names[Global.space_ray_powerup]
-			powerup_animation.play("triple")
-			corner_laser.play("blue")
-			corner_laser_2.play("blue")
-			Global.space_ray_powerup_animation = true
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			powerup_start()
 		Global.space_ray_powerup_time -= delta * 4
 		powerup_progress_bar.value = Global.space_ray_powerup_time
-		#if Global.space_ray_powerup_time <= 0:
-			#powerup_animation.play("unshrink")
-			#Global.space_ray_powerup = ""
-			#Global.space_ray_powerup_animation = false
+		if Global.space_ray_powerup_time <= 0:
+			powerup_end()
+	elif Global.space_ray_powerup == "invisible":
+		if !Global.space_ray_powerup_animation:
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			powerup_start()
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			powerup_end()
+	else:
+		Global.space_ray_powerup_time = 100.0
+		
 			
 		
 	timer += delta
@@ -180,7 +191,7 @@ func _process(delta: float) -> void:
 			
 	star_timer += delta
 	if star_timer >= 2 and Global.space_ray_powerup == "":
-		if randi_range(0, 5) < 1:
+		if randi_range(0, 2) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
 			
@@ -201,9 +212,11 @@ func _process(delta: float) -> void:
 	progress_text.text = str(int(Global.space_ray_weapon_score)) + " / " + str(weapon_score[weapon_list[weapon_list_index]])
 	if progress_bar_value >= 1:
 		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
+		Global.space_ray_new_weapon = true
 		animation_player.play("new_weapon")
 		Global.space_ray_weapon_score = 0.0
 		Global.space_ray_stop = true
+		next_weapon_animation_done = false
 		#weapon_list_index += 1
 		
 	
@@ -237,3 +250,20 @@ func _on_enemy_loop_sound_finished() -> void:
 
 func _on_enemy_hit_sound_finished() -> void:
 	enemy_hit_sound.volume_db = 0
+	
+func powerup_start() -> void:
+	powerup_text.text = powerup_names[Global.space_ray_powerup]
+	powerup_animation.play(Global.space_ray_powerup)
+	corner_laser.play("blue")
+	corner_laser_2.play("blue")
+	Global.space_ray_powerup_animation = true
+	powerup_sound.play()
+	
+func powerup_end() -> void:
+	powerup_animation.play("un"+Global.space_ray_powerup)
+	Global.space_ray_powerup = ""
+	Global.space_ray_powerup_animation = false
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	next_weapon_animation_done = true

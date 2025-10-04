@@ -2,8 +2,10 @@ extends Area2D
 
 @export var type = "sr_star"
 
-#var powerups = ["shrink", "triple"]
-var powerups = ["triple"]
+@onready var powerup_sound: AudioStreamPlayer2D = $PowerupSound
+
+var powerups = ["shrink", "triple", "invisible"]
+#var powerups = ["invisible"]
 
 func _process(delta: float) -> void:
 	#position.x -= 2
@@ -12,11 +14,12 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_stop:
 		return
+	if Global.space_ray_powerup != "":
+		queue_free()
 	position.y += 1.5
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
-		print("player caught star")
 		Global.space_ray_powerup = powerups[randi_range(0, len(powerups)-1)]
 		queue_free()
