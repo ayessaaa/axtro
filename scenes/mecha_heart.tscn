@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://cken2n7j0guqc"]
+
+[ext_resource type="Texture2D" uid="uid://ch6ngk0rmluan" path="res://assets/space_ray_assets/IMG_1839.PNG" id="1_g3pso"]
+[ext_resource type="Script" uid="uid://crd3d824x8hp1" path="res://scripts/mecha_heart.gd" id="1_q53re"]
+[ext_resource type="Texture2D" uid="uid://e7wt2lqc8e6v" path="res://assets/space_ray_assets/IMG_1840.PNG" id="2_q53re"]
+[ext_resource type="AudioStream" uid="uid://k0a01iarovcw" path="res://assets/music/clear-combo-5-394488_jaLF4D1O.mp3" id="4_i8txv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8txv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g3pso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q53re")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_q53re"]
+resource_name = "collected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_i8txv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y07sg"]
+resource_name = "disappearing"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 2.99, 3.5, 4, 4.26, 4.5, 4.75, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y07sg"]
+_data = {
+&"RESET": SubResource("Animation_i8txv"),
+&"collected": SubResource("Animation_q53re"),
+&"disappearing": SubResource("Animation_y07sg")
+}
+
+[node name="MechaHeart" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_q53re")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.27453986, 0.27453983)
+sprite_frames = SubResource("SpriteFrames_i8txv")
+autoplay = "default"
+frame_progress = 0.11917238
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, -7, -15, -3, -14, 1, -12, 5, -15, 10, -15, 14, -13, 16, -9, 16, -4, 13, 0, 9, 5, 2, 9, -3, 5, -10, 1, -13, -4, -13, -8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y07sg")
+}
+
+[node name="HeartCollectedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i8txv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

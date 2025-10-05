@@ -64,7 +64,8 @@ var progress_bar_value
 @onready var corner_laser_2: AnimatedSprite2D = $Powerup/CornerLaser2
 @onready var powerup_progress_bar: ProgressBar = $Powerup/PowerupProgressBar
 @onready var powerup_text: Label = $Powerup/PowerupText
-var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE", "speed": "SPEEDY"}
+var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE",
+					 "speed": "SPEEDY", "double": "2x SCORE"}
 
 var next_weapon_animation_done
 @onready var powerup_sound: AudioStreamPlayer2D = $SoundEffects/PowerupSound
@@ -168,6 +169,17 @@ func _process(delta: float) -> void:
 		powerup_progress_bar.value = Global.space_ray_powerup_time
 		if Global.space_ray_powerup_time <= 0:
 			Global.space_ray_thrust_accel = 400
+			powerup_end()
+	elif Global.space_ray_powerup == "double":
+		if !Global.space_ray_powerup_animation:
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			Global.space_ray_multiplier = 2
+			powerup_start()
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			Global.space_ray_multiplier = 1
 			powerup_end()
 	#else:
 		#Global.space_ray_powerup_time = 80.0

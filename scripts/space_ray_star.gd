@@ -4,8 +4,8 @@ extends Area2D
 
 @onready var powerup_sound: AudioStreamPlayer2D = $PowerupSound
 
-#var powerups = ["shrink", "triple", "invisible", "speed"]
-var powerups = ["speed"]
+#var powerups = ["shrink", "triple", "invisible", "speed", "double"]
+var powerups = ["double"]
 
 func _process(delta: float) -> void:
 	#position.x -= 2

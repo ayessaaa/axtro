@@ -19,6 +19,7 @@ extends Node
 @onready var progress_area_animation = $ProgressArea/AnimationPlayer
 @onready var score: Label = $ScoreNode/Score
 @onready var score_sprite_2d: Sprite2D = $ScoreNode/Sprite2D
+@onready var heart_2: AnimatedSprite2D = $Hearts/Sprite2D2
 
 var timer = 5
 var double_points_timer = 0
@@ -56,6 +57,7 @@ func _process(delta: float) -> void:
 					Global.magnet = false
 					Global.unli_bullet = false
 					Global.shoot_left = 3
+					Global.hearts = 3
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -111,6 +113,9 @@ func _process(delta: float) -> void:
 		Global.is_space_ray = false
 		Global.is_ocean_rhythm = false
 		get_tree().reload_current_scene()
+		
+	if Global.hearts == 2:
+		heart_2.modulate = Color(1,1,1)
 	
 	#if Global.controls_tutorial:
 		#if timer > 7.8:

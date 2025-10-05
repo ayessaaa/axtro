@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3uctjjxqt4e0"]
+[gd_scene load_steps=21 format=3 uid="uid://3uctjjxqt4e0"]
 
 [ext_resource type="Script" uid="uid://dhtv3y13k47xv" path="res://scripts/character.gd" id="2_rkhd4"]
 [ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="3_0lw5n"]
@@ -113,6 +113,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.354302]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7eonc"]
 resource_name = "default"
@@ -210,10 +222,27 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_x8k1v"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24000001, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.66999996, 0.66999996, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lagn4"]
 _data = {
 &"RESET": SubResource("Animation_8yvht"),
 &"default": SubResource("Animation_7eonc"),
+&"hurt": SubResource("Animation_x8k1v"),
 &"shield_fade_in": SubResource("Animation_50cep"),
 &"shield_fade_out": SubResource("Animation_lagn4")
 }

@@ -42,13 +42,9 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			queue_free()
-	if area.type == "bullet" or  area.type == "red_bullet":
-		Global.space_ray_score += 1
-		Global.space_ray_weapon_score += 1
-		animation_player.play("hurt")
-	if area.type == "bomb":
-		Global.space_ray_score += 1
-		Global.space_ray_weapon_score += 1
+	if area.type == "bullet" or  area.type == "red_bullet" or area.type == "bomb":
+		Global.space_ray_score += 1 * Global.space_ray_multiplier
+		Global.space_ray_weapon_score += 1 * Global.space_ray_multiplier
 		animation_player.play("hurt")
 		
 

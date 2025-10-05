@@ -8,6 +8,7 @@ const LINES = preload("res://scenes/line.tscn")
 @onready var lines_container = get_parent().get_node("Lines")
 
 const SPECIAL_STAR = preload("res://scenes/special_star.tscn")
+const HEART = preload("res://scenes/mecha_heart.tscn")
 @onready var stars_container = get_parent().get_node("Stars")
 
 var line: Sprite2D
@@ -26,6 +27,10 @@ var random_speed = randf_range(1, 1.3)
 var meteor_killed_from_shield = false
 
 @onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
+
+@onready var heart1 = get_parent().get_parent().get_node("Hearts/Sprite2D")
+@onready var heart2 = get_parent().get_parent().get_node("Hearts/Sprite2D2")
+@onready var hurt_sound = get_parent().get_parent().get_node("Hearts/HurtSound")
 
 func _ready() -> void:
 	line = LINES.instantiate()
@@ -54,25 +59,37 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 	if meteor_killed_from_shield:
 		return
 	if area.player:
-		if Global.shield:
-			character_animation.play("shield_fade_out")
-			meteor_killed_from_shield = true
-			Global.shield = false
-			asteroid_meteor_fall = true
-			if line and line.is_inside_tree():
-				line.queue_free()
-			shield_pop_sound.play()
-			meteor_explosion_sound.play()
-			return
-		Global.dead = true
-		death_sound.play()
-		Global.controls_tutorial = false
-		gameover_screen.play_animation("default")
+		hurt_sound.play()
+		character_animation.play("hurt")
+		asteroid_meteor_fall = true
+		if line and line.is_inside_tree():
+			line.queue_free()
+		Global.hearts -= 1
+		if Global.hearts <= 0:
+			if Global.shield:
+				character_animation.play("shield_fade_out")
+				Global.shield = false
+				shield_pop_sound.play()
+				meteor_explosion_sound.play()
+				return
+			Global.dead = true
+			death_sound.play()
+			Global.controls_tutorial = false
+			gameover_screen.play_animation("default")
+			heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
+		else:
+			heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 	else:
 		if !asteroid_meteor_fall:
-			var special_star = SPECIAL_STAR.instantiate()
-			special_star.position = position
-			stars_container.add_child(special_star)
+			if randi_range(0, 2) < 1 and Global.hearts < 2:
+			#if true:
+				var heart = HEART.instantiate()
+				heart.position = position
+				stars_container.add_child(heart)
+			else:
+				var special_star = SPECIAL_STAR.instantiate()
+				special_star.position = position
+				stars_container.add_child(special_star)
 		asteroid_meteor_fall = true
 		
 		if line and line.is_inside_tree():

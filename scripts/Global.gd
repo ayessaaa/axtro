@@ -28,6 +28,7 @@ var shield_animation = false
 var double_points = false
 var magnet = false
 var unli_bullet = false
+var hearts = 2
 
 var powerup = null
 var powerup_showed = false
@@ -68,6 +69,7 @@ var space_ray_powerup_animation = false
 var space_ray_powerup_time = 80.0
 var space_ray_new_weapon = false
 var space_ray_thrust_accel = 400
+var space_ray_multiplier = 1
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5
