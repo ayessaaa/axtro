@@ -27,6 +27,9 @@ const METEOR = preload("res://scenes/space_ray_meteor.tscn")
 const STAR = preload("res://scenes/space_ray_star.tscn")
 @onready var stars: Node = $Stars
 
+const HEART = preload("res://scenes/space_ray_heart_collectible.tscn")
+@onready var collectibles: Node = $Collectibles
+
 var timer = 20
 var bg_spawn_interval = 12
 var gibbior_spawned = false
@@ -34,6 +37,7 @@ var gibbior_timer = 0.0
 var rocket_timer = 0.0
 var meteor_timer = 2.0
 var star_timer = 2.0
+var heart_timer = 2.0
 
 @onready var current_weapon_label: Label = $CurrentWeapon/CurrentWeaponLabel
 @onready var weapon_sprite: Sprite2D = $CurrentWeapon/WeaponSprite
@@ -60,7 +64,7 @@ var progress_bar_value
 @onready var corner_laser_2: AnimatedSprite2D = $Powerup/CornerLaser2
 @onready var powerup_progress_bar: ProgressBar = $Powerup/PowerupProgressBar
 @onready var powerup_text: Label = $Powerup/PowerupText
-var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE"}
+var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE", "speed": "SPEEDY"}
 
 var next_weapon_animation_done
 @onready var powerup_sound: AudioStreamPlayer2D = $SoundEffects/PowerupSound
@@ -129,8 +133,8 @@ func _process(delta: float) -> void:
 		
 	if Global.space_ray_powerup == "shrink":
 		if !Global.space_ray_powerup_animation:
-			Global.space_ray_powerup_time = 100.0
-			powerup_progress_bar.max_value = 100.0
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
 			powerup_start()
 		Global.space_ray_powerup_time -= delta * 4
 		powerup_progress_bar.value = Global.space_ray_powerup_time
@@ -154,8 +158,19 @@ func _process(delta: float) -> void:
 		powerup_progress_bar.value = Global.space_ray_powerup_time
 		if Global.space_ray_powerup_time <= 0:
 			powerup_end()
-	else:
-		Global.space_ray_powerup_time = 100.0
+	elif Global.space_ray_powerup == "speed":
+		if !Global.space_ray_powerup_animation:
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			Global.space_ray_thrust_accel = 600
+			powerup_start()
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			Global.space_ray_thrust_accel = 400
+			powerup_end()
+	#else:
+		#Global.space_ray_powerup_time = 80.0
 		
 			
 		
@@ -194,6 +209,12 @@ func _process(delta: float) -> void:
 		if randi_range(0, 2) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
+		
+	heart_timer += delta
+	if heart_timer >= 2 and Global.space_ray_hearts < 3:
+		if randi_range(0, 2) < 1:
+			spawn_heart(Vector2(randf_range(50, 1100), -100))
+		heart_timer = 0
 			
 	
 	name_label.text = Global.space_ray_weapon
@@ -211,6 +232,8 @@ func _process(delta: float) -> void:
 	progress_bar.value = progress_bar_value
 	progress_text.text = str(int(Global.space_ray_weapon_score)) + " / " + str(weapon_score[weapon_list[weapon_list_index]])
 	if progress_bar_value >= 1:
+		corner_laser.play("green")
+		corner_laser_2.play("green")
 		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
 		Global.space_ray_new_weapon = true
 		animation_player.play("new_weapon")
@@ -242,6 +265,11 @@ func spawn_star(pos):
 	var star = STAR.instantiate()
 	star.position = pos
 	stars.add_child(star)
+	
+func spawn_heart(pos):
+	var heart = HEART.instantiate()
+	heart.position = pos
+	collectibles.add_child(heart)
 
 
 func _on_enemy_loop_sound_finished() -> void:

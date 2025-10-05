@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var type = "player"
 
-@export var thrust_accel: float = 400.0
+#@export var thrust_accel: float = 400.0
 @export var rotation_speed: float = 3.0
 @export var max_speed: float = 600.0
 @export var damping: float = 0.0 
@@ -95,14 +95,14 @@ func _physics_process(delta: float) -> void:
 		rotation_velocity = move_toward(rotation_velocity, 0.0, rotation_decel * delta)
 
 	if Input.is_action_pressed("move_right"):
-		velocity += Vector2.RIGHT * thrust_accel * delta
+		velocity += Vector2.RIGHT * Global.space_ray_thrust_accel * delta
 		
 	if Input.is_action_pressed("move_left"):
-		velocity += Vector2.LEFT * thrust_accel * delta
+		velocity += Vector2.LEFT * Global.space_ray_thrust_accel * delta
 	if Input.is_action_pressed("move_down"):
-		velocity += Vector2.DOWN * thrust_accel * delta
+		velocity += Vector2.DOWN * Global.space_ray_thrust_accel * delta
 	if Input.is_action_pressed("move_up"):
-		velocity += Vector2.UP * thrust_accel * delta
+		velocity += Vector2.UP * Global.space_ray_thrust_accel * delta
 		
 	if position.x > 1075:
 		position.x = 1075

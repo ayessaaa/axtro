@@ -1,11 +1,11 @@
 extends Area2D
 
-@export var type = "sr_star"
+@export var type = "sr_heart"
 
 @onready var powerup_sound: AudioStreamPlayer2D = $PowerupSound
+@onready var heart_collected_sound: AudioStreamPlayer2D = $HeartCollectedSound
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-#var powerups = ["shrink", "triple", "invisible", "speed"]
-var powerups = ["speed"]
 
 func _process(delta: float) -> void:
 	#position.x -= 2
@@ -14,12 +14,15 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_stop:
 		return
-	if Global.space_ray_powerup != "":
-		queue_free()
 	position.y += 1.5
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
-		Global.space_ray_powerup = powerups[randi_range(0, len(powerups)-1)]
-		queue_free()
+		Global.space_ray_hearts += 1
+		heart_collected_sound.play()
+		animation_player.play("collected")
+		
+
+func _on_heart_collected_sound_finished() -> void:
+	queue_free()
