@@ -29,8 +29,9 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
 
 var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"}, 
-					"bullet": {"dmg": "10", "cooldown" : "1s"}}
+					"bullet": {"dmg": "10", "cooldown" : "0.5 s"}}
 var weapon_index = 0
+var bullet_cooldown = 0.0
 
 func _physics_process(delta: float) -> void:
 	if Global.space_ray_stop:
@@ -67,16 +68,25 @@ func _physics_process(delta: float) -> void:
 		#if Global.space_ray_powerup == "triple":
 		spawn_shoot(position, BOMB, "bomb")
 		
-	
-	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
-		if Global.space_ray_powerup == "triple":
-			bullet_sound.play()
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
-		else:
+	if Global.space_ray_powerup == "machine_gun" and Global.weapon == "bullet":
+		if bullet_cooldown <= 0:
+			bullet_cooldown = 0.25
 			bullet_sound.play()
 			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
+		bullet_cooldown -= delta
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
+			if bullet_cooldown <= 0:
+				bullet_cooldown = 0.5
+				if Global.space_ray_powerup == "triple":
+					bullet_sound.play()
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
+				else:
+					bullet_sound.play()
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
+		bullet_cooldown -= delta
 			
 			
 	if Global.space_ray_powerup == "invisible":

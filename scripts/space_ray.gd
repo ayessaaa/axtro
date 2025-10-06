@@ -65,7 +65,8 @@ var progress_bar_value
 @onready var powerup_progress_bar: ProgressBar = $Powerup/PowerupProgressBar
 @onready var powerup_text: Label = $Powerup/PowerupText
 var powerup_names = {"shrink": "SHRINK !!", "triple": "3x SHOOTER", "invisible": "INVISIBLEE",
-					 "speed": "SPEEDY", "double": "2x SCORE"}
+					 "speed": "SPEEDY", "double": "2x SCORE", "machine_gun": "MACHINE GUN",
+					 "big_bomb": "BIG BOMB"}
 
 var next_weapon_animation_done
 @onready var powerup_sound: AudioStreamPlayer2D = $SoundEffects/PowerupSound
@@ -181,6 +182,24 @@ func _process(delta: float) -> void:
 		if Global.space_ray_powerup_time <= 0:
 			Global.space_ray_multiplier = 1
 			powerup_end()
+	elif Global.space_ray_powerup == "machine_gun":
+		if !Global.space_ray_powerup_animation:
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			powerup_start()
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			powerup_end()
+	elif Global.space_ray_powerup == "big_bomb":
+		if !Global.space_ray_powerup_animation:
+			Global.space_ray_powerup_time = 80.0
+			powerup_progress_bar.max_value = 80.0
+			powerup_start()
+		Global.space_ray_powerup_time -= delta * 4
+		powerup_progress_bar.value = Global.space_ray_powerup_time
+		if Global.space_ray_powerup_time <= 0:
+			powerup_end()
 	#else:
 		#Global.space_ray_powerup_time = 80.0
 		
@@ -206,7 +225,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 10:
+	if gibbior_timer >= 20:
 		if !gibbior_spawned:
 			corner_laser.play("yellow")
 			corner_laser_2.play("yellow")
@@ -224,7 +243,7 @@ func _process(delta: float) -> void:
 		
 	heart_timer += delta
 	if heart_timer >= 2 and Global.space_ray_hearts < 3:
-		if randi_range(0, 2) < 1:
+		if randi_range(0, 10) < 1:
 			spawn_heart(Vector2(randf_range(50, 1100), -100))
 		heart_timer = 0
 			
@@ -252,7 +271,11 @@ func _process(delta: float) -> void:
 		Global.space_ray_weapon_score = 0.0
 		Global.space_ray_stop = true
 		next_weapon_animation_done = false
+		if weapon_list[weapon_list_index] == "bomb":
+			Global.space_ray_powerups.append("big_bomb")
 		#weapon_list_index += 1
+		
+	#print(Global.space_ray_powerups)
 		
 	
 func _on_laser_finished() -> void:

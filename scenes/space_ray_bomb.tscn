@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmomohy8s72lb"]
+[gd_scene load_steps=23 format=3 uid="uid://dmomohy8s72lb"]
 
 [ext_resource type="Script" uid="uid://cgduw3gsuf32o" path="res://scripts/space_ray_bomb.gd" id="1_n5pj8"]
 [ext_resource type="Texture2D" uid="uid://d77ub31lqyft" path="res://assets/space_ray_assets/IMG_1852.PNG" id="2_cov6g"]
@@ -86,6 +86,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6458129, 0.645813)]
+}
 
 [sub_resource type="Animation" id="Animation_f3vaa"]
 resource_name = "explode"
@@ -102,9 +114,38 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(6.303912, 6.303912)]
 }
 
+[sub_resource type="Animation" id="Animation_c6pfo"]
+resource_name = "big_bomb"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(11.61687, 11.61687)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6458129, 0.645813), Vector2(0.94723505, 0.9472351), Vector2(0.93337363, 0.9333737)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6pfo"]
 _data = {
 &"RESET": SubResource("Animation_h55y7"),
+&"big_bomb": SubResource("Animation_c6pfo"),
 &"explode": SubResource("Animation_f3vaa")
 }
 
@@ -121,6 +162,8 @@ scale = Vector2(0.6458129, 0.645813)
 sprite_frames = SubResource("SpriteFrames_dhe7l")
 animation = &"explosion"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 7

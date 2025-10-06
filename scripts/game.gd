@@ -38,7 +38,6 @@ func _ready() -> void:
 	unli_bullet_icon_sprite.texture = load("res://assets/IMG_1677.PNG")
 
 func _process(delta: float) -> void:
-	
 	score.visible = !Global.start_screen
 	score_sprite_2d.visible = !Global.start_screen
 	
@@ -57,7 +56,7 @@ func _process(delta: float) -> void:
 					Global.magnet = false
 					Global.unli_bullet = false
 					Global.shoot_left = 3
-					Global.hearts = 3
+					Global.hearts = 2
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:

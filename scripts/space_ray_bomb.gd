@@ -24,8 +24,11 @@ func _process(delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("shoot") and Global.theres_bomb:
+		if Global.space_ray_powerup == "big_bomb":
+			animation_player.play("big_bomb")
+		else:
+			animation_player.play("explode")
 		sprite_2d.play("explosion")
-		animation_player.play("explode")
 		explode_sound.play()
 		bomb_sound.stop()
 		

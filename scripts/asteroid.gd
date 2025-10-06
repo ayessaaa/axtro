@@ -59,6 +59,15 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 	if meteor_killed_from_shield:
 		return
 	if area.player:
+		if Global.shield:
+				character_animation.play("shield_fade_out")
+				Global.shield = false
+				shield_pop_sound.play()
+				meteor_explosion_sound.play()
+				asteroid_meteor_fall = true
+				if line and line.is_inside_tree():
+					line.queue_free()
+				return
 		hurt_sound.play()
 		character_animation.play("hurt")
 		asteroid_meteor_fall = true
@@ -66,12 +75,6 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 			line.queue_free()
 		Global.hearts -= 1
 		if Global.hearts <= 0:
-			if Global.shield:
-				character_animation.play("shield_fade_out")
-				Global.shield = false
-				shield_pop_sound.play()
-				meteor_explosion_sound.play()
-				return
 			Global.dead = true
 			death_sound.play()
 			Global.controls_tutorial = false
