@@ -11,6 +11,7 @@ extends Node
 @onready var enemy_loop_sound: AudioStreamPlayer2D = $SoundEffects/EnemyLoopSound
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var powerup_animation: AnimationPlayer = $PowerupAnimation
+@onready var q_switch: Label = $CurrentWeapon/QSwitch
 
 const EARTH = preload("res://scenes/sr_earth.tscn")
 const MOON = preload("res://scenes/sr_moon.tscn")
@@ -22,6 +23,7 @@ var bg_obj_index = 0
 const GIBBIOR = preload("res://scenes/space_ray_enemy_1.tscn")
 const ROCKET = preload("res://scenes/sr_rocket.tscn")
 const METEOR = preload("res://scenes/space_ray_meteor.tscn")
+const BLAISTER = preload("res://scenes/space_ray_blaister.tscn")
 @onready var enemies: Node = $Enemies
 
 const STAR = preload("res://scenes/space_ray_star.tscn")
@@ -38,6 +40,7 @@ var rocket_timer = 0.0
 var meteor_timer = 2.0
 var star_timer = 2.0
 var heart_timer = 2.0
+var blaister_timer = 0.0
 
 @onready var current_weapon_label: Label = $CurrentWeapon/CurrentWeaponLabel
 @onready var weapon_sprite: Sprite2D = $CurrentWeapon/WeaponSprite
@@ -55,7 +58,7 @@ var heart_timer = 2.0
 
 var weapon_list = ["bomb"]
 var weapon_list_index = 0
-var weapon_score = {"bomb": 20}
+var weapon_score = {"bomb": 50}
 var progress_bar_value
 
 @onready var bomb_animated: AnimatedSprite2D = $NextWeapon/BombArea/Bomb
@@ -87,6 +90,7 @@ func _process(delta: float) -> void:
 	next_weapon_text.visible = Global.is_space_ray
 	progress_bar.visible = Global.is_space_ray
 	progress_text.visible = Global.is_space_ray
+	q_switch.visible = Global.is_space_ray
 	
 	if !Global.is_space_ray:
 		return
@@ -219,8 +223,13 @@ func _process(delta: float) -> void:
 		rocket_timer = 0
 		spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET)
 		
+	blaister_timer += delta
+	if blaister_timer >= 10:
+		blaister_timer = 0
+		spawn_enemy(Vector2(1500, randf_range(50, 600)), BLAISTER)
+		
 	meteor_timer += delta
-	if meteor_timer >= 2:
+	if meteor_timer >= 3:
 		meteor_timer = 0
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			

@@ -53,7 +53,7 @@ var is_mecha_flight = false
 var is_space_ray = false
 var selected_sound_played = false
 var space_ray_weapon = "bullet"
-var space_ray_weapons = ["bullet"]
+var space_ray_weapons = ["bullet", "bomb"]
 var space_ray_game_time = 0.0
 var space_ray_hearts = 3
 var space_ray_gameover_screen = false
@@ -70,7 +70,7 @@ var space_ray_powerup_time = 80.0
 var space_ray_new_weapon = false
 var space_ray_thrust_accel = 400
 var space_ray_multiplier = 1
-var space_ray_powerups = ["shrink", "triple", "invisible", "speed", "double", "machine_gun"]
+var space_ray_powerups = [ "machine_gun", "big_bomb"]
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5

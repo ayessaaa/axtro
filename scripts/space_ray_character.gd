@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 		#if Global.space_ray_powerup == "triple":
 		spawn_shoot(position, BOMB, "bomb")
 		
-	if Global.space_ray_powerup == "machine_gun" and Global.weapon == "bullet":
+	if Global.space_ray_powerup == "machine_gun" and Global.space_ray_weapon == "bullet":
 		if bullet_cooldown <= 0:
 			bullet_cooldown = 0.25
 			bullet_sound.play()
