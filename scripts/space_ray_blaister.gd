@@ -12,6 +12,7 @@ extends Area2D
 @onready var progress_bar: ProgressBar = $Sprite2D/ProgressBar
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_animation: AnimationPlayer = $AnimationPlayer
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 var speed = 0
 var health = 100
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 		return
 	if health <= 0:
 		sprite_animation.play("death")
+		collision_polygon_2d.disabled = true
 	if health < 100:
 		progress_bar.value = health
 		progress_bar.visible = true

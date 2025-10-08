@@ -1,45 +1,93 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxcb51gs0ytxw"]
+[gd_scene load_steps=16 format=3 uid="uid://bxcb51gs0ytxw"]
 
 [ext_resource type="Script" uid="uid://b83u31t8a1ldx" path="res://scripts/space_ray_star.gd" id="1_5kp8g"]
-[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_sc5ys"]
+[ext_resource type="Texture2D" uid="uid://cu6qg6h65y0gy" path="res://assets/space_ray_assets/IMG_2015.PNG" id="2_8mq4e"]
+[ext_resource type="Texture2D" uid="uid://c1cukg8fow6ed" path="res://assets/space_ray_assets/IMG_2016.PNG" id="3_r52i4"]
+[ext_resource type="Texture2D" uid="uid://b1kidgxk8hnnl" path="res://assets/space_ray_assets/IMG_2008.png" id="4_ofsu0"]
+[ext_resource type="Texture2D" uid="uid://rkwv2w5jwwdt" path="res://assets/space_ray_assets/IMG_2009.png" id="5_uhkxd"]
+[ext_resource type="Texture2D" uid="uid://d0y2sgni6xeou" path="res://assets/space_ray_assets/IMG_2010.png" id="6_x3ypb"]
+[ext_resource type="Texture2D" uid="uid://ba0xtwq7dnix8" path="res://assets/space_ray_assets/IMG_2011.png" id="7_kw05t"]
+[ext_resource type="Texture2D" uid="uid://cyqm1qbdpk638" path="res://assets/space_ray_assets/IMG_2012.png" id="8_jts01"]
+[ext_resource type="Texture2D" uid="uid://bsftffuwldylb" path="res://assets/space_ray_assets/IMG_2013.png" id="9_7lw0p"]
+[ext_resource type="Texture2D" uid="uid://5jddxu5vi304" path="res://assets/space_ray_assets/IMG_2014.png" id="10_wblqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwu2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8mq4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r52i4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ofsu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uhkxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x3ypb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kw05t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jts01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7lw0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wblqk")
+}],
+"loop": false,
+"name": &"pickup",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_8mq4e"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-9.536743e-07, -1.9073486e-06)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-9.536743e-07, -1.9073486e-06)]
+"values": [Vector2(-49.999996, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
+tracks/2/path = NodePath("Sprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-49.999996, 0)]
+"values": [3.1415927]
 }
 
 [sub_resource type="Animation" id="Animation_5kp8g"]
@@ -49,43 +97,49 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(-9.536743e-07, -1.9073486e-06), Vector2(-9.536743e-07, -1.9073486e-06)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-9.536743e-07, -1.9073486e-06), Vector2(-9.536743e-07, -1.9073486e-06)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.96666664),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
 "values": [Vector2(-49.999996, 0), Vector2(51.999996, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ofsu0"]
+resource_name = "default"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.1415927, 6.2831855]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r52i4"]
 _data = {
 &"RESET": SubResource("Animation_8mq4e"),
+&"default": SubResource("Animation_ofsu0"),
 &"movement": SubResource("Animation_5kp8g")
 }
 
@@ -96,19 +150,22 @@ scale = Vector2(0.76543427, 0.76543427)
 collision_mask = 8
 script = ExtResource("1_5kp8g")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 6
 position = Vector2(-9.536743e-07, -1.9073486e-06)
-scale = Vector2(0.28266332, 0.28266332)
-texture = ExtResource("1_sc5ys")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-z_index = 6
-polygon = PackedVector2Array(-5, -11, 0, -19, 2, -19, 5, -11, 15, -8, 14, -5, 10, 0, 13, 8, 11, 9, 1, 7, -9, 10, -11, 9, -8, 0, -16, -7)
+rotation = 3.1415927
+scale = Vector2(0.43065834, 0.43065834)
+sprite_frames = SubResource("SpriteFrames_xwu2j")
+autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_r52i4")
 }
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16.983826, 1.3064479, -2.6128998, -18.29027, 15.677368, 0, 7.3979187, 10.537476, 1.3064423, 18.29027)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

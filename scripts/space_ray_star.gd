@@ -3,6 +3,7 @@ extends Area2D
 @export var type = "sr_star"
 
 @onready var powerup_sound: AudioStreamPlayer2D = $PowerupSound
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 #var powerups = ["shrink", "triple", "invisible", "speed", "double", "machine_gun", "big_bomb"]
 #var Global.space_ray_powerups = [ "machine_gun", "big_bomb"]
@@ -15,11 +16,15 @@ func _process(delta: float) -> void:
 	if Global.space_ray_stop:
 		return
 	if Global.space_ray_powerup != "":
-		queue_free()
+		sprite_2d.play("pickup")
 	position.y += 1.5
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "player":
 		Global.space_ray_powerup = Global.space_ray_powerups[randi_range(0, len(Global.space_ray_powerups)-1)]
-		queue_free()
+		sprite_2d.play("pickup")
+
+
+func _on_sprite_2d_animation_finished() -> void:
+	queue_free()
