@@ -1,7 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://31g6qbwfrwc0"]
+[gd_scene load_steps=14 format=3 uid="uid://31g6qbwfrwc0"]
 
 [ext_resource type="Script" uid="uid://cpg6e6x1xlg1y" path="res://scripts/sr_rocket.gd" id="1_62jgt"]
-[ext_resource type="Texture2D" uid="uid://drg66afua1jv1" path="res://assets/space_ray_assets/IMG_1743.PNG" id="1_p7f1k"]
+[ext_resource type="Texture2D" uid="uid://dg6kkdu6qknhu" path="res://assets/space_ray_assets/IMG_2017.PNG" id="2_ovsy0"]
+[ext_resource type="Texture2D" uid="uid://dqqffnyj4mi8a" path="res://assets/space_ray_assets/IMG_2018.PNG" id="3_j174e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bwnv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ovsy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j174e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62jgt"]
 bg_color = Color(0.5803922, 0.6901961, 0.7607843, 1)
@@ -98,7 +113,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-1.27222, -16.5389)]
+"values": [Vector2(-8, 10), Vector2(-8, -7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -299,15 +314,11 @@ scale = Vector2(0.786026, 0.786026)
 collision_mask = 8
 script = ExtResource("1_62jgt")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-polygon = PackedVector2Array(-54, 0, -43, -13, -28, -23, 0, -27, 24, -24, 35, -16, 42, -19, 57, -24, 60, -23, 61, -9, 58, 16, 44, 16, 37, 12, 32, 20, 7, 22, -21, 22, -43, 12)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 10)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("1_p7f1k")
+scale = Vector2(0.3711151, 0.3711151)
+sprite_frames = SubResource("SpriteFrames_bwnv1")
+autoplay = "default"
 
 [node name="ProgressBar" type="ProgressBar" parent="Sprite2D"]
 offset_left = -132.65805
@@ -331,6 +342,10 @@ autoplay = "default"
 libraries = {
 &"": SubResource("AnimationLibrary_xpove")
 }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1.0878385, 1.0878385)
+polygon = PackedVector2Array(-54.70558, -2.544447, -47.072243, -12.722229, -28, -23, 0, -27, 27.988901, -24.172234, 35.62224, -19.083344, 42, -19, 45.80002, -19.083344, 48.344467, -17.81112, 49.61669, -1.2722244, 47.072243, 11.450004, 44, 16, 34.350014, 13.994449, 24.172234, 20.355564, 7, 22, -21, 22, -38.16668, 16.538895, -49.616684, 8.905559)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

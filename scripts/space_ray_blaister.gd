@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if Global.space_ray_stop:
 		return
 	if health <= 0:
-		sprite_animation.play("hurt")
+		sprite_animation.play("death")
 	if health < 100:
 		progress_bar.value = health
 		progress_bar.visible = true
@@ -55,11 +55,13 @@ func _on_area_entered(area: Area2D) -> void:
 			sprite_animation.play("hurt")
 	if area.type == "bullet":
 		#sprite_animation.play("hurt")
+		sprite_animation.play("hurt")
 		health -= 25
 		Global.space_ray_score += 4 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 4 * Global.space_ray_multiplier
 		
 	if area.type == "red_bullet" or area.type == "bomb":
+		sprite_animation.play("hurt")
 		#sprite_animation.play("hurt")
 		health -= 50
 		Global.space_ray_score += 4 * Global.space_ray_multiplier
@@ -72,4 +74,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	queue_free()
+	if health <= 0:
+		queue_free()
+	
+	

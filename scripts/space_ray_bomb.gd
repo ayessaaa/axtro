@@ -50,7 +50,7 @@ func _on_sprite_2d_animation_finished() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.type == "enemy_rocket" or area.type == "enemy" or area.type == "enemy_meteor":
+	if area.type == "enemy_rocket" or area.type == "enemy" or area.type == "enemy_meteor" or area.type == "enemy_blaister":
 		hit_sound.play()
 		explode_sound.play()
 		#animation_player.play("explode")
