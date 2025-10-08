@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var type = "ad_star"
+
 @onready var coin_sound = get_parent().get_node("CoinSound")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -14,6 +16,7 @@ extends Area2D
 func _on_area_entered(area: Area2D) -> void:
 	if area.player and self.visible:
 		Global.angle_dash_score += 1
+		Global.score += 1
 		coin_sound.play()
 		animation_player.play("pick_up")
 

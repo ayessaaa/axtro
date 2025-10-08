@@ -279,10 +279,10 @@ position = Vector2(287.638, 351.638)
 [node name="Label2" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 z_index = 17
-offset_left = 22.0
-offset_top = 602.0
-offset_right = 377.0
-offset_bottom = 631.0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 49.0
 theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 30
 text = "SPACE to switch position"

@@ -19,6 +19,8 @@ const DIAMOND_SCENE = preload("res://scenes/diamond_scene.tscn")
 const DIAMOND_SCENE2 = preload("res://scenes/diamond_scene_2.tscn")
 @onready var obstacles_container = get_parent().get_node("Obstacles")
 
+@onready var progress_area_animation = get_parent().get_node("ProgressArea/AnimationPlayer")
+
 @onready var obstacles: Node = $Obstacles
 
 var timer = 4
@@ -48,6 +50,7 @@ func _process(delta: float) -> void:
 		Global.angle_dash_speed = 250
 		Global.direction = 0
 		Global.angle_dash_score = 0
+		Global.score = 0
 		bg_music.play()
 		
 	if Global.dead and Global.is_angle_dash:
@@ -78,6 +81,12 @@ func _process(delta: float) -> void:
 		score.text = "SCORE: "+str(Global.angle_dash_score)
 		
 	score.visible = !Global.marathon
+	
+	#print(Global.score)
+	
+	#if Global.angle_dash_score >= 10 and Global.score > 10 and Global.marathon:
+		#print("PLAY BRUH")
+		#progress_area_animation.play("next_mode_sr")
 		
 
 

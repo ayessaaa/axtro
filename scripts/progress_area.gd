@@ -28,7 +28,6 @@ func  _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if Global.is_angle_dash:
-		
 		Global.free_regular_mode_objects = true
 		if !Global.progress_area_displayed:
 			sprite_2d.texture = load("res://assets/angle_dash_assets/IMG_1686.PNG")
@@ -36,3 +35,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			progress_area.queue("fade_in_angle_dash")
 			print("finished")
 			Global.progress_area_displayed = true
+		#Global.marathon = false

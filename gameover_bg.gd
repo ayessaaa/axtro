@@ -13,7 +13,10 @@ func _process(delta: float) -> void:
 	if Global.is_space_ray:
 		score_label.text = str(int(Global.space_ray_score))
 	else:
-		score_label.text = str(Global.score+ Global.angle_dash_score)
+		if Global.marathon:
+			score_label.text = str(Global.angle_dash_score)
+		else:
+			score_label.text = str(Global.score)
 	
 func play_animation(animation):
 	animation_player.play("dark_screen")
