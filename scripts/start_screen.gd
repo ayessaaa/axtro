@@ -115,6 +115,7 @@ func _process(delta: float) -> void:
 				Global.object_speed = 2
 				Global.speed = 400
 				Global.selected_sound_played = false
+				Global.hearts = 2
 				queue_free()
 			1:
 				Global.start_screen = false

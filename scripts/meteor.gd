@@ -30,6 +30,7 @@ var random_speed = randf_range(1, 1.3)
 @onready var heart1 = get_parent().get_parent().get_node("Hearts/Sprite2D")
 @onready var heart2 = get_parent().get_parent().get_node("Hearts/Sprite2D2")
 @onready var hurt_sound = get_parent().get_parent().get_node("Hearts/HurtSound")
+@onready var collision_polygon_2d: CollisionPolygon2D = $MeteorArea2D/CollisionPolygon2D
 
 var meteor_killed_from_shield = false
 
@@ -61,6 +62,9 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 	if meteor_killed_from_shield:
 		return
 	if area.player:
+		collision_polygon_2d.disabled = true
+		if meteor_fall:
+			return
 		if Global.shield:
 				character_animation.play("shield_fade_out")
 				Global.shield = false

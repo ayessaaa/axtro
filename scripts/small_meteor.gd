@@ -32,6 +32,7 @@ var meteor_killed_from_shield = false
 @onready var heart1 = get_parent().get_parent().get_node("Hearts/Sprite2D")
 @onready var heart2 = get_parent().get_parent().get_node("Hearts/Sprite2D2")
 @onready var hurt_sound = get_parent().get_parent().get_node("Hearts/HurtSound")
+@onready var collision_polygon_2d: CollisionPolygon2D = $SmallMeteorArea2d/CollisionPolygon2D
 
 
 func _ready() -> void:
@@ -62,6 +63,9 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 	if meteor_killed_from_shield:
 		return
 	if area.player:
+		collision_polygon_2d.disabled = true
+		if small_meteor_fall:
+			return
 		if Global.shield:
 			character_animation.play("shield_fade_out")
 			Global.shield = false
