@@ -1,0 +1,566 @@
+[gd_scene load_steps=39 format=3 uid="uid://ddk8iksbx6uhb"]
+
+[ext_resource type="Texture2D" uid="uid://bsuqw2dg7awm5" path="res://assets/IMG_1551.PNG" id="1_1ucqv"]
+[ext_resource type="Texture2D" uid="uid://ijvagogd04wl" path="res://assets/IMG_1560.PNG" id="2_11de5"]
+[ext_resource type="Texture2D" uid="uid://cxg5x3nse0h8e" path="res://assets/IMG_1556.PNG" id="3_s2g7e"]
+[ext_resource type="Texture2D" uid="uid://ht25sc76cxci" path="res://assets/IMG_1557.PNG" id="4_1h6qx"]
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="5_1hisu"]
+[ext_resource type="Texture2D" uid="uid://bjmitexbaubfo" path="res://assets/IMG_1704.PNG" id="6_bjlqy"]
+[ext_resource type="Texture2D" uid="uid://2q2ltegtdajj" path="res://assets/IMG_1710.PNG" id="7_o3vux"]
+[ext_resource type="Texture2D" uid="uid://cauf1vucyjqde" path="res://assets/IMG_1711.PNG" id="8_7aqdr"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="9_8fvom"]
+[ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="10_lmj1r"]
+[ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="11_5ux3j"]
+[ext_resource type="Texture2D" uid="uid://b36rh1yexg1go" path="res://assets/IMG_1568.PNG" id="12_1ci0k"]
+[ext_resource type="Texture2D" uid="uid://c6pe5e688oljm" path="res://assets/IMG_1569.PNG" id="13_rcch2"]
+[ext_resource type="Texture2D" uid="uid://1cofnkr2liv1" path="res://assets/IMG_1577.PNG" id="14_c2nbu"]
+[ext_resource type="Texture2D" uid="uid://cbl2twhutut4" path="res://assets/IMG_1578.PNG" id="15_2g3jb"]
+[ext_resource type="Texture2D" uid="uid://hfug0nnj1oso" path="res://assets/IMG_1579.PNG" id="16_0fu2m"]
+[ext_resource type="Texture2D" uid="uid://ceprvr0bw6b7o" path="res://assets/IMG_1580.PNG" id="17_6l5ok"]
+[ext_resource type="Texture2D" uid="uid://pc1wqvvy6vw" path="res://assets/IMG_1581.PNG" id="18_2osbb"]
+[ext_resource type="Texture2D" uid="uid://c1srjx04o7e5v" path="res://assets/IMG_1582.PNG" id="19_n3fc4"]
+[ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="20_1nrc3"]
+[ext_resource type="Texture2D" uid="uid://c5gf31j82rfp0" path="res://assets/IMG_2024.PNG" id="21_ektnd"]
+[ext_resource type="Texture2D" uid="uid://bbut1jt0cvt1u" path="res://assets/IMG_2025.PNG" id="22_vvkkg"]
+[ext_resource type="Texture2D" uid="uid://da30fknlsr707" path="res://assets/IMG_2026.PNG" id="23_ennd6"]
+[ext_resource type="Texture2D" uid="uid://dmfnfoktolrgq" path="res://assets/IMG_2028.PNG" id="24_t77sq"]
+[ext_resource type="Texture2D" uid="uid://3nd7hg0uti43" path="res://assets/IMG_2029.PNG" id="25_lnqpy"]
+[ext_resource type="Texture2D" uid="uid://b5wk3cpkfw727" path="res://assets/IMG_2030.PNG" id="26_8agbt"]
+[ext_resource type="Texture2D" uid="uid://qbt2eahr2x0f" path="res://assets/IMG_2027.PNG" id="27_rr7ph"]
+[ext_resource type="Texture2D" uid="uid://c5dd1ficmmgi3" path="res://assets/IMG_2031.PNG" id="28_q6g2k"]
+[ext_resource type="Texture2D" uid="uid://dujrvwid6cru0" path="res://assets/IMG_2032.PNG" id="29_2p0ov"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3hdam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_o3vux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7aqdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0pxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhyp1"]
+bg_color = Color(1, 1, 1, 0.78431374)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.16078432)
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub4ok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lmj1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5ux3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1ci0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rcch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c2nbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2g3jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0fu2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c2nbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lmj1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5ux3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rcch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1ci0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6l5ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2osbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_n3fc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6l5ok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5k4v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_1nrc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ektnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vvkkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ennd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_t77sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lnqpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_8agbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_t77sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1nrc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vvkkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ennd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ektnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_rr7ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_q6g2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_2p0ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_rr7ph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1xh8x"]
+resource_name = "two_players"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectLine2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.56666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(280, 632), Vector2(855, 632), Vector2(852, 632), Vector2(853, 632)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SelectLine:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.56666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(280, 118.99989), Vector2(855, 118.99989), Vector2(852, 118.99989), Vector2(853, 119)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ProgressBar:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.56666666, 0.67752904),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(152, 272), Vector2(648, 272), Vector2(644, 272), Vector2(646, 272)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ProgressBar:size")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.13333334, 0.49),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(248, 208), Vector2(395.2942, 208)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OnePlayer:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.164706, 0.211765, 0.427451, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TwoPlayer:theme_override_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.31871837, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.16470589, 0.21176471, 0.42745098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_08tbt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectLine2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 632)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SelectLine:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 118.99989)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 272)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ProgressBar:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(248, 208)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OnePlayer:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.164706, 0.211765, 0.427451, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TwoPlayer:theme_override_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.164706, 0.211765, 0.427451, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ljen8"]
+resource_name = "one_player"
+length = 0.57
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectLine2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45019925, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(852, 632), Vector2(275, 632), Vector2(280, 632), Vector2(279, 632)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SelectLine:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.45019925, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(852, 118.99989), Vector2(275, 119), Vector2(280, 118.99989), Vector2(279, 119)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ProgressBar:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(644, 272), Vector2(147, 272), Vector2(152, 272), Vector2(150, 272)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ProgressBar:size")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.16666667, 0.45019925),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(395.2942, 208), Vector2(248, 208)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TwoPlayer:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.164706, 0.211765, 0.427451, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OnePlayer:theme_override_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2257187, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.16470589, 0.21176471, 0.42745098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdii5"]
+_data = {
+&"RESET": SubResource("Animation_08tbt"),
+&"one_player": SubResource("Animation_ljen8"),
+&"two_players": SubResource("Animation_1xh8x")
+}
+
+[node name="MFPlayerScreen" type="Node"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(577.835, 326.25)
+scale = Vector2(0.528106, 0.439939)
+texture = ExtResource("1_1ucqv")
+
+[node name="Line2" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(259, -276)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_11de5")
+
+[node name="Line3" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(26.0001, -298)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_11de5")
+
+[node name="Line" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(952, -253)
+scale = Vector2(0.259259, 0.315162)
+texture = ExtResource("2_11de5")
+
+[node name="Bush" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(184.499, 561.625)
+scale = Vector2(0.415644, 0.415644)
+texture = ExtResource("3_s2g7e")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(128.966, 90.625)
+scale = Vector2(0.372423, 0.372423)
+texture = ExtResource("4_1h6qx")
+
+[node name="Star" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(949, 126)
+rotation = 0.23911
+scale = Vector2(0.384422, 0.384422)
+texture = ExtResource("5_1hisu")
+
+[node name="Land" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(579.499, 588.625)
+rotation = 0.0349066
+scale = Vector2(0.492163, 0.469466)
+texture = ExtResource("6_bjlqy")
+
+[node name="Axtro" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(564, 133)
+scale = Vector2(0.334112, 0.334112)
+sprite_frames = SubResource("SpriteFrames_3hdam")
+autoplay = "default"
+
+[node name="MechaFlight" type="Label" parent="."]
+z_index = 50
+offset_left = 440.0
+offset_top = 224.0
+offset_right = 719.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("9_8fvom")
+theme_override_font_sizes/font_size = 40
+text = "MECHA FLIGHT"
+horizontal_alignment = 1
+
+[node name="SelectLine" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(280, 118.99989)
+scale = Vector2(0.259259, 0.13032375)
+texture = ExtResource("2_11de5")
+
+[node name="SelectLine2" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(280, 632)
+scale = Vector2(0.259259, 0.13032375)
+texture = ExtResource("2_11de5")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 50
+offset_left = 152.0
+offset_top = 272.0
+offset_right = 400.0
+offset_bottom = 480.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_f0pxl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhyp1")
+value = 100.0
+show_percentage = false
+
+[node name="ShipP1" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(272, 352)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_ub4ok")
+autoplay = "default"
+frame_progress = 0.5505249
+
+[node name="Ship2P2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(800, 344)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_ub4ok")
+autoplay = "default"
+frame_progress = 0.78604966
+
+[node name="Ship1P2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(871.99994, 391.99994)
+scale = Vector2(0.32500002, 0.32500002)
+sprite_frames = SubResource("SpriteFrames_m5k4v")
+autoplay = "default"
+frame_progress = 0.6123941
+
+[node name="OnePlayer" type="Label" parent="."]
+z_index = 50
+offset_left = 136.0
+offset_top = 416.0
+offset_right = 415.0
+offset_bottom = 445.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("9_8fvom")
+theme_override_font_sizes/font_size = 40
+text = "one player"
+horizontal_alignment = 1
+
+[node name="TwoPlayer" type="Label" parent="."]
+z_index = 50
+offset_left = 712.0
+offset_top = 432.0
+offset_right = 991.0
+offset_bottom = 461.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("9_8fvom")
+theme_override_font_sizes/font_size = 40
+text = "two players"
+horizontal_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="."]
+z_index = 50
+offset_left = 200.0
+offset_top = 608.0
+offset_right = 951.0
+offset_bottom = 637.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("9_8fvom")
+theme_override_font_sizes/font_size = 35
+text = "use A and D to choose and ENTER to select!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wdii5")
+}
