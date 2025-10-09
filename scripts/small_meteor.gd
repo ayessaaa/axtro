@@ -28,12 +28,17 @@ var random_speed = randf_range(1, 1.3)
 var meteor_killed_from_shield = false
 
 @onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
+@onready var character2_animation = get_parent().get_parent().get_node("Character2/AnimationPlayer")
 
 @onready var heart1 = get_parent().get_parent().get_node("Hearts/Sprite2D")
 @onready var heart2 = get_parent().get_parent().get_node("Hearts/Sprite2D2")
 @onready var hurt_sound = get_parent().get_parent().get_node("Hearts/HurtSound")
 @onready var collision_polygon_2d: CollisionPolygon2D = $SmallMeteorArea2d/CollisionPolygon2D
 
+@onready var player1_heart1 = get_parent().get_parent().get_node("TwoPlayers/Player1/Heart")
+@onready var player1_heart2 = get_parent().get_parent().get_node("TwoPlayers/Player1/Heart2")
+@onready var player2_heart1 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart")
+@onready var player2_heart2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart2")
 
 func _ready() -> void:
 	line = LINES.instantiate()
@@ -67,7 +72,10 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 		if small_meteor_fall:
 			return
 		if Global.shield:
-			character_animation.play("shield_fade_out")
+			if area.player_number == 1:
+				character_animation.play("shield_fade_out")
+			else:
+				character2_animation.play("shield_fade_out")
 			Global.shield = false
 			shield_pop_sound.play()
 			meteor_explosion_sound.play()
@@ -75,20 +83,45 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 			if line and line.is_inside_tree():
 				line.queue_free()
 			return
+		if area.player_number == 1:
+			if Global.mecha_flight_player == 1:
+				character_animation.play("hurt")
+				Global.hearts -= 1
+				if Global.hearts <= 0:
+					Global.dead = true
+					death_sound.play()
+					Global.controls_tutorial = false
+					gameover_screen.play_animation("default")
+					heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
+				else:
+					heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
+			else:
+				character_animation.play("hurt")
+				Global.mecha_flight_player1_hearts -= 1
+				if Global.mecha_flight_player1_hearts <= 0:
+					#Global.dead = true
+					death_sound.play()
+					Global.controls_tutorial = false
+					gameover_screen.play_animation("default")
+					player1_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
+				else:
+					player1_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
+		else:
+			character2_animation.play("hurt")
+			Global.mecha_flight_player2_hearts -= 1
+			if Global.mecha_flight_player2_hearts <= 0:
+				Global.dead = true
+				death_sound.play()
+				Global.controls_tutorial = false
+				gameover_screen.play_animation("default")
+				player2_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
+			else:
+				player2_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 		hurt_sound.play()
-		character_animation.play("hurt")
 		Global.hearts -= 1
 		small_meteor_fall = true
 		if line and line.is_inside_tree():
 			line.queue_free()
-		if Global.hearts <= 0:
-			Global.dead = true
-			death_sound.play()
-			Global.controls_tutorial = false
-			gameover_screen.play_animation("default")
-			heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
-		else:
-			heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 	else:
 		if !small_meteor_fall:
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):

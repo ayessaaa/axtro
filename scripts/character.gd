@@ -1,12 +1,20 @@
 extends Area2D
 
 @export var player = true
+@export var player_number = 1
 var screen_size
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bullet_cooldown_area: Area2D = $"../BulletCooldown/BulletCooldownArea"
 @onready var bullet_cooldown_area_2: Area2D = $"../BulletCooldown/BulletCooldownArea2"
 @onready var bullet_cooldown_area_3: Area2D = $"../BulletCooldown/BulletCooldownArea3"
+
+@onready var player1_bullet_cooldown_area: Area2D = $"../TwoPlayers/Player1/BulletCooldownArea"
+@onready var player1_bullet_cooldown_area_2: Area2D = $"../TwoPlayers/Player1/BulletCooldownArea2"
+@onready var player1_bullet_cooldown_area_3: Area2D = $"../TwoPlayers/Player1/BulletCooldownArea3"
+@onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart"
+@onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart2"
+
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
@@ -123,38 +131,71 @@ func _process(delta: float) -> void:
 				spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 			else:
 				spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
-			
-	if Global.shoot_left == 1:
-		bullet_cooldown_area.available = true
-		bullet_cooldown_area_2.available = false
-		bullet_cooldown_area_3.available = false
-	elif Global.shoot_left == 2:
-		bullet_cooldown_area.available = true
-		bullet_cooldown_area_2.available = true
-		bullet_cooldown_area_3.available = false
-	elif Global.shoot_left >= 3:
-		bullet_cooldown_area.available = true
-		bullet_cooldown_area_2.available = true
-		bullet_cooldown_area_3.available = true
-	else:
-		bullet_cooldown_area.available = false
-		bullet_cooldown_area_2.available = false
-		bullet_cooldown_area_3.available = false
-		
-	if Global.shoot_left < 3:
-		if shoot_cooldown_time > 2:
-			Global.shoot_left+=1
-			shoot_cooldown_time = 0
+				
+	if Global.mecha_flight_player == 2:
+		if Global.mecha_flight_player1_bullets == 1:
+			player1_bullet_cooldown_area.available = true
+			player1_bullet_cooldown_area_2.available = false
+			player1_bullet_cooldown_area_3.available = false
+		elif Global.mecha_flight_player1_bullets == 2:
+			player1_bullet_cooldown_area.available = true
+			player1_bullet_cooldown_area_2.available = true
+			player1_bullet_cooldown_area_3.available = false
+		elif Global.mecha_flight_player1_bullets >= 3:
+			player1_bullet_cooldown_area.available = true
+			player1_bullet_cooldown_area_2.available = true
+			player1_bullet_cooldown_area_3.available = true
 		else:
-			shoot_cooldown_time += delta
+			player1_bullet_cooldown_area.available = false
+			player1_bullet_cooldown_area_2.available = false
+			player1_bullet_cooldown_area_3.available = false
+			
+		if Global.mecha_flight_player1_bullets < 3:
+			if shoot_cooldown_time > 2:
+				Global.mecha_flight_player1_bullets+=1
+				shoot_cooldown_time = 0
+			else:
+				shoot_cooldown_time += delta
+	else:
+		if Global.shoot_left == 1:
+			bullet_cooldown_area.available = true
+			bullet_cooldown_area_2.available = false
+			bullet_cooldown_area_3.available = false
+		elif Global.shoot_left == 2:
+			bullet_cooldown_area.available = true
+			bullet_cooldown_area_2.available = true
+			bullet_cooldown_area_3.available = false
+		elif Global.shoot_left >= 3:
+			bullet_cooldown_area.available = true
+			bullet_cooldown_area_2.available = true
+			bullet_cooldown_area_3.available = true
+		else:
+			bullet_cooldown_area.available = false
+			bullet_cooldown_area_2.available = false
+			bullet_cooldown_area_3.available = false
+		
+		if Global.shoot_left < 3:
+			if shoot_cooldown_time > 2:
+				Global.shoot_left+=1
+				shoot_cooldown_time = 0
+			else:
+				shoot_cooldown_time += delta
 			
 func shoot():
-	if Global.shoot_left <= 0:
-		return
-	var bullet = BULLET.instantiate()
-	bullet.position = Vector2(position.x+100, position.y)
-	bullets_container.add_child(bullet)
-	Global.shoot_left -= 1
+	if Global.mecha_flight_player == 1:
+		if Global.shoot_left <= 0:
+			return
+		var bullet = BULLET.instantiate()
+		bullet.position = Vector2(position.x+100, position.y)
+		bullets_container.add_child(bullet)
+		Global.shoot_left -= 1
+	else:
+		if Global.mecha_flight_player1_bullets <= 0:
+			return
+		var bullet = BULLET.instantiate()
+		bullet.position = Vector2(position.x+100, position.y)
+		bullets_container.add_child(bullet)
+		Global.mecha_flight_player1_bullets -= 1
 	
 func spawn_meteor(pos):
 	var meteor = METEOR.instantiate()

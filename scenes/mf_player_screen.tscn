@@ -604,6 +604,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [Vector2(272, 352)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Ship2P2:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 344)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Ship1P2:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(871.99994, 391.99994)]
+}
 
 [sub_resource type="Animation" id="Animation_11de5"]
 resource_name = "default"
@@ -927,6 +951,7 @@ tracks/17/keys = {
 
 [sub_resource type="Animation" id="Animation_j7sb6"]
 resource_name = "fade_out_p2"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1018,7 +1043,7 @@ tracks/7/path = NodePath("Ship1P2:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(1.1, 1.2333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -1030,7 +1055,7 @@ tracks/8/path = NodePath("Ship2P2:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(1.1, 1.2333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -1114,7 +1139,7 @@ tracks/15/path = NodePath("Bg:modulate")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0.93333334, 1),
+"times": PackedFloat32Array(1.0333333, 1.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -1131,6 +1156,30 @@ tracks/16/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Ship2P2:position")
+tracks/17/interp = 2
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.2, 0.8666667, 1.09),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(800, 344), Vector2(186, 251), Vector2(188, 253)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Ship1P2:position")
+tracks/18/interp = 2
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.2053023, 0.8698334, 1.0913438),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(871.99994, 391.99994), Vector2(180.99998, 360.99997), Vector2(182.99998, 362.99997)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1h6qx"]
 _data = {
@@ -1144,6 +1193,7 @@ _data = {
 script = ExtResource("1_11de5")
 
 [node name="Bg" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(577.835, 326.25)
 scale = Vector2(0.528106, 0.439939)
@@ -1228,21 +1278,22 @@ z_index = 50
 position = Vector2(272, 352)
 scale = Vector2(0.34000003, 0.34000003)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
-frame_progress = 0.12549396
+autoplay = "default"
+frame_progress = 0.46349517
 
 [node name="Ship2P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(800, 344)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
-frame_progress = 0.9845162
+frame_progress = 0.32251504
 
 [node name="Ship1P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(871.99994, 391.99994)
 scale = Vector2(0.32500002, 0.32500002)
 sprite_frames = SubResource("SpriteFrames_m5k4v")
-frame_progress = 0.43945137
+frame_progress = 0.7774552
 
 [node name="OnePlayer" type="Label" parent="."]
 z_index = 50

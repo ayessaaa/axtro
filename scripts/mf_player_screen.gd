@@ -69,8 +69,11 @@ func _process(delta: float) -> void:
 		Global.is_mecha_flight = true
 		if players == 1:
 			animation_player_2.play("fade_out")
+			ship_p_1.stop()
 		else:
 			animation_player_2.play("fade_out_p2")
+			ship_2p_2.stop()
+			ship_1p_2.stop()
 		
 		#queue_free()
 		

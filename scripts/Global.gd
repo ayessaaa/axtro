@@ -52,6 +52,10 @@ var is_mecha_flight = false
 var is_mecha_flight_player_screen = false
 var mecha_flight_player = 1
 var mecha_flight_animation_done = false
+var mecha_flight_player1_hearts = 2
+var mecha_flight_player2_hearts = 2
+var mecha_flight_player1_bullets = 3
+var mecha_flight_player2_bullets = 3
 
 var is_space_ray = false
 var selected_sound_played = false

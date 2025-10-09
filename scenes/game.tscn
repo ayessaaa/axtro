@@ -199,14 +199,12 @@ stream = ExtResource("10_kvpfn")
 [node name="Hearts" type="Node" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Hearts"]
-visible = false
 position = Vector2(136.2063, 32.875004)
 scale = Vector2(0.36656445, 0.3665644)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
 
 [node name="Sprite2D2" type="AnimatedSprite2D" parent="Hearts"]
-visible = false
 position = Vector2(195.20631, 32.875004)
 scale = Vector2(0.36656445, 0.3665644)
 sprite_frames = SubResource("SpriteFrames_m4url")
@@ -260,15 +258,12 @@ stream = ExtResource("16_ssvqc")
 [node name="BulletCooldown" type="Node" parent="."]
 
 [node name="BulletCooldownArea" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
-visible = false
 position = Vector2(64, 21)
 
 [node name="BulletCooldownArea2" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
-visible = false
 position = Vector2(63, 53)
 
 [node name="BulletCooldownArea3" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
-visible = false
 position = Vector2(63, 86)
 
 [node name="PowerupLabel" parent="." instance=ExtResource("2_bt5mj")]

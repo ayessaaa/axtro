@@ -19,7 +19,27 @@ extends Node
 @onready var progress_area_animation = $ProgressArea/AnimationPlayer
 @onready var score: Label = $ScoreNode/Score
 @onready var score_sprite_2d: Sprite2D = $ScoreNode/Sprite2D
+
+@onready var heart_1: AnimatedSprite2D = $Hearts/Sprite2D
 @onready var heart_2: AnimatedSprite2D = $Hearts/Sprite2D2
+@onready var bullet_cooldown_area: Area2D = $BulletCooldown/BulletCooldownArea
+@onready var bullet_cooldown_area_2: Area2D = $BulletCooldown/BulletCooldownArea2
+@onready var bullet_cooldown_area_3: Area2D = $BulletCooldown/BulletCooldownArea3
+
+@onready var player1_bullet_cooldown_area: Area2D = $TwoPlayers/Player1/BulletCooldownArea
+@onready var player1_bullet_cooldown_area_2: Area2D = $TwoPlayers/Player1/BulletCooldownArea2
+@onready var player1_bullet_cooldown_area_3: Area2D = $TwoPlayers/Player1/BulletCooldownArea3
+@onready var player1_heart_1: AnimatedSprite2D = $TwoPlayers/Player1/Heart
+@onready var player1_heart_2: AnimatedSprite2D = $TwoPlayers/Player1/Heart2
+@onready var player1_progress_bar: ProgressBar = $TwoPlayers/Player1/ProgressBar
+@onready var player1_sprite_2d: Sprite2D = $TwoPlayers/Player1/Sprite2D
+@onready var player2_bullet_cooldown_area: Area2D = $TwoPlayers/Player2/BulletCooldownArea
+@onready var player2_bullet_cooldown_area_2: Area2D = $TwoPlayers/Player2/BulletCooldownArea2
+@onready var player2_bullet_cooldown_area_3: Area2D = $TwoPlayers/Player2/BulletCooldownArea3
+@onready var player2_heart_1: AnimatedSprite2D = $TwoPlayers/Player2/Heart
+@onready var player2_heart_2: AnimatedSprite2D = $TwoPlayers/Player2/Heart2
+@onready var player2_progress_bar: ProgressBar = $TwoPlayers/Player2/ProgressBar
+@onready var player2_sprite_2d: Sprite2D = $TwoPlayers/Player2/Sprite2D
 
 var timer = 5
 var double_points_timer = 0
@@ -41,6 +61,26 @@ func _process(delta: float) -> void:
 	score.visible = !Global.start_screen
 	score_sprite_2d.visible = !Global.start_screen
 	
+	heart_1.visible = (Global.mecha_flight_player == 1)
+	heart_2.visible = (Global.mecha_flight_player == 1)
+	bullet_cooldown_area.visible = (Global.mecha_flight_player == 1)
+	bullet_cooldown_area_2.visible = (Global.mecha_flight_player == 1)
+	bullet_cooldown_area_3.visible = (Global.mecha_flight_player == 1)
+	player1_bullet_cooldown_area.visible = !(Global.mecha_flight_player == 1)
+	player1_bullet_cooldown_area_2.visible = !(Global.mecha_flight_player == 1)
+	player1_bullet_cooldown_area_3.visible = !(Global.mecha_flight_player == 1)
+	player1_heart_1.visible = !(Global.mecha_flight_player == 1)
+	player1_heart_2.visible = !(Global.mecha_flight_player == 1)
+	player2_bullet_cooldown_area.visible = !(Global.mecha_flight_player == 1)
+	player2_bullet_cooldown_area_2.visible = !(Global.mecha_flight_player == 1)
+	player2_bullet_cooldown_area_3.visible = !(Global.mecha_flight_player == 1)
+	player2_heart_1.visible = !(Global.mecha_flight_player == 1)
+	player2_heart_2.visible = !(Global.mecha_flight_player == 1)
+	player1_progress_bar.visible = !(Global.mecha_flight_player == 1)
+	player1_sprite_2d.visible = !(Global.mecha_flight_player == 1)
+	player2_progress_bar.visible = !(Global.mecha_flight_player == 1)
+	player2_sprite_2d.visible = !(Global.mecha_flight_player == 1)
+	
 	if Global.dead:
 		if Global.is_angle_dash or Global.is_space_ray:
 			pass
@@ -57,6 +97,11 @@ func _process(delta: float) -> void:
 					Global.unli_bullet = false
 					Global.shoot_left = 3
 					Global.hearts = 2
+					Global.mecha_flight_animation_done = false
+					Global.mecha_flight_player1_hearts = 2
+					Global.mecha_flight_player2_hearts = 2
+					Global.mecha_flight_player1_bullets = 3
+					Global.mecha_flight_player2_bullets = 3
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -111,6 +156,13 @@ func _process(delta: float) -> void:
 		Global.is_mecha_flight = false
 		Global.is_space_ray = false
 		Global.is_ocean_rhythm = false
+		Global.is_mecha_flight_player_screen = false
+		Global.mecha_flight_player = 1
+		Global.mecha_flight_animation_done = false
+		Global.mecha_flight_player1_hearts = 2
+		Global.mecha_flight_player2_hearts = 2
+		Global.mecha_flight_player1_bullets = 3
+		Global.mecha_flight_player2_bullets = 3
 		get_tree().reload_current_scene()
 		
 	if Global.hearts == 2:
