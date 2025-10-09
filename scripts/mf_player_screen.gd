@@ -67,7 +67,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("enter") and Global.mecha_flight_animation_done:
 		Global.mecha_flight_player = players
 		Global.is_mecha_flight = true
-		animation_player_2.play("fade_out")
+		if players == 1:
+			animation_player_2.play("fade_out")
+		else:
+			animation_player_2.play("fade_out_p2")
 		
 		#queue_free()
 		

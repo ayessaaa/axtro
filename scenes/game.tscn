@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=44 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bxwwhtdyq58lx" path="res://assets/music/arcade-ui-6-229503.mp3" id="9_js0lu"]
 [ext_resource type="AudioStream" uid="uid://dkr2rwd8aai0k" path="res://assets/music/8-bit-explosion-10-340462_yiTi3WRq.mp3" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://lbcnw0klaw6p" path="res://scenes/cloud_area_2.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ciyyo1moijlgh" path="res://scenes/character_2.tscn" id="12_8ool0"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="12_dinhu"]
 [ext_resource type="Texture2D" uid="uid://ddqhx7g8h52si" path="res://assets/IMG_1644.PNG" id="13_1kice"]
 [ext_resource type="PackedScene" uid="uid://m7yas53fpugy" path="res://scenes/controls.tscn" id="15_ir15t"]
@@ -100,23 +101,41 @@ visible = false
 position = Vector2(576.719, 361.5)
 scale = Vector2(0.488415, 0.488415)
 
+[node name="Character2" parent="." instance=ExtResource("12_8ool0")]
+z_index = 5
+position = Vector2(180, 352)
+scale = Vector2(0.3362468, 0.3362468)
+
+[node name="Line3" parent="Character2" instance=ExtResource("2_gee14")]
+z_as_relative = false
+position = Vector2(0, -178.44043)
+scale = Vector2(0.90946305, 1.4960054)
+script = null
+
+[node name="Line4" parent="Character2" instance=ExtResource("2_gee14")]
+z_index = -1
+position = Vector2(-1852.8059, 2.973999)
+rotation = 1.5708
+scale = Vector2(0.9365949, 1.6366909)
+script = null
+
 [node name="Character" parent="." instance=ExtResource("2_yqjtg")]
 z_index = 5
 position = Vector2(176, 254)
 scale = Vector2(0.345171, 0.345171)
 
-[node name="Line" parent="." node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
-position = Vector2(180, 199)
-scale = Vector2(0.305804, 0.503027)
-object = NodePath("../Character")
-character = true
+[node name="Line" parent="Character" instance=ExtResource("2_gee14")]
+z_as_relative = false
+position = Vector2(11.58844, -121.67877)
+scale = Vector2(0.88594925, 1.4573269)
+script = null
 
-[node name="Line2" parent="." node_paths=PackedStringArray("object") instance=ExtResource("2_gee14")]
-position = Vector2(-443, 257)
+[node name="Line2" parent="Character" instance=ExtResource("2_gee14")]
+z_index = -1
+position = Vector2(-1793.314, 8.691345)
 rotation = 1.5708
-scale = Vector2(0.314927, 0.550332)
-object = NodePath("../Character")
-character = true
+scale = Vector2(0.9123796, 1.5943749)
+script = null
 
 [node name="Bush2" parent="." instance=ExtResource("5_vtaks")]
 position = Vector2(256, 535)

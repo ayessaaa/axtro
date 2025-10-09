@@ -2663,6 +2663,7 @@ theme_override_font_sizes/font_size = 17
 text = "\"q\"  to switch"
 
 [node name="BlackScreen" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 20
 position = Vector2(562.49994, 316.5)
@@ -2779,15 +2780,6 @@ theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 46
 text = "SCORE: 0"
 script = ExtResource("16_tbhyd")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-modulate = Color(0.25490198, 0.6392157, 0.94509804, 0.16470589)
-z_index = 7
-offset_left = 4.0
-offset_top = 86.0
-offset_right = 140.0
-offset_bottom = 131.0
 
 [node name="Powerup" type="Node" parent="."]
 
