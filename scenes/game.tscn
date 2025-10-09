@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=49 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://nlrc2nopu13v" path="res://scenes/ocean_rhythm.tscn" id="34_gxtfn"]
 [ext_resource type="Texture2D" uid="uid://b6vbfqsqahk5x" path="res://assets/space_ray_assets/IMG_1855.PNG" id="36_twgab"]
 [ext_resource type="PackedScene" uid="uid://ddk8iksbx6uhb" path="res://scenes/mf_player_screen.tscn" id="38_m4url"]
+[ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="42_pr1ej"]
+[ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="43_05nbr"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -57,6 +59,22 @@ animations = [{
 "name": &"default",
 "speed": 4.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05nbr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sl42"]
+bg_color = Color(0.77254903, 0.21960784, 0.30980393, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oaba0"]
+bg_color = Color(0.14509805, 0.44313726, 0.4745098, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Game" type="Node"]
 script = ExtResource("1_kvpfn")
@@ -181,12 +199,14 @@ stream = ExtResource("10_kvpfn")
 [node name="Hearts" type="Node" parent="."]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Hearts"]
+visible = false
 position = Vector2(136.2063, 32.875004)
 scale = Vector2(0.36656445, 0.3665644)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
 
 [node name="Sprite2D2" type="AnimatedSprite2D" parent="Hearts"]
+visible = false
 position = Vector2(195.20631, 32.875004)
 scale = Vector2(0.36656445, 0.3665644)
 sprite_frames = SubResource("SpriteFrames_m4url")
@@ -240,12 +260,15 @@ stream = ExtResource("16_ssvqc")
 [node name="BulletCooldown" type="Node" parent="."]
 
 [node name="BulletCooldownArea" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
+visible = false
 position = Vector2(64, 21)
 
 [node name="BulletCooldownArea2" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
+visible = false
 position = Vector2(63, 53)
 
 [node name="BulletCooldownArea3" parent="BulletCooldown" instance=ExtResource("17_rysoc")]
+visible = false
 position = Vector2(63, 86)
 
 [node name="PowerupLabel" parent="." instance=ExtResource("2_bt5mj")]
@@ -292,6 +315,94 @@ z_index = 45
 position = Vector2(1090, 593)
 scale = Vector2(0.48379663, 0.48379657)
 texture = ExtResource("36_twgab")
+
+[node name="TwoPlayers" type="Node" parent="."]
+
+[node name="Player1" type="Node" parent="TwoPlayers"]
+
+[node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player1"]
+modulate = Color(1, 1, 1, 0.4117647)
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 125.7586
+offset_bottom = 72.06895
+scale = Vector2(1.1600003, 1.1600003)
+theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0sl42")
+value = 100.0
+show_percentage = false
+
+[node name="BulletCooldownArea" parent="TwoPlayers/Player1" instance=ExtResource("17_rysoc")]
+position = Vector2(114, 27.000002)
+scale = Vector2(0.59420335, 0.59420335)
+
+[node name="BulletCooldownArea2" parent="TwoPlayers/Player1" instance=ExtResource("17_rysoc")]
+position = Vector2(115.00001, 45)
+scale = Vector2(0.5939202, 0.5939202)
+
+[node name="BulletCooldownArea3" parent="TwoPlayers/Player1" instance=ExtResource("17_rysoc")]
+position = Vector2(114, 63)
+scale = Vector2(0.5939202, 0.5939202)
+
+[node name="Sprite2D" type="Sprite2D" parent="TwoPlayers/Player1"]
+position = Vector2(52, 34)
+scale = Vector2(0.118175045, 0.118175045)
+texture = ExtResource("42_pr1ej")
+
+[node name="Heart" type="AnimatedSprite2D" parent="TwoPlayers/Player1"]
+position = Vector2(38, 62.999996)
+scale = Vector2(0.17748004, 0.17748004)
+sprite_frames = SubResource("SpriteFrames_m4url")
+autoplay = "default"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="TwoPlayers/Player1"]
+position = Vector2(66.00001, 63)
+scale = Vector2(0.17791416, 0.17791413)
+sprite_frames = SubResource("SpriteFrames_m4url")
+autoplay = "default"
+
+[node name="Player2" type="Node" parent="TwoPlayers"]
+
+[node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player2"]
+modulate = Color(1, 1, 1, 0.4117647)
+offset_left = 151.0
+offset_top = 10.0
+offset_right = 258.7586
+offset_bottom = 72.06895
+scale = Vector2(1.1600003, 1.1600003)
+theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oaba0")
+value = 100.0
+show_percentage = false
+
+[node name="BulletCooldownArea" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
+position = Vector2(248.45251, 27)
+scale = Vector2(0.59420335, 0.59420335)
+
+[node name="BulletCooldownArea2" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
+position = Vector2(249.45253, 45)
+scale = Vector2(0.5939202, 0.5939202)
+
+[node name="BulletCooldownArea3" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
+position = Vector2(248.4525, 63)
+scale = Vector2(0.5939202, 0.5939202)
+
+[node name="Sprite2D" type="Sprite2D" parent="TwoPlayers/Player2"]
+position = Vector2(185.00002, 40)
+scale = Vector2(0.118175045, 0.118175045)
+texture = ExtResource("43_05nbr")
+
+[node name="Heart" type="AnimatedSprite2D" parent="TwoPlayers/Player2"]
+position = Vector2(172.4525, 62.999992)
+scale = Vector2(0.17748004, 0.17748004)
+sprite_frames = SubResource("SpriteFrames_m4url")
+autoplay = "default"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="TwoPlayers/Player2"]
+position = Vector2(200.45251, 63)
+scale = Vector2(0.17791416, 0.17791413)
+sprite_frames = SubResource("SpriteFrames_m4url")
+autoplay = "default"
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

@@ -1228,21 +1228,21 @@ z_index = 50
 position = Vector2(272, 352)
 scale = Vector2(0.34000003, 0.34000003)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
-frame_progress = 0.21351592
+frame_progress = 0.12549396
 
 [node name="Ship2P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(800, 344)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
-frame_progress = 0.07253782
+frame_progress = 0.9845162
 
 [node name="Ship1P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(871.99994, 391.99994)
 scale = Vector2(0.32500002, 0.32500002)
 sprite_frames = SubResource("SpriteFrames_m5k4v")
-frame_progress = 0.5274741
+frame_progress = 0.43945137
 
 [node name="OnePlayer" type="Label" parent="."]
 z_index = 50
