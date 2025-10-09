@@ -50,6 +50,8 @@ var marathon = false
 
 var is_mecha_flight = false
 var is_mecha_flight_player_screen = false
+var mecha_flight_player = 1
+var mecha_flight_animation_done = false
 
 var is_space_ray = false
 var selected_sound_played = false

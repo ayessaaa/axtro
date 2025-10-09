@@ -33,6 +33,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.is_mecha_flight_player_screen:
+		return
 	
 	if Input.is_action_just_pressed("move_down") and selected_index < 4:
 		selected_index += 1
@@ -175,4 +177,5 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if Global.is_mecha_flight_player_screen:
+		Global.mecha_flight_animation_done = true
 		queue_free()
