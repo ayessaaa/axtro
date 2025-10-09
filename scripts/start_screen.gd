@@ -116,6 +116,7 @@ func _process(delta: float) -> void:
 				Global.speed = 400
 				Global.selected_sound_played = false
 				Global.hearts = 2
+				Global.is_mecha_flight_player_screen = false
 				queue_free()
 			1:
 				Global.start_screen = false
@@ -127,9 +128,10 @@ func _process(delta: float) -> void:
 				Global.spawn_interval = 1.5
 				Global.object_speed = 2
 				Global.speed = 400
-				Global.is_mecha_flight = true
+				Global.is_mecha_flight = false
+				Global.is_mecha_flight_player_screen = true
 				Global.selected_sound_played = false
-				queue_free()
+				animation_player.play("mf_fade_out")
 			2:
 				Global.start_screen = false
 				Global.is_angle_dash = true
@@ -139,6 +141,7 @@ func _process(delta: float) -> void:
 				angle_dash.play("angle_dash_selected")
 				Global.selected_sound_played = false
 				angle_dash_music.stop()
+				Global.is_mecha_flight_player_screen = false
 				queue_free()
 			3:
 				Global.start_screen = false
@@ -150,6 +153,7 @@ func _process(delta: float) -> void:
 				Global.selected_sound_played = false
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
+				Global.is_mecha_flight_player_screen = false
 				queue_free()
 				
 			4:
@@ -161,8 +165,14 @@ func _process(delta: float) -> void:
 				ocean_rhythm.play("ocean_rhythm_selected")
 				Global.selected_sound_played = false
 				ocean_rhythm_text.play("text_animation")
+				Global.is_mecha_flight_player_screen = false
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				queue_free()
 				
 			
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if Global.is_mecha_flight_player_screen:
+		queue_free()

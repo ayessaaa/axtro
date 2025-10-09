@@ -49,6 +49,7 @@ var start_screen = true
 var marathon = false
 
 var is_mecha_flight = false
+var is_mecha_flight_player_screen = false
 
 var is_space_ray = false
 var selected_sound_played = false
