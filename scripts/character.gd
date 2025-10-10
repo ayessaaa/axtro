@@ -15,11 +15,11 @@ var screen_size
 @onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart"
 @onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart2"
 
-
-const METEOR = preload("res://scenes/meteor.tscn")
-const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
-const ASTEROID = preload("res://scenes/asteroid.tscn")
-@onready var meteors_container = get_parent().get_node("Meteors")
+#
+#const METEOR = preload("res://scenes/meteor.tscn")
+#const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
+#const ASTEROID = preload("res://scenes/asteroid.tscn")
+#@onready var meteors_container = get_parent().get_node("Meteors")
 
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
@@ -34,12 +34,13 @@ var timer = 0.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	screen_size = get_viewport_rect().size
-	Global.screen_size = get_viewport_rect().size
-	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
-	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
-	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
-	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+	pass
+	#screen_size = get_viewport_rect().size
+	#Global.screen_size = get_viewport_rect().size
+	#spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
+	#spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
+	#spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
+	#spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 	
 var down_sub_counter = 0
 var down_sub_counter2 = 0
@@ -125,16 +126,16 @@ func _process(delta: float) -> void:
 		velocity = velocity.normalized()
 		position += velocity * Global.speed * delta
 		
-	timer += delta
-	if timer >= Global.spawn_interval and Global.meteor_speed != 0:
-		timer = 0
-		if randi_range(0,10) < 1:
-			spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
-		else:
-			if randi_range(0,2) < 2:
-				spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
-			else:
-				spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+	#timer += delta
+	#if timer >= Global.spawn_interval and Global.meteor_speed != 0:
+		#timer = 0
+		#if randi_range(0,10) < 1:
+			#spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
+		#else:
+			#if randi_range(0,2) < 2:
+				#spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+			#else:
+				#spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 				
 	if Global.mecha_flight_player == 2:
 		if Global.mecha_flight_player1_bullets == 1:
@@ -201,20 +202,20 @@ func shoot():
 		bullets_container.add_child(bullet)
 		Global.mecha_flight_player1_bullets -= 1
 	
-func spawn_meteor(pos):
-	var meteor = METEOR.instantiate()
-	meteor.position = pos
-	meteors_container.add_child(meteor)
-	
-func spawn_small_meteor(pos):
-	var small_meteor = SMALL_METEOR.instantiate()
-	small_meteor.position = pos
-	meteors_container.add_child(small_meteor)
-	
-func spawn_asteroid(pos):
-	var small_asteroid = ASTEROID.instantiate()
-	small_asteroid.position = pos
-	meteors_container.add_child(small_asteroid)
-	
-	
-	
+#func spawn_meteor(pos):
+	#var meteor = METEOR.instantiate()
+	#meteor.position = pos
+	#meteors_container.add_child(meteor)
+	#
+#func spawn_small_meteor(pos):
+	#var small_meteor = SMALL_METEOR.instantiate()
+	#small_meteor.position = pos
+	#meteors_container.add_child(small_meteor)
+	#
+#func spawn_asteroid(pos):
+	#var small_asteroid = ASTEROID.instantiate()
+	#small_asteroid.position = pos
+	#meteors_container.add_child(small_asteroid)
+	#
+	#
+	#

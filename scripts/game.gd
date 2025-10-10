@@ -47,6 +47,14 @@ extends Node
 @onready var player2_score_sprite: Sprite2D = $TwoPlayers/Player2/ScoreSprite
 @onready var player2_score: Label = $TwoPlayers/Player2/Score
 
+const METEOR = preload("res://scenes/meteor.tscn")
+const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
+const ASTEROID = preload("res://scenes/asteroid.tscn")
+@onready var meteors_container = get_node("Meteors")
+
+var screen_size
+var meteor_timer = 0.0
+
 var timer = 5
 var double_points_timer = 0
 
@@ -62,6 +70,12 @@ func _ready() -> void:
 		progress_area_animation.play("fade_in")
 	magnet_icon_sprite.texture = load("res://assets/IMG_1676.PNG")
 	unli_bullet_icon_sprite.texture = load("res://assets/IMG_1677.PNG")
+	
+	screen_size = Vector2(1100, 600)
+	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
+	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
+	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
+	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 
 func _process(delta: float) -> void:
 	score.visible = !Global.start_screen
@@ -94,7 +108,6 @@ func _process(delta: float) -> void:
 	player2_score.visible = !(Global.mecha_flight_player == 1)
 	
 	if Global.dead:
-		print("dead")
 		if Global.is_angle_dash or Global.is_space_ray:
 			pass
 		else:
@@ -184,6 +197,18 @@ func _process(delta: float) -> void:
 		
 	if Global.hearts == 2:
 		heart_2.modulate = Color(1,1,1)
+		
+	if Global.is_mecha_flight or Global.marathon:
+		meteor_timer += delta
+		if meteor_timer >= Global.spawn_interval and Global.meteor_speed != 0:
+			meteor_timer = 0
+			if randi_range(0,10) < 1:
+				spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
+			else:
+				if randi_range(0,2) < 2:
+					spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+				else:
+					spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 	
 	#if Global.controls_tutorial:
 		#if timer > 7.8:
@@ -201,3 +226,21 @@ func _on_bg_music_finished() -> void:
 
 func _on_ocean_rhythm_music_finished() -> void:
 	ocean_rhythm_music.play()
+	
+func spawn_meteor(pos):
+	var meteor = METEOR.instantiate()
+	meteor.position = pos
+	meteors_container.add_child(meteor)
+	
+func spawn_small_meteor(pos):
+	var small_meteor = SMALL_METEOR.instantiate()
+	small_meteor.position = pos
+	meteors_container.add_child(small_meteor)
+	
+func spawn_asteroid(pos):
+	var small_asteroid = ASTEROID.instantiate()
+	small_asteroid.position = pos
+	meteors_container.add_child(small_asteroid)
+	
+	
+	
