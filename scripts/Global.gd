@@ -91,7 +91,7 @@ var space_ray_powerup_time = 80.0
 var space_ray_new_weapon = false
 var space_ray_thrust_accel = 400
 var space_ray_multiplier = 1
-var space_ray_powerups = ["shrink", "triple", "invisible", "speed", "double", "machine_gun", "big_bomb"]
+var space_ray_powerups = ["shrink", "triple", "invisible", "speed", "double", "machine_gun"]
 
 var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5

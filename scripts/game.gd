@@ -85,6 +85,7 @@ func _ready() -> void:
 	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 
 func _process(delta: float) -> void:
+	print(Global.space_ray_powerups)
 	score.visible = !Global.start_screen
 	score_sprite_2d.visible = !Global.start_screen
 	

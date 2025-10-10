@@ -13,11 +13,18 @@ const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 @onready var fireball_sound: AudioStreamPlayer2D = $FireballSound
 
 @onready var character = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter")
+@onready var character_animation = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter/SpaceRayCharacterArea/AnimationPlayer")
+@onready var hurt_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
+@onready var space_ray_animation = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("AnimationPlayer")
 @onready var bg_music = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayMusic")
 @onready var enemy_loop_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyLoopSound")
 @onready var enemy_dead_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyDead")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
+
+@onready var corner_laser = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser")
+@onready var corner_laser_2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser2")
+
 
 var health = 100
 var timer = 0.0
@@ -43,6 +50,16 @@ func _on_area_entered(area: Area2D) -> void:
 		enemy_loop_sound.stop()
 		Global.space_ray_score += 10 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 10 * Global.space_ray_multiplier
+	if area.type == "player":
+		if Global.space_ray_powerup == "invisible":
+			return
+		if Global.space_ray_hearts > 0:
+			Global.space_ray_hearts -= 1
+			corner_laser.play("red")
+			corner_laser_2.play("red")
+			space_ray_animation.play("player_hurt")
+			character_animation.play("hurt")
+			hurt_sound.play()
 
 	#if area.type == "laser":
 		#laser_beam.play()
