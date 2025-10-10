@@ -47,7 +47,7 @@ extends Area2D
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
-var powerups_array = ["Shield"]
+var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
 
 func _process(delta: float) -> void:
 	pass

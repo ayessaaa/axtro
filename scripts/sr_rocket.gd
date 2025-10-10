@@ -57,6 +57,9 @@ func _on_area_entered(area: Area2D) -> void:
 		sprite_animation.play("hurt")
 		Global.space_ray_score += 2 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier
+	if area.type == "snowball":
+		modulate = Color(0.584, 0.855, 1.0, 1.0)
+		speed /= 2
 	#if area.type == "laser" and Global.space_ray_weapon == "laser":
 		##Global.laser_enter = true
 		##Global.rocket_position_laser = position

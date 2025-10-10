@@ -16,6 +16,7 @@ var rotation_velocity: float = 0.0
 
 const BOMB = preload("res://scenes/space_ray_bomb.tscn")
 const BULLET = preload("res://scenes/space_ray_bullet.tscn")
+const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 @onready var shooters: Node = $Shooters
 
 @onready var sprite = get_node("SpaceRayCharacterArea/Sprite2D")
@@ -29,7 +30,8 @@ const BULLET = preload("res://scenes/space_ray_bullet.tscn")
 @onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
 
 var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"}, 
-					"bullet": {"dmg": "10", "cooldown" : "0.5 s"}}
+					"bullet": {"dmg": "10", "cooldown" : "0.5 s"},
+					"snowball": {"dmg": "5", "cooldown" : "0.25 s"}}
 var weapon_index = 0
 var bullet_cooldown = 0.0
 
@@ -67,6 +69,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bomb" and !Global.theres_bomb:
 		#if Global.space_ray_powerup == "triple":
 		spawn_shoot(position, BOMB, "bomb")
+		
+	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "snowball":
+		#if Global.space_ray_powerup == "triple":
+		spawn_shoot(Vector2(position.x, position.y+10*rotation), SNOWBALL, "snowball", Vector2.RIGHT.rotated(rotation), rotation)
 		
 	if Global.space_ray_powerup == "machine_gun" and Global.space_ray_weapon == "bullet":
 		if bullet_cooldown <= 0:
@@ -148,7 +154,7 @@ func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
 func spawn_shoot(pos, shooter_scene, type, direct=Vector2.RIGHT.rotated(rotation), rotate=rotation):
 	var shooter = shooter_scene.instantiate()
 	shooter.position = pos
-	if type == "bullet":
+	if type == "bullet" or type == "snowball":
 		shooter.direction = direct
 		shooter.rotation = rotate
 	shooters.add_child(shooter)

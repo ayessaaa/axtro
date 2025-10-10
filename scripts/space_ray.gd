@@ -51,6 +51,7 @@ var blaister_timer = 0.0
 @onready var laser_img = preload("res://assets/space_ray_assets/IMG_1851.PNG")
 @onready var bomb_img = preload("res://assets/space_ray_assets/IMG_1852.PNG")
 @onready var bullet_img = preload("res://assets/space_ray_assets/IMG_1848.PNG")
+@onready var snowball_img = preload("res://assets/space_ray_assets/IMG_2033.PNG")
 
 @onready var next_weapon_text: Label = $NextWeapon/NextWeapon
 @onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
@@ -246,7 +247,7 @@ func _process(delta: float) -> void:
 			
 	star_timer += delta
 	if star_timer >= 2 and Global.space_ray_powerup == "":
-		if randi_range(0, 2) < 1:
+		if randi_range(0, 10) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
 		
@@ -265,6 +266,8 @@ func _process(delta: float) -> void:
 		weapon_sprite.texture = bomb_img
 	elif Global.space_ray_weapon == "bullet":
 		weapon_sprite.texture = bullet_img
+	elif Global.space_ray_weapon == "snowball":
+		weapon_sprite.texture = snowball_img
 		
 	next_weapon_text.text = "next weapon: " + weapon_list[weapon_list_index]
 		
