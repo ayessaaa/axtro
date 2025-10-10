@@ -356,6 +356,24 @@ scale = Vector2(0.17791416, 0.17791413)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
 
+[node name="ScoreSprite" type="Sprite2D" parent="TwoPlayers/Player1"]
+position = Vector2(77.68282, 106.955185)
+rotation = 0.15033257
+scale = Vector2(0.2354356, 0.2151847)
+texture = ExtResource("13_1kice")
+
+[node name="Score" type="Label" parent="TwoPlayers/Player1"]
+offset_left = -25.0
+offset_top = 83.0
+offset_right = 186.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 21
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Player2" type="Node" parent="TwoPlayers"]
 
 [node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player2"]
@@ -398,6 +416,24 @@ position = Vector2(200.45251, 63)
 scale = Vector2(0.17791416, 0.17791413)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
+
+[node name="ScoreSprite" type="Sprite2D" parent="TwoPlayers/Player2"]
+position = Vector2(213.68283, 106.955185)
+rotation = 0.15033257
+scale = Vector2(0.2354356, 0.2151847)
+texture = ExtResource("13_1kice")
+
+[node name="Score" type="Label" parent="TwoPlayers/Player2"]
+offset_left = 111.0
+offset_top = 83.0
+offset_right = 322.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 21
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

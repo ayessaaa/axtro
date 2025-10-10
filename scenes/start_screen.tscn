@@ -4139,6 +4139,7 @@ rotation = 0.387463
 theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 30
 text = "work in progress!"
+metadata/_edit_use_anchors_ = true
 
 [node name="BgAngleDash" type="Sprite2D" parent="."]
 z_index = 50
@@ -4261,6 +4262,7 @@ theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1
 theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 50
 text = "PLAY MARATHON"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -4275,6 +4277,7 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 30
 text = "game modes"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -4289,6 +4292,7 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 40
 text = "MECHA FLIGHT"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -4303,6 +4307,7 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 40
 text = "ANGLE DASH"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ControlsLabel" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -4317,6 +4322,7 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 35
 text = "use W and S to choose and ENTER to select game mode!"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ControlsAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -4347,6 +4353,7 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 40
 text = "SPACE RAY"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label6" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -4361,5 +4368,6 @@ theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 40
 text = "OCEAN RHYTHM"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

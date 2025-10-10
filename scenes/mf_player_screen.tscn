@@ -1193,7 +1193,6 @@ _data = {
 script = ExtResource("1_11de5")
 
 [node name="Bg" type="Sprite2D" parent="."]
-visible = false
 z_index = 50
 position = Vector2(577.835, 326.25)
 scale = Vector2(0.528106, 0.439939)
@@ -1279,21 +1278,21 @@ position = Vector2(272, 352)
 scale = Vector2(0.34000003, 0.34000003)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
 autoplay = "default"
-frame_progress = 0.46349517
+frame_progress = 0.4056074
 
 [node name="Ship2P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(800, 344)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
-frame_progress = 0.32251504
+frame_progress = 0.26462582
 
 [node name="Ship1P2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 position = Vector2(871.99994, 391.99994)
 scale = Vector2(0.32500002, 0.32500002)
 sprite_frames = SubResource("SpriteFrames_m5k4v")
-frame_progress = 0.7774552
+frame_progress = 0.7195688
 
 [node name="OnePlayer" type="Label" parent="."]
 z_index = 50

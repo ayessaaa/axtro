@@ -52,6 +52,10 @@ func _process(delta: float) -> void:
 		return
 	if !Global.marathon and !Global.is_mecha_flight:
 		return
+	
+	if Global.mecha_flight_player == 2 and Global.mecha_flight_player2_hearts == 0:
+		return
+		
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 	#shield_bubble.visible = Global.shield

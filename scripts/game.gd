@@ -26,6 +26,7 @@ extends Node
 @onready var bullet_cooldown_area_2: Area2D = $BulletCooldown/BulletCooldownArea2
 @onready var bullet_cooldown_area_3: Area2D = $BulletCooldown/BulletCooldownArea3
 
+
 @onready var player1_bullet_cooldown_area: Area2D = $TwoPlayers/Player1/BulletCooldownArea
 @onready var player1_bullet_cooldown_area_2: Area2D = $TwoPlayers/Player1/BulletCooldownArea2
 @onready var player1_bullet_cooldown_area_3: Area2D = $TwoPlayers/Player1/BulletCooldownArea3
@@ -40,6 +41,11 @@ extends Node
 @onready var player2_heart_2: AnimatedSprite2D = $TwoPlayers/Player2/Heart2
 @onready var player2_progress_bar: ProgressBar = $TwoPlayers/Player2/ProgressBar
 @onready var player2_sprite_2d: Sprite2D = $TwoPlayers/Player2/Sprite2D
+
+@onready var player1_score_sprite: Sprite2D = $TwoPlayers/Player1/ScoreSprite
+@onready var player1_score: Label = $TwoPlayers/Player1/Score
+@onready var player2_score_sprite: Sprite2D = $TwoPlayers/Player2/ScoreSprite
+@onready var player2_score: Label = $TwoPlayers/Player2/Score
 
 var timer = 5
 var double_points_timer = 0
@@ -61,6 +67,8 @@ func _process(delta: float) -> void:
 	score.visible = !Global.start_screen
 	score_sprite_2d.visible = !Global.start_screen
 	
+	score.visible = (Global.mecha_flight_player == 1)
+	score_sprite_2d.visible = (Global.mecha_flight_player == 1)
 	heart_1.visible = (Global.mecha_flight_player == 1)
 	heart_2.visible = (Global.mecha_flight_player == 1)
 	bullet_cooldown_area.visible = (Global.mecha_flight_player == 1)
@@ -80,8 +88,13 @@ func _process(delta: float) -> void:
 	player1_sprite_2d.visible = !(Global.mecha_flight_player == 1)
 	player2_progress_bar.visible = !(Global.mecha_flight_player == 1)
 	player2_sprite_2d.visible = !(Global.mecha_flight_player == 1)
+	player1_score_sprite.visible = !(Global.mecha_flight_player == 1)
+	player1_score.visible = !(Global.mecha_flight_player == 1)
+	player2_score_sprite.visible = !(Global.mecha_flight_player == 1)
+	player2_score.visible = !(Global.mecha_flight_player == 1)
 	
 	if Global.dead:
+		print("dead")
 		if Global.is_angle_dash or Global.is_space_ray:
 			pass
 		else:
@@ -102,6 +115,8 @@ func _process(delta: float) -> void:
 					Global.mecha_flight_player2_hearts = 2
 					Global.mecha_flight_player1_bullets = 3
 					Global.mecha_flight_player2_bullets = 3
+					Global.mecha_flight_player1_score = 0
+					Global.mecha_flight_player1_score = 0
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -163,6 +178,8 @@ func _process(delta: float) -> void:
 		Global.mecha_flight_player2_hearts = 2
 		Global.mecha_flight_player1_bullets = 3
 		Global.mecha_flight_player2_bullets = 3
+		Global.mecha_flight_player1_score = 0
+		Global.mecha_flight_player1_score = 0
 		get_tree().reload_current_scene()
 		
 	if Global.hearts == 2:

@@ -84,9 +84,10 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 			if line and line.is_inside_tree():
 				line.queue_free()
 			return
-		if line and line.is_inside_tree():
-			line.queue_free()
+		
+#		if player number 1
 		if area.player_number == 1:
+#			if singleplayer
 			if Global.mecha_flight_player == 1:
 				character_animation.play("hurt")
 				Global.hearts -= 1
@@ -98,30 +99,38 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 					heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				else:
 					heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
+#			if multiplayer
 			else:
 				character_animation.play("hurt")
 				Global.mecha_flight_player1_hearts -= 1
 				if Global.mecha_flight_player1_hearts <= 0:
-					#Global.dead = true
-					death_sound.play()
-					Global.controls_tutorial = false
-					gameover_screen.play_animation("default")
+					if Global.mecha_flight_player1_hearts <= 0 and Global.mecha_flight_player2_hearts <= 0:
+						gameover_screen.play_animation("default")
+						Global.dead = true
+						death_sound.play()
+						Global.controls_tutorial = false
 					player1_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				else:
 					player1_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
+					
+#		if player number 2
 		else:
 			character2_animation.play("hurt")
 			Global.mecha_flight_player2_hearts -= 1
 			if Global.mecha_flight_player2_hearts <= 0:
-				Global.dead = true
-				death_sound.play()
-				Global.controls_tutorial = false
-				gameover_screen.play_animation("default")
+				if Global.mecha_flight_player1_hearts <= 0 and Global.mecha_flight_player2_hearts <= 0:
+					gameover_screen.play_animation("default")
+					Global.dead = true
+					death_sound.play()
+					Global.controls_tutorial = false
 				player2_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 			else:
 				player2_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 		hurt_sound.play()
 		meteor_fall = true
+		if line and line.is_inside_tree():
+			line.queue_free()
+			
 	else:
 		if !meteor_fall:
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):
