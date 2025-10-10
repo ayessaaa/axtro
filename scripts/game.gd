@@ -113,8 +113,6 @@ func _process(delta: float) -> void:
 	player1_score.visible = !(Global.mecha_flight_player == 1)
 	player2_score_sprite.visible = !(Global.mecha_flight_player == 1)
 	player2_score.visible = !(Global.mecha_flight_player == 1)
-	bg_1.visible = !(Global.mecha_flight_player == 1)
-	bg_2.visible = !(Global.mecha_flight_player == 1)
 	shield1.visible = Global.shield_player1
 	shield2.visible = Global.shield_player2
 	

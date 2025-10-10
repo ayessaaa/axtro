@@ -382,11 +382,12 @@ vertical_alignment = 1
 [node name="Powerups" type="Node" parent="TwoPlayers/Player1"]
 
 [node name="Bg1" type="ProgressBar" parent="TwoPlayers/Player1/Powerups"]
+visible = false
 modulate = Color(1, 1, 1, 0.4117647)
-offset_left = 940.0
-offset_top = 11.000004
-offset_right = 1111.5518
-offset_bottom = 46.344822
+offset_left = 148.0
+offset_top = 11.0
+offset_right = 319.55176
+offset_bottom = 46.34482
 scale = Vector2(1.1600003, 1.1600003)
 theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0sl42")
@@ -395,31 +396,31 @@ show_percentage = false
 
 [node name="UnliBulletIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
 z_index = 1
-position = Vector2(971.00006, 33)
+position = Vector2(167.45572, 32)
 scale = Vector2(0.7, 0.7)
 powerup_type = "UnliBullet"
 
 [node name="MagnetIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
 z_index = 1
-position = Vector2(1013.99994, 33)
+position = Vector2(210.45554, 32)
 scale = Vector2(0.75, 0.75)
 powerup_type = "Magnet"
 
 [node name="DoublePointIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
 z_index = 1
-position = Vector2(1063, 33)
+position = Vector2(209.45563, 59.000008)
 scale = Vector2(0.65, 0.65)
 powerup_type = "DoublePoint"
 
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="TwoPlayers/Player1/Powerups"]
-position = Vector2(-2, 29)
+position = Vector2(-794, 28.999996)
 stream = ExtResource("22_37s47")
 volume_db = 3.0
 
 [node name="Shield" type="Sprite2D" parent="TwoPlayers/Player1/Powerups"]
 visible = false
 z_index = 1
-position = Vector2(1115, 33)
+position = Vector2(169.4556, 64)
 scale = Vector2(0.16496448, 0.16496448)
 texture = ExtResource("25_pl11u")
 
@@ -427,9 +428,9 @@ texture = ExtResource("25_pl11u")
 
 [node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player2"]
 modulate = Color(1, 1, 1, 0.4117647)
-offset_left = 151.0
+offset_left = 1007.4525
 offset_top = 10.0
-offset_right = 258.7586
+offset_right = 1115.2112
 offset_bottom = 72.06895
 scale = Vector2(1.1600003, 1.1600003)
 theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
@@ -438,44 +439,44 @@ value = 100.0
 show_percentage = false
 
 [node name="BulletCooldownArea" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
-position = Vector2(248.45251, 27)
+position = Vector2(1104.9053, 27)
 scale = Vector2(0.59420335, 0.59420335)
 
 [node name="BulletCooldownArea2" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
-position = Vector2(249.45253, 45)
+position = Vector2(1105.905, 45)
 scale = Vector2(0.5939202, 0.5939202)
 
 [node name="BulletCooldownArea3" parent="TwoPlayers/Player2" instance=ExtResource("17_rysoc")]
-position = Vector2(248.4525, 63)
+position = Vector2(1104.9048, 63)
 scale = Vector2(0.5939202, 0.5939202)
 
 [node name="Sprite2D" type="Sprite2D" parent="TwoPlayers/Player2"]
-position = Vector2(185.00002, 40)
+position = Vector2(1041.4526, 40)
 scale = Vector2(0.118175045, 0.118175045)
 texture = ExtResource("43_05nbr")
 
 [node name="Heart" type="AnimatedSprite2D" parent="TwoPlayers/Player2"]
-position = Vector2(172.4525, 62.999992)
+position = Vector2(1028.9048, 62.999992)
 scale = Vector2(0.17748004, 0.17748004)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
 
 [node name="Heart2" type="AnimatedSprite2D" parent="TwoPlayers/Player2"]
-position = Vector2(200.45251, 63)
+position = Vector2(1056.9053, 63)
 scale = Vector2(0.17791416, 0.17791413)
 sprite_frames = SubResource("SpriteFrames_m4url")
 autoplay = "default"
 
 [node name="ScoreSprite" type="Sprite2D" parent="TwoPlayers/Player2"]
-position = Vector2(213.68283, 106.955185)
+position = Vector2(1069.683, 106.955185)
 rotation = 0.15033257
 scale = Vector2(0.2354356, 0.2151847)
 texture = ExtResource("13_1kice")
 
 [node name="Score" type="Label" parent="TwoPlayers/Player2"]
-offset_left = 111.0
+offset_left = 967.0
 offset_top = 83.0
-offset_right = 322.0
+offset_right = 1178.0
 offset_bottom = 122.0
 theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
 theme_override_fonts/font = ExtResource("8_gee14")
@@ -487,11 +488,12 @@ vertical_alignment = 1
 [node name="Powerups" type="Node" parent="TwoPlayers/Player2"]
 
 [node name="Bg2" type="ProgressBar" parent="TwoPlayers/Player2/Powerups"]
+visible = false
 modulate = Color(1, 1, 1, 0.4117647)
-offset_left = 939.00006
-offset_top = 60.0
-offset_right = 1110.5518
-offset_bottom = 95.34482
+offset_left = 803.00006
+offset_top = 11.0
+offset_right = 974.55176
+offset_bottom = 46.34482
 scale = Vector2(1.1600003, 1.1600003)
 theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_oaba0")
@@ -499,28 +501,28 @@ value = 100.0
 show_percentage = false
 
 [node name="UnliBulletIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
-position = Vector2(973, 83)
+position = Vector2(935.99994, 33.000004)
 scale = Vector2(0.7, 0.7)
 powerup_type = "UnliBullet"
 
 [node name="MagnetIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
-position = Vector2(1017, 83)
+position = Vector2(979.99994, 33)
 scale = Vector2(0.75, 0.75)
 powerup_type = "Magnet"
 
 [node name="DoublePointIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
-position = Vector2(1065, 81.00001)
+position = Vector2(934, 66)
 scale = Vector2(0.65, 0.65)
 powerup_type = "DoublePoint"
 
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="TwoPlayers/Player2/Powerups"]
-position = Vector2(-2, 29)
+position = Vector2(-138, -20)
 stream = ExtResource("22_37s47")
 volume_db = 3.0
 
 [node name="Shield" type="Sprite2D" parent="TwoPlayers/Player2/Powerups"]
 visible = false
-position = Vector2(1114.591, 82.65341)
+position = Vector2(983.9999, 66)
 scale = Vector2(0.17170112, 0.17170112)
 texture = ExtResource("25_pl11u")
 

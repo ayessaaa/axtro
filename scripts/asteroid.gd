@@ -81,19 +81,33 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 			if Global.shield:
 				Global.shield = false
 				character_animation.play("shield_fade_out")
-			elif Global.shield_player1:
+				shield_pop_sound.play()
+				meteor_explosion_sound.play()
+				asteroid_meteor_fall = true
+				if line and line.is_inside_tree():
+					line.queue_free()
+				return
+				
+			elif Global.shield_player1 and area.player_number == 1:
 				Global.shield_player1 = false
 				character_animation.play("shield_fade_out")
-			else:
+				shield_pop_sound.play()
+				meteor_explosion_sound.play()
+				asteroid_meteor_fall = true
+				if line and line.is_inside_tree():
+					line.queue_free()
+				return
+				
+			elif Global.shield_player2 and area.player_number == 2:
 				Global.shield_player2 = false
 				character2_animation.play("shield_fade_out")
+				shield_pop_sound.play()
+				meteor_explosion_sound.play()
+				asteroid_meteor_fall = true
+				if line and line.is_inside_tree():
+					line.queue_free()
+				return
 				
-			shield_pop_sound.play()
-			meteor_explosion_sound.play()
-			asteroid_meteor_fall = true
-			if line and line.is_inside_tree():
-				line.queue_free()
-			return
 #		if player number 1
 		if area.player_number == 1:
 #			if singleplayer
