@@ -59,6 +59,15 @@ var mecha_flight_player2_bullets = 3
 var mecha_flight_player1_score = 0
 var mecha_flight_player2_score = 0
 
+var powerup_player1 = null
+var powerup_showed_player1 = false
+var powerup_animation_finish_player1 = false
+
+var powerup_player2 = null
+
+var unli_bullet_player1 = false
+var unli_bullet_player2 = false
+
 var is_space_ray = false
 var selected_sound_played = false
 var space_ray_weapon = "bullet"

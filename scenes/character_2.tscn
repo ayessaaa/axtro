@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciyyo1moijlgh"]
+[gd_scene load_steps=18 format=3 uid="uid://ciyyo1moijlgh"]
 
 [ext_resource type="Script" uid="uid://plisvxxyjqk4" path="res://scripts/character_2.gd" id="1_fbb61"]
 [ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="1_r4dws"]
@@ -71,6 +71,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_go4in"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_fbb61"]
 resource_name = "hurt"
 length = 0.5
@@ -87,8 +114,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0.66999996, 0.66999996, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_go4in"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_jnq6x"]
+resource_name = "dead"
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,15 +124,28 @@ tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.70980394, 0.70980394, 0.27450982)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jnq6x"]
 _data = {
 &"RESET": SubResource("Animation_go4in"),
+&"dead": SubResource("Animation_jnq6x"),
 &"hurt": SubResource("Animation_fbb61")
 }
 

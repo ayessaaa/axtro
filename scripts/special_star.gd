@@ -13,14 +13,19 @@ extends Area2D
 @onready var magnet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
 @onready var magnet_icon = get_parent().get_parent().get_parent().get_node("Powerups/MagnetIcon/AnimationPlayer")
 
-@onready var unli_bullet_icon_animation = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
 @onready var unli_bullet_icon = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
+
+@onready var player1_unli_bullet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var player1_unli_bullet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon/Sprite2D")
+
+@onready var player2_unli_bullet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var player2_unli_bullet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon/Sprite2D")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
-var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
+var powerups_array = ["UnliBullet"]
 
 func _process(delta: float) -> void:
 	pass
@@ -74,16 +79,33 @@ func _on_area_entered(area: Area2D) -> void:
 				
 			"UnliBullet":
 				texture = load("res://assets/IMG_1677.PNG")
-				powerup_sprite.texture = texture
-				Global.unli_bullet = true
-				Global.powerup = "UnliBullet"
-				powerup_name.text = "Unlimited Bullets"
-				slow_down()
-				powerup_animation.play("default")
-				Global.powerup_animation_finish = false
-				unli_bullet_icon.play("default")
-				unli_bullet_icon.seek(0, true)
-				Global.shoot_left = 100
+				if Global.mecha_flight_player == 2:
+					if area.player_number == 1:
+						player1_unli_bullet_icon_sprite.texture = texture
+						Global.unli_bullet_player1 = true
+						Global.powerup_player1 = "UnliBullet"
+						player1_unli_bullet_icon.play("default")
+						player1_unli_bullet_icon.seek(0, true)
+						Global.mecha_flight_player1_bullets = 100
+					else:
+						player2_unli_bullet_icon_sprite.texture = texture
+						Global.unli_bullet_player2 = true
+						Global.powerup_player2 = "UnliBullet"
+						player2_unli_bullet_icon.play("default")
+						player2_unli_bullet_icon.seek(0, true)
+						Global.mecha_flight_player2_bullets = 100
+				else:
+					
+					powerup_sprite.texture = texture
+					Global.unli_bullet = true
+					Global.powerup = "UnliBullet"
+					powerup_name.text = "Unlimited Bullets"
+					slow_down()
+					powerup_animation.play("default")
+					Global.powerup_animation_finish = false
+					unli_bullet_icon.play("default")
+					unli_bullet_icon.seek(0, true)
+					Global.shoot_left = 100
 				
 				
 func slow_down():

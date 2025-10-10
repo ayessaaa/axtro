@@ -57,6 +57,7 @@ var meteor_timer = 0.0
 
 var timer = 5
 var double_points_timer = 0
+#@onready var unli_bullet_icon_animation: Area2D = $TwoPlayers/Player1/Powerups/UnliBulletIcon/AnimationPlayer
 
 func _ready() -> void:
 	if Global.is_angle_dash:
@@ -70,6 +71,8 @@ func _ready() -> void:
 		progress_area_animation.play("fade_in")
 	magnet_icon_sprite.texture = load("res://assets/IMG_1676.PNG")
 	unli_bullet_icon_sprite.texture = load("res://assets/IMG_1677.PNG")
+	
+	#unli_bullet_icon_animation.play("default")
 	
 	screen_size = Vector2(1100, 600)
 	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))

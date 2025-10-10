@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 	else:
 		if Global.marathon:
 			score_label.text = str(Global.angle_dash_score)
+		elif Global.is_mecha_flight and Global.mecha_flight_player == 2:
+			score_label.text = str(Global.mecha_flight_player1_score + Global.mecha_flight_player2_score)
 		else:
 			score_label.text = str(Global.score)
 	

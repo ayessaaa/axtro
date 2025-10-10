@@ -271,23 +271,28 @@ position = Vector2(63, 86)
 [node name="Powerups" type="Node" parent="."]
 
 [node name="UnliBulletIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+visible = false
 position = Vector2(938, 35)
 powerup_type = "UnliBullet"
 
 [node name="MagnetIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+visible = false
 position = Vector2(998, 35)
 powerup_type = "Magnet"
 
 [node name="DoublePointIcon" parent="Powerups" instance=ExtResource("23_pl11u")]
+visible = false
 position = Vector2(1057, 37)
 powerup_type = "DoublePoint"
 
 [node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="Powerups"]
+visible = false
 position = Vector2(-2, 29)
 stream = ExtResource("22_37s47")
 volume_db = 3.0
 
 [node name="Shield" type="Sprite2D" parent="Powerups"]
+visible = false
 position = Vector2(1118, 36)
 scale = Vector2(0.247986, 0.247986)
 texture = ExtResource("25_pl11u")
@@ -374,6 +379,50 @@ text = "SCORE: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Powerups" type="Node" parent="TwoPlayers/Player1"]
+
+[node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player1/Powerups"]
+modulate = Color(1, 1, 1, 0.4117647)
+offset_left = 940.0
+offset_top = 11.000004
+offset_right = 1111.5518
+offset_bottom = 51.51723
+scale = Vector2(1.1600003, 1.1600003)
+theme_override_styles/background = SubResource("StyleBoxEmpty_05nbr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0sl42")
+value = 100.0
+show_percentage = false
+
+[node name="UnliBulletIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
+z_index = 1
+position = Vector2(971, 34)
+scale = Vector2(0.5, 0.5)
+powerup_type = "UnliBullet"
+
+[node name="MagnetIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
+z_index = 1
+position = Vector2(1018, 35)
+scale = Vector2(0.5, 0.5)
+powerup_type = "Magnet"
+
+[node name="DoublePointIcon" parent="TwoPlayers/Player1/Powerups" instance=ExtResource("23_pl11u")]
+z_index = 1
+position = Vector2(1069, 36)
+scale = Vector2(0.5, 0.5)
+powerup_type = "DoublePoint"
+
+[node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="TwoPlayers/Player1/Powerups"]
+position = Vector2(-2, 29)
+stream = ExtResource("22_37s47")
+volume_db = 3.0
+
+[node name="Shield" type="Sprite2D" parent="TwoPlayers/Player1/Powerups"]
+visible = false
+z_index = 1
+position = Vector2(1114, 36)
+scale = Vector2(0.17803025, 0.17803025)
+texture = ExtResource("25_pl11u")
+
 [node name="Player2" type="Node" parent="TwoPlayers"]
 
 [node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player2"]
@@ -434,6 +483,30 @@ theme_override_font_sizes/font_size = 21
 text = "SCORE: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Powerups" type="Node" parent="TwoPlayers/Player2"]
+
+[node name="UnliBulletIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(976, 88)
+powerup_type = "UnliBullet"
+
+[node name="MagnetIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(1020, 88)
+powerup_type = "Magnet"
+
+[node name="DoublePointIcon" parent="TwoPlayers/Player2/Powerups" instance=ExtResource("23_pl11u")]
+position = Vector2(1073, 89)
+powerup_type = "DoublePoint"
+
+[node name="ShieldPopSound" type="AudioStreamPlayer2D" parent="TwoPlayers/Player2/Powerups"]
+position = Vector2(-2, 29)
+stream = ExtResource("22_37s47")
+volume_db = 3.0
+
+[node name="Shield" type="Sprite2D" parent="TwoPlayers/Player2/Powerups"]
+position = Vector2(1119, 91)
+scale = Vector2(0.18306471, 0.18306471)
+texture = ExtResource("25_pl11u")
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
