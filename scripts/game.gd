@@ -46,6 +46,10 @@ extends Node
 @onready var player1_score: Label = $TwoPlayers/Player1/Score
 @onready var player2_score_sprite: Sprite2D = $TwoPlayers/Player2/ScoreSprite
 @onready var player2_score: Label = $TwoPlayers/Player2/Score
+@onready var bg_1: ProgressBar = $TwoPlayers/Player1/Powerups/Bg1
+@onready var bg_2: ProgressBar = $TwoPlayers/Player2/Powerups/Bg2
+@onready var shield1: Sprite2D = $TwoPlayers/Player1/Powerups/Shield
+@onready var shield2: Sprite2D = $TwoPlayers/Player2/Powerups/Shield
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
@@ -109,6 +113,10 @@ func _process(delta: float) -> void:
 	player1_score.visible = !(Global.mecha_flight_player == 1)
 	player2_score_sprite.visible = !(Global.mecha_flight_player == 1)
 	player2_score.visible = !(Global.mecha_flight_player == 1)
+	bg_1.visible = !(Global.mecha_flight_player == 1)
+	bg_2.visible = !(Global.mecha_flight_player == 1)
+	shield1.visible = Global.shield_player1
+	shield2.visible = Global.shield_player2
 	
 	if Global.dead:
 		if Global.is_angle_dash or Global.is_space_ray:
@@ -139,6 +147,10 @@ func _process(delta: float) -> void:
 					Global.unli_bullet_player2 = false
 					Global.magnet_player1 = false
 					Global.magnet_player2 = false
+					Global.double_point_player2 = false
+					Global.double_point_player2 = false
+					Global.shield_player1 = false
+					Global.shield_player2 = false
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -208,6 +220,10 @@ func _process(delta: float) -> void:
 		Global.unli_bullet_player2 = false
 		Global.magnet_player1 = false
 		Global.magnet_player2 = false
+		Global.double_point_player2 = false
+		Global.double_point_player2 = false
+		Global.shield_player1 = false
+		Global.shield_player2 = false
 		get_tree().reload_current_scene()
 		
 	if Global.hearts == 2:

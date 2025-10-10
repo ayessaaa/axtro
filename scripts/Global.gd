@@ -68,6 +68,8 @@ var magnet_player1 = false
 var magnet_player2 = false
 var double_point_player1 = false
 var double_point_player2 = false
+var shield_player1 = false
+var shield_player2 = false
 
 var is_space_ray = false
 var selected_sound_played = false

@@ -36,11 +36,18 @@ extends Area2D
 @onready var player2_double_point_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon")
 @onready var player2_double_point_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon/Sprite2D")
 
+@onready var player1_shield_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/Shield")
+@onready var player2_shield_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/Shield")
+
+@onready var character_animation = get_parent().get_parent().get_parent().get_node("Character/AnimationPlayer")
+@onready var character2_animation = get_parent().get_parent().get_parent().get_node("Character2/AnimationPlayer")
+
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
-var powerups_array = ["DoublePoints"]
+var powerups_array = ["Shield"]
 
 func _process(delta: float) -> void:
 	pass
@@ -58,14 +65,26 @@ func _on_area_entered(area: Area2D) -> void:
 		print(powerup)
 		match powerup:
 			"Shield":
-				texture = load("res://assets/IMG_1665.PNG")
-				powerup_sprite.texture = texture
-				Global.powerup = "Shield"
-				powerup_name.text = "Shield"
-				slow_down()
-				powerup_animation.play("default")
-				Global.powerup_animation_finish = false
-				double_points_icon_animation.play("default")
+				if Global.mecha_flight_player == 2:
+					if area.player_number == 1:
+						player1_shield_icon_area.visible = true
+						Global.shield_player1 = true
+						Global.powerup_player1 = "Shield"
+						character_animation.play("shield_fade_in")
+					else:
+						player2_shield_icon_area.visible = true
+						Global.shield_player2 = true
+						Global.powerup_player2 = "Shield"
+						character2_animation.play("shield_fade_in")
+				else:
+					texture = load("res://assets/IMG_1665.PNG")
+					powerup_sprite.texture = texture
+					Global.powerup = "Shield"
+					powerup_name.text = "Shield"
+					slow_down()
+					powerup_animation.play("default")
+					Global.powerup_animation_finish = false
+					double_points_icon_animation.play("default")
 				
 			"DoublePoints":
 				texture = load("res://assets/IMG_1663.PNG")

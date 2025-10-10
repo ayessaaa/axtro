@@ -32,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 			Global.mecha_flight_player2_score += 2
 			Global.meteor_speed += .5
 		else:
-			if Global.is_mecha_flight:
+			if Global.is_mecha_flight and !Global.marathon:
 				if Global.mecha_flight_player == 1:
 #					singleplayer
 					Global.score += 1

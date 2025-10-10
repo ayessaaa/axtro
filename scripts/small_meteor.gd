@@ -78,12 +78,17 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 		collision_polygon_2d.disabled = true
 		if small_meteor_fall:
 			return
-		if Global.shield:
-			if area.player_number == 1:
+		if Global.shield or Global.shield_player1 or Global.shield_player2:
+			if Global.shield:
+				Global.shield = false
+				character_animation.play("shield_fade_out")
+			elif Global.shield_player1:
+				Global.shield_player1 = false
 				character_animation.play("shield_fade_out")
 			else:
+				Global.shield_player2 = false
 				character2_animation.play("shield_fade_out")
-			Global.shield = false
+			
 			shield_pop_sound.play()
 			meteor_explosion_sound.play()
 			small_meteor_fall = true
