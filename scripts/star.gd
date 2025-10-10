@@ -7,6 +7,7 @@ extends Area2D
 @export var type = "star"
 @onready var coin_sound = get_parent().get_node("CoinSound")
 @onready var character = get_parent().get_parent().get_parent().get_node("Character")
+@onready var character2 = get_parent().get_parent().get_parent().get_node("Character2")
 @onready var progress_animation = get_parent().get_parent().get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var angle_dash = get_parent().get_parent().get_parent().get_node("AngleDash/AnimationPlayer")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -77,7 +78,11 @@ func _process(delta: float) -> void:
 		#queue_free()
 		#return
 	if Global.magnet:
-		position = position.move_toward(character.position, Global.speed * delta)
+		position = position.move_toward(character.position, 400 * delta)
+	if Global.magnet_player1:
+		position = position.move_toward(character.position, 400 * delta)
+	if Global.magnet_player2:
+		position = position.move_toward(character2.position, 400 * delta)
 	if Global.meteor_speed == 0:
 		animation_player.pause()
 	else:

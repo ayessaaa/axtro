@@ -504,6 +504,7 @@ stream = ExtResource("22_37s47")
 volume_db = 3.0
 
 [node name="Shield" type="Sprite2D" parent="TwoPlayers/Player2/Powerups"]
+visible = false
 position = Vector2(1119, 91)
 scale = Vector2(0.18306471, 0.18306471)
 texture = ExtResource("25_pl11u")

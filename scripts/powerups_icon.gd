@@ -7,9 +7,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		"DoublePoint":
 			Global.double_points = false
 		"Magnet":
-			Global.magnet = false
+			if Global.mecha_flight_player == 2:
+				if Global.magnet_player1:
+					Global.magnet_player1 = false
+				else:
+					Global.magnet_player2 = false
+				visible = false
+			else:
+				Global.magnet = false
 		"UnliBullet":
-			
 			if Global.mecha_flight_player == 2:
 				if Global.unli_bullet_player1:
 					Global.unli_bullet_player1 = false

@@ -133,6 +133,12 @@ func _process(delta: float) -> void:
 					Global.mecha_flight_player2_bullets = 3
 					Global.mecha_flight_player1_score = 0
 					Global.mecha_flight_player1_score = 0
+					Global.powerup_player1 = null
+					Global.powerup_player2 = null
+					Global.unli_bullet_player1 = false
+					Global.unli_bullet_player2 = false
+					Global.magnet_player1 = false
+					Global.magnet_player2 = false
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -196,6 +202,12 @@ func _process(delta: float) -> void:
 		Global.mecha_flight_player2_bullets = 3
 		Global.mecha_flight_player1_score = 0
 		Global.mecha_flight_player1_score = 0
+		Global.powerup_player1 = null
+		Global.powerup_player2 = null
+		Global.unli_bullet_player1 = false
+		Global.unli_bullet_player2 = false
+		Global.magnet_player1 = false
+		Global.magnet_player2 = false
 		get_tree().reload_current_scene()
 		
 	if Global.hearts == 2:

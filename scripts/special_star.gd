@@ -16,10 +16,18 @@ extends Area2D
 @onready var unli_bullet_icon = get_parent().get_parent().get_parent().get_node("Powerups/UnliBulletIcon/AnimationPlayer")
 
 @onready var player1_unli_bullet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var player1_unli_bullet_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon")
 @onready var player1_unli_bullet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon/Sprite2D")
-
 @onready var player2_unli_bullet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var player2_unli_bullet_icon_area  = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon")
 @onready var player2_unli_bullet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon/Sprite2D")
+
+@onready var player1_magnet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/MagnetIcon/AnimationPlayer")
+@onready var player1_magnet_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/MagnetIcon")
+@onready var player1_magnet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/MagnetIcon/Sprite2D")
+@onready var player2_magnet_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon/AnimationPlayer")
+@onready var player2_magnet_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon")
+@onready var player2_magnet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon/Sprite2D")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
@@ -66,21 +74,38 @@ func _on_area_entered(area: Area2D) -> void:
 				
 			"Magnet":
 				texture = load("res://assets/IMG_1676.PNG")
-				powerup_sprite.texture = texture
-				Global.magnet = true
-				Global.powerup = "Magnet"
-				powerup_name.text = "Magnet"
-				slow_down()
-				powerup_animation.play("default")
-				Global.powerup_animation_finish = false
-				magnet_icon.play("default")
-				magnet_icon.seek(0, true)
+				if Global.mecha_flight_player == 2:
+					if area.player_number == 1:
+						player1_magnet_icon_area.visible = true
+						player1_magnet_icon_sprite.texture = texture
+						Global.magnet_player1 = true
+						Global.powerup_player1 = "Magnet"
+						player1_magnet_icon.play("default")
+						player1_magnet_icon.seek(0, true)
+					else:
+						player1_magnet_icon_area.visible = true
+						player2_magnet_icon_sprite.texture = texture
+						Global.magnet_player2 = true
+						Global.powerup_player2 = "Magnet"
+						player2_magnet_icon.play("default")
+						player2_magnet_icon.seek(0, true)
+				else:
+					powerup_sprite.texture = texture
+					Global.magnet = true
+					Global.powerup = "Magnet"
+					powerup_name.text = "Magnet"
+					slow_down()
+					powerup_animation.play("default")
+					Global.powerup_animation_finish = false
+					magnet_icon.play("default")
+					magnet_icon.seek(0, true)
 				
 				
 			"UnliBullet":
 				texture = load("res://assets/IMG_1677.PNG")
 				if Global.mecha_flight_player == 2:
 					if area.player_number == 1:
+						player1_unli_bullet_icon_area.visible = true
 						player1_unli_bullet_icon_sprite.texture = texture
 						Global.unli_bullet_player1 = true
 						Global.powerup_player1 = "UnliBullet"
@@ -88,6 +113,7 @@ func _on_area_entered(area: Area2D) -> void:
 						player1_unli_bullet_icon.seek(0, true)
 						Global.mecha_flight_player1_bullets = 100
 					else:
+						player1_unli_bullet_icon_area.visible = true
 						player2_unli_bullet_icon_sprite.texture = texture
 						Global.unli_bullet_player2 = true
 						Global.powerup_player2 = "UnliBullet"
@@ -95,7 +121,6 @@ func _on_area_entered(area: Area2D) -> void:
 						player2_unli_bullet_icon.seek(0, true)
 						Global.mecha_flight_player2_bullets = 100
 				else:
-					
 					powerup_sprite.texture = texture
 					Global.unli_bullet = true
 					Global.powerup = "UnliBullet"
