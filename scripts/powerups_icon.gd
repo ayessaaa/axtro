@@ -5,7 +5,14 @@ extends Area2D
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match powerup_type:
 		"DoublePoint":
-			Global.double_points = false
+			if Global.mecha_flight_player == 2:
+				if Global.double_point_player1:
+					Global.double_point_player1 = false
+				else:
+					Global.double_point_player2 = false
+				visible = false
+			else:
+				Global.double_points = false
 		"Magnet":
 			if Global.mecha_flight_player == 2:
 				if Global.magnet_player1:

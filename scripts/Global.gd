@@ -66,6 +66,8 @@ var unli_bullet_player1 = false
 var unli_bullet_player2 = false
 var magnet_player1 = false
 var magnet_player2 = false
+var double_point_player1 = false
+var double_point_player2 = false
 
 var is_space_ray = false
 var selected_sound_played = false

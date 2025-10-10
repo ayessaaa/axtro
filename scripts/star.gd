@@ -20,20 +20,16 @@ func _on_area_entered(area: Area2D) -> void:
 		coin_sound.play()
 		animation_player.play("pick_up")
 		
+		
+		
 		if Global.double_points:
-			if Global.is_mecha_flight:
-				if Global.mecha_flight_player == 1:
-#					singleplayer
-					Global.score += 2
-				else:
-#					multiplayer
-					if area.player_number == 1:
-						Global.mecha_flight_player1_score += 2
-					else:
-						Global.mecha_flight_player2_score += 2
-			else:
-				Global.score += 2
-				Global.next_mode_score += 2
+			Global.score += 2
+			Global.meteor_speed += .5
+		elif Global.double_point_player1 and area.player_number == 1:
+			Global.mecha_flight_player1_score += 2
+			Global.meteor_speed += .5
+		elif Global.double_point_player2 and area.player_number == 2:
+			Global.mecha_flight_player2_score += 2
 			Global.meteor_speed += .5
 		else:
 			if Global.is_mecha_flight:

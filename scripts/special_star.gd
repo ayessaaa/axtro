@@ -29,11 +29,18 @@ extends Area2D
 @onready var player2_magnet_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon")
 @onready var player2_magnet_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon/Sprite2D")
 
+@onready var player1_double_point_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/DoublePointIcon/AnimationPlayer")
+@onready var player1_double_point_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/DoublePointIcon")
+@onready var player1_double_point_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/DoublePointIcon/Sprite2D")
+@onready var player2_double_point_icon = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon/AnimationPlayer")
+@onready var player2_double_point_icon_area = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon")
+@onready var player2_double_point_icon_sprite = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon/Sprite2D")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
-var powerups_array = ["UnliBullet"]
+var powerups_array = ["DoublePoints"]
 
 func _process(delta: float) -> void:
 	pass
@@ -62,15 +69,31 @@ func _on_area_entered(area: Area2D) -> void:
 				
 			"DoublePoints":
 				texture = load("res://assets/IMG_1663.PNG")
-				powerup_sprite.texture = texture
-				Global.double_points = true
-				Global.powerup = "DoublePoints"
-				powerup_name.text = "2x POINTS"
-				slow_down()
-				powerup_animation.play("default")
-				Global.powerup_animation_finish = false
-				double_points_icon.play("default")
-				double_points_icon.seek(0, true)
+				if Global.mecha_flight_player == 2:
+					if area.player_number == 1:
+						player1_double_point_icon_area.visible = true
+						player1_double_point_icon_sprite.texture = texture
+						Global.double_point_player1 = true
+						Global.powerup_player1 = "DoublePoint"
+						player1_double_point_icon.play("default")
+						player1_double_point_icon.seek(0, true)
+					else:
+						player1_double_point_icon_area.visible = true
+						player2_double_point_icon_sprite.texture = texture
+						Global.double_point_player2 = true
+						Global.powerup_player2 = "DoublePoint"
+						player2_double_point_icon.play("default")
+						player2_double_point_icon.seek(0, true)
+				else:
+					powerup_sprite.texture = texture
+					Global.double_points = true
+					Global.powerup = "DoublePoints"
+					powerup_name.text = "2x POINTS"
+					slow_down()
+					powerup_animation.play("default")
+					Global.powerup_animation_finish = false
+					double_points_icon.play("default")
+					double_points_icon.seek(0, true)
 				
 			"Magnet":
 				texture = load("res://assets/IMG_1676.PNG")
