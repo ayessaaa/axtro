@@ -24,6 +24,7 @@ const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 
 @onready var laser_sound = get_parent().get_node("SoundEffects/Laser")
 @onready var bullet_sound = get_parent().get_node("SoundEffects/BulletSound")
+@onready var snowball_sound = get_parent().get_node("SoundEffects/SnowballSound")
 
 @onready var weapon_text_animation = get_parent().get_node("CurrentWeapon/AnimationPlayer")
 @onready var damage_label: Label = $"../CurrentWeapon/DamageLabel"
@@ -34,6 +35,7 @@ var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"},
 					"snowball": {"dmg": "5", "cooldown" : "0.25 s"}}
 var weapon_index = 0
 var bullet_cooldown = 0.0
+var snowball_cooldown = 0.0
 
 func _physics_process(delta: float) -> void:
 	if Global.space_ray_stop:
@@ -70,30 +72,10 @@ func _physics_process(delta: float) -> void:
 		#if Global.space_ray_powerup == "triple":
 		spawn_shoot(position, BOMB, "bomb")
 		
-	if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "snowball":
-		#if Global.space_ray_powerup == "triple":
-		spawn_shoot(Vector2(position.x, position.y+10*rotation), SNOWBALL, "snowball", Vector2.RIGHT.rotated(rotation), rotation)
 		
-	if Global.space_ray_powerup == "machine_gun" and Global.space_ray_weapon == "bullet":
-		if bullet_cooldown <= 0:
-			bullet_cooldown = 0.25
-			bullet_sound.play()
-			spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
-		bullet_cooldown -= delta
-	else:
-		if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == "bullet":
-			if bullet_cooldown <= 0:
-				bullet_cooldown = 0.5
-				if Global.space_ray_powerup == "triple":
-					bullet_sound.play()
-					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
-					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
-					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
-				else:
-					bullet_sound.play()
-					spawn_shoot(Vector2(position.x, position.y+10*rotation), BULLET, "bullet", Vector2.RIGHT.rotated(rotation), rotation)
-		bullet_cooldown -= delta
-			
+	
+	bullet_cooldown = shoot_weapon(bullet_cooldown, delta, "bullet", BULLET, 0.5, bullet_sound)
+	snowball_cooldown = shoot_weapon(snowball_cooldown, delta, "snowball", SNOWBALL, 0.3, snowball_sound)
 			
 	if Global.space_ray_powerup == "invisible":
 		type = "invisible"
@@ -158,3 +140,26 @@ func spawn_shoot(pos, shooter_scene, type, direct=Vector2.RIGHT.rotated(rotation
 		shooter.direction = direct
 		shooter.rotation = rotate
 	shooters.add_child(shooter)
+	
+func shoot_weapon(cooldown, delta, weapon, weapon_scene, cooldown_time, sound):
+	if Global.space_ray_powerup == "machine_gun" and Global.space_ray_weapon == weapon:
+		if cooldown <= 0:
+			cooldown = cooldown_time/2
+			sound.play()
+			spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation), rotation)
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == weapon:
+			print(cooldown)
+			if cooldown <= 0:
+				cooldown = cooldown_time
+				if Global.space_ray_powerup == "triple":
+					print(Global.space_ray_powerup)
+					sound.play()
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation), rotation)
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation-.5), rotation-.5)
+				else:
+					sound.play()
+					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation), rotation)
+	return cooldown - delta
+	

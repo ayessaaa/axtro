@@ -247,7 +247,7 @@ func _process(delta: float) -> void:
 			
 	star_timer += delta
 	if star_timer >= 2 and Global.space_ray_powerup == "":
-		if randi_range(0, 10) < 1:
+		if randi_range(0, 2) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
 		

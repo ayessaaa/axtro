@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=81 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://byo2gd5f0dgkc" path="res://assets/music/8-bit-melody-loop-37872.mp3" id="12_qfd3k"]
 [ext_resource type="AudioStream" uid="uid://babpiqcixaj6t" path="res://assets/music/level-up-enhancement-8-bit-retro-sound-effect-153002.mp3" id="12_vot2l"]
 [ext_resource type="Texture2D" uid="uid://dhdnyscg6fbh4" path="res://assets/space_ray_assets/IMG_1795.PNG" id="13_o34iy"]
+[ext_resource type="AudioStream" uid="uid://0w4itohd04uy" path="res://assets/music/snowball-hit-02-279698.mp3" id="13_qxr3h"]
 [ext_resource type="Texture2D" uid="uid://dqxwosnnwfd3g" path="res://assets/dfgdfg.PNG" id="16_j5r7u"]
 [ext_resource type="Script" uid="uid://otmrrujhqcxq" path="res://scripts/space_ray_score.gd" id="16_tbhyd"]
 [ext_resource type="Texture2D" uid="uid://cha656yiqpwt2" path="res://assets/space_ray_assets/image (23).png" id="17_f8caw"]
@@ -2556,6 +2557,9 @@ stream = ExtResource("11_tbhyd")
 
 [node name="PowerupSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("12_vot2l")
+
+[node name="SnowballSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("13_qxr3h")
 
 [node name="Enemies" type="Node" parent="."]
 

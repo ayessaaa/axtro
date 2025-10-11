@@ -15,6 +15,7 @@ extends Area2D
 
 var speed = 0
 var health = 100
+var freeze = false
 
 func _ready() -> void:
 	speed = randf_range(4, 7)
@@ -58,8 +59,11 @@ func _on_area_entered(area: Area2D) -> void:
 		Global.space_ray_score += 2 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier
 	if area.type == "snowball":
-		modulate = Color(0.584, 0.855, 1.0, 1.0)
-		speed /= 2
+		sprite_animation.play("freeze")
+		if !freeze:
+			speed /= 2
+		freeze = true
+		
 	#if area.type == "laser" and Global.space_ray_weapon == "laser":
 		##Global.laser_enter = true
 		##Global.rocket_position_laser = position
@@ -68,4 +72,8 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	queue_free()
+	if freeze:
+		freeze = false
+		speed *= 2
+	else:
+		queue_free()

@@ -56,27 +56,18 @@ func _on_area_entered(area: Area2D) -> void:
 			hurt_sound.play()
 			sprite_animation.play("hurt")
 	if area.type == "bullet":
-		#sprite_animation.play("hurt")
 		sprite_animation.play("hurt")
 		health -= 25
-		Global.space_ray_score += 4 * Global.space_ray_multiplier
-		Global.space_ray_weapon_score += 4 * Global.space_ray_multiplier
-		
 	if area.type == "red_bullet" or area.type == "bomb":
 		sprite_animation.play("hurt")
-		#sprite_animation.play("hurt")
 		health -= 50
-		Global.space_ray_score += 4 * Global.space_ray_multiplier
-		Global.space_ray_weapon_score += 4 * Global.space_ray_multiplier
-	#if area.type == "laser" and Global.space_ray_weapon == "laser":
-		##Global.laser_enter = true
-		##Global.rocket_position_laser = position
-		#health -= 10
 		
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if health <= 0:
+		Global.space_ray_score += 4 * Global.space_ray_multiplier
+		Global.space_ray_weapon_score += 4 * Global.space_ray_multiplier
 		queue_free()
 	
 	

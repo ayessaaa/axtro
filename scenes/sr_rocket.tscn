@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://31g6qbwfrwc0"]
+[gd_scene load_steps=15 format=3 uid="uid://31g6qbwfrwc0"]
 
 [ext_resource type="Script" uid="uid://cpg6e6x1xlg1y" path="res://scripts/sr_rocket.gd" id="1_62jgt"]
 [ext_resource type="Texture2D" uid="uid://dg6kkdu6qknhu" path="res://assets/space_ray_assets/IMG_2017.PNG" id="2_ovsy0"]
@@ -113,7 +113,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-8, 10), Vector2(-8, -7)]
+"values": [Vector2(-10, 10), Vector2(-10, -7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -174,7 +174,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-6.3611126, 11.450003)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -225,6 +225,70 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_xpove"]
+resource_name = "freeze"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 2.6682467, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.6806966, 0.8296772, 0.99496573, 1), Color(0.6806966, 0.8296772, 0.99496573, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15427288, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, 10), Vector2(-5, 0), Vector2(-10, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.18760623, 0.3, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 10), Vector2(10.61341, 3.506115), Vector2(3, 10), Vector2(3, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3490658503988659, 0.17453292519943295, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionPolygon2D:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3490658503988659, -0.04363323129985824]
+}
+
 [sub_resource type="Animation" id="Animation_j174e"]
 resource_name = "hurt"
 length = 0.4
@@ -243,67 +307,68 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15427288, 0.26666665),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(7.61341, -6.493883), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.18760623, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(3, 10), Vector2(10.61341, 3.506115), Vector2(3, 10)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3490658503988659, 0.17453292519943295]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
-tracks/3/interp = 2
+tracks/3/path = NodePath("CollisionPolygon2D:disabled")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.3490658503988659, 0.17453292519943295]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionPolygon2D:rotation")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.3490658503988659, 0.17453292519943295]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionPolygon2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.04),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionPolygon2D:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15427288, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, 10), Vector2(-5, 0), Vector2(-10, 10)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionPolygon2D:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3490658503988659, -0.04363323129985824]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xpove"]
 _data = {
 &"RESET": SubResource("Animation_bwnv1"),
+&"freeze": SubResource("Animation_xpove"),
 &"hurt": SubResource("Animation_j174e")
 }
 
@@ -344,6 +409,7 @@ libraries = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6.3611126, 11.450003)
 scale = Vector2(1.0878385, 1.0878385)
 polygon = PackedVector2Array(-54.70558, -2.544447, -47.072243, -12.722229, -28, -23, 0, -27, 27.988901, -24.172234, 35.62224, -19.083344, 42, -19, 45.80002, -19.083344, 48.344467, -17.81112, 49.61669, -1.2722244, 47.072243, 11.450004, 44, 16, 34.350014, 13.994449, 24.172234, 20.355564, 7, 22, -21, 22, -38.16668, 16.538895, -49.616684, 8.905559)
 

@@ -10,6 +10,7 @@ var direction: Vector2
 
 func _ready() -> void:
 	pass
+	#pass
 	#direction = Vector2.RIGHT.rotated(character.rotation)
 	#rotation = character.rotation
 
