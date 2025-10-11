@@ -34,27 +34,28 @@ var freeze_timer = 0.0
 
 var health_rect_width
 var freeze = false
+var death_animation_finished = false
+var animation_played = false
 
 func _ready() -> void:
 	progress_bar.value = health
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.type == "bullet" or area.type == "red_ray":
-		health -= 25
-		animation_player.play("hurt")
-		#animation_player.play("freeze")
-	elif  area.type == "red_bullet":
-		health -= 50
-		animation_player.play("hurt")
-	if area.type == "bomb":
-		health -= 40
-		animation_player.play("hurt")
-	if health <= 0:
-		animation_player.play("dead")
-		enemy_dead_sound.play()
-		enemy_loop_sound.stop()
-		Global.space_ray_score += 10 * Global.space_ray_multiplier
-		Global.space_ray_weapon_score += 10 * Global.space_ray_multiplier
+	
+		
+	if area.type == "snowball":
+		animation_player.play("freeze1")
+		if !freeze:
+			Global.space_ray_runspeed /=2
+		freeze = true
+		health -= 5
+		freeze_timer = 5
+	
+	elif Global.space_ray_weapon_dmg.keys().has(area.type):
+		health -= Global.space_ray_weapon_dmg[area.type]
+		if health > 0:
+			animation_player.play("hurt")
+		
 	if area.type == "snowball":
 		if !freeze:
 			Global.space_ray_runspeed /=2
@@ -95,6 +96,15 @@ func _process(delta: float) -> void:
 		modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	position = Vector2(500, 500)
+	
+	if health <= 0 and !animation_played:
+		animation_played = true
+		print("dead")
+		animation_player.play("dead")
+		enemy_dead_sound.play()
+		enemy_loop_sound.stop()
+		Global.space_ray_score += 10 * Global.space_ray_multiplier
+		Global.space_ray_weapon_score += 10 * Global.space_ray_multiplier
 		
 			
 	if len(get_overlapping_areas()) <= 0:
@@ -103,7 +113,8 @@ func _process(delta: float) -> void:
 	if health <= 0:
 		bg_music.volume_db = 0
 		collision_polygon_2d.disabled = true
-		if fireballs.get_child_count() == 0:
+		if fireballs.get_child_count() == 0 and death_animation_finished:
+			print("queue")
 			queue_free()
 		#queue_free()
 		
@@ -125,3 +136,9 @@ func spawn_fireball(pos):
 
 #func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	#freeze = !freeze
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if health <= 0:
+		print("true")
+		death_animation_finished = true

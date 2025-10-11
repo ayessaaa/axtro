@@ -59,21 +59,20 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			sprite_animation.play("hurt")
-	if area.type == "bullet" or area.type == "red_ray":
-		sprite_animation.play("hurt")
-		health -= 25
-	if area.type == "ray":
-		sprite_animation.play("hurt")
-		health -= 15
-	if area.type == "red_bullet" or area.type == "bomb":
-		sprite_animation.play("hurt")
-		health -= 50
 	if area.type == "snowball":
 		sprite_animation.play("freeze")
 		if !freeze:
 			speed /= 2
-		freeze = true
 		health -= 5
+		freeze = true
+	
+	elif Global.space_ray_weapon_dmg.keys().has(area.type):
+		health -= Global.space_ray_weapon_dmg[area.type]
+		if health > 0:
+			sprite_animation.play("hurt")
+		
+	if health <= 0:
+		sprite_animation.play("death")
 		
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
