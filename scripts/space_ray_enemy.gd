@@ -25,24 +25,29 @@ const FIREBALL = preload("res://scenes/space_ray_fireball.tscn")
 @onready var corner_laser = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser")
 @onready var corner_laser_2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser2")
 
+@onready var enemy_sprite1: Sprite2D = $Gray2
+@onready var enemy_sprite2: Sprite2D = $Gun/Sprite2D
 
-var health = 100
+var health = 250
 var timer = 0.0
+var freeze_timer = 0.0
 
 var health_rect_width
+var freeze = false
 
 func _ready() -> void:
 	progress_bar.value = health
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bullet":
-		health -= 10
+		health -= 25
 		animation_player.play("hurt")
+		#animation_player.play("freeze")
 	elif  area.type == "red_bullet":
-		health -= 20
+		health -= 50
 		animation_player.play("hurt")
 	if area.type == "bomb":
-		health -= 20
+		health -= 40
 		animation_player.play("hurt")
 	if health <= 0:
 		animation_player.play("dead")
@@ -50,6 +55,14 @@ func _on_area_entered(area: Area2D) -> void:
 		enemy_loop_sound.stop()
 		Global.space_ray_score += 10 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 10 * Global.space_ray_multiplier
+	if area.type == "snowball":
+		if !freeze:
+			Global.space_ray_runspeed /=2
+		freeze = true
+		health -= 5
+		freeze_timer = 5
+		#animation_player.play("hurt")
+		animation_player.play("freeze1")
 	if area.type == "player":
 		if Global.space_ray_powerup == "invisible":
 			return
@@ -69,6 +82,17 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_stop:
 		return
+		
+	if freeze:
+		modulate = Color(0.682, 0.831, 0.996, 1.0)
+		modulate = Color(0.682, 0.831, 0.996, 1.0)
+		freeze_timer -= delta
+		if freeze_timer <= 0:
+			freeze = false
+			Global.space_ray_runspeed *=2
+	else:
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
 	
 	position = Vector2(500, 500)
 		
@@ -78,9 +102,7 @@ func _process(delta: float) -> void:
 			#print(health)
 	if health <= 0:
 		bg_music.volume_db = 0
-		
 		collision_polygon_2d.disabled = true
-		
 		if fireballs.get_child_count() == 0:
 			queue_free()
 		#queue_free()
@@ -88,8 +110,9 @@ func _process(delta: float) -> void:
 	timer += delta
 	if timer >= Global.space_ray_spawn_interval and health > 0:
 		timer = 0
-		spawn_fireball(gun.global_position)
-		fireball_sound.play()
+		if !freeze:
+			spawn_fireball(gun.global_position)
+			fireball_sound.play()
 		
 	progress_bar.value = health
 		
@@ -98,3 +121,7 @@ func spawn_fireball(pos):
 	var fireball = FIREBALL.instantiate()
 	fireball.position = pos
 	fireballs.add_child(fireball)
+
+
+#func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	#freeze = !freeze

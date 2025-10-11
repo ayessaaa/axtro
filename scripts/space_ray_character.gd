@@ -30,9 +30,9 @@ const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 @onready var damage_label: Label = $"../CurrentWeapon/DamageLabel"
 @onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
 
-var weapons_stats = {"bomb": {"dmg": "20", "cooldown" : "one bomb at a time"}, 
-					"bullet": {"dmg": "10", "cooldown" : "0.5 s"},
-					"snowball": {"dmg": "5", "cooldown" : "0.25 s"}}
+var weapons_stats = {"bullet": {"dmg": "25", "cooldown" : "0.5 s"},
+					"snowball": {"dmg": "5", "cooldown" : "0.25 s"},
+					"bomb": {"dmg": "40", "cooldown" : "one bomb at a time"}, }
 var weapon_index = 0
 var bullet_cooldown = 0.0
 var snowball_cooldown = 0.0
@@ -54,16 +54,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("q"):
 		weapon_text_animation.play("new_weapon")
-		damage_label.text = "dmg: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["dmg"]
-		cooldown_label.text = "cooldown: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["cooldown"]
 		if weapon_index < len(Global.space_ray_weapons)-1:
 			weapon_index += 1
-			print("+1")
 		else:
 			weapon_index = 0
-			print("0")
-		print(Global.space_ray_weapons)
 			
+		damage_label.text = "dmg: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["dmg"]
+		cooldown_label.text = "cooldown: "+weapons_stats[Global.space_ray_weapons[weapon_index]]["cooldown"]
 		Global.space_ray_weapon = Global.space_ray_weapons[weapon_index]
 		if Global.space_ray_weapon == "laser":
 			laser_sound.play()
@@ -75,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 	bullet_cooldown = shoot_weapon(bullet_cooldown, delta, "bullet", BULLET, 0.5, bullet_sound)
-	snowball_cooldown = shoot_weapon(snowball_cooldown, delta, "snowball", SNOWBALL, 0.3, snowball_sound)
+	snowball_cooldown = shoot_weapon(snowball_cooldown, delta, "snowball", SNOWBALL, 0.4, snowball_sound)
 			
 	if Global.space_ray_powerup == "invisible":
 		type = "invisible"
@@ -149,11 +146,9 @@ func shoot_weapon(cooldown, delta, weapon, weapon_scene, cooldown_time, sound):
 			spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation), rotation)
 	else:
 		if Input.is_action_just_pressed("shoot") and Global.space_ray_weapon == weapon:
-			print(cooldown)
 			if cooldown <= 0:
 				cooldown = cooldown_time
 				if Global.space_ray_powerup == "triple":
-					print(Global.space_ray_powerup)
 					sound.play()
 					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation+.5), rotation+.5)
 					spawn_shoot(Vector2(position.x, position.y+10*rotation), weapon_scene, weapon, Vector2.RIGHT.rotated(rotation), rotation)

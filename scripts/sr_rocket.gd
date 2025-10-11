@@ -14,7 +14,7 @@ extends Area2D
 @onready var sprite_animation: AnimationPlayer = $AnimationPlayer
 
 var speed = 0
-var health = 100
+var health = 25
 var freeze = false
 
 func _ready() -> void:
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		return
 	if health < 0:
 		queue_free()
-	if health < 100:
+	if health < 25:
 		progress_bar.value = health
 		progress_bar.visible = true
 	else:
@@ -38,7 +38,9 @@ func _process(delta: float) -> void:
 		Global.rocket_position_laser = position
 		#print("schanging stuffs")
 	
-		
+	if freeze:
+		health -= 0.05
+	
 	position.x -= speed
 
 
@@ -62,7 +64,9 @@ func _on_area_entered(area: Area2D) -> void:
 		sprite_animation.play("freeze")
 		if !freeze:
 			speed /= 2
+		health -= 5
 		freeze = true
+		
 		
 	#if area.type == "laser" and Global.space_ray_weapon == "laser":
 		##Global.laser_enter = true

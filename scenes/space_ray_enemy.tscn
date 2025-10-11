@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d20ccntc163yq"]
+[gd_scene load_steps=20 format=3 uid="uid://d20ccntc163yq"]
 
 [ext_resource type="Script" uid="uid://nhlku44dw0r7" path="res://scripts/space_ray_enemy.gd" id="1_5yjip"]
 [ext_resource type="Texture2D" uid="uid://i03wdllh0kqx" path="res://assets/space_ray_assets/IMG_1805.PNG" id="2_l8w07"]
@@ -145,10 +145,44 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0.74, 0.74, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_oyw4q"]
+resource_name = "freeze"
+length = 3.0
+
+[sub_resource type="Animation" id="Animation_nndip"]
+resource_name = "freeze1"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 4.7666664, 5.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68235296, 0.83137256, 0.99607843, 1), Color(0.68235296, 0.83137256, 0.99607843, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3670009, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, -0.017453292519943295, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjxa7"]
 _data = {
 &"RESET": SubResource("Animation_xufod"),
 &"dead": SubResource("Animation_cjxa7"),
+&"freeze": SubResource("Animation_oyw4q"),
+&"freeze1": SubResource("Animation_nndip"),
 &"hurt": SubResource("Animation_4j3lw")
 }
 
@@ -160,6 +194,8 @@ script = ExtResource("1_5yjip")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visibility_layer = 8
 z_index = 7
+position = Vector2(3, 9)
+rotation = -0.04363323
 scale = Vector2(1.0000001, 1.0000001)
 polygon = PackedVector2Array(-192, -88, -144, -120, -72, -152, 16, -160, 64, -160, 88, -176, 136, -200, 176, -208, 208, -216, 232, -208, 304, -216, 272, -160, 240, -88, 240, -56, 240, -16, 240, 32, 232, 152, 216, 184, 168, 200, 40, 200, -160, 200, -200, 184, -224, 152, -224, 80, -240, 80, -240, 40, -232, -16)
 
@@ -212,7 +248,8 @@ offset_bottom = -245.12106
 rotation = -0.030467154
 theme_override_styles/background = SubResource("StyleBoxEmpty_4j3lw")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xufod")
-value = 100.0
+max_value = 250.0
+value = 250.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
@@ -237,3 +274,4 @@ libraries = {
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

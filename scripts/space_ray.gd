@@ -51,7 +51,7 @@ var blaister_timer = 0.0
 @onready var laser_img = preload("res://assets/space_ray_assets/IMG_1851.PNG")
 @onready var bomb_img = preload("res://assets/space_ray_assets/IMG_1852.PNG")
 @onready var bullet_img = preload("res://assets/space_ray_assets/IMG_1848.PNG")
-@onready var snowball_img = preload("res://assets/space_ray_assets/IMG_2033.PNG")
+@onready var snowball_img = preload("res://assets/space_ray_assets/IMG_2035.PNG")
 
 @onready var next_weapon_text: Label = $NextWeapon/NextWeapon
 @onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
@@ -122,6 +122,8 @@ func _process(delta: float) -> void:
 			Global.space_ray_powerup = ""
 			Global.space_ray_powerup_animation = false
 			Global.space_ray_powerup_time = 100.0
+			Global.space_ray_thrust_accel = 400
+			Global.space_ray_multiplier = 1
 			get_tree().reload_current_scene()
 	if !Global.selected_sound_played and Global.is_space_ray:
 		selected_sound.play()
@@ -235,7 +237,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 20:
+	if gibbior_timer >= 10:
 		if !gibbior_spawned:
 			corner_laser.play("yellow")
 			corner_laser_2.play("yellow")
