@@ -56,7 +56,7 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			sprite_animation.play("hurt")
-	if area.type == "bullet" or area.type == "red_bullet" or area.type == "bomb":
+	if area.type == "bullet" or area.type == "red_bullet" or area.type == "bomb" or area.type == "red_ray":
 		sprite_animation.play("hurt")
 		Global.space_ray_score += 2 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier

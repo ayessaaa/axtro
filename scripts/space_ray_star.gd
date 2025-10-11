@@ -4,6 +4,7 @@ extends Area2D
 
 @onready var powerup_sound: AudioStreamPlayer2D = $PowerupSound
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 #var powerups = ["shrink", "triple", "invisible", "speed", "double", "machine_gun", "big_bomb"]
 #var Global.space_ray_powerups = [ "machine_gun", "big_bomb"]
@@ -29,6 +30,7 @@ func _on_area_entered(area: Area2D) -> void:
 		Global.space_ray_powerup = Global.space_ray_powerups[randi_range(0, len(Global.space_ray_powerups)-1)]
 		sprite_2d.play("pickup")
 		pickup = true
+		collision_polygon_2d.disabled = true
 
 
 func _on_sprite_2d_animation_finished() -> void:

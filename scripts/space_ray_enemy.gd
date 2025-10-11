@@ -39,7 +39,7 @@ func _ready() -> void:
 	progress_bar.value = health
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.type == "bullet":
+	if area.type == "bullet" or area.type == "red_ray":
 		health -= 25
 		animation_player.play("hurt")
 		#animation_player.play("freeze")

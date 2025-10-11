@@ -52,14 +52,15 @@ var blaister_timer = 0.0
 @onready var bomb_img = preload("res://assets/space_ray_assets/IMG_1852.PNG")
 @onready var bullet_img = preload("res://assets/space_ray_assets/IMG_1848.PNG")
 @onready var snowball_img = preload("res://assets/space_ray_assets/IMG_2035.PNG")
+@onready var ray_img = preload("res://assets/space_ray_assets/ray.png")
 
 @onready var next_weapon_text: Label = $NextWeapon/NextWeapon
 @onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
 @onready var progress_text: Label = $NextWeapon/ProgressText
 
-var weapon_list = ["bomb"]
+var weapon_list = ["bullet", "bomb"]
 var weapon_list_index = 0
-var weapon_score = {"bomb": 50}
+var weapon_score = {"bullet": 20, "bomb": 60}
 var progress_bar_value
 
 @onready var bomb_animated: AnimatedSprite2D = $NextWeapon/BombArea/Bomb
@@ -115,7 +116,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("enter"):
 			Global.space_ray_score = 0
 			Global.space_ray_hearts = 3
-			Global.space_ray_weapon = "bullet"
+			Global.space_ray_weapon = "snowball"
+			Global.space_ray_weapon = ["snowball"]
 			Global.space_ray_gameover_screen = false
 			Global.dead = false
 			Global.is_space_ray = true
@@ -270,6 +272,8 @@ func _process(delta: float) -> void:
 		weapon_sprite.texture = bullet_img
 	elif Global.space_ray_weapon == "snowball":
 		weapon_sprite.texture = snowball_img
+	elif Global.space_ray_weapon == "ray":
+		weapon_sprite.texture = ray_img
 		
 	next_weapon_text.text = "next weapon: " + weapon_list[weapon_list_index]
 		

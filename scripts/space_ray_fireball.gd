@@ -39,5 +39,5 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			queue_free()
-	if area.type == "bullet" or area.type == "bomb":
+	if area.type == "bullet" or area.type == "bomb" or area.type == "ray" or area.type == "red_ray":
 		queue_free()

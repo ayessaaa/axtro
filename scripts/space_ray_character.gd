@@ -16,6 +16,7 @@ var rotation_velocity: float = 0.0
 
 const BOMB = preload("res://scenes/space_ray_bomb.tscn")
 const BULLET = preload("res://scenes/space_ray_bullet.tscn")
+const RAY = preload("res://scenes/space_ray_ray.tscn")
 const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 @onready var shooters: Node = $Shooters
 
@@ -31,11 +32,13 @@ const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 @onready var cooldown_label: Label = $"../CurrentWeapon/CooldownLabel"
 
 var weapons_stats = {"bullet": {"dmg": "25", "cooldown" : "0.5 s"},
-					"snowball": {"dmg": "5", "cooldown" : "0.25 s"},
+					"ray": {"dmg": "15", "cooldown" : "0.3 s"},
+					"snowball": {"dmg": "5", "cooldown" : "0.4 s"},
 					"bomb": {"dmg": "40", "cooldown" : "one bomb at a time"}, }
 var weapon_index = 0
 var bullet_cooldown = 0.0
 var snowball_cooldown = 0.0
+var ray_cooldown = 0.0
 
 func _physics_process(delta: float) -> void:
 	if Global.space_ray_stop:
@@ -72,6 +75,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 	bullet_cooldown = shoot_weapon(bullet_cooldown, delta, "bullet", BULLET, 0.5, bullet_sound)
+	ray_cooldown = shoot_weapon(ray_cooldown, delta, "ray", RAY, 0.3, bullet_sound)
 	snowball_cooldown = shoot_weapon(snowball_cooldown, delta, "snowball", SNOWBALL, 0.4, snowball_sound)
 			
 	if Global.space_ray_powerup == "invisible":
@@ -133,7 +137,7 @@ func _on_space_ray_character_area_area_entered(area: Area2D) -> void:
 func spawn_shoot(pos, shooter_scene, type, direct=Vector2.RIGHT.rotated(rotation), rotate=rotation):
 	var shooter = shooter_scene.instantiate()
 	shooter.position = pos
-	if type == "bullet" or type == "snowball":
+	if type == "bullet" or type == "snowball" or type == "ray":
 		shooter.direction = direct
 		shooter.rotation = rotate
 	shooters.add_child(shooter)
