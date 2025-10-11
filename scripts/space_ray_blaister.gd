@@ -62,6 +62,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.type == "bullet" or area.type == "red_ray":
 		sprite_animation.play("hurt")
 		health -= 25
+	if area.type == "ray":
+		sprite_animation.play("hurt")
+		health -= 15
 	if area.type == "red_bullet" or area.type == "bomb":
 		sprite_animation.play("hurt")
 		health -= 50

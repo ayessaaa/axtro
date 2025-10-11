@@ -26,6 +26,7 @@ const SNOWBALL = preload("res://scenes/space_ray_snowball.tscn")
 @onready var laser_sound = get_parent().get_node("SoundEffects/Laser")
 @onready var bullet_sound = get_parent().get_node("SoundEffects/BulletSound")
 @onready var snowball_sound = get_parent().get_node("SoundEffects/SnowballSound")
+@onready var ray_sound = get_parent().get_node("SoundEffects/RaySound")
 
 @onready var weapon_text_animation = get_parent().get_node("CurrentWeapon/AnimationPlayer")
 @onready var damage_label: Label = $"../CurrentWeapon/DamageLabel"
@@ -75,7 +76,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 	bullet_cooldown = shoot_weapon(bullet_cooldown, delta, "bullet", BULLET, 0.5, bullet_sound)
-	ray_cooldown = shoot_weapon(ray_cooldown, delta, "ray", RAY, 0.3, bullet_sound)
+	ray_cooldown = shoot_weapon(ray_cooldown, delta, "ray", RAY, 0.3, ray_sound)
 	snowball_cooldown = shoot_weapon(snowball_cooldown, delta, "snowball", SNOWBALL, 0.4, snowball_sound)
 			
 	if Global.space_ray_powerup == "invisible":

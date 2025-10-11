@@ -26,8 +26,6 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_stop:
 		return
-	if health < 0:
-		queue_free()
 	if health < 25:
 		progress_bar.value = health
 		progress_bar.visible = true
@@ -40,6 +38,8 @@ func _process(delta: float) -> void:
 	
 	if freeze:
 		health -= 0.05
+		if health <= 0:
+			sprite_animation.play("dead")
 	
 	position.x -= speed
 
@@ -56,17 +56,24 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			sprite_animation.play("hurt")
-	if area.type == "bullet" or area.type == "red_bullet" or area.type == "bomb" or area.type == "red_ray":
-		sprite_animation.play("hurt")
-		Global.space_ray_score += 2 * Global.space_ray_multiplier
-		Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier
+	#if area.type == "bullet" or area.type == "red_bullet" or area.type == "bomb" or area.type == "red_ray" or area.type == "ray":
+		#sprite_animation.play("hurt")
+		#Global.space_ray_score += 2 * Global.space_ray_multiplier
+		#Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier
 	if area.type == "snowball":
 		sprite_animation.play("freeze")
 		if !freeze:
 			speed /= 2
 		health -= 5
 		freeze = true
+	
+	elif Global.space_ray_weapon_dmg.keys().has(area.type):
+		health -= Global.space_ray_weapon_dmg[area.type]
+		if health > 0:
+			sprite_animation.play("hurt")
 		
+	if health <= 0:
+		sprite_animation.play("dead")
 		
 	#if area.type == "laser" and Global.space_ray_weapon == "laser":
 		##Global.laser_enter = true
@@ -79,5 +86,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if freeze:
 		freeze = false
 		speed *= 2
-	else:
+	if health <= 0:
+		Global.space_ray_score += 2 * Global.space_ray_multiplier
+		Global.space_ray_weapon_score += 2 * Global.space_ray_multiplier
 		queue_free()

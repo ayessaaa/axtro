@@ -117,7 +117,7 @@ func _process(delta: float) -> void:
 			Global.space_ray_score = 0
 			Global.space_ray_hearts = 3
 			Global.space_ray_weapon = "snowball"
-			Global.space_ray_weapon = ["snowball"]
+			Global.space_ray_weapons = ["snowball"]
 			Global.space_ray_gameover_screen = false
 			Global.dead = false
 			Global.is_space_ray = true
@@ -133,8 +133,8 @@ func _process(delta: float) -> void:
 		laser.play()
 		Global.selected_sound_played = true
 		
-	if Global.space_ray_weapon != "laser":
-		laser.stop()
+	#if Global.space_ray_weapon != "laser":
+		#laser.stop()
 		
 	if Global.space_ray_hearts == 0:
 		Global.dead = true
