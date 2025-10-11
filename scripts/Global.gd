@@ -73,9 +73,9 @@ var shield_player2 = false
 
 var is_space_ray = false
 var selected_sound_played = false
-var space_ray_weapon = "snowball"
-var space_ray_weapons = ["snowball", "ray"]
-var space_ray_weapon_dmg = {"snowball": 10, "ray": 15, "red_ray": 30, "bullet": 25, "red_bullet": 40, "bomb": 40}
+var space_ray_weapon = "ray"
+var space_ray_weapons = ["ray"]
+var space_ray_weapon_dmg = {"snowball": 10, "ray": 10, "red_ray": 20, "bullet": 20, "red_bullet": 40, "bomb": 30}
 var space_ray_game_time = 0.0
 var space_ray_hearts = 3
 var space_ray_gameover_screen = false

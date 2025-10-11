@@ -153,9 +153,23 @@ func _process(delta: float) -> void:
 				Global.is_ocean_rhythm = false
 				space_ray.play("fade_in")
 				Global.selected_sound_played = false
+				Global.space_ray_score = 0
+				Global.space_ray_hearts = 3
+				Global.space_ray_weapon = "ray"
+				Global.space_ray_weapons = ["ray"]
+				Global.space_ray_gameover_screen = false
+				Global.dead = false
+				Global.is_space_ray = true
+				Global.space_ray_powerup = ""
+				Global.space_ray_powerup_animation = false
+				Global.space_ray_powerup_time = 100.0
+				Global.space_ray_thrust_accel = 400
+				Global.space_ray_multiplier = 1
+				Global.space_ray_weapon_score = 0
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				Global.is_mecha_flight_player_screen = false
+				
 				queue_free()
 				
 			4:

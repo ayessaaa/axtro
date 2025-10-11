@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=86 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
@@ -36,10 +36,14 @@
 [ext_resource type="Texture2D" uid="uid://bfo5tav6vynck" path="res://assets/space_ray_assets/IMG_1892.PNG" id="29_oopde"]
 [ext_resource type="Texture2D" uid="uid://cv1teeu04rui7" path="res://assets/space_ray_assets/IMG_1966.PNG" id="32_rugs0"]
 [ext_resource type="Texture2D" uid="uid://b4qlkkmd1f7dx" path="res://assets/space_ray_assets/IMG_1970.PNG" id="33_bbut0"]
+[ext_resource type="Texture2D" uid="uid://cctcmbu2wynmn" path="res://assets/space_ray_assets/IMG_2035.PNG" id="34_0ic0j"]
 [ext_resource type="Texture2D" uid="uid://b2tufpr06imga" path="res://assets/space_ray_assets/IMG_1981.PNG" id="34_llvyy"]
+[ext_resource type="Texture2D" uid="uid://jljv5et5kxg5" path="res://assets/space_ray_assets/IMG_1902.PNG" id="34_oqln8"]
 [ext_resource type="Texture2D" uid="uid://bu7qafc7dt135" path="res://assets/space_ray_assets/IMG_1968.PNG" id="34_rar07"]
 [ext_resource type="Texture2D" uid="uid://bstsog08x6mso" path="res://assets/space_ray_assets/IMG_1972.PNG" id="35_llvyy"]
 [ext_resource type="Texture2D" uid="uid://dvibbqsoybdhj" path="res://assets/space_ray_assets/IMG_1982.PNG" id="35_vot2l"]
+[ext_resource type="Texture2D" uid="uid://cqady5b33tvcn" path="res://assets/space_ray_assets/IMG_1905.PNG" id="35_wypwd"]
+[ext_resource type="Texture2D" uid="uid://bdajwysw5q6xs" path="res://assets/space_ray_assets/IMG_1903.PNG" id="36_3ypu7"]
 [ext_resource type="Texture2D" uid="uid://d2jtuuatm040e" path="res://assets/space_ray_assets/IMG_1967.PNG" id="36_vot2l"]
 [ext_resource type="Texture2D" uid="uid://bn5xbtg4e5blf" path="res://assets/space_ray_assets/IMG_1971.PNG" id="37_qxr3h"]
 [ext_resource type="Texture2D" uid="uid://hjmtuluasm7c" path="res://assets/space_ray_assets/IMG_1983.PNG" id="40_qxr3h"]
@@ -85,7 +89,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/3/path = NodePath("NextWeapon/NewWeaponArea:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -320,7 +324,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/5/path = NodePath("NextWeapon/NewWeaponArea:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -448,7 +452,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("NextWeapon/BombArea:modulate")
+tracks/1/path = NodePath("NextWeapon/NewWeaponArea:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2352,7 +2356,7 @@ animations = [{
 "texture": ExtResource("23_rugs0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"bomb",
 "speed": 4.0
 }, {
 "frames": [{
@@ -2375,7 +2379,29 @@ animations = [{
 "texture": ExtResource("29_oopde")
 }],
 "loop": true,
-"name": &"explode",
+"name": &"bomb_explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_oqln8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_wypwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3ypu7")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_0ic0j")
+}],
+"loop": true,
+"name": &"snowball",
 "speed": 5.0
 }]
 
@@ -2704,6 +2730,7 @@ theme_override_fonts/font = ExtResource("10_ju80h")
 theme_override_font_sizes/font_size = 44
 text = "BOMB"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="SwitchWeaponText" type="Label" parent="NextWeapon"]
 modulate = Color(1, 1, 1, 0)
@@ -2766,17 +2793,17 @@ theme_override_font_sizes/font_size = 25
 text = "0/20"
 horizontal_alignment = 1
 
-[node name="BombArea" type="Area2D" parent="NextWeapon"]
+[node name="NewWeaponArea" type="Area2D" parent="NextWeapon"]
 modulate = Color(1, 1, 1, 0)
 z_index = 20
 
-[node name="Bomb" type="AnimatedSprite2D" parent="NextWeapon/BombArea"]
+[node name="NewWeaponSprite" type="AnimatedSprite2D" parent="NextWeapon/NewWeaponArea"]
 z_index = 8
 position = Vector2(584, 327)
 scale = Vector2(0.8381295, 0.84210527)
 sprite_frames = SubResource("SpriteFrames_0ic0j")
-autoplay = "default"
-frame_progress = 0.18387416
+animation = &"bullet"
+frame_progress = 0.54562205
 
 [node name="Score" type="Label" parent="."]
 z_index = 7
