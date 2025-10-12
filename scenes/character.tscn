@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://3uctjjxqt4e0"]
+[gd_scene load_steps=26 format=3 uid="uid://3uctjjxqt4e0"]
 
 [ext_resource type="Script" uid="uid://b64jhnkcgmb0x" path="res://scripts/character_area.gd" id="2_50cep"]
 [ext_resource type="Script" uid="uid://dhtv3y13k47xv" path="res://scripts/character.gd" id="2_rkhd4"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://c1srjx04o7e5v" path="res://assets/IMG_1582.PNG" id="11_x8k1v"]
 [ext_resource type="Texture2D" uid="uid://ceprvr0bw6b7o" path="res://assets/IMG_1580.PNG" id="12_ih8y6"]
 [ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="13_50cep"]
-[ext_resource type="Texture2D" uid="uid://c6exn2hbvffta" path="res://assets/Subtract.png" id="14_lagn4"]
+[ext_resource type="Texture2D" uid="uid://cmx4kic70r4dh" path="res://assets/space_ray_assets/zzz.png" id="14_x8k1v"]
+[ext_resource type="Texture2D" uid="uid://dlwed88ofjony" path="res://assets/space_ray_assets/zzzz.png" id="15_ih8y6"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="15_x8k1v"]
 
 [sub_resource type="Animation" id="Animation_8yvht"]
@@ -69,19 +70,31 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CharacterArea/CollisionShape2D:disabled")
+tracks/4/path = NodePath("ReviveProgress:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ReviveLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ih8y6"]
 resource_name = "dead"
-length = 0.25
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,15 +109,27 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("CharacterArea/CollisionShape2D:disabled")
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReviveProgress:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01),
+"times": PackedFloat32Array(0.16666667, 0.36666667),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReviveLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7eonc"]
@@ -219,12 +244,29 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_rbud2"]
+resource_name = "revive"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterArea/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.70980394, 0.70980394, 0.27450982), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lagn4"]
 _data = {
 &"RESET": SubResource("Animation_8yvht"),
 &"dead": SubResource("Animation_ih8y6"),
 &"default": SubResource("Animation_7eonc"),
 &"hurt": SubResource("Animation_x8k1v"),
+&"revive": SubResource("Animation_rbud2"),
 &"shield_fade_in": SubResource("Animation_50cep"),
 &"shield_fade_out": SubResource("Animation_lagn4")
 }
@@ -287,10 +329,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agfs1"]
-radius = 86.0365
-height = 226.066
-
 [node name="Character" type="CharacterBody2D"]
 position = Vector2(558, 309)
 collision_layer = 2
@@ -309,13 +347,7 @@ script = ExtResource("2_50cep")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterArea"]
 position = Vector2(20, -3)
 sprite_frames = SubResource("SpriteFrames_2hyy3")
-animation = &"down"
 autoplay = "default"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterArea"]
-position = Vector2(96, -8)
-rotation = 1.55509
-shape = SubResource("CapsuleShape2D_agfs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterArea"]
 modulate = Color(1, 1, 1, 0)
@@ -324,21 +356,24 @@ rotation = 0.354302
 scale = Vector2(0.148502, 0.135764)
 texture = ExtResource("13_50cep")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterArea"]
+polygon = PackedVector2Array(-58, -26, -22, -23, -11, -72, -64, -74, -6, -125, 11, -124, 9, -99, 54, -103, 105, -95, 166, -73, 217, -29, 229, 2, 223, 28, 204, 46, 132, 65, 65, 71, 50, 68, 45, 77, 17, 79, -7, 64, -15, 53, -52, 52)
+
 [node name="ReviveProgress" type="TextureProgressBar" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 6
 offset_left = -20.000008
 offset_top = -69.0
-offset_right = 444.0
-offset_bottom = 395.0
+offset_right = 480.0
+offset_bottom = 431.0
 scale = Vector2(0.16654325, 0.16654325)
 fill_mode = 4
-texture_under = ExtResource("14_lagn4")
-texture_progress = ExtResource("14_lagn4")
+texture_under = ExtResource("14_x8k1v")
+texture_progress = ExtResource("15_ih8y6")
 tint_progress = Color(0.77254903, 0.21960784, 0.30980393, 1)
 
 [node name="ReviveLabel" type="Label" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 6
 offset_left = -69.0
 offset_top = 13.0
@@ -348,3 +383,5 @@ theme_override_fonts/font = ExtResource("15_x8k1v")
 theme_override_font_sizes/font_size = 59
 text = "revive"
 horizontal_alignment = 1
+
+[connection signal="area_entered" from="CharacterArea" to="." method="_on_character_area_area_entered"]

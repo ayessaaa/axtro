@@ -135,8 +135,6 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 						Global.controls_tutorial = false
 					player1_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 					character_animation.play("dead")
-					character_line1.queue_free()
-					character_line2.queue_free()
 					character_sprite.stop()
 				else:
 					player1_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
@@ -155,8 +153,6 @@ func _on_asteroid_area_2d_area_entered(area: Area2D) -> void:
 					Global.controls_tutorial = false
 				player2_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				character2_animation.play("dead")
-				character2_line1.queue_free()
-				character2_line2.queue_free()
 				character2_sprite.stop()
 			else:
 				player2_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)

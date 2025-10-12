@@ -15,6 +15,10 @@ var screen_size
 @onready var revive_progress: TextureProgressBar = $ReviveProgress
 @onready var revive_label: Label = $ReviveLabel
 
+@onready var character_line1 = $Line3
+@onready var character_line2 = $Line4
+
+
 const GRAVITY = 100
 
 const METEOR = preload("res://scenes/meteor.tscn")
@@ -24,6 +28,8 @@ const ASTEROID = preload("res://scenes/asteroid.tscn")
 
 const BULLET = preload("res://scenes/bullet.tscn")
 @onready var bullets_container = get_parent().get_node("Bullets")
+
+#const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var selected_sound = get_parent().get_node("SelectedSound")
 
@@ -42,13 +48,17 @@ var up_sub_counter = 0
 var up_sub_counter2 = 0
 
 var colliding_with_player = false
+var reviving_value = 0
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	visible = Global.mecha_flight_player == 2
 	if Global.mecha_flight_player == 2:
+		character_line1.visible = Global.mecha_flight_player2_hearts > 0
+		character_line2.visible = Global.mecha_flight_player2_hearts > 0
+	visible = Global.mecha_flight_player == 2
+	if Global.mecha_flight_player == 2 and (Global.mecha_flight_player1_hearts > 0 or Global.mecha_flight_player2_hearts > 0):
 		revive_progress.visible = Global.mecha_flight_player2_hearts <= 0
 		revive_label.visible = Global.mecha_flight_player2_hearts <= 0
 	if Global.mecha_flight_player != 2 or !Global.is_mecha_flight:
@@ -65,7 +75,18 @@ func _physics_process(delta: float) -> void:
 	if Global.mecha_flight_player == 2 and Global.mecha_flight_player2_hearts == 0:
 		if Input.is_action_pressed("shoot"):
 			if Global.mecha_flight_colliding_with_player:
+				reviving_value += delta * 40
+				if reviving_value >= 100:
+					reviving_value = 0
+					Global.mecha_flight_player2_hearts = 1
+					heart.modulate = Color(1,1,1)
+					revived()
+				revive_progress.value = reviving_value
 				return
+		else:
+			if reviving_value > 0:
+				reviving_value -= delta * 40
+				revive_progress.value = reviving_value
 		# Always fall downward
 		if velocity.y < 0:
 			velocity.y = 0
@@ -189,3 +210,8 @@ func _on_character_2_area_area_entered(area: Area2D) -> void:
 func _on_character_2_area_area_exited(area: Area2D) -> void:
 	if area.type == "player" and area.player_number == 1:
 		Global.mecha_flight_colliding_with_player = false
+		
+
+func revived():
+	character_area.rotation = 0
+	animation_player.play("revive")

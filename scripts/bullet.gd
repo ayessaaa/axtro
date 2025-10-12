@@ -2,6 +2,7 @@ extends Area2D
 
 
 @export var player = false
+@export var type = "bullet"
 @onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
 @onready var meteor_explosion_sound = get_parent().get_node("MeteorExplosionSound")
 

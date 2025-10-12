@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ciyyo1moijlgh"]
+[gd_scene load_steps=25 format=3 uid="uid://ciyyo1moijlgh"]
 
 [ext_resource type="Script" uid="uid://plisvxxyjqk4" path="res://scripts/character_2.gd" id="1_fbb61"]
 [ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="1_r4dws"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dujrvwid6cru0" path="res://assets/IMG_2032.PNG" id="9_jfc4o"]
 [ext_resource type="Texture2D" uid="uid://qbt2eahr2x0f" path="res://assets/IMG_2027.PNG" id="10_s6yfa"]
 [ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="11_hoytr"]
-[ext_resource type="Texture2D" uid="uid://c6exn2hbvffta" path="res://assets/Subtract.png" id="14_d7ygr"]
+[ext_resource type="Texture2D" uid="uid://cmx4kic70r4dh" path="res://assets/space_ray_assets/zzz.png" id="14_vi1fb"]
+[ext_resource type="Texture2D" uid="uid://dlwed88ofjony" path="res://assets/space_ray_assets/zzzz.png" id="15_ucdeh"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="15_vi1fb"]
 
 [sub_resource type="Animation" id="Animation_go4in"]
@@ -57,7 +58,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_jnq6x"]
 resource_name = "dead"
-length = 0.25
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,6 +82,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReviveProgress:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.16666667, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ReviveLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_fbb61"]
@@ -167,11 +192,28 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ucdeh"]
+resource_name = "revive"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character2Area/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.70980394, 0.70980394, 0.27450982), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jnq6x"]
 _data = {
 &"RESET": SubResource("Animation_go4in"),
 &"dead": SubResource("Animation_jnq6x"),
 &"hurt": SubResource("Animation_fbb61"),
+&"revive": SubResource("Animation_ucdeh"),
 &"shield_fade_in": SubResource("Animation_d7ygr"),
 &"shield_fade_out": SubResource("Animation_vi1fb")
 }
@@ -265,7 +307,7 @@ scale = Vector2(4.33243, 4.0845194)
 texture = ExtResource("11_hoytr")
 
 [node name="ReviveProgress" type="TextureProgressBar" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 6
 offset_left = -20.000008
 offset_top = -69.0
@@ -273,12 +315,12 @@ offset_right = 444.0
 offset_bottom = 395.0
 scale = Vector2(0.16654325, 0.16654325)
 fill_mode = 4
-texture_under = ExtResource("14_d7ygr")
-texture_progress = ExtResource("14_d7ygr")
+texture_under = ExtResource("14_vi1fb")
+texture_progress = ExtResource("15_ucdeh")
 tint_progress = Color(0.14901961, 0.44705883, 0.47843137, 1)
 
 [node name="ReviveLabel" type="Label" parent="."]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = 6
 offset_left = -69.0
 offset_top = 13.0
