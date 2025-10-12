@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=51 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -43,6 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://ddk8iksbx6uhb" path="res://scenes/mf_player_screen.tscn" id="38_m4url"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="42_pr1ej"]
 [ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="43_05nbr"]
+[ext_resource type="AudioStream" uid="uid://b21shx8smd3c8" path="res://assets/music/classic-game-action-positive-1-224407.mp3" id="44_0sl42"]
+[ext_resource type="AudioStream" uid="uid://cj78frxae2sry" path="res://assets/music/classic-game-action-negative-9-224413.mp3" id="45_oaba0"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -525,6 +527,12 @@ visible = false
 position = Vector2(983.9999, 66)
 scale = Vector2(0.17170112, 0.17170112)
 texture = ExtResource("25_pl11u")
+
+[node name="ReviveSound" type="AudioStreamPlayer2D" parent="TwoPlayers"]
+stream = ExtResource("44_0sl42")
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="TwoPlayers"]
+stream = ExtResource("45_oaba0")
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

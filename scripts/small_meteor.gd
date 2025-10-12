@@ -46,6 +46,8 @@ var meteor_killed_from_shield = false
 @onready var player2_heart1 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart")
 @onready var player2_heart2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart2")
 
+@onready var dead_sound = get_parent().get_parent().get_node("TwoPlayers/DeadSound")
+
 func _ready() -> void:
 	line = LINES.instantiate()
 	line.position = Vector2(position.x, position.y-1200)
@@ -137,6 +139,7 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 					player1_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 					character_animation.play("dead")
 					character_sprite.stop()
+					dead_sound.play()
 				else:
 					player1_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 					character_animation.play("hurt")
@@ -155,6 +158,7 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 				player2_heart1.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				character2_animation.play("dead")
 				character2_sprite.stop()
+				dead_sound.play()
 			else:
 				player2_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				character2_animation.play("hurt")

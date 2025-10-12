@@ -18,6 +18,7 @@ var screen_size
 @onready var character_area: Area2D = $CharacterArea
 @onready var revive_progress: TextureProgressBar = $ReviveProgress
 @onready var revive_label: Label = $ReviveLabel
+@onready var revive_sound: AudioStreamPlayer2D = $"../TwoPlayers/ReviveSound"
 
 @onready var character_line1 = $Line
 @onready var character_line2 = $Line2
@@ -236,4 +237,5 @@ func shoot():
 func revived():
 	character_area.rotation = 0
 	animation_player.play("revive")
+	revive_sound.play()
 	

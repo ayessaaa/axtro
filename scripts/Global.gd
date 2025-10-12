@@ -74,8 +74,8 @@ var shield_player2 = false
 
 var is_space_ray = false
 var selected_sound_played = false
-var space_ray_weapon = "ray"
-var space_ray_weapons = ["ray"]
+var space_ray_weapon = "arc"
+var space_ray_weapons = ["arc"]
 var space_ray_all_weapons = ["ray", "red_ray", "snowball", "arc", "bullet", "red_bullet", "bomb"]
 var space_ray_weapon_dmg = {"snowball": 10, "ray": 10, "red_ray": 20, "bullet": 20, "red_bullet": 40, "bomb": 30, "arc":10}
 var space_ray_powerup_weapons = ["snowball", "ray", "bullet"]
