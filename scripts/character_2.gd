@@ -1,16 +1,18 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var player = true
+@export var type = "player"
 @export var player_number = 2
 var screen_size
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $Character2Area/AnimatedSprite2D
 @onready var bullet_cooldown_area: Area2D = $"../TwoPlayers/Player2/BulletCooldownArea"
 @onready var bullet_cooldown_area_2: Area2D = $"../TwoPlayers/Player2/BulletCooldownArea2"
 @onready var bullet_cooldown_area_3: Area2D = $"../TwoPlayers/Player2/BulletCooldownArea3"
 @onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player2/Heart"
 @onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player2/Heart2"
 
+const GRAVITY = 100
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
@@ -28,19 +30,20 @@ var timer = 0.0
 
 @onready var shield_bubble: Node = $ShieldBubble
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
+@onready var collision_polygon_2d: CollisionPolygon2D = $Character2Area/CollisionPolygon2D
 
-func _ready() -> void:
-	screen_size = get_viewport_rect().size
-	Global.screen_size = get_viewport_rect().size
-	
 var down_sub_counter = 0
 var down_sub_counter2 = 0
 
 var up_sub_counter = 0
 var up_sub_counter2 = 0
 
-func _process(delta: float) -> void:
+var colliding_with_player = false
+
+func _ready() -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
 	visible = Global.mecha_flight_player == 2
 	if Global.mecha_flight_player != 2 or !Global.is_mecha_flight:
 		collision_polygon_2d.disabled = true
@@ -54,9 +57,21 @@ func _process(delta: float) -> void:
 		return
 	
 	if Global.mecha_flight_player == 2 and Global.mecha_flight_player2_hearts == 0:
+		if Input.is_action_pressed("shoot"):
+			if Global.mecha_flight_colliding_with_player:
+				return
+		# Always fall downward
+		if velocity.y < 0:
+			velocity.y = 0
+		velocity.y += GRAVITY * delta
+		velocity.x = 0
+		move_and_slide()
+		rotate(0.02 * delta * 50)
+		if position.y > 1000:
+			queue_free()
 		return
 		
-	var velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO # The player's movement vector.
 	
 	#shield_bubble.visible = Global.shield
 	
@@ -115,10 +130,6 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("shoot2"):
 		shoot()
-	
-	if velocity != Vector2.ZERO:
-		velocity = velocity.normalized()
-		position += velocity * Global.speed * delta
 		
 	if Global.mecha_flight_player2_bullets == 1:
 		bullet_cooldown_area.available = true
@@ -143,6 +154,13 @@ func _process(delta: float) -> void:
 			shoot_cooldown_time = 0
 		else:
 			shoot_cooldown_time += delta
+			
+	
+			
+	if velocity != Vector2.ZERO:
+		velocity = velocity.normalized() * Global.speed
+
+	move_and_slide()
 		
 func shoot():
 	if Global.mecha_flight_player2_bullets <= 0:
@@ -151,3 +169,15 @@ func shoot():
 	bullet.position = Vector2(position.x+100, position.y)
 	bullets_container.add_child(bullet)
 	Global.mecha_flight_player2_bullets -= 1
+
+
+func _on_character_2_area_area_entered(area: Area2D) -> void:
+	if area.type == "player" and area.player_number == 1:
+		Global.mecha_flight_colliding_with_player = true
+	else:
+		Global.mecha_flight_colliding_with_player = false
+
+
+func _on_character_2_area_area_exited(area: Area2D) -> void:
+	if area.type == "player" and area.player_number == 1:
+		Global.mecha_flight_colliding_with_player = false

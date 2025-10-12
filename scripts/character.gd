@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var player = true
+@export var type = "player"
 @export var player_number = 1
 var screen_size
 
@@ -62,6 +63,9 @@ func _physics_process(delta: float) -> void:
 		
 		
 	if Global.mecha_flight_player == 2 and Global.mecha_flight_player1_hearts == 0:
+		if Input.is_action_pressed("shoot2"):
+			if Global.mecha_flight_colliding_with_player:
+				return
 		# Always fall downward
 		if velocity.y < 0:
 			velocity.y = 0

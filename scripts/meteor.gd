@@ -29,7 +29,7 @@ var random_speed = randf_range(1, 1.3)
 @onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
 @onready var character_line1 = get_parent().get_parent().get_node("Character/Line")
 @onready var character_line2 = get_parent().get_parent().get_node("Character/Line2")
-@onready var character2_sprite = get_parent().get_parent().get_node("Character2/AnimatedSprite2D")
+@onready var character2_sprite = get_parent().get_parent().get_node("Character2/Character2Area/AnimatedSprite2D")
 @onready var character2_animation = get_parent().get_parent().get_node("Character2/AnimationPlayer")
 @onready var character2_line1 = get_parent().get_parent().get_node("Character2/Line3")
 @onready var character2_line2 = get_parent().get_parent().get_node("Character2/Line4")
@@ -126,6 +126,8 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 					heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 #			if multiplayer
 			else:
+				if Global.mecha_flight_player1_hearts <= 0:
+					return
 				Global.mecha_flight_player1_hearts -= 1
 				if Global.mecha_flight_player1_hearts <= 0:
 					if Global.mecha_flight_player2_hearts <= 0:
@@ -144,6 +146,8 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 					
 #		if player number 2
 		else:
+			if Global.mecha_flight_player2_hearts <= 0:
+				return
 			Global.mecha_flight_player2_hearts -= 1
 			if Global.mecha_flight_player2_hearts <= 0:
 				if Global.mecha_flight_player1_hearts <= 0:
