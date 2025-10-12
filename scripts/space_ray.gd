@@ -12,6 +12,7 @@ extends Node
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var powerup_animation: AnimationPlayer = $PowerupAnimation
 @onready var q_switch: Label = $CurrentWeapon/QSwitch
+@onready var weapons_animation: AnimationPlayer = $WeaponsAnimation
 
 const EARTH = preload("res://scenes/sr_earth.tscn")
 const MOON = preload("res://scenes/sr_moon.tscn")
@@ -103,7 +104,7 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_new_weapon and next_weapon_animation_done:
 		if Input.is_action_just_pressed("shoot"):
-			animation_player.play("fade_out_weapon")
+			weapons_animation.play("fade_out_weapon")
 			Global.space_ray_stop = false
 			if weapon_list[weapon_list_index-1] == "bomb":
 				new_weapon_sprite.play("explode")
@@ -236,7 +237,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 10:
+	if gibbior_timer >= 1:
 		if !gibbior_spawned:
 			corner_laser.play("yellow")
 			corner_laser_2.play("yellow")
@@ -284,7 +285,7 @@ func _process(delta: float) -> void:
 		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
 		new_weapon_text_2.text = weapon_list[weapon_list_index]
 		Global.space_ray_new_weapon = true
-		animation_player.play("new_weapon")
+		weapons_animation.play("fade_in_weapon")
 		Global.space_ray_weapon_score = 0.0
 		Global.space_ray_stop = true
 		next_weapon_animation_done = false
@@ -364,5 +365,9 @@ func reset_variables():
 	weapon_list_index = 0
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+#func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	#next_weapon_animation_done = true
+
+
+func _on_weapons_animation_animation_finished(anim_name: StringName) -> void:
 	next_weapon_animation_done = true

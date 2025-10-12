@@ -79,6 +79,7 @@ func _on_area_entered(area: Area2D) -> void:
 		#laser_beam.play()
 
 func _process(delta: float) -> void:
+	visible = !(health <= 0 or death_animation_finished)
 	if !Global.is_space_ray or Global.dead:
 		return
 	if Global.space_ray_stop:
@@ -140,5 +141,4 @@ func spawn_fireball(pos):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if health <= 0:
-		print("true")
 		death_animation_finished = true
