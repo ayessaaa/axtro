@@ -27,7 +27,7 @@ var random_speed = randf_range(1, 1.3)
 
 var meteor_killed_from_shield = false
 
-@onready var character_sprite = get_parent().get_parent().get_node("Character/AnimatedSprite2D")
+@onready var character_sprite = get_parent().get_parent().get_node("Character/CharacterArea/AnimatedSprite2D")
 @onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
 @onready var character_line1 = get_parent().get_parent().get_node("Character/Line")
 @onready var character_line2 = get_parent().get_parent().get_node("Character/Line2")

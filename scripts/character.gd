@@ -1,10 +1,10 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var player = true
 @export var player_number = 1
 var screen_size
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $CharacterArea/AnimatedSprite2D
 @onready var bullet_cooldown_area: Area2D = $"../BulletCooldown/BulletCooldownArea"
 @onready var bullet_cooldown_area_2: Area2D = $"../BulletCooldown/BulletCooldownArea2"
 @onready var bullet_cooldown_area_3: Area2D = $"../BulletCooldown/BulletCooldownArea3"
@@ -14,6 +14,9 @@ var screen_size
 @onready var player1_bullet_cooldown_area_3: Area2D = $"../TwoPlayers/Player1/BulletCooldownArea3"
 @onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart"
 @onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart2"
+@onready var character_area: Area2D = $CharacterArea
+
+const GRAVITY = 100
 
 #
 #const METEOR = preload("res://scenes/meteor.tscn")
@@ -33,14 +36,6 @@ var timer = 0.0
 @onready var shield_bubble: Node = $ShieldBubble
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-func _ready() -> void:
-	pass
-	#screen_size = get_viewport_rect().size
-	#Global.screen_size = get_viewport_rect().size
-	#spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
-	#spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
-	#spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
-	#spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 	
 var down_sub_counter = 0
 var down_sub_counter2 = 0
@@ -48,9 +43,13 @@ var down_sub_counter2 = 0
 var up_sub_counter = 0
 var up_sub_counter2 = 0
 
+#var velocity = Vector2.ZERO # The player's movement vector.
+
+func _ready() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Global.dead or Global.start_screen:
 		return
 	#if Global.free_regular_mode_objects:
@@ -61,11 +60,20 @@ func _process(delta: float) -> void:
 	if !Global.marathon and !Global.is_mecha_flight:
 		return
 		
+		
 	if Global.mecha_flight_player == 2 and Global.mecha_flight_player1_hearts == 0:
+		# Always fall downward
+		if velocity.y < 0:
+			velocity.y = 0
+		velocity.y += GRAVITY * delta
+		velocity.x = 0
+		move_and_slide()
+		rotate(0.02 * delta * 50)
+		if position.y > 1000:
+			queue_free()
 		return
 	
-	var velocity = Vector2.ZERO # The player's movement vector.
-	
+	velocity = Vector2.ZERO
 	#shield_bubble.visible = Global.shield
 	
 	if Global.shield_animation:
@@ -75,11 +83,11 @@ func _process(delta: float) -> void:
 		
 		
 	if Input.is_action_pressed("move_right") and position.x <= 1050:
-		velocity.x += 1
+		velocity.x = 1
 	if Input.is_action_pressed("move_left") and position.x >= 100:
-		velocity.x -= 1
+		velocity.x = -1
 	if Input.is_action_pressed("move_down") and position.y <= 520:
-		velocity.y += 1
+		velocity.y = 1
 		if Input.is_action_just_pressed("move_down"):
 			animated_sprite_2d.play("down_sub")
 		else:
@@ -89,7 +97,7 @@ func _process(delta: float) -> void:
 				down_sub_counter += delta * 10
 
 	if Input.is_action_pressed("move_up") and position.y >= 70:
-		velocity.y -= 1
+		velocity.y = -1
 		if Input.is_action_just_pressed("move_up"):
 			animated_sprite_2d.play("up_sub")
 		else:
@@ -122,20 +130,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	
-	if velocity != Vector2.ZERO:
-		velocity = velocity.normalized()
-		position += velocity * Global.speed * delta
-		
-	#timer += delta
-	#if timer >= Global.spawn_interval and Global.meteor_speed != 0:
-		#timer = 0
-		#if randi_range(0,10) < 1:
-			#spawn_asteroid(Vector2(2000, randf_range(50, screen_size[1]-100)))
-		#else:
-			#if randi_range(0,2) < 2:
-				#spawn_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
-			#else:
-				#spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 				
 	if Global.mecha_flight_player == 2:
 		if Global.mecha_flight_player1_bullets == 1:
@@ -185,6 +179,13 @@ func _process(delta: float) -> void:
 				shoot_cooldown_time = 0
 			else:
 				shoot_cooldown_time += delta
+				
+				
+	if velocity != Vector2.ZERO:
+		velocity = velocity.normalized() * Global.speed
+
+	move_and_slide()
+		
 			
 func shoot():
 	if Global.mecha_flight_player == 1:
@@ -202,20 +203,3 @@ func shoot():
 		bullets_container.add_child(bullet)
 		Global.mecha_flight_player1_bullets -= 1
 	
-#func spawn_meteor(pos):
-	#var meteor = METEOR.instantiate()
-	#meteor.position = pos
-	#meteors_container.add_child(meteor)
-	#
-#func spawn_small_meteor(pos):
-	#var small_meteor = SMALL_METEOR.instantiate()
-	#small_meteor.position = pos
-	#meteors_container.add_child(small_meteor)
-	#
-#func spawn_asteroid(pos):
-	#var small_asteroid = ASTEROID.instantiate()
-	#small_asteroid.position = pos
-	#meteors_container.add_child(small_asteroid)
-	#
-	#
-	#

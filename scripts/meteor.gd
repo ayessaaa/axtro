@@ -25,7 +25,7 @@ var random_speed = randf_range(1, 1.3)
 @onready var shield_pop_sound: AudioStreamPlayer2D = get_parent().get_parent().get_node("Powerups/ShieldPopSound")
 @onready var meteor_explosion_sound = get_parent().get_parent().get_node("Bullets/MeteorExplosionSound")
 
-@onready var character_sprite = get_parent().get_parent().get_node("Character/AnimatedSprite2D")
+@onready var character_sprite = get_parent().get_parent().get_node("Character/CharacterArea/AnimatedSprite2D")
 @onready var character_animation = get_parent().get_parent().get_node("Character/AnimationPlayer")
 @onready var character_line1 = get_parent().get_parent().get_node("Character/Line")
 @onready var character_line2 = get_parent().get_parent().get_node("Character/Line2")
