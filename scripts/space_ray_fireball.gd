@@ -43,7 +43,7 @@ func _on_area_entered(area: Area2D) -> void:
 			character_animation.play("hurt")
 			hurt_sound.play()
 			queue_free()
-	if Global.space_ray_weapons.has(area.type):
+	if Global.space_ray_all_weapons.has(area.type):
 		remove = true
 		animation_player.play("queue_free")
 

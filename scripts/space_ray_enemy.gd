@@ -80,8 +80,6 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	visible = !(!health <= 0 and death_animation_finished)
-	print(!health <= 0)
-	print(death_animation_finished)
 	if !Global.is_space_ray or Global.dead:
 		return
 	if Global.space_ray_stop:

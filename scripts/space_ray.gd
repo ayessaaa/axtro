@@ -59,9 +59,9 @@ var blaister_timer = 0.0
 @onready var progress_bar: ProgressBar = $NextWeapon/ProgressBar
 @onready var progress_text: Label = $NextWeapon/ProgressText
 
-var weapon_list = ["snowball", "bullet", "bomb"]
+var weapon_list = ["snowball", "bullet", "bomb", "arc"]
 var weapon_list_index = 0
-var weapon_score = {"snowball": 10, "bullet": 20, "bomb": 60}
+var weapon_score = {"snowball": 10, "bullet": 20, "bomb": 60, "arc": 50}
 var progress_bar_value
 var all_weapons_collected = false
 

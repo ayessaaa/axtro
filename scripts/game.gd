@@ -251,8 +251,6 @@ func _process(delta: float) -> void:
 func _on_bg_music_finished() -> void:
 	bg_music.play()
 	
-
-
 func _on_ocean_rhythm_music_finished() -> void:
 	ocean_rhythm_music.play()
 	
@@ -271,5 +269,6 @@ func spawn_asteroid(pos):
 	small_asteroid.position = pos
 	meteors_container.add_child(small_asteroid)
 	
-	
-	
+
+func _on_space_ray_music_finished() -> void:
+	space_ray_bg.play()
