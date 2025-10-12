@@ -10,6 +10,9 @@ var direction: Vector2
 @onready var corner_laser = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser")
 @onready var corner_laser_2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("Powerup/CornerLaser2")
 @onready var hurt_sound = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SpaceRayCharacter/HurtSound")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var remove  = false
 
 func _ready() -> void:
 	direction = Vector2.RIGHT.rotated(gun.rotation)
@@ -21,7 +24,8 @@ func _process(delta: float) -> void:
 		return
 	if Global.space_ray_stop:
 		return
-	position -= direction * speed * delta
+	if !remove:
+		position -= direction * speed * delta
 	
 	if position.x < -100 or position.y >700 or position.y < -100:
 		queue_free()
@@ -40,4 +44,9 @@ func _on_area_entered(area: Area2D) -> void:
 			hurt_sound.play()
 			queue_free()
 	if Global.space_ray_weapons.has(area.type):
-		queue_free()
+		remove = true
+		animation_player.play("queue_free")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()

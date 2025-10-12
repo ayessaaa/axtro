@@ -37,7 +37,8 @@ const ARC = preload("res://scenes/space_ray_arc.tscn")
 var weapons_stats = {"bullet": {"dmg": "25", "cooldown" : "0.5 s"},
 					"ray": {"dmg": "15", "cooldown" : "0.3 s"},
 					"snowball": {"dmg": "5", "cooldown" : "0.4 s"},
-					"bomb": {"dmg": "40", "cooldown" : "one bomb at a time"}, }
+					"bomb": {"dmg": "40", "cooldown" : "one bomb at a time"},
+					"arc": {"dmg": "15", "cooldown" : "0.5 s"} }
 var weapon_index = 0
 var bullet_cooldown = 0.0
 var snowball_cooldown = 0.0
