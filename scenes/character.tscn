@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://3uctjjxqt4e0"]
+[gd_scene load_steps=25 format=3 uid="uid://3uctjjxqt4e0"]
 
 [ext_resource type="Script" uid="uid://b64jhnkcgmb0x" path="res://scripts/character_area.gd" id="2_50cep"]
 [ext_resource type="Script" uid="uid://dhtv3y13k47xv" path="res://scripts/character.gd" id="2_rkhd4"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://c1srjx04o7e5v" path="res://assets/IMG_1582.PNG" id="11_x8k1v"]
 [ext_resource type="Texture2D" uid="uid://ceprvr0bw6b7o" path="res://assets/IMG_1580.PNG" id="12_ih8y6"]
 [ext_resource type="Texture2D" uid="uid://d07r67rayd7dc" path="res://assets/IMG_1645.PNG" id="13_50cep"]
+[ext_resource type="Texture2D" uid="uid://c6exn2hbvffta" path="res://assets/Subtract.png" id="14_lagn4"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="15_x8k1v"]
 
 [sub_resource type="Animation" id="Animation_8yvht"]
 length = 0.001
@@ -321,3 +323,28 @@ position = Vector2(96, -5.999878)
 rotation = 0.354302
 scale = Vector2(0.148502, 0.135764)
 texture = ExtResource("13_50cep")
+
+[node name="ReviveProgress" type="TextureProgressBar" parent="."]
+visible = false
+z_index = 6
+offset_left = -20.000008
+offset_top = -69.0
+offset_right = 444.0
+offset_bottom = 395.0
+scale = Vector2(0.16654325, 0.16654325)
+fill_mode = 4
+texture_under = ExtResource("14_lagn4")
+texture_progress = ExtResource("14_lagn4")
+tint_progress = Color(0.77254903, 0.21960784, 0.30980393, 1)
+
+[node name="ReviveLabel" type="Label" parent="."]
+visible = false
+z_index = 6
+offset_left = -69.0
+offset_top = 13.0
+offset_right = 102.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("15_x8k1v")
+theme_override_font_sizes/font_size = 59
+text = "revive"
+horizontal_alignment = 1

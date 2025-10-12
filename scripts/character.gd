@@ -16,6 +16,8 @@ var screen_size
 @onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart"
 @onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player1/Heart2"
 @onready var character_area: Area2D = $CharacterArea
+@onready var revive_progress: TextureProgressBar = $ReviveProgress
+@onready var revive_label: Label = $ReviveLabel
 
 const GRAVITY = 100
 
@@ -51,6 +53,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Global.mecha_flight_player == 2 and (Global.mecha_flight_player1_hearts > 0 or Global.mecha_flight_player2_hearts > 0):
+		revive_progress.visible = Global.mecha_flight_player1_hearts <= 0
+		revive_label.visible = Global.mecha_flight_player1_hearts <= 0
 	if Global.dead or Global.start_screen:
 		return
 	#if Global.free_regular_mode_objects:
@@ -69,10 +74,12 @@ func _physics_process(delta: float) -> void:
 		# Always fall downward
 		if velocity.y < 0:
 			velocity.y = 0
+		elif velocity.y > 200:
+			velocity.y = 200
 		velocity.y += GRAVITY * delta
 		velocity.x = 0
 		move_and_slide()
-		rotate(0.02 * delta * 50)
+		character_area.rotate(0.02 * delta * 50)
 		if position.y > 1000:
 			queue_free()
 		return

@@ -11,6 +11,9 @@ var screen_size
 @onready var bullet_cooldown_area_3: Area2D = $"../TwoPlayers/Player2/BulletCooldownArea3"
 @onready var heart: AnimatedSprite2D = $"../TwoPlayers/Player2/Heart"
 @onready var heart_2: AnimatedSprite2D = $"../TwoPlayers/Player2/Heart2"
+@onready var character_area: Area2D = $Character2Area
+@onready var revive_progress: TextureProgressBar = $ReviveProgress
+@onready var revive_label: Label = $ReviveLabel
 
 const GRAVITY = 100
 
@@ -45,6 +48,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	visible = Global.mecha_flight_player == 2
+	if Global.mecha_flight_player == 2:
+		revive_progress.visible = Global.mecha_flight_player2_hearts <= 0
+		revive_label.visible = Global.mecha_flight_player2_hearts <= 0
 	if Global.mecha_flight_player != 2 or !Global.is_mecha_flight:
 		collision_polygon_2d.disabled = true
 		return
@@ -63,10 +69,12 @@ func _physics_process(delta: float) -> void:
 		# Always fall downward
 		if velocity.y < 0:
 			velocity.y = 0
+		elif velocity.y > 200:
+			velocity.y = 200
 		velocity.y += GRAVITY * delta
 		velocity.x = 0
 		move_and_slide()
-		rotate(0.02 * delta * 50)
+		character_area.rotate(0.02 * delta * 50)
 		if position.y > 1000:
 			queue_free()
 		return
