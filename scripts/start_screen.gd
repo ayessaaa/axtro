@@ -155,8 +155,8 @@ func _process(delta: float) -> void:
 				Global.selected_sound_played = false
 				Global.space_ray_score = 0
 				Global.space_ray_hearts = 3
-				#Global.space_ray_weapon = "ray"
-				#Global.space_ray_weapons = ["ray"]
+				Global.space_ray_weapon = "ray"
+				Global.space_ray_weapons = ["ray"]
 				Global.space_ray_gameover_screen = false
 				Global.dead = false
 				Global.is_space_ray = true

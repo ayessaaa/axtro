@@ -79,6 +79,7 @@ var next_weapon_animation_done
 @onready var powerup_sound: AudioStreamPlayer2D = $SoundEffects/PowerupSound
 
 @onready var new_weapon_text_2: Label = $NextWeapon/NewWeaponText2
+@onready var by_cisco: Label = $ByCisco
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -97,6 +98,7 @@ func _process(delta: float) -> void:
 	progress_bar.visible = Global.is_space_ray
 	progress_text.visible = Global.is_space_ray
 	q_switch.visible = Global.is_space_ray and len(Global.space_ray_weapons) > 1
+	by_cisco.visible = Global.is_space_ray
 	
 	
 	if !Global.is_space_ray:
@@ -237,7 +239,7 @@ func _process(delta: float) -> void:
 		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
 			
 	gibbior_timer += delta
-	if gibbior_timer >= 1:
+	if gibbior_timer >= 25:
 		if !gibbior_spawned:
 			corner_laser.play("yellow")
 			corner_laser_2.play("yellow")

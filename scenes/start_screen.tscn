@@ -3999,24 +3999,28 @@ _data = {
 script = ExtResource("1_o7i0r")
 
 [node name="BgOceanRhythm" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(566.695, 331)
 scale = Vector2(0.510759, 0.462195)
 texture = ExtResource("2_bjnkw")
 
 [node name="ORCorals" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(185, 579)
 scale = Vector2(0.605042, 0.605042)
 texture = ExtResource("3_8ijck")
 
 [node name="ORCorals2" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(1002, 596)
 scale = Vector2(0.605042, 0.605042)
 texture = ExtResource("4_1jj22")
 
 [node name="ORBubbleTune" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(898, 205)
@@ -4024,6 +4028,7 @@ scale = Vector2(0.635449, 0.635449)
 texture = ExtResource("3_v6sgr")
 
 [node name="ORFish" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(997, 424)
@@ -4031,6 +4036,7 @@ scale = Vector2(0.536611, 0.536611)
 texture = ExtResource("4_8ijck")
 
 [node name="ORShark" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(223, 138)
@@ -4038,6 +4044,7 @@ scale = Vector2(0.610169, 0.610169)
 texture = ExtResource("5_1jj22")
 
 [node name="ORBubble" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(168.399, 359.75)
@@ -4045,6 +4052,7 @@ scale = Vector2(0.648936, 0.648936)
 texture = ExtResource("6_0nsjh")
 
 [node name="ORLight" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.0392157)
 z_index = 50
 position = Vector2(557.819, 264.125)
@@ -4052,12 +4060,14 @@ scale = Vector2(0.485439, 0.491311)
 texture = ExtResource("9_1jj22")
 
 [node name="BgSpaceRay" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(573, 335)
 scale = Vector2(0.515678, 0.448781)
 texture = ExtResource("2_53rsf")
 
 [node name="SRLine" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(117, -159)
@@ -4065,6 +4075,7 @@ scale = Vector2(0.363309, 0.363309)
 texture = ExtResource("3_qlcmr")
 
 [node name="SRLine2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(1040, 105)
@@ -4072,6 +4083,7 @@ scale = Vector2(0.363309, 0.363309)
 texture = ExtResource("3_qlcmr")
 
 [node name="SRLine3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(982, -198)
@@ -4079,6 +4091,7 @@ scale = Vector2(0.363309, 0.363309)
 texture = ExtResource("3_qlcmr")
 
 [node name="SRLine4" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(208, 65)
@@ -4086,6 +4099,7 @@ scale = Vector2(0.363309, 0.363309)
 texture = ExtResource("3_qlcmr")
 
 [node name="Earth" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(209, 441)
@@ -4094,6 +4108,7 @@ scale = Vector2(0.34205, 0.34205)
 texture = ExtResource("4_y5w4g")
 
 [node name="Saturn" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(127, 212)
@@ -4101,6 +4116,7 @@ scale = Vector2(0.369565, 0.369565)
 texture = ExtResource("5_r6qw7")
 
 [node name="Moon" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(986, 158)
@@ -4108,6 +4124,7 @@ scale = Vector2(0.393487, 0.393902)
 texture = ExtResource("6_0y2qr")
 
 [node name="Rocket" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(1044, 494)
@@ -4116,6 +4133,7 @@ scale = Vector2(0.412162, 0.412162)
 texture = ExtResource("7_bjnkw")
 
 [node name="SmallMeteor" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(909, 423)
@@ -4123,6 +4141,7 @@ scale = Vector2(0.402174, 0.402174)
 texture = ExtResource("8_v6sgr")
 
 [node name="Laser2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(585, 216)
@@ -4130,6 +4149,7 @@ scale = Vector2(0.187315, 0.280043)
 texture = ExtResource("9_8ijck")
 
 [node name="Label7" type="Label" parent="."]
+visible = false
 z_index = 50
 offset_left = 688.0
 offset_top = 44.0
@@ -4142,12 +4162,14 @@ text = "work in progress!"
 metadata/_edit_use_anchors_ = true
 
 [node name="BgAngleDash" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(574.091, 315.25)
 scale = Vector2(0.516024, 0.431403)
 texture = ExtResource("3_xfy2r")
 
 [node name="Spikes1" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(1010, 135)
@@ -4155,6 +4177,7 @@ scale = Vector2(0.456276, 0.456276)
 texture = ExtResource("5_lt4el")
 
 [node name="Spikes2" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(-108, 538)
@@ -4162,6 +4185,7 @@ scale = Vector2(0.396675, 0.396675)
 texture = ExtResource("6_phykr")
 
 [node name="Spikes3" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(1251, 532)
@@ -4169,6 +4193,7 @@ scale = Vector2(0.396675, 0.396675)
 texture = ExtResource("16_q3i3u")
 
 [node name="Spikes4" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(168, 118)
@@ -4176,48 +4201,56 @@ scale = Vector2(0.396675, 0.396675)
 texture = ExtResource("17_2banv")
 
 [node name="AngleDashGlow" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(577, 327)
 scale = Vector2(0.520732, 0.409756)
 texture = ExtResource("4_lt4el")
 
 [node name="Bg" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(577.835, 326.25)
 scale = Vector2(0.528106, 0.439939)
 texture = ExtResource("2_qls88")
 
 [node name="Line2" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(259, -276)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_ecdxc")
 
 [node name="Line3" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(26.0001, -298)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_ecdxc")
 
 [node name="Line" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(952, -253)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_ecdxc")
 
 [node name="Bush" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(184.499, 561.625)
 scale = Vector2(0.415644, 0.415644)
 texture = ExtResource("6_ka6nf")
 
 [node name="Cloud" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(128.966, 90.625)
 scale = Vector2(0.372423, 0.372423)
 texture = ExtResource("7_ws7p0")
 
 [node name="Star" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(949, 126)
 rotation = 0.23911
@@ -4225,6 +4258,7 @@ scale = Vector2(0.384422, 0.384422)
 texture = ExtResource("8_ecdxc")
 
 [node name="Land" type="Sprite2D" parent="."]
+visible = false
 z_index = 50
 position = Vector2(579.499, 588.625)
 rotation = 0.0349066
@@ -4232,6 +4266,7 @@ scale = Vector2(0.492163, 0.469466)
 texture = ExtResource("7_qls88")
 
 [node name="Axtro" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(564, 133)
@@ -4245,12 +4280,14 @@ libraries = {
 }
 
 [node name="PaperBg" parent="." instance=ExtResource("4_hm208")]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 position = Vector2(583, 278)
 scale = Vector2(0.367291, 0.367291)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
@@ -4265,6 +4302,7 @@ text = "PLAY MARATHON"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 446.0
@@ -4280,6 +4318,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
@@ -4295,6 +4334,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
@@ -4310,6 +4350,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ControlsLabel" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 219.0
@@ -4341,6 +4382,7 @@ libraries = {
 }
 
 [node name="Label5" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 450.0
@@ -4356,6 +4398,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label6" type="Label" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0

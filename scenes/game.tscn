@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=60 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://ddk8iksbx6uhb" path="res://scenes/mf_player_screen.tscn" id="38_m4url"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="42_pr1ej"]
 [ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="43_05nbr"]
+[ext_resource type="Texture2D" uid="uid://bh3givlxfl5rq" path="res://assets/IMG_1717.PNG" id="43_458eo"]
 [ext_resource type="AudioStream" uid="uid://b21shx8smd3c8" path="res://assets/music/classic-game-action-positive-1-224407.mp3" id="44_0sl42"]
 [ext_resource type="AudioStream" uid="uid://cj78frxae2sry" path="res://assets/music/classic-game-action-negative-9-224413.mp3" id="45_oaba0"]
 
@@ -71,6 +72,168 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Animation" id="Animation_h3rex"]
+resource_name = "fade_in"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player1/PowerupPaper/Line2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(484.99997, -303.5), Vector2(484.99997, -186.5), Vector2(485.04993, -196.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player1/PowerupPaper/Line:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(375, -308.5), Vector2(375, -191.5), Vector2(375.04996, -201.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player1/PowerupPaper/Paper:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(430, -44.49999), Vector2(430, 72.5), Vector2(430.04996, 62.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player1/PowerupPaper/Text:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.51, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(341.99997, -65.5), Vector2(341.99997, 52), Vector2(341.99997, 43)]
+}
+
+[sub_resource type="Animation" id="Animation_fedci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player1/PowerupPaper/Line2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(484.99997, -303.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player1/PowerupPaper/Line:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(375, -308.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player1/PowerupPaper/Paper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(430, -44.49999)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player1/PowerupPaper/Text:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(341.99997, -65.5)]
+}
+
+[sub_resource type="Animation" id="Animation_458eo"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player1/PowerupPaper/Paper:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.49, 0.76666665, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(430.04996, 62.499996), Vector2(430.04996, 73.49999), Vector2(430.04996, 62.499996), Vector2(430.04996, 84.49999), Vector2(430.04996, -48.499992)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player1/PowerupPaper/Line2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.49, 0.76666665, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(485.04993, -196.5), Vector2(485.04993, -185.5), Vector2(485.04993, -196.5), Vector2(485.04993, -174.5), Vector2(485.04993, -307.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player1/PowerupPaper/Line:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.49, 0.76666665, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(375.04996, -201.5), Vector2(375.04996, -190.5), Vector2(375.04996, -201.5), Vector2(375.04996, -179.5), Vector2(375.04996, -312.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player1/PowerupPaper/Text:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.49, 0.77, 1.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(341.99997, 43), Vector2(341.99997, 53), Vector2(341.99997, 41.000004), Vector2(341.99997, 64), Vector2(341.99997, -70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qswn"]
+_data = {
+&"RESET": SubResource("Animation_fedci"),
+&"fade_in": SubResource("Animation_h3rex"),
+&"fade_out": SubResource("Animation_458eo")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oaba0"]
 bg_color = Color(0.14509805, 0.44313726, 0.4745098, 1)
 corner_radius_top_left = 10
@@ -78,10 +241,172 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Animation" id="Animation_8qswn"]
+resource_name = "fade_in"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paper:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(794.0499, -43.5), Vector2(794.0499, 71.49997), Vector2(794.0499, 61.499992)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(739.0499, -307.5), Vector2(739.0499, -192.5), Vector2(739.0499, -202.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(849.0499, -302.5), Vector2(849.0499, -187.5), Vector2(849.0499, -197.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(706, -63), Vector2(706, 50), Vector2(706, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_rm0al"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(794.0499, -43.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(739.0499, -307.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(849.0499, -302.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(706, -63)]
+}
+
+[sub_resource type="Animation" id="Animation_i4re6"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(706, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(739.0499, -202.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Paper:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(794.0499, 61.499992)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(849.0499, -197.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf7vy"]
+_data = {
+&"RESET": SubResource("Animation_rm0al"),
+&"fade_in": SubResource("Animation_8qswn"),
+&"fade_out": SubResource("Animation_i4re6")
+}
+
 [node name="Game" type="Node"]
 script = ExtResource("1_kvpfn")
 
 [node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
+visible = false
 position = Vector2(566, -311)
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
@@ -117,7 +442,6 @@ volume_db = -6.933
 stream = ExtResource("9_js0lu")
 
 [node name="Bg" parent="." instance=ExtResource("1_uwrxv")]
-visible = false
 position = Vector2(576.719, 361.5)
 scale = Vector2(0.488415, 0.488415)
 
@@ -218,12 +542,14 @@ stream = ExtResource("22_7025r")
 [node name="ScoreNode" type="Node" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="ScoreNode"]
+visible = false
 position = Vector2(591, 58)
 rotation = 0.120428
 scale = Vector2(0.493869, 0.451389)
 texture = ExtResource("13_1kice")
 
 [node name="Score" type="Label" parent="ScoreNode"]
+visible = false
 offset_left = 496.0
 offset_top = 29.0
 offset_right = 707.0
@@ -236,6 +562,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" parent="." instance=ExtResource("15_ir15t")]
+visible = false
 position = Vector2(556, 260)
 
 [node name="Meteors" type="Node" parent="."]
@@ -300,6 +627,7 @@ scale = Vector2(0.247986, 0.247986)
 texture = ExtResource("25_pl11u")
 
 [node name="ProgressArea" parent="." instance=ExtResource("23_bhx41")]
+visible = false
 position = Vector2(46, 615)
 
 [node name="AngleDash" parent="." instance=ExtResource("29_suyxu")]
@@ -426,6 +754,44 @@ position = Vector2(169.4556, 64)
 scale = Vector2(0.16496448, 0.16496448)
 texture = ExtResource("25_pl11u")
 
+[node name="PowerupPaper" type="Node" parent="TwoPlayers/Player1"]
+
+[node name="MultiplayerAnimation" type="AnimationPlayer" parent="TwoPlayers/Player1/PowerupPaper"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_8qswn")
+}
+autoplay = "fade_in"
+
+[node name="Line" parent="TwoPlayers/Player1/PowerupPaper" instance=ExtResource("2_gee14")]
+position = Vector2(375, -308.5)
+scale = Vector2(0.23147845, 0.21422487)
+script = null
+
+[node name="Line2" parent="TwoPlayers/Player1/PowerupPaper" instance=ExtResource("2_gee14")]
+position = Vector2(484.99997, -303.5)
+scale = Vector2(0.23147845, 0.21422487)
+script = null
+
+[node name="Paper" type="Sprite2D" parent="TwoPlayers/Player1/PowerupPaper"]
+position = Vector2(430, -44.49999)
+scale = Vector2(0.16368495, 0.23339131)
+texture = ExtResource("43_458eo")
+
+[node name="Text" type="Label" parent="TwoPlayers/Player1/PowerupPaper"]
+offset_left = 341.99997
+offset_top = -65.5
+offset_right = 593.96814
+offset_bottom = -26.5
+scale = Vector2(0.7143768, 0.7143768)
+theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 42
+text = "magnet"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Player2" type="Node" parent="TwoPlayers"]
 
 [node name="ProgressBar" type="ProgressBar" parent="TwoPlayers/Player2"]
@@ -527,6 +893,43 @@ visible = false
 position = Vector2(983.9999, 66)
 scale = Vector2(0.17170112, 0.17170112)
 texture = ExtResource("25_pl11u")
+
+[node name="PowerupPaper" type="Node" parent="TwoPlayers/Player2"]
+
+[node name="MultiplayerAnimation" type="AnimationPlayer" parent="TwoPlayers/Player2/PowerupPaper"]
+libraries = {
+&"": SubResource("AnimationLibrary_pf7vy")
+}
+autoplay = "fade_out"
+
+[node name="Line" parent="TwoPlayers/Player2/PowerupPaper" instance=ExtResource("2_gee14")]
+position = Vector2(739.0499, -307.5)
+scale = Vector2(0.23147845, 0.21422487)
+script = null
+
+[node name="Line2" parent="TwoPlayers/Player2/PowerupPaper" instance=ExtResource("2_gee14")]
+position = Vector2(849.0499, -302.5)
+scale = Vector2(0.23147845, 0.21422487)
+script = null
+
+[node name="Paper" type="Sprite2D" parent="TwoPlayers/Player2/PowerupPaper"]
+position = Vector2(794.0499, -43.5)
+scale = Vector2(0.16368495, 0.23339131)
+texture = ExtResource("43_458eo")
+
+[node name="Text" type="Label" parent="TwoPlayers/Player2/PowerupPaper"]
+offset_left = 706.0
+offset_top = -63.0
+offset_right = 957.96814
+offset_bottom = -24.0
+scale = Vector2(0.7143768, 0.7143768)
+theme_override_colors/font_color = Color(0.231373, 0.262745, 0.364706, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 42
+text = "magnet"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ReviveSound" type="AudioStreamPlayer2D" parent="TwoPlayers"]
 stream = ExtResource("44_0sl42")
