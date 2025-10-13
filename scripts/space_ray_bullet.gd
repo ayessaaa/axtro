@@ -8,6 +8,8 @@ var direction: Vector2
 @onready var hit_sound = get_parent().get_parent().get_parent().get_node("SoundEffects/EnemyHitSound")
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
+
+
 func _ready() -> void:
 	pass
 	#direction = Vector2.RIGHT.rotated(character.rotation)

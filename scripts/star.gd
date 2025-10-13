@@ -12,6 +12,8 @@ extends Area2D
 @onready var angle_dash = get_parent().get_parent().get_parent().get_node("AngleDash/AnimationPlayer")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var player_number
+
 func  _ready() -> void:
 	animation_player.play("disappearing")
 
@@ -19,7 +21,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.player:
 		coin_sound.play()
 		animation_player.play("pick_up")
-		
 		
 		
 		if Global.double_points:
@@ -75,10 +76,11 @@ func _process(delta: float) -> void:
 		#return
 	if Global.magnet:
 		position = position.move_toward(character.position, 400 * delta)
-	if Global.magnet_player1:
-		position = position.move_toward(character.position, 400 * delta)
-	if Global.magnet_player2:
-		position = position.move_toward(character2.position, 400 * delta)
+	if Global.mecha_flight_player == 2:
+		if Global.magnet_player1 and player_number == 1:
+			position = position.move_toward(character.position, 400 * delta)
+		if Global.magnet_player2 and player_number == 2:
+			position = position.move_toward(character2.position, 400 * delta)
 	if Global.meteor_speed == 0:
 		animation_player.pause()
 	else:

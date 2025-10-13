@@ -200,6 +200,7 @@ func shoot():
 		return
 	var bullet = BULLET.instantiate()
 	bullet.position = Vector2(position.x+100, position.y)
+	bullet.player_number = 2
 	bullets_container.add_child(bullet)
 	Global.mecha_flight_player2_bullets -= 1
 

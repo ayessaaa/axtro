@@ -5,6 +5,7 @@ extends Area2D
 @export var type = "bullet"
 @onready var bullet_sound: AudioStreamPlayer2D = $BulletSound
 @onready var meteor_explosion_sound = get_parent().get_node("MeteorExplosionSound")
+@export var player_number = 0
 
 var screen_size
 
@@ -30,7 +31,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.type == "meteor":
-		print("shoot")
+		#print("shoot")
 		meteor_explosion_sound.play()
 		queue_free()
 		

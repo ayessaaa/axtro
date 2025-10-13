@@ -183,6 +183,7 @@ func _physics_process(delta: float) -> void:
 			player1_bullet_cooldown_area_2.available = false
 			player1_bullet_cooldown_area_3.available = false
 			
+			
 		if Global.mecha_flight_player1_bullets < 3:
 			if shoot_cooldown_time > 2:
 				Global.mecha_flight_player1_bullets+=1
@@ -234,6 +235,7 @@ func shoot():
 			return
 		var bullet = BULLET.instantiate()
 		bullet.position = Vector2(position.x+100, position.y)
+		bullet.player_number = 1 
 		bullets_container.add_child(bullet)
 		Global.mecha_flight_player1_bullets -= 1
 		

@@ -44,6 +44,13 @@ var random_speed = randf_range(1, 1.3)
 @onready var player2_heart1 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart")
 @onready var player2_heart2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Heart2")
 
+@onready var powerup_bullet1 = get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var powerup_bullet2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/UnliBulletIcon/AnimationPlayer")
+@onready var powerup_magnet1 = get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/MagnetIcon/AnimationPlayer")
+@onready var powerup_magnet2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/MagnetIcon/AnimationPlayer")
+@onready var powerup_double1 = get_parent().get_parent().get_node("TwoPlayers/Player1/Powerups/DoublePointIcon/AnimationPlayer")
+@onready var powerup_double2 = get_parent().get_parent().get_node("TwoPlayers/Player2/Powerups/DoublePointIcon/AnimationPlayer")
+
 @onready var dead_sound = get_parent().get_parent().get_node("TwoPlayers/DeadSound")
 
 
@@ -56,6 +63,7 @@ func _ready() -> void:
 	lines_container.add_child(line)
 
 func _physics_process(delta: float) -> void:
+	#print(Global.unli_bullet_player1)
 	if !Global.marathon and !Global.is_mecha_flight:
 		return
 	if Global.dead or Global.start_screen or Global.is_space_ray:
@@ -141,6 +149,19 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 					character_animation.play("dead")
 					character_sprite.stop()
 					dead_sound.play()
+					
+					if Global.unli_bullet_player1:
+						Global.unli_bullet_player1 = false
+						Global.mecha_flight_player1_bullets = 3
+						powerup_bullet1.play("fade_out")
+						
+					if Global.magnet_player1:
+						Global.magnet_player1 = false
+						powerup_magnet1.play("fade_out")
+						
+					if Global.double_point_player1:
+						Global.double_point_player1 = false
+						powerup_double1.play("fade_out")
 				else:
 					player1_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 					character_animation.play("hurt")
@@ -160,6 +181,21 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 				character2_animation.play("dead")
 				character2_sprite.stop()
 				dead_sound.play()
+				
+				if Global.unli_bullet_player2:
+					Global.unli_bullet_player2 = false
+					Global.mecha_flight_player2_bullets = 3
+					powerup_bullet2.play("fade_out")
+					
+				if Global.magnet_player2:
+					Global.magnet_player2 = false
+					powerup_magnet2.play("fade_out")
+						
+				if Global.double_point_player2:
+					Global.double_point_player2 = false
+					powerup_double2.play("fade_out")
+					
+				
 			else:
 				player2_heart2.modulate = Color(1.0, 1.0, 1.0, 0.5)
 				character2_animation.play("hurt")
@@ -176,6 +212,8 @@ func _on_meteor_area_2d_area_entered(area: Area2D) -> void:
 			else:
 				star = STAR.instantiate()
 			star.position = position
+			if Global.mecha_flight_player == 2:
+				star.player_number = area.player_number
 			stars_container.add_child(star)
 		meteor_fall = true
 		
