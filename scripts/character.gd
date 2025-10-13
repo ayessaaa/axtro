@@ -19,6 +19,7 @@ var screen_size
 @onready var revive_progress: TextureProgressBar = $ReviveProgress
 @onready var revive_label: Label = $ReviveLabel
 @onready var revive_sound: AudioStreamPlayer2D = $"../TwoPlayers/ReviveSound"
+@onready var multiplayer_animation: AnimationPlayer = $"../TwoPlayers/Player1/PowerupPaper/MultiplayerAnimation"
 
 @onready var character_line1 = $Line
 @onready var character_line2 = $Line2
@@ -50,6 +51,8 @@ var down_sub_counter2 = 0
 var up_sub_counter = 0
 var up_sub_counter2 = 0
 var reviving_value = 0
+
+var powerup_animation_name
 
 #var velocity = Vector2.ZERO # The player's movement vector.
 
@@ -239,3 +242,12 @@ func revived():
 	animation_player.play("revive")
 	revive_sound.play()
 	
+
+
+func _on_multiplayer_animation_animation_finished(anim_name: StringName) -> void:
+	if powerup_animation_name == "fade_in":
+		multiplayer_animation.play("fade_out")
+
+
+func _on_multiplayer_animation_animation_started(anim_name: StringName) -> void:
+	powerup_animation_name = anim_name

@@ -272,3 +272,7 @@ func spawn_asteroid(pos):
 	small_asteroid.position = pos
 	meteors_container.add_child(small_asteroid)
 	
+
+
+func _on_multiplayer_animation_animation_finished(anim_name: StringName) -> void:
+	pass # Replace with function body.

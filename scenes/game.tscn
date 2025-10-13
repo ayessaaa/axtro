@@ -74,7 +74,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Animation" id="Animation_h3rex"]
 resource_name = "fade_in"
-length = 0.8
+length = 1.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -243,7 +243,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Animation" id="Animation_8qswn"]
 resource_name = "fade_in"
-length = 0.8
+length = 1.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -254,7 +254,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(794.0499, -43.5), Vector2(794.0499, 71.49997), Vector2(794.0499, 61.499992)]
+"values": [Vector2(726.05, -43.5), Vector2(726.05, 71.5), Vector2(726.05, 61.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -266,7 +266,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(739.0499, -307.5), Vector2(739.0499, -192.5), Vector2(739.0499, -202.5)]
+"values": [Vector2(671.05, -307.5), Vector2(671.05, -192.5), Vector2(671.05, -202.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -278,7 +278,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(849.0499, -302.5), Vector2(849.0499, -187.5), Vector2(849.0499, -197.5)]
+"values": [Vector2(781.05, -302.5), Vector2(781.05, -187.5), Vector2(781.05, -197.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -290,7 +290,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(706, -63), Vector2(706, 50), Vector2(706, 40)]
+"values": [Vector2(638, -63), Vector2(638, 50), Vector2(638, 40)]
 }
 
 [sub_resource type="Animation" id="Animation_rm0al"]
@@ -346,53 +346,54 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_i4re6"]
 resource_name = "fade_out"
+length = 1.23
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:position")
+tracks/0/path = NodePath("Paper:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.23, 0.5, 0.77, 1.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(706, 40)]
+"values": [Vector2(726.05, 61.5), Vector2(726.05005, 73.5), Vector2(726.05005, 62.5), Vector2(726.05005, 73.5), Vector2(726.05005, -48.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Line:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Line2:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.23, 0.5, 0.77, 1.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(739.0499, -202.5)]
+"values": [Vector2(781.05, -197.5), Vector2(781.05005, -185.5), Vector2(781.05005, -196.5), Vector2(781.05005, -185.5), Vector2(781.05005, -307.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Paper:position")
-tracks/2/interp = 1
+tracks/2/path = NodePath("Line:position")
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.23, 0.5, 0.77, 1.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(794.0499, 61.499992)]
+"values": [Vector2(671.05, -202.5), Vector2(671.05005, -190.5), Vector2(671.05005, -201.5), Vector2(671.05005, -190.5), Vector2(671.05005, -312.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Line2:position")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Text:position")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.23, 0.5, 0.77, 1.23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(849.0499, -197.5)]
+"values": [Vector2(638, 40), Vector2(638, 52), Vector2(638, 41), Vector2(638, 52), Vector2(638, -70)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pf7vy"]
@@ -761,7 +762,6 @@ root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_8qswn")
 }
-autoplay = "fade_in"
 
 [node name="Line" parent="TwoPlayers/Player1/PowerupPaper" instance=ExtResource("2_gee14")]
 position = Vector2(375, -308.5)
@@ -900,7 +900,6 @@ texture = ExtResource("25_pl11u")
 libraries = {
 &"": SubResource("AnimationLibrary_pf7vy")
 }
-autoplay = "fade_out"
 
 [node name="Line" parent="TwoPlayers/Player2/PowerupPaper" instance=ExtResource("2_gee14")]
 position = Vector2(739.0499, -307.5)
@@ -941,3 +940,7 @@ stream = ExtResource("45_oaba0")
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="SpaceRayMusic" to="." method="_on_space_ray_music_finished"]
 [connection signal="finished" from="OceanRhythmMusic" to="." method="_on_ocean_rhythm_music_finished"]
+[connection signal="animation_finished" from="TwoPlayers/Player1/PowerupPaper/MultiplayerAnimation" to="Character" method="_on_multiplayer_animation_animation_finished"]
+[connection signal="animation_started" from="TwoPlayers/Player1/PowerupPaper/MultiplayerAnimation" to="Character" method="_on_multiplayer_animation_animation_started"]
+[connection signal="animation_finished" from="TwoPlayers/Player2/PowerupPaper/MultiplayerAnimation" to="Character2" method="_on_multiplayer_animation_animation_finished"]
+[connection signal="animation_started" from="TwoPlayers/Player2/PowerupPaper/MultiplayerAnimation" to="Character2" method="_on_multiplayer_animation_animation_started"]

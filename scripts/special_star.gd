@@ -42,12 +42,17 @@ extends Area2D
 @onready var character_animation = get_parent().get_parent().get_parent().get_node("Character/AnimationPlayer")
 @onready var character2_animation = get_parent().get_parent().get_parent().get_node("Character2/AnimationPlayer")
 
+@onready var character_powerup_animation = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/PowerupPaper/MultiplayerAnimation")
+@onready var character2_powerup_animation = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/PowerupPaper/MultiplayerAnimation")
+@onready var character_powerup_text = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player1/PowerupPaper/Text")
+@onready var character2_powerup_text = get_parent().get_parent().get_parent().get_node("TwoPlayers/Player2/PowerupPaper/Text")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var texture 
 
 #var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
 var powerups_array = ["Shield", "DoublePoints", "Magnet", "UnliBullet"]
+var powerups_dictionary = {"Shield": "shield", "DoublePoints": "double points", "Magnet": "magnet", "UnliBullet":"unli bullet"}
 
 func _process(delta: float) -> void:
 	pass
@@ -173,8 +178,18 @@ func _on_area_entered(area: Area2D) -> void:
 					unli_bullet_icon.play("default")
 					unli_bullet_icon.seek(0, true)
 					Global.shoot_left = 100
+					
+		if Global.mecha_flight_player == 2:
+			if area.player_number == 1:
+				character_powerup_animation.play("fade_in")
+				character_powerup_text.text = powerups_dictionary[powerup]
 				
+			else:
+				character2_powerup_animation.play("fade_in")
+				character2_powerup_text.text = powerups_dictionary[powerup]
 				
+
+
 func slow_down():
 	Global.prev_meteor_speed = Global.meteor_speed
 	Global.prev_speed = Global.speed
