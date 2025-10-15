@@ -93,6 +93,7 @@ func _ready() -> void:
 	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
 	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 	
+	#if Global.mecha_flight_player == 2:
 	for i in range(2):
 		spawn_medkit_sprite()
 	
@@ -132,6 +133,10 @@ func _process(delta: float) -> void:
 	#medkit_2.visible = !(Global.mecha_flight_player == 1)
 	medkit_label.visible = !(Global.mecha_flight_player == 1)
 	medkit_label_2.visible = !(Global.mecha_flight_player == 1)
+	
+	for medkit_sprite2d in Global.mecha_flight_medkits:
+		medkit_sprite2d.visible = !(Global.mecha_flight_player == 1)
+	
 	
 	if Global.mecha_flight_player == 2:
 		medkit_label.text = "medkits: " + str(Global.mecha_flight_medkit) if Global.mecha_flight_medkit > 0 else "medkit: " + str(Global.mecha_flight_medkit)
