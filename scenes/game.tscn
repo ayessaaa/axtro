@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://bh3givlxfl5rq" path="res://assets/IMG_1717.PNG" id="43_458eo"]
 [ext_resource type="AudioStream" uid="uid://b21shx8smd3c8" path="res://assets/music/classic-game-action-positive-1-224407.mp3" id="44_0sl42"]
 [ext_resource type="AudioStream" uid="uid://cj78frxae2sry" path="res://assets/music/classic-game-action-negative-9-224413.mp3" id="45_oaba0"]
-[ext_resource type="PackedScene" uid="uid://uv8rav4ex5ly" path="res://scenes/medkit.tscn" id="47_h3rex"]
+[ext_resource type="Texture2D" uid="uid://btg8kwlpddoyx" path="res://assets/Untitled.png" id="47_h3rex"]
 
 [sub_resource type="GDScript" id="GDScript_vtaks"]
 
@@ -932,14 +932,6 @@ stream = ExtResource("45_oaba0")
 
 [node name="Medkits" type="Node" parent="TwoPlayers"]
 
-[node name="Medkit" parent="TwoPlayers/Medkits" instance=ExtResource("47_h3rex")]
-position = Vector2(31, 627)
-scale = Vector2(0.2729005, 0.2729005)
-
-[node name="Medkit2" parent="TwoPlayers/Medkits" instance=ExtResource("47_h3rex")]
-position = Vector2(65, 627)
-scale = Vector2(0.2729005, 0.2729005)
-
 [node name="Label" type="Label" parent="TwoPlayers/Medkits"]
 offset_left = 16.0
 offset_top = 588.0
@@ -961,6 +953,16 @@ theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 17
 text = "used for reviving 
 teammates"
+
+[node name="Medkit" type="Sprite2D" parent="TwoPlayers/Medkits"]
+position = Vector2(33, 626)
+scale = Vector2(0.28030297, 0.28030297)
+texture = ExtResource("47_h3rex")
+
+[node name="Medkit2" type="Sprite2D" parent="TwoPlayers/Medkits"]
+position = Vector2(70, 626)
+scale = Vector2(0.28030297, 0.28030297)
+texture = ExtResource("47_h3rex")
 
 [connection signal="finished" from="AngleDashBg" to="AngleDash" method="_on_angle_dash_bg_finished"]
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]

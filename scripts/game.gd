@@ -51,8 +51,8 @@ extends Node
 @onready var shield1: Sprite2D = $TwoPlayers/Player1/Powerups/Shield
 @onready var shield2: Sprite2D = $TwoPlayers/Player2/Powerups/Shield
 
-@onready var medkit: Area2D = $TwoPlayers/Medkits/Medkit
-@onready var medkit_2: Area2D = $TwoPlayers/Medkits/Medkit2
+@onready var medkit: Sprite2D = $TwoPlayers/Medkits/Medkit
+@onready var medkit_2: Sprite2D = $TwoPlayers/Medkits/Medkit2
 @onready var label: Label = $TwoPlayers/Medkits/Label
 @onready var label_2: Label = $TwoPlayers/Medkits/Label2
 

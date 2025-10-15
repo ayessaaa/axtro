@@ -9,6 +9,7 @@ const LINES = preload("res://scenes/line.tscn")
 
 const STAR = preload("res://scenes/star.tscn")
 const SHIBA_STAR = preload("res://scenes/shiba_star.tscn")
+const MEDKIT = preload("res://scenes/medkit.tscn")
 @onready var stars_container = get_parent().get_node("Stars")
 var star
 
@@ -213,10 +214,13 @@ func _on_small_meteor_area_2d_area_entered(area: Area2D) -> void:
 			if Input.is_action_pressed("move_up") and Input.is_action_pressed("move_down"):
 				star = SHIBA_STAR.instantiate()
 			else:
-				star = STAR.instantiate()
+				if randi_range(0,1) < 1 and Global.mecha_flight_player == 2:
+					star = MEDKIT.instantiate()
+				else:
+					star = STAR.instantiate()
+					if Global.mecha_flight_player == 2:
+						star.player_number = area.player_number
 			star.position = position
-			if Global.mecha_flight_player == 2:
-				star.player_number = area.player_number
 			stars_container.add_child(star)
 		small_meteor_fall = true
 		
