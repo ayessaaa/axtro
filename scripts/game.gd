@@ -51,6 +51,11 @@ extends Node
 @onready var shield1: Sprite2D = $TwoPlayers/Player1/Powerups/Shield
 @onready var shield2: Sprite2D = $TwoPlayers/Player2/Powerups/Shield
 
+@onready var medkit: Area2D = $TwoPlayers/Medkits/Medkit
+@onready var medkit_2: Area2D = $TwoPlayers/Medkits/Medkit2
+@onready var label: Label = $TwoPlayers/Medkits/Label
+@onready var label_2: Label = $TwoPlayers/Medkits/Label2
+
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
 const ASTEROID = preload("res://scenes/asteroid.tscn")
@@ -115,6 +120,10 @@ func _process(delta: float) -> void:
 	player2_score.visible = !(Global.mecha_flight_player == 1)
 	shield1.visible = Global.shield_player1
 	shield2.visible = Global.shield_player2
+	medkit.visible = !(Global.mecha_flight_player == 1)
+	medkit_2.visible = !(Global.mecha_flight_player == 1)
+	label.visible = !(Global.mecha_flight_player == 1)
+	label_2.visible = !(Global.mecha_flight_player == 1)
 	
 	if Global.dead:
 		if Global.is_angle_dash or Global.is_space_ray:
