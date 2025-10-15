@@ -53,13 +53,17 @@ extends Node
 
 @onready var medkit: Sprite2D = $TwoPlayers/Medkits/Medkit
 @onready var medkit_2: Sprite2D = $TwoPlayers/Medkits/Medkit2
-@onready var label: Label = $TwoPlayers/Medkits/Label
-@onready var label_2: Label = $TwoPlayers/Medkits/Label2
+@onready var medkit_label: Label = $TwoPlayers/Medkits/Label
+@onready var medkit_label_2: Label = $TwoPlayers/Medkits/Label2
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
 const ASTEROID = preload("res://scenes/asteroid.tscn")
 @onready var meteors_container = get_node("Meteors")
+
+const MEDKIT_SPRITE = preload("res://scenes/medkit_sprite.tscn")
+@onready var medkits: Node = $TwoPlayers/Medkits
+
 
 var screen_size
 var meteor_timer = 0.0
@@ -88,6 +92,10 @@ func _ready() -> void:
 	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
 	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
 	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
+	
+	for i in range(2):
+		spawn_medkit_sprite()
+	
 
 func _process(delta: float) -> void:
 	score.visible = !Global.start_screen
@@ -120,10 +128,13 @@ func _process(delta: float) -> void:
 	player2_score.visible = !(Global.mecha_flight_player == 1)
 	shield1.visible = Global.shield_player1
 	shield2.visible = Global.shield_player2
-	medkit.visible = !(Global.mecha_flight_player == 1)
-	medkit_2.visible = !(Global.mecha_flight_player == 1)
-	label.visible = !(Global.mecha_flight_player == 1)
-	label_2.visible = !(Global.mecha_flight_player == 1)
+	#medkit.visible = !(Global.mecha_flight_player == 1)
+	#medkit_2.visible = !(Global.mecha_flight_player == 1)
+	medkit_label.visible = !(Global.mecha_flight_player == 1)
+	medkit_label_2.visible = !(Global.mecha_flight_player == 1)
+	
+	if Global.mecha_flight_player == 2:
+		medkit_label.text = "medkits: " + str(Global.mecha_flight_medkit) if Global.mecha_flight_medkit > 0 else "medkit: " + str(Global.mecha_flight_medkit)
 	
 	if Global.dead:
 		if Global.is_angle_dash or Global.is_space_ray:
@@ -158,6 +169,7 @@ func _process(delta: float) -> void:
 					Global.double_point_player2 = false
 					Global.shield_player1 = false
 					Global.shield_player2 = false
+					free_medkits()
 					get_tree().reload_current_scene()
 					
 	if !Global.selected_sound_played:
@@ -231,6 +243,7 @@ func _process(delta: float) -> void:
 		Global.double_point_player2 = false
 		Global.shield_player1 = false
 		Global.shield_player2 = false
+		free_medkits()
 		get_tree().reload_current_scene()
 		
 	if Global.hearts == 2:
@@ -280,6 +293,19 @@ func spawn_asteroid(pos):
 	var small_asteroid = ASTEROID.instantiate()
 	small_asteroid.position = pos
 	meteors_container.add_child(small_asteroid)
+	
+func spawn_medkit_sprite():
+	Global.mecha_flight_medkit += 1
+	var medkit_sprite = MEDKIT_SPRITE.instantiate()
+	medkit_sprite.position = Vector2(31+(35*(Global.mecha_flight_medkit-1)), 627)
+	medkits.add_child(medkit_sprite)
+	Global.mecha_flight_medkits.append(medkit_sprite)
+	
+func free_medkits():
+	for i in range(len(Global.mecha_flight_medkits)):
+		Global.mecha_flight_medkits.pop_back().queue_free()
+		Global.mecha_flight_medkit -= 1
+		print(Global.mecha_flight_medkit)
 	
 
 

@@ -63,8 +63,8 @@ func _physics_process(delta: float) -> void:
 		character_line2.visible = Global.mecha_flight_player2_hearts > 0
 	visible = Global.mecha_flight_player == 2
 	if Global.mecha_flight_player == 2 and (Global.mecha_flight_player1_hearts > 0 or Global.mecha_flight_player2_hearts > 0):
-		revive_progress.visible = Global.mecha_flight_player2_hearts <= 0
-		revive_label.visible = Global.mecha_flight_player2_hearts <= 0
+		revive_progress.visible = Global.mecha_flight_player2_hearts <= 0 and Global.mecha_flight_medkit > 0
+		revive_label.visible = Global.mecha_flight_player2_hearts <= 0 and Global.mecha_flight_medkit > 0
 	if Global.mecha_flight_player != 2 or !Global.is_mecha_flight:
 		collision_polygon_2d.disabled = true
 		return
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if Global.mecha_flight_player == 2 and Global.mecha_flight_player2_hearts == 0:
-		if Input.is_action_pressed("shoot"):
+		if Input.is_action_pressed("shoot") and Global.mecha_flight_medkit > 0:
 			if Global.mecha_flight_colliding_with_player:
 				reviving_value += delta * 40
 				if reviving_value >= 100:
@@ -221,6 +221,8 @@ func revived():
 	character_area.rotation = 0
 	animation_player.play("revive")
 	revive_sound.play()
+	Global.mecha_flight_medkit -= 1
+	Global.mecha_flight_medkits.pop_back().queue_free()
 
 
 func _on_multiplayer_animation_animation_finished(anim_name: StringName) -> void:

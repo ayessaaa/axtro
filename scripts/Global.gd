@@ -59,7 +59,8 @@ var mecha_flight_player2_bullets = 3
 var mecha_flight_player1_score = 0
 var mecha_flight_player2_score = 0
 var mecha_flight_colliding_with_player = false
-var mecha_flight_medkit = 2
+var mecha_flight_medkit = 0
+var mecha_flight_medkits  = []
 
 var powerup_player1 = null
 var powerup_player2 = null
