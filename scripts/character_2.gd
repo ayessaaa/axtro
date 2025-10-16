@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Global.dead or Global.start_screen:
 		return
-	if Global.is_angle_dash or Global.is_space_ray:
+	if Global.is_angle_dash or Global.is_space_ray or Global.mecha_flight_tutorial:
 		return
 	if !Global.marathon and !Global.is_mecha_flight:
 		return

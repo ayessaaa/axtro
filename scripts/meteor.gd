@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	#print(Global.unli_bullet_player1)
 	if !Global.marathon and !Global.is_mecha_flight:
 		return
-	if Global.dead or Global.start_screen or Global.is_space_ray:
+	if Global.dead or Global.start_screen or Global.is_space_ray or Global.mecha_flight_tutorial:
 		return
 	#if Global.free_regular_mode_objects:
 		#queue_free()

@@ -65,7 +65,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !Global.marathon and !Global.is_mecha_flight:
 		return
-	if Global.dead or Global.is_space_ray:
+	if Global.dead or Global.is_space_ray or Global.mecha_flight_tutorial:
 		return
 	#speed += 1 * delta
 	#if Global.free_regular_mode_objects or Global.start_screen:

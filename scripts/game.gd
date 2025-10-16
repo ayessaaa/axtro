@@ -56,6 +56,7 @@ extends Node
 @onready var medkit_label: Label = $TwoPlayers/Medkits/Label
 @onready var medkit_label_2: Label = $TwoPlayers/Medkits/Label2
 @onready var q_tutorial: Label = $TwoPlayers/QTutorial
+@onready var tutorial_animation: AnimationPlayer = $TwoPlayers/Tutorial/TutorialAnimation
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
@@ -64,7 +65,6 @@ const ASTEROID = preload("res://scenes/asteroid.tscn")
 
 const MEDKIT_SPRITE = preload("res://scenes/medkit_sprite.tscn")
 @onready var medkits: Node = $TwoPlayers/Medkits
-
 
 var screen_size
 var meteor_timer = 0.0
@@ -140,6 +140,15 @@ func _process(delta: float) -> void:
 	
 	if Global.mecha_flight_player == 2:
 		medkit_label.text = "medkits: " + str(Global.mecha_flight_medkit) if Global.mecha_flight_medkit > 0 else "medkit: " + str(Global.mecha_flight_medkit)
+		if Input.is_action_just_pressed("q"):
+			tutorial_animation.play("fade_in")
+			Global.mecha_flight_tutorial = true
+			
+	if Global.mecha_flight_tutorial:
+		if Input.is_action_just_pressed("shoot"):
+			tutorial_animation.play("fade_out")
+			Global.mecha_flight_tutorial = true
+		return
 	
 	if Global.dead:
 		if Global.is_angle_dash or Global.is_space_ray:
@@ -316,3 +325,7 @@ func free_medkits():
 
 func _on_multiplayer_animation_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
+
+
+func _on_tutorial_animation_animation_finished(anim_name: StringName) -> void:
+	Global.mecha_flight_tutorial = false
