@@ -66,6 +66,7 @@ var progress_bar_value
 var all_weapons_collected = false
 
 @onready var new_weapon_sprite: AnimatedSprite2D = $NextWeapon/NewWeaponArea/NewWeaponSprite
+@onready var next_weapon_sound: AudioStreamPlayer2D = $SoundEffects/NextWeaponSound
 
 @onready var corner_laser: AnimatedSprite2D = $Powerup/CornerLaser
 @onready var corner_laser_2: AnimatedSprite2D = $Powerup/CornerLaser2
@@ -80,6 +81,44 @@ var next_weapon_animation_done
 
 @onready var new_weapon_text_2: Label = $NextWeapon/NewWeaponText2
 @onready var by_cisco: Label = $ByCisco
+
+var rocket_lvls =  {0 : {"speed": [2,3],
+						"spawn_interval": 5},
+					1 : {"speed": [3,4],
+						"spawn_interval": 4},
+					2 : {"speed": [4,5],
+						"spawn_interval": 3},
+					3 : {"speed": [4,5],
+						"spawn_interval": 3},
+					4 : {"speed": [4,5],
+						"spawn_interval": 3},
+					5 : {"speed": [4,5],
+						"spawn_interval": 2},
+					6 : {"speed": [4,5],
+						"spawn_interval": 5},
+					7 : {"speed": [4,5],
+						"spawn_interval": 0}}
+						
+var blaister_lvls ={0 : {"speed": [0],
+						"spawn_interval": 0},
+					1 : {"speed": [0],
+						"spawn_interval": 0},
+					2 : {"speed": [3, 4],
+						"spawn_interval": 7},
+					3 : {"speed": [3,4],
+						"spawn_interval": 6},
+					4 : {"speed": [4,5],
+						"spawn_interval": 6},
+					5 : {"speed": [4,5],
+						"spawn_interval": 7},
+					6 : {"speed": [4,5],
+						"spawn_interval": 6},
+					7 : {"speed": [4,5],
+						"spawn_interval": 0}}
+						
+var gibbior_lvls = [0.5]
+						
+var lvl_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -212,7 +251,7 @@ func _process(delta: float) -> void:
 	#else:
 		#Global.space_ray_powerup_time = 80.0
 		
-			
+	lvl_timer += delta * .05
 		
 	timer += delta
 	if timer >= bg_spawn_interval:
@@ -224,34 +263,39 @@ func _process(delta: float) -> void:
 			bg_obj_index = 0
 			
 	rocket_timer += delta
-	if rocket_timer >= 2:
+	#print(lvl_timer)
+	if rocket_timer >= rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] and rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
 		rocket_timer = 0
-		spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET)
+		spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET, randf_range(rocket_lvls[int(floor(lvl_timer))]["speed"][0], rocket_lvls[int(floor(lvl_timer))]["speed"][1]))
 		
 	blaister_timer += delta
-	if blaister_timer >= 10:
+	if blaister_timer >= blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] and blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
 		blaister_timer = 0
-		spawn_enemy(Vector2(1500, randf_range(50, 600)), BLAISTER)
+		spawn_enemy(Vector2(1500, randf_range(50, 600)), BLAISTER, randf_range(rocket_lvls[int(floor(lvl_timer))]["speed"][0], rocket_lvls[int(floor(lvl_timer))]["speed"][1]))
 		
-	meteor_timer += delta
-	if meteor_timer >= 3:
-		meteor_timer = 0
-		spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
-			
+	#meteor_timer += delta
+	#if meteor_timer >= 3:
+		#meteor_timer = 0
+		#spawn_enemy(Vector2(randf_range(200, 1600), -50), METEOR)
+			#
 	gibbior_timer += delta
-	if gibbior_timer >= 25:
-		if !gibbior_spawned:
-			corner_laser.play("yellow")
-			corner_laser_2.play("yellow")
-			animation_player.play("gibbior_spawned")
-			spawn_gibbior()
-			gibbior_spawned = true
-			enemy_loop_sound.play()
-			bg_music.volume_db = -10
+	#if gibbior_timer >= 25:
+	if len(gibbior_lvls) > 0:
+		if lvl_timer >= gibbior_lvls[0]:
+			gibbior_lvls.remove_at(0)
+			if !gibbior_spawned:
+				corner_laser.play("yellow")
+				corner_laser_2.play("yellow")
+				animation_player.play("gibbior_spawned")
+				spawn_gibbior()
+				gibbior_spawned = true
+				enemy_loop_sound.play()
+				bg_music.volume_db = -10
+			
 			
 	star_timer += delta
 	if star_timer >= 2 and Global.space_ray_powerup == "":
-		if randi_range(0, 2) < 1:
+		if randi_range(0, 5) < 1:
 			spawn_star(Vector2(randf_range(50, 1100), -100))
 		star_timer = 0
 		
@@ -284,6 +328,7 @@ func _process(delta: float) -> void:
 		new_weapon_sprite.play(weapon_list[weapon_list_index])
 		corner_laser.play("green")
 		corner_laser_2.play("green")
+		next_weapon_sound.play()
 		Global.space_ray_weapons.append(weapon_list[weapon_list_index])
 		new_weapon_text_2.text = weapon_list[weapon_list_index]
 		Global.space_ray_new_weapon = true
@@ -314,9 +359,11 @@ func spawn_gibbior():
 	gibbior.position = Vector2(0, 0)
 	enemies.add_child(gibbior)
 	
-func spawn_enemy(pos, enemy_scene):
+func spawn_enemy(pos, enemy_scene, speed=null):
 	var enemy = enemy_scene.instantiate()
 	enemy.position = pos
+	if speed != null:
+		enemy.speed = speed
 	enemies.add_child(enemy)
 	
 func spawn_star(pos):

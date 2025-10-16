@@ -1874,7 +1874,6 @@ animations = [{
 script = ExtResource("1_kvpfn")
 
 [node name="GameoverBg" parent="." instance=ExtResource("2_trtic")]
-visible = false
 position = Vector2(566, -311)
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
@@ -2028,7 +2027,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" parent="." instance=ExtResource("15_ir15t")]
-visible = false
 position = Vector2(556, 260)
 
 [node name="Meteors" type="Node" parent="."]
@@ -2036,6 +2034,9 @@ position = Vector2(556, 260)
 [node name="Lines" type="Node" parent="Meteors"]
 
 [node name="Stars" type="Node" parent="Meteors"]
+
+[node name="MedkitSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
+stream = ExtResource("44_0sl42")
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="Meteors/Stars"]
 position = Vector2(0, 47)
@@ -2088,7 +2089,6 @@ scale = Vector2(0.247986, 0.247986)
 texture = ExtResource("25_pl11u")
 
 [node name="ProgressArea" parent="." instance=ExtResource("23_bhx41")]
-visible = false
 position = Vector2(46, 615)
 
 [node name="AngleDash" parent="." instance=ExtResource("29_suyxu")]

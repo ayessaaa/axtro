@@ -1,11 +1,11 @@
 extends Area2D
 @export var type = "medkit"
 
-#@onready var coin_sound = get_parent().get_node("CoinSound")
 #@onready var character = get_parent().get_parent().get_parent().get_node("Character")
 #@onready var character2 = get_parent().get_parent().get_parent().get_node("Character2")
 #@onready var progress_animation = get_parent().get_parent().get_parent().get_node("ProgressArea/AnimationPlayer")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var medkit_sound = get_parent().get_node("MedkitSound")
 
 const MEDKIT_SPRITE = preload("res://scenes/medkit_sprite.tscn")
 @onready var medkits = get_parent()
@@ -19,7 +19,7 @@ func  _ready() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.player:
-		#coin_sound.play()
+		medkit_sound.play()
 		animation_player.play("pick_up")
 		Global.mecha_flight_medkit += 1
 		medkit = MEDKIT_SPRITE.instantiate()

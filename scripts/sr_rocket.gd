@@ -13,12 +13,12 @@ extends Area2D
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 @onready var sprite_animation: AnimationPlayer = $AnimationPlayer
 
-var speed = 0
+@export var speed = randf_range(4, 7)
 var health = 25
 var freeze = false
 
 func _ready() -> void:
-	speed = randf_range(4, 7)
+	pass
 
 func _process(delta: float) -> void:
 	visible = Global.is_space_ray
