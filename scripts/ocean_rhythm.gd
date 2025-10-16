@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	if timer >= Global.bubble_spawn_interval:
 		print("spawn")
 		timer = 0
-		spawn_bubble(Vector2(1200,randf_range(50, Global.screen_size.y-50)))
+		spawn_bubble(Vector2(1200,randf_range(50, 648-50)))
 		
 	timer_corals += delta
 	if timer_corals >= Global.coral_spawn_interval:
@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	if timer_fish >= Global.fish_spawn_interval:
 		print("spawn")
 		timer_fish = 0
-		spawn_fish(Vector2(1200,randf_range(300, Global.screen_size.y-50)))
+		spawn_fish(Vector2(1200,randf_range(300, 648-50)))
 		
 		
 

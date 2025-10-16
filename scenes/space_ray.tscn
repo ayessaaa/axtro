@@ -3042,7 +3042,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = 20
 
 [node name="NewWeaponSprite" type="AnimatedSprite2D" parent="NextWeapon/NewWeaponArea"]
-visible = false
 z_index = 8
 position = Vector2(584, 327)
 scale = Vector2(0.8381295, 0.84210527)

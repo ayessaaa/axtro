@@ -55,6 +55,7 @@ extends Node
 @onready var medkit_2: Sprite2D = $TwoPlayers/Medkits/Medkit2
 @onready var medkit_label: Label = $TwoPlayers/Medkits/Label
 @onready var medkit_label_2: Label = $TwoPlayers/Medkits/Label2
+@onready var q_tutorial: Label = $TwoPlayers/QTutorial
 
 const METEOR = preload("res://scenes/meteor.tscn")
 const SMALL_METEOR = preload("res://scenes/small_meteor.tscn")
@@ -89,9 +90,7 @@ func _ready() -> void:
 	
 	screen_size = Vector2(1100, 600)
 	spawn_asteroid(Vector2(1200, randf_range(50, screen_size[1]-100)))
-	spawn_small_meteor(Vector2(1500, randf_range(50, screen_size[1]-100)))
 	spawn_meteor(Vector2(1800, randf_range(50, screen_size[1]-100)))
-	spawn_small_meteor(Vector2(2000, randf_range(50, screen_size[1]-100)))
 	
 	#if Global.mecha_flight_player == 2:
 	for i in range(2):
@@ -133,6 +132,7 @@ func _process(delta: float) -> void:
 	#medkit_2.visible = !(Global.mecha_flight_player == 1)
 	medkit_label.visible = !(Global.mecha_flight_player == 1)
 	medkit_label_2.visible = !(Global.mecha_flight_player == 1)
+	q_tutorial.visible = !(Global.mecha_flight_player == 1)
 	
 	for medkit_sprite2d in Global.mecha_flight_medkits:
 		medkit_sprite2d.visible = !(Global.mecha_flight_player == 1)

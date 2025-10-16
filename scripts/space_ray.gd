@@ -128,7 +128,7 @@ func _process(delta: float) -> void:
 	if !Global.selected_sound_played and Global.is_space_ray:
 		selected_sound.play()
 		animation.play("fade_in")
-		laser.play()
+		#laser.play()
 		Global.selected_sound_played = true
 		
 	
