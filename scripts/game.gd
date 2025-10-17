@@ -135,6 +135,8 @@ func _process(delta: float) -> void:
 	q_tutorial.visible = !(Global.mecha_flight_player == 1)
 	
 	for medkit_sprite2d in Global.mecha_flight_medkits:
+		if not is_instance_valid(medkit_sprite2d):
+			Global.mecha_flight_medkits.erase(medkit_sprite2d)
 		medkit_sprite2d.visible = !(Global.mecha_flight_player == 1)
 	
 	

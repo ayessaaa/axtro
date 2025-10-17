@@ -2780,10 +2780,11 @@ position = Vector2(179, 154)
 
 [node name="Laser" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("4_ovt60")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="BulletSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("8_s6bc4")
+volume_db = -5.0
 
 [node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("9_plxqw")
@@ -2802,7 +2803,7 @@ stream = ExtResource("13_qxr3h")
 
 [node name="RaySound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("14_oopde")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="NextWeaponSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("15_wypwd")

@@ -78,6 +78,7 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if freeze:
 		freeze = false
+		speed *= 2
 	if health <= 0:
 		Global.space_ray_score += 4 * Global.space_ray_multiplier
 		Global.space_ray_weapon_score += 4 * Global.space_ray_multiplier

@@ -97,7 +97,11 @@ var rocket_lvls =  {0 : {"speed": [2,3],
 					6 : {"speed": [4,5],
 						"spawn_interval": 5},
 					7 : {"speed": [4,5],
-						"spawn_interval": 0}}
+						"spawn_interval": 0},
+					8 : {"speed": [4,5],
+						"spawn_interval": 5},
+					9 : {"speed": [4,5],
+						"spawn_interval": 4}}
 						
 var blaister_lvls ={0 : {"speed": [0],
 						"spawn_interval": 0},
@@ -114,9 +118,13 @@ var blaister_lvls ={0 : {"speed": [0],
 					6 : {"speed": [4,5],
 						"spawn_interval": 6},
 					7 : {"speed": [4,5],
-						"spawn_interval": 0}}
+						"spawn_interval": 0},
+					8 : {"speed": [4,5],
+						"spawn_interval": 7},
+					9 : {"speed": [4,5],
+						"spawn_interval": 5}}
 						
-var gibbior_lvls = [0.5]
+var gibbior_lvls = [5, 10, 15, 20]
 						
 var lvl_timer = 0
 
@@ -264,14 +272,24 @@ func _process(delta: float) -> void:
 			
 	rocket_timer += delta
 	#print(lvl_timer)
-	if rocket_timer >= rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] and rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
-		rocket_timer = 0
-		spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET, randf_range(rocket_lvls[int(floor(lvl_timer))]["speed"][0], rocket_lvls[int(floor(lvl_timer))]["speed"][1]))
+	if len(rocket_lvls)>floor(lvl_timer):
+		if rocket_timer >= rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] and rocket_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
+			rocket_timer = 0
+			spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET, randf_range(rocket_lvls[int(floor(lvl_timer))]["speed"][0], rocket_lvls[int(floor(lvl_timer))]["speed"][1]))
+	else:
+		if rocket_timer >= rocket_lvls[len(rocket_lvls)-1]["spawn_interval"] and rocket_lvls[len(rocket_lvls)-1]["spawn_interval"] != 0:
+			rocket_timer = 0
+			spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET, randf_range(rocket_lvls[len(rocket_lvls)-1]["speed"][0], rocket_lvls[len(rocket_lvls)-1]["speed"][1]))
 		
 	blaister_timer += delta
-	if blaister_timer >= blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] and blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
-		blaister_timer = 0
-		spawn_enemy(Vector2(1500, randf_range(50, 600)), BLAISTER, randf_range(rocket_lvls[int(floor(lvl_timer))]["speed"][0], rocket_lvls[int(floor(lvl_timer))]["speed"][1]))
+	if len(blaister_lvls)>floor(lvl_timer):
+		if blaister_timer >= blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] and blaister_lvls[int(floor(lvl_timer))]["spawn_interval"] != 0:
+			blaister_timer = 0
+			spawn_enemy(Vector2(1500, randf_range(50, 600)), BLAISTER, randf_range(blaister_lvls[int(floor(lvl_timer))]["speed"][0], blaister_lvls[int(floor(lvl_timer))]["speed"][1]))
+	else:
+		if blaister_timer >= blaister_lvls[len(blaister_lvls)-1]["spawn_interval"] and blaister_lvls[len(blaister_lvls)-1]["spawn_interval"] != 0:
+			blaister_timer = 0
+			spawn_enemy(Vector2(1500, randf_range(50, 600)), ROCKET, randf_range(blaister_lvls[len(blaister_lvls)-1]["speed"][0], blaister_lvls[len(blaister_lvls)-1]["speed"][1]))
 		
 	#meteor_timer += delta
 	#if meteor_timer >= 3:
