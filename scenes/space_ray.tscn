@@ -1,10 +1,11 @@
-[gd_scene load_steps=90 format=3 uid="uid://dlacxrd4fdqch"]
+[gd_scene load_steps=91 format=3 uid="uid://dlacxrd4fdqch"]
 
 [ext_resource type="Texture2D" uid="uid://ci0sg6imhoie" path="res://assets/space_ray_assets/IMG_1737.PNG" id="1_inwbe"]
 [ext_resource type="Script" uid="uid://cqy08v3b6f86l" path="res://scripts/space_ray.gd" id="1_x4byx"]
 [ext_resource type="PackedScene" uid="uid://cjsf2wjjp3ong" path="res://scenes/space_ray_character.tscn" id="2_1hfli"]
 [ext_resource type="AudioStream" uid="uid://d1iyfyejn40o2" path="res://assets/music/space-distortion-1-225938_J7d3nb6Z.mp3" id="4_ovt60"]
 [ext_resource type="PackedScene" uid="uid://benld2bhd07pu" path="res://scenes/sr_saturn.tscn" id="6_tt1cq"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_3ypu7"]
 [ext_resource type="PackedScene" uid="uid://b5vsx8qegt3td" path="res://scenes/sr_moon.tscn" id="7_e4p76"]
 [ext_resource type="PackedScene" uid="uid://chox4cjco76wi" path="res://scenes/sr_earth.tscn" id="8_ju80h"]
 [ext_resource type="AudioStream" uid="uid://d02gmwgemsm6q" path="res://assets/music/retro-game-shot-152052.mp3" id="8_s6bc4"]
@@ -2777,6 +2778,9 @@ position = Vector2(774, 135)
 position = Vector2(179, 154)
 
 [node name="SoundEffects" type="Node" parent="."]
+
+[node name="FallingStarSound" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("7_3ypu7")
 
 [node name="Laser" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("4_ovt60")

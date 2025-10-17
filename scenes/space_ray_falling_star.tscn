@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx2oda6ssry82"]
+
+[ext_resource type="Script" uid="uid://bc37yvff5rgwb" path="res://scripts/space_ray_falling_star.gd" id="1_5305r"]
+[ext_resource type="Texture2D" uid="uid://il8haqrpn45j" path="res://assets/IMG_1554.PNG" id="1_m3i4g"]
+[ext_resource type="Script" uid="uid://bru2lyvfocpyy" path="res://scripts/space_ray_falling_star_area.gd" id="2_l10ba"]
+
+[sub_resource type="Animation" id="Animation_the16"]
+resource_name = "pick_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.18333334, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.44597992, 0.44597998), Vector2(0.5, 0.5), Vector2(0.44597992, 0.44597998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.099999994, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eak8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.44597992, 0.44597998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjyfe"]
+_data = {
+&"RESET": SubResource("Animation_eak8k"),
+&"pick_up": SubResource("Animation_the16")
+}
+
+[node name="SpaceRayFallingStar" type="CharacterBody2D"]
+z_index = 6
+scale = Vector2(0.5673193, 0.5673193)
+collision_mask = 8
+script = ExtResource("1_5305r")
+
+[node name="SpaceRayFallingStarArea" type="Area2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+collision_mask = 8
+script = ExtResource("2_l10ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpaceRayFallingStarArea"]
+position = Vector2(-1.9073489e-06, -3.8146977e-06)
+scale = Vector2(0.44597992, 0.44597998)
+texture = ExtResource("1_m3i4g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpaceRayFallingStarArea"]
+scale = Vector2(1.0000001, 1.0000001)
+polygon = PackedVector2Array(-9, -16, -2, -31, 6, -32, 10, -16, 28, -14, 27, -9, 18, 1, 23, 15, 17, 17, 0, 12, -16, 18, -19, 16, -16, -1, -29, -12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpaceRayFallingStarArea"]
+libraries = {
+&"": SubResource("AnimationLibrary_yjyfe")
+}
+
+[connection signal="area_entered" from="SpaceRayFallingStarArea" to="." method="_on_space_ray_falling_star_area_area_entered"]

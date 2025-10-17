@@ -14,6 +14,10 @@ extends Area2D
 @onready var sprite_animation: AnimationPlayer = $AnimationPlayer
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
+const FALLING_STAR = preload("res://scenes/space_ray_falling_star.tscn")
+@onready var stars: Node = get_parent().get_parent().get_node("Stars")
+var star
+
 var speed = 0
 var health = 100
 var freeze = false
@@ -73,6 +77,9 @@ func _on_area_entered(area: Area2D) -> void:
 		
 	if health <= 0:
 		sprite_animation.play("death")
+		star = FALLING_STAR.instantiate()
+		star.position = position
+		stars.add_child(star)
 		
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

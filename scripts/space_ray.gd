@@ -103,8 +103,8 @@ var rocket_lvls =  {0 : {"speed": [2,3],
 					9 : {"speed": [4,5],
 						"spawn_interval": 4}}
 						
-var blaister_lvls ={0 : {"speed": [0],
-						"spawn_interval": 0},
+var blaister_lvls ={0 : {"speed": [2,3],
+						"spawn_interval": 3},
 					1 : {"speed": [0],
 						"spawn_interval": 0},
 					2 : {"speed": [3, 4],
@@ -124,7 +124,7 @@ var blaister_lvls ={0 : {"speed": [0],
 					9 : {"speed": [4,5],
 						"spawn_interval": 5}}
 						
-var gibbior_lvls = [5, 10, 15, 20]
+var gibbior_lvls = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 						
 var lvl_timer = 0
 

@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 			sprite_2d.rotation_degrees = 80 if Global.direction > 0 else 0
 			_start_new_segment()
 		
-		if position.y < 0 or position.y > Global.screen_size.y:
+		if position.y < 0 or position.y > 600:
 			Global.dead = true
 			death_sound.play()
 			bg_music.stop()
