@@ -43,6 +43,7 @@ var gameover_and_restart_angle_dash = false
 var obstacle_spawn_interval = 5
 var direction = 0
 var angle_dash_score = 0
+var angle_dash_challenge = false
 
 var start_screen = true
 

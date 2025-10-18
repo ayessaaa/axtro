@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3tyb2er5yr2g"]
+[gd_scene load_steps=11 format=3 uid="uid://d3tyb2er5yr2g"]
 
 [ext_resource type="Texture2D" uid="uid://djs2om6iqv4oy" path="res://assets/space_ray_assets/IMG_1887.PNG" id="1_losbe"]
 [ext_resource type="Script" uid="uid://bkhcpry0ijsse" path="res://scripts/angle_dash_stardust.gd" id="1_sywwe"]
@@ -200,7 +200,7 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.0666666, 5.733333, 8.466666),
+"times": PackedFloat32Array(0, 3.5333333, 6.866667, 10.066667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(8, -20), Vector2(156.57227, -95.14815), Vector2(173.88152, 82.8898), Vector2(8, -20)]
@@ -212,19 +212,78 @@ tracks/1/path = NodePath("CollisionPolygon2D:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.0666666, 5.733333, 8.466666),
+"times": PackedFloat32Array(0, 3.5333333, 6.866667, 10.066667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(148.57227, -75.14815), Vector2(165.88152, 102.8898), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_r0vmx"]
+resource_name = "up_and_down"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0333333, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, -20), Vector2(8, -73.52091), Vector2(8, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.0333333, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -53.520912), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xu0pq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r0vmx"]
 _data = {
-&"moving": SubResource("Animation_q2mme")
+&"RESET": SubResource("Animation_xu0pq"),
+&"moving": SubResource("Animation_q2mme"),
+&"up_and_down": SubResource("Animation_r0vmx")
 }
 
 [node name="AngleDashStardust" type="Area2D"]
-z_index = 15
+z_index = 16
+z_as_relative = false
 scale = Vector2(0.34333742, 0.34333742)
 collision_mask = 4
 script = ExtResource("1_sywwe")
@@ -245,6 +304,6 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_r0vmx")
 }
-autoplay = "moving"
+autoplay = "up_and_down"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

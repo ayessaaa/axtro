@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxjaxwundtn3w"]
+[gd_scene load_steps=14 format=3 uid="uid://bxjaxwundtn3w"]
 
 [ext_resource type="Script" uid="uid://bxobsjstkadxa" path="res://scripts/diamond_moving_scene_2.gd" id="1_8ueqo"]
 [ext_resource type="Texture2D" uid="uid://ggfdcllmjlaf" path="res://assets/IMG_1694 - Copy.PNG" id="2_tudho"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="6_mfjp8"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_tudho"]
 [ext_resource type="PackedScene" uid="uid://d3tyb2er5yr2g" path="res://scenes/angle_dash_stardust.tscn" id="8_3hsaw"]
+[ext_resource type="AudioStream" uid="uid://b21shx8smd3c8" path="res://assets/music/classic-game-action-positive-1-224407.mp3" id="9_fgcaj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o526t"]
 animations = [{
@@ -74,6 +75,9 @@ scale = Vector2(0.17649888, 0.31609195)
 sprite_frames = SubResource("SpriteFrames_o526t")
 autoplay = "default"
 
+[node name="AngleDashStardust" parent="." instance=ExtResource("8_3hsaw")]
+position = Vector2(328, 376)
+
 [node name="DiamondPurple" parent="." instance=ExtResource("4_fgcaj")]
 position = Vector2(128, 152)
 scale = Vector2(0.262, 0.262)
@@ -113,5 +117,5 @@ position = Vector2(512, 320)
 position = Vector2(0, 47)
 stream = ExtResource("7_tudho")
 
-[node name="AngleDashStardust" parent="." instance=ExtResource("8_3hsaw")]
-position = Vector2(424.00003, 448.00003)
+[node name="StardustSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fgcaj")

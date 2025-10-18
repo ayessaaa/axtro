@@ -2,7 +2,8 @@ extends Area2D
 
 @export var type = "ad_star"
 
-@onready var coin_sound = get_parent().get_node("CoinSound")
+@onready var stardust_sound = get_parent().get_node("StardustSound")
+@onready var challenge_animation = get_parent().get_parent().get_parent().get_node("Challenges/AnimationPlayer")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
@@ -17,8 +18,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.player and self.visible:
 		Global.angle_dash_score += 1
 		Global.score += 1
-		coin_sound.play()
+		stardust_sound.play()
 		animation_player.play("pick_up")
+		challenge_animation.play("fade_in")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

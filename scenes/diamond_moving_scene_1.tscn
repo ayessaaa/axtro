@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgqxvw2mv1of1"]
+[gd_scene load_steps=17 format=3 uid="uid://dgqxvw2mv1of1"]
 
 [ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="1_pw7oq"]
 [ext_resource type="Script" uid="uid://7m6wh6bse668" path="res://scripts/diamond_moving_scene_1.gd" id="1_qxvjx"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://buuy6aldnnirb" path="res://assets/IMG_1695 - Copy.PNG" id="4_o32cy"]
 [ext_resource type="Texture2D" uid="uid://dugct8y1qe2xs" path="res://assets/IMG_1695.PNG" id="5_13jgc"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_o32cy"]
+[ext_resource type="PackedScene" uid="uid://d3tyb2er5yr2g" path="res://scenes/angle_dash_stardust.tscn" id="10_13jgc"]
+[ext_resource type="AudioStream" uid="uid://b21shx8smd3c8" path="res://assets/music/classic-game-action-positive-1-224407.mp3" id="11_od56b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13jgc"]
 animations = [{
@@ -37,6 +39,45 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_60c4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiamondPurple:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(368.00003, 528)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DiamondBlue2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(608, 128.00002)]
+}
 
 [sub_resource type="Animation" id="Animation_qxvjx"]
 resource_name = "moving"
@@ -77,45 +118,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(608, 128.00002), Vector2(608, 536)]
-}
-
-[sub_resource type="Animation" id="Animation_60c4h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DiamondBlue:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(112, 128)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DiamondPurple:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(368.00003, 528)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DiamondBlue2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(608, 128.00002)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1eptp"]
@@ -161,6 +163,9 @@ sprite_frames = SubResource("SpriteFrames_13jgc")
 autoplay = "default"
 frame_progress = 0.3569368
 
+[node name="AngleDashStardust" parent="." instance=ExtResource("10_13jgc")]
+position = Vector2(368, 312)
+
 [node name="DiamondBlue" parent="." instance=ExtResource("1_pw7oq")]
 position = Vector2(112, 128)
 scale = Vector2(0.26157838, 0.26157838)
@@ -188,3 +193,6 @@ autoplay = "moving"
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 47)
 stream = ExtResource("7_o32cy")
+
+[node name="StardustSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_od56b")
