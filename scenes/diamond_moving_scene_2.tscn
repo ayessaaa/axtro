@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxjaxwundtn3w"]
+[gd_scene load_steps=13 format=3 uid="uid://bxjaxwundtn3w"]
 
 [ext_resource type="Script" uid="uid://bxobsjstkadxa" path="res://scripts/diamond_moving_scene_2.gd" id="1_8ueqo"]
 [ext_resource type="Texture2D" uid="uid://ggfdcllmjlaf" path="res://assets/IMG_1694 - Copy.PNG" id="2_tudho"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="5_bl45x"]
 [ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="6_mfjp8"]
 [ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_tudho"]
+[ext_resource type="PackedScene" uid="uid://d3tyb2er5yr2g" path="res://scenes/angle_dash_stardust.tscn" id="8_3hsaw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o526t"]
 animations = [{
@@ -21,6 +22,21 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_yc5l4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 160)]
+}
 
 [sub_resource type="Animation" id="Animation_0j77m"]
 resource_name = "moving"
@@ -37,21 +53,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(488, 160), Vector2(264.00003, 464)]
-}
-
-[sub_resource type="Animation" id="Animation_yc5l4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DiamondBlue:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(488, 160)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7l1iy"]
@@ -111,3 +112,6 @@ position = Vector2(512, 320)
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 47)
 stream = ExtResource("7_tudho")
+
+[node name="AngleDashStardust" parent="." instance=ExtResource("8_3hsaw")]
+position = Vector2(424.00003, 448.00003)

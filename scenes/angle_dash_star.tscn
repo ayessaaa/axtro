@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp83t6gxbel5l"]
+[gd_scene load_steps=7 format=3 uid="uid://bp83t6gxbel5l"]
 
 [ext_resource type="Texture2D" uid="uid://bdyunuavk54uu" path="res://assets/angle_dash_assets/IMG_1686.PNG" id="1_ofduw"]
 [ext_resource type="Script" uid="uid://dwiawkahx2664" path="res://scripts/angle_dash_star.gd" id="1_wtbk8"]
@@ -41,6 +41,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.353814, 0.353814)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionPolygon2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wtbk8"]
 resource_name = "pick_up"
@@ -81,9 +93,39 @@ tracks/2/keys = {
 "values": [Vector2(0.353814, 0.353814), Vector2(0.447992, 0.447992), Vector2(0.3, 0.3), Vector2(0.5, 0.5)]
 }
 
+[sub_resource type="Animation" id="Animation_1ga05"]
+resource_name = "default"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 3.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, -8.073039), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 3.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -9.07304), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ga05"]
 _data = {
 &"RESET": SubResource("Animation_u632m"),
+&"default": SubResource("Animation_1ga05"),
 &"pick_up": SubResource("Animation_wtbk8")
 }
 
@@ -104,6 +146,7 @@ polygon = PackedVector2Array(-7, -10, 0, -24, 7, -9, 21, -7, 21, -4, 12, 4, 14, 
 libraries = {
 &"": SubResource("AnimationLibrary_1ga05")
 }
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
