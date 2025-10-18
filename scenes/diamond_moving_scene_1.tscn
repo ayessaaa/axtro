@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=3 uid="uid://dgqxvw2mv1of1"]
+
+[ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="1_pw7oq"]
+[ext_resource type="Script" uid="uid://7m6wh6bse668" path="res://scripts/diamond_moving_scene_1.gd" id="1_qxvjx"]
+[ext_resource type="PackedScene" uid="uid://drxxnu6n4cuc7" path="res://scenes/diamond_purple.tscn" id="2_a273h"]
+[ext_resource type="Texture2D" uid="uid://ggfdcllmjlaf" path="res://assets/IMG_1694 - Copy.PNG" id="2_uvlwc"]
+[ext_resource type="Texture2D" uid="uid://cigvfcc8lqeis" path="res://assets/IMG_1694.PNG" id="3_ckehf"]
+[ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="4_60c4h"]
+[ext_resource type="Texture2D" uid="uid://buuy6aldnnirb" path="res://assets/IMG_1695 - Copy.PNG" id="4_o32cy"]
+[ext_resource type="Texture2D" uid="uid://dugct8y1qe2xs" path="res://assets/IMG_1695.PNG" id="5_13jgc"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_o32cy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13jgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uvlwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ckehf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_od56b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o32cy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_13jgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_qxvjx"]
+resource_name = "moving"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(112, 128), Vector2(112, 528)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiamondPurple:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(368.00003, 528), Vector2(368.00003, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DiamondBlue2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(608, 128.00002), Vector2(608, 536)]
+}
+
+[sub_resource type="Animation" id="Animation_60c4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(112, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiamondPurple:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(368.00003, 528)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DiamondBlue2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(608, 128.00002)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1eptp"]
+_data = {
+&"RESET": SubResource("Animation_60c4h"),
+&"moving": SubResource("Animation_qxvjx")
+}
+
+[node name="DiamondMovingScene1" type="Area2D"]
+z_index = 16
+z_as_relative = false
+script = ExtResource("1_qxvjx")
+
+[node name="Line" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 16
+z_as_relative = false
+position = Vector2(112.00001, 330.73074)
+rotation = 1.5707964
+scale = Vector2(0.19660504, 0.31609195)
+sprite_frames = SubResource("SpriteFrames_13jgc")
+autoplay = "default"
+frame_progress = 0.5253894
+
+[node name="Line2" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 16
+z_as_relative = false
+position = Vector2(368, 329.81)
+rotation = 1.5707964
+scale = Vector2(0.19713552, 0.26519457)
+sprite_frames = SubResource("SpriteFrames_od56b")
+autoplay = "default"
+
+[node name="Line3" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 16
+z_as_relative = false
+position = Vector2(608, 330.73074)
+rotation = 1.5707964
+scale = Vector2(0.19660504, 0.31609195)
+sprite_frames = SubResource("SpriteFrames_13jgc")
+autoplay = "default"
+frame_progress = 0.3569368
+
+[node name="DiamondBlue" parent="." instance=ExtResource("1_pw7oq")]
+position = Vector2(112, 128)
+scale = Vector2(0.26157838, 0.26157838)
+
+[node name="DiamondPurple" parent="." instance=ExtResource("2_a273h")]
+position = Vector2(368.00003, 528)
+scale = Vector2(0.25211275, 0.25211275)
+
+[node name="DiamondBlue2" parent="." instance=ExtResource("1_pw7oq")]
+position = Vector2(608, 128.00002)
+scale = Vector2(0.26157838, 0.26157838)
+
+[node name="angle_dash_star" parent="." instance=ExtResource("4_60c4h")]
+position = Vector2(224, 312)
+
+[node name="angle_dash_star2" parent="." instance=ExtResource("4_60c4h")]
+position = Vector2(488, 312)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1eptp")
+}
+autoplay = "moving"
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 47)
+stream = ExtResource("7_o32cy")

@@ -20,3 +20,5 @@ func _process(delta: float) -> void:
 		return
 	if Global.angle_dash_animation_finished:
 		position.x -= delta * Global.spike_speed
+	if position.x < -1000:
+		queue_free()

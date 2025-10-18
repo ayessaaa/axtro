@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxjaxwundtn3w"]
+
+[ext_resource type="Script" uid="uid://bxobsjstkadxa" path="res://scripts/diamond_moving_scene_2.gd" id="1_8ueqo"]
+[ext_resource type="Texture2D" uid="uid://ggfdcllmjlaf" path="res://assets/IMG_1694 - Copy.PNG" id="2_tudho"]
+[ext_resource type="Texture2D" uid="uid://cigvfcc8lqeis" path="res://assets/IMG_1694.PNG" id="3_3hsaw"]
+[ext_resource type="PackedScene" uid="uid://drxxnu6n4cuc7" path="res://scenes/diamond_purple.tscn" id="4_fgcaj"]
+[ext_resource type="PackedScene" uid="uid://d4l1slmbytvt4" path="res://scenes/diamond_blue.tscn" id="5_bl45x"]
+[ext_resource type="PackedScene" uid="uid://bp83t6gxbel5l" path="res://scenes/angle_dash_star.tscn" id="6_mfjp8"]
+[ext_resource type="AudioStream" uid="uid://bpe5pxevonw70" path="res://assets/music/coin-257878_AK75k1e1.mp3" id="7_tudho"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o526t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tudho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3hsaw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0j77m"]
+resource_name = "moving"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(488, 160), Vector2(264.00003, 464)]
+}
+
+[sub_resource type="Animation" id="Animation_yc5l4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiamondBlue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7l1iy"]
+_data = {
+&"RESET": SubResource("Animation_yc5l4"),
+&"moving": SubResource("Animation_0j77m")
+}
+
+[node name="DiamondMovingScene2" type="Area2D"]
+script = ExtResource("1_8ueqo")
+
+[node name="Line" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.39215687)
+z_index = 16
+z_as_relative = false
+position = Vector2(377.67154, 310.52716)
+rotation = 2.198247
+scale = Vector2(0.17649888, 0.31609195)
+sprite_frames = SubResource("SpriteFrames_o526t")
+autoplay = "default"
+
+[node name="DiamondPurple" parent="." instance=ExtResource("4_fgcaj")]
+position = Vector2(128, 152)
+scale = Vector2(0.262, 0.262)
+
+[node name="DiamondBlue" parent="." instance=ExtResource("5_bl45x")]
+position = Vector2(488, 160)
+scale = Vector2(0.262, 0.262)
+
+[node name="DiamondPurple2" parent="." instance=ExtResource("4_fgcaj")]
+position = Vector2(128, 464)
+scale = Vector2(0.262, 0.262)
+
+[node name="DiamondPurple3" parent="." instance=ExtResource("4_fgcaj")]
+position = Vector2(632, 160)
+scale = Vector2(0.262, 0.262)
+
+[node name="DiamondPurple4" parent="." instance=ExtResource("4_fgcaj")]
+position = Vector2(632, 472)
+scale = Vector2(0.262, 0.262)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7l1iy")
+}
+autoplay = "moving"
+
+[node name="angle_dash_star" parent="." instance=ExtResource("6_mfjp8")]
+position = Vector2(224, 312)
+
+[node name="angle_dash_star2" parent="." instance=ExtResource("6_mfjp8")]
+position = Vector2(328, 216)
+
+[node name="angle_dash_star3" parent="." instance=ExtResource("6_mfjp8")]
+position = Vector2(512, 320)
+
+[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 47)
+stream = ExtResource("7_tudho")

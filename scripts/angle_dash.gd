@@ -17,15 +17,21 @@ const SPIKES2 = preload("res://scenes/spikes_2.tscn")
 const SPIKES3 = preload("res://scenes/angle_dash_spikes.tscn")
 const DIAMOND_SCENE = preload("res://scenes/diamond_scene.tscn")
 const DIAMOND_SCENE2 = preload("res://scenes/diamond_scene_2.tscn")
+const DIAMOND_MOVING_SCENE1 = preload("res://scenes/diamond_moving_scene_1.tscn")
+const DIAMOND_MOVING_SCENE2 = preload("res://scenes/diamond_moving_scene_2.tscn")
 @onready var obstacles_container = get_parent().get_node("Obstacles")
 
 @onready var progress_area_animation = get_parent().get_node("ProgressArea/AnimationPlayer")
 
 @onready var obstacles: Node = $Obstacles
+@onready var tutorial_fade_out_animation: AnimationPlayer = $TutorialFadeOutAnimation
 
 var timer = 4
-var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2]
-var obs_position_y_array = [117.0, 322.0, 0, 0]
+#var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+#var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
+
+var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -82,6 +88,9 @@ func _process(delta: float) -> void:
 		
 	score.visible = !Global.marathon
 	
+	if Input.is_action_just_pressed("shoot") and Global.direction == 0 and Global.angle_dash_animation_finished:
+		tutorial_fade_out_animation.play("fade_out")
+		
 	#print(Global.score)
 	
 	#if Global.angle_dash_score >= 10 and Global.score > 10 and Global.marathon:
