@@ -15,3 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 			death_sound.play()
 			bg_music.stop()
 			gameover_screen.play_animation("default")
+
+
+func _on_diamond_outer_area_blue_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

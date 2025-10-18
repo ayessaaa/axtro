@@ -27,11 +27,13 @@ const DIAMOND_MOVING_SCENE2 = preload("res://scenes/diamond_moving_scene_2.tscn"
 @onready var tutorial_fade_out_animation: AnimationPlayer = $TutorialFadeOutAnimation
 
 var timer = 4
-#var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
-#var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
+var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
 
-var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
-var obs_position_y_array = [0, 0]
+var challenges = [{"title": "CLOSE CALL!", "description": "brush on a diamond obstacle but don't crash", "number": 5}]
+
+#var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+#var obs_position_y_array = [0, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

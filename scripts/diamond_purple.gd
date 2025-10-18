@@ -15,3 +15,9 @@ func _on_area_entered(area: Area2D) -> void:
 			death_sound.play()
 			bg_music.stop()
 			gameover_screen.play_animation("default")
+
+
+func _on_diamond_outer_area_purple_area_entered(area: Area2D) -> void:
+	if Global.is_angle_dash:
+		if area.player:
+			print("brush")

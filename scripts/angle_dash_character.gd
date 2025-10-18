@@ -10,6 +10,7 @@ var current_segment: Node = null
 @onready var gameover_screen = get_parent().get_parent().get_node("GameoverBg")
 @onready var death_sound = get_parent().get_parent().get_node("DeathSound")
 @onready var bg_music = get_parent().get_parent().get_node("AngleDashBg")
+@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 func _ready() -> void:
 	_start_new_segment()
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 			else:
 				Global.direction *= -1
 			sprite_2d.rotation_degrees = 80 if Global.direction > 0 else 0
+			collision_polygon_2d.rotation_degrees = 80 if Global.direction > 0 else 0
 			_start_new_segment()
 		
 		if position.y < 0 or position.y > 648:

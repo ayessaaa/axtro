@@ -2,6 +2,7 @@ extends Area2D
 @onready var angle_dash_star: Area2D = $angle_dash_star
 @onready var angle_dash_star_2: Area2D = $angle_dash_star2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var angle_dash_stardust: Area2D = $AngleDashStardust
 
 @onready var stars_array = [angle_dash_star, angle_dash_star_2]
 
@@ -12,6 +13,11 @@ func _ready() -> void:
 		star.visible = false
 		if star == selected_star:
 			star.visible = true
+	if Global.angle_dash_challenge:
+		angle_dash_stardust.queue_free()
+	else: 
+		if randi_range(0, 2) > 1:
+			angle_dash_stardust.queue_free()
 
 func _process(delta: float) -> void:
 	self.visible = Global.is_angle_dash

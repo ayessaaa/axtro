@@ -144,6 +144,7 @@ func _process(delta: float) -> void:
 				Global.selected_sound_played = false
 				angle_dash_music.stop()
 				Global.is_mecha_flight_player_screen = false
+				Global.direction = 0
 				queue_free()
 			3:
 				Global.start_screen = false
