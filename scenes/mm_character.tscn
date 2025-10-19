@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://3xafk04g1tfm"]
+
+[ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="1_ter6y"]
+
+[node name="MMCharacter" type="CharacterBody2D"]
+scale = Vector2(0.44781256, 0.44781256)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35625, 0.35625)
+texture = ExtResource("1_ter6y")
+
+[node name="CollisionRight" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -9, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -5, 26, -11, 24)
+
+[node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 13.398464, 0, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
+disabled = true

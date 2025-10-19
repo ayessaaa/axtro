@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://do2s7hf3rjwoa"]
+[gd_scene load_steps=94 format=3 uid="uid://do2s7hf3rjwoa"]
 
 [ext_resource type="Script" uid="uid://h6frfk1healy" path="res://scripts/game.gd" id="1_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cucp1iyq7jyle" path="res://scenes/bg.tscn" id="1_uwrxv"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://nlrc2nopu13v" path="res://scenes/ocean_rhythm.tscn" id="34_gxtfn"]
 [ext_resource type="Texture2D" uid="uid://b6vbfqsqahk5x" path="res://assets/space_ray_assets/IMG_1855.PNG" id="36_twgab"]
 [ext_resource type="PackedScene" uid="uid://ddk8iksbx6uhb" path="res://scenes/mf_player_screen.tscn" id="38_m4url"]
+[ext_resource type="PackedScene" uid="uid://dwwpjx7au0jyt" path="res://scenes/multiplayer_maze.tscn" id="41_o8oq8"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="42_pr1ej"]
 [ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="43_05nbr"]
 [ext_resource type="Texture2D" uid="uid://bh3givlxfl5rq" path="res://assets/IMG_1717.PNG" id="43_458eo"]
@@ -2098,6 +2099,8 @@ position = Vector2(46, 615)
 [node name="OceanRhythm" parent="." instance=ExtResource("34_gxtfn")]
 
 [node name="MFPlayerScreen" parent="." instance=ExtResource("38_m4url")]
+
+[node name="MultiplayerMaze" parent="." instance=ExtResource("41_o8oq8")]
 
 [node name="StartScreen" parent="." instance=ExtResource("30_sgl2t")]
 

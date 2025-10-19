@@ -566,10 +566,22 @@ tracks/42/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Label8:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_he1sj"]
 resource_name = "fade_in"
-length = 4.5
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -637,7 +649,7 @@ tracks/5/path = NodePath("ControlsLabel:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(4, 4.5),
+"times": PackedFloat32Array(4.5, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -674,6 +686,18 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(3.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label8:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4, 4.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -4283,9 +4307,9 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 370.0
+offset_top = 368.0
 offset_right = 728.0
-offset_bottom = 399.0
+offset_bottom = 397.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -4298,9 +4322,9 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 415.0
+offset_top = 411.0
 offset_right = 728.0
-offset_bottom = 444.0
+offset_bottom = 440.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -4344,9 +4368,9 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 450.0
-offset_top = 460.0
+offset_top = 456.0
 offset_right = 729.0
-offset_bottom = 489.0
+offset_bottom = 485.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
@@ -4359,14 +4383,29 @@ metadata/_edit_use_anchors_ = true
 modulate = Color(1, 1, 1, 0)
 z_index = 50
 offset_left = 449.0
-offset_top = 502.0
+offset_top = 496.0
 offset_right = 728.0
-offset_bottom = 531.0
+offset_bottom = 525.0
 theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
 theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
 theme_override_fonts/font = ExtResource("5_5pab1")
 theme_override_font_sizes/font_size = 40
 text = "OCEAN RHYTHM"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label8" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 50
+offset_left = 448.0
+offset_top = 537.0
+offset_right = 727.0
+offset_bottom = 566.0
+theme_override_colors/font_color = Color(0.164706, 0.211765, 0.427451, 1)
+theme_override_colors/font_outline_color = Color(0.956863, 0.956863, 0.956863, 1)
+theme_override_fonts/font = ExtResource("5_5pab1")
+theme_override_font_sizes/font_size = 40
+text = "MULTIPLAYER MAZE"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 

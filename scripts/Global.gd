@@ -110,3 +110,5 @@ var is_ocean_rhythm = false
 var bubble_spawn_interval = 1.5
 var coral_spawn_interval = 8
 var fish_spawn_interval = 15
+
+var is_multiplayer_maze = false

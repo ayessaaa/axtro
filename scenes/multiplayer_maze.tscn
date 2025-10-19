@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwwpjx7au0jyt"]
+
+[ext_resource type="Texture2D" uid="uid://b2dgsrtprrb5o" path="res://assets/asdgasgdh.png" id="1_heavv"]
+[ext_resource type="Script" uid="uid://bq33e52h36yo2" path="res://scripts/multiplayer_maze.gd" id="1_ihdka"]
+[ext_resource type="PackedScene" uid="uid://3xafk04g1tfm" path="res://scenes/mm_character.tscn" id="2_nb03k"]
+[ext_resource type="Script" uid="uid://bclypooslfnpc" path="res://scripts/mm_character.gd" id="3_x55ex"]
+
+[node name="MultiplayerMaze" type="Node"]
+script = ExtResource("1_ihdka")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(586, 357)
+scale = Vector2(1.0735294, 1.1378356)
+texture = ExtResource("1_heavv")
+
+[node name="MMCharacter" parent="." instance=ExtResource("2_nb03k")]
+z_index = 20
+position = Vector2(64.00001, 533)
+script = ExtResource("3_x55ex")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 20
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 20
+polygon = PackedVector2Array(4, 557, 126, 555, 136, 472, 323, 466, 326, 620, 845, 614, 835, 457, 968, 444, 974, 513, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1153, 510, 1153, 382, 1152, 236, 978, 243, 966, 312, 838, 309, 810, 34, 310, 27, 316, 337, 147, 332, 163, 247, 59, 245, 2, 254, 0, 441)
