@@ -27,10 +27,12 @@ const DIAMOND_MOVING_SCENE2 = preload("res://scenes/diamond_moving_scene_2.tscn"
 @onready var tutorial_fade_out_animation: AnimationPlayer = $TutorialFadeOutAnimation
 
 var timer = 4
-var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
-var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
+var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+var obs_position_y_array = [ 0, 0]
 
-var challenges = [{"title": "CLOSE CALL!", "description": "brush on a diamond obstacle but don't crash", "number": 5}]
+var challenge_timer = 0
+@onready var bg_progress: ProgressBar = $Challenges/Bg
+@onready var challenge_animation: AnimationPlayer = $Challenges/AnimationPlayer
 
 #var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
 #var obs_position_y_array = [0, 0]
@@ -80,6 +82,16 @@ func _process(delta: float) -> void:
 		else:
 			Global.spike_speed += delta * 3
 			Global.angle_dash_speed += delta * 3
+			
+	if Global.angle_dash_challenge:
+		if challenge_timer <= 100:
+			bg_progress.value = 100 - challenge_timer
+			challenge_timer += delta * 10
+			print(challenge_timer)
+		else: 
+			Global.angle_dash_challenge = false
+			challenge_timer = 0
+			challenge_animation.play("fade_out")
 	
 	
 	if Global.free_regular_mode_objects:

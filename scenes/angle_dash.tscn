@@ -374,7 +374,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Label:position")
+tracks/3/path = NodePath("Description:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -449,7 +449,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Label:position")
+tracks/3/path = NodePath("Description:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -524,7 +524,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Label:position")
+tracks/3/path = NodePath("Description:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -640,7 +640,7 @@ offset_right = -26.0
 offset_bottom = 89.0
 theme_override_styles/background = SubResource("StyleBoxFlat_38rdi")
 theme_override_styles/fill = SubResource("StyleBoxFlat_q3cvr")
-value = 30.0
+value = 100.0
 show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Challenges"]
@@ -667,9 +667,8 @@ offset_right = -264.99994
 offset_bottom = 49.0
 theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 27
-text = "CLOSE CALL!"
 
-[node name="Label" type="Label" parent="Challenges"]
+[node name="Description" type="Label" parent="Challenges"]
 z_index = 16
 offset_left = -376.0
 offset_top = 47.0
@@ -677,7 +676,6 @@ offset_right = -38.0
 offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 21
-text = "brush on a diamond obstacle but don't crash"
 
 [node name="Progress" type="Label" parent="Challenges"]
 z_index = 16
@@ -687,7 +685,6 @@ offset_right = -178.99997
 offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("6_6682v")
 theme_override_font_sizes/font_size = 21
-text = "0/5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Challenges"]
 libraries = {

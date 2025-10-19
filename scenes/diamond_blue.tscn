@@ -20,4 +20,12 @@ position = Vector2(0.550015, 1.40001)
 scale = Vector2(1.57212, 1.57212)
 polygon = PackedVector2Array(-112, 0, -8, -104, 8, -104, 56, -64, 104, 0, 72, 56, 16, 104, 0, 104, -48, 72)
 
+[node name="DiamondOuterAreaBlue" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="OuterCollision" type="CollisionPolygon2D" parent="DiamondOuterAreaBlue"]
+scale = Vector2(1.1984466, 1.1984466)
+polygon = PackedVector2Array(-240, 0, -160, -144, 0, -248, 152, -144, 232, 0, 128, 160, -8, 232, -160, 152)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="DiamondOuterAreaBlue" to="." method="_on_diamond_outer_area_blue_area_entered"]

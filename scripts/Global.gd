@@ -44,6 +44,8 @@ var obstacle_spawn_interval = 5
 var direction = 0
 var angle_dash_score = 0
 var angle_dash_challenge = false
+var angle_dash_challenge_name = ""
+var angle_dash_challenges = {"CLOSE CALL!": {"description": "brush on a diamond obstacle but don't crash", "number": 5, "time": 100}}
 
 var start_screen = true
 
