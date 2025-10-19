@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 		return
 	if Global.angle_dash_animation_finished:
 		if Input.is_action_just_pressed("shoot"):
+			if Global.angle_dash_challenge_name == "RECKLESS DASHER":
+				Global.angle_dash_challenge_progress += 1
 			if Global.direction == 0:
 				Global.direction = 1
 			else:

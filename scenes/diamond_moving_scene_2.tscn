@@ -76,7 +76,7 @@ sprite_frames = SubResource("SpriteFrames_o526t")
 autoplay = "default"
 
 [node name="AngleDashStardust" parent="." instance=ExtResource("8_3hsaw")]
-position = Vector2(328, 376)
+position = Vector2(272, 304)
 
 [node name="DiamondPurple" parent="." instance=ExtResource("4_fgcaj")]
 position = Vector2(128, 152)

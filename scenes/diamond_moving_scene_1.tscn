@@ -164,7 +164,7 @@ autoplay = "default"
 frame_progress = 0.3569368
 
 [node name="AngleDashStardust" parent="." instance=ExtResource("10_13jgc")]
-position = Vector2(368, 312)
+position = Vector2(248, 312)
 
 [node name="DiamondBlue" parent="." instance=ExtResource("1_pw7oq")]
 position = Vector2(112, 128)

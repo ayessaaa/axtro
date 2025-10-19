@@ -45,7 +45,9 @@ var direction = 0
 var angle_dash_score = 0
 var angle_dash_challenge = false
 var angle_dash_challenge_name = ""
-var angle_dash_challenges = {"CLOSE CALL!": {"description": "brush on a diamond obstacle but don't crash", "number": 5, "time": 100}}
+var angle_dash_challenges = {"CLOSE CALL!": {"description": "brush on a diamond obstacle but don't crash", "number": 5, "time": 100}, 
+							"RECKLESS DASHER": {"description": "change direction 50x before the time runs out", "number": 50, "time": 50}}
+var angle_dash_challenge_progress = 0
 
 var start_screen = true
 

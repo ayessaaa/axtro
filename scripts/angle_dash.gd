@@ -27,15 +27,18 @@ const DIAMOND_MOVING_SCENE2 = preload("res://scenes/diamond_moving_scene_2.tscn"
 @onready var tutorial_fade_out_animation: AnimationPlayer = $TutorialFadeOutAnimation
 
 var timer = 4
-var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
-var obs_position_y_array = [ 0, 0]
+#var obstacles_array = [SPIKES2, SPIKES3, DIAMOND_SCENE, DIAMOND_SCENE2, DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+#var obs_position_y_array = [117.0, 322.0, 0, 0, 0, 0]
 
 var challenge_timer = 0
 @onready var bg_progress: ProgressBar = $Challenges/Bg
 @onready var challenge_animation: AnimationPlayer = $Challenges/AnimationPlayer
+@onready var challenge_progress_bar: ProgressBar = $Challenges/ProgressBar
+@onready var challenge_progress_text: Label = $Challenges/Progress
+@onready var challenge_completed_sound: AudioStreamPlayer2D = $Challenges/ChallengeCompletedSound
 
-#var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
-#var obs_position_y_array = [0, 0]
+var obstacles_array = [DIAMOND_MOVING_SCENE1, DIAMOND_MOVING_SCENE2]
+var obs_position_y_array = [0, 0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,6 +64,13 @@ func _process(delta: float) -> void:
 		Global.direction = 0
 		Global.angle_dash_score = 0
 		Global.score = 0
+		Global.angle_dash_challenge = false
+		Global.angle_dash_challenge_name = ""
+		Global.angle_dash_challenge_progress = 0
+		challenge_progress_bar.value = 0
+		challenge_progress_text.text = ""
+		#challenge_animation.play("fade_out")
+		challenge_timer = 0
 		bg_music.play()
 		
 	if Global.dead and Global.is_angle_dash:
@@ -68,6 +78,7 @@ func _process(delta: float) -> void:
 			Global.dead = false
 			get_tree().reload_current_scene()
 			Global.gameover_and_restart_angle_dash = true
+		return
 			
 	if Global.is_angle_dash and !Global.dead and Global.direction != 0:
 		timer += delta
@@ -84,14 +95,33 @@ func _process(delta: float) -> void:
 			Global.angle_dash_speed += delta * 3
 			
 	if Global.angle_dash_challenge:
-		if challenge_timer <= 100:
+		challenge_progress_bar.value = float(Global.angle_dash_challenge_progress)/ Global.angle_dash_challenges[Global.angle_dash_challenge_name]["number"] * 100
+		challenge_progress_text.text = str(Global.angle_dash_challenge_progress) +"/"+ str(Global.angle_dash_challenges[Global.angle_dash_challenge_name]["number"])
+		print(float(Global.angle_dash_challenge_progress)/ Global.angle_dash_challenges[Global.angle_dash_challenge_name]["number"] * 100)
+		print("progress ", str(Global.angle_dash_challenge_progress))
+		if challenge_timer <= Global.angle_dash_challenges[Global.angle_dash_challenge_name]["time"]:
 			bg_progress.value = 100 - challenge_timer
-			challenge_timer += delta * 10
-			print(challenge_timer)
+			challenge_timer += delta * 2
 		else: 
 			Global.angle_dash_challenge = false
 			challenge_timer = 0
 			challenge_animation.play("fade_out")
+			challenge_progress_bar.value = 0
+			challenge_progress_text.text = ""
+			Global.angle_dash_challenge_progress = 0
+			Global.angle_dash_challenge_name = ""
+		if challenge_progress_bar.value >= 100:
+			Global.angle_dash_challenge = false
+			challenge_timer = 0
+			challenge_animation.play("fade_out")
+			challenge_progress_text.text = ""
+			Global.angle_dash_challenge_progress = 0
+			Global.angle_dash_challenge_name = ""
+			Global.angle_dash_score += 10
+			challenge_completed_sound.play()
+			
+		
+		
 	
 	
 	if Global.free_regular_mode_objects:
@@ -101,6 +131,8 @@ func _process(delta: float) -> void:
 		score.text = "SCORE: "+str(Global.angle_dash_score)
 		
 	score.visible = !Global.marathon
+	
+	
 	
 	if Input.is_action_just_pressed("shoot") and Global.direction == 0 and Global.angle_dash_animation_finished:
 		tutorial_fade_out_animation.play("fade_out")

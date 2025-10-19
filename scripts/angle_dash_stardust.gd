@@ -10,7 +10,7 @@ extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var challenges = ["CLOSE CALL!"]
+var challenges = ["CLOSE CALL!", "RECKLESS DASHER"]
 
 
 #func _process(delta: float) -> void:

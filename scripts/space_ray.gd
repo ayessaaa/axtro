@@ -104,7 +104,7 @@ var rocket_lvls =  {0 : {"speed": [2,3],
 						"spawn_interval": 4}}
 						
 var blaister_lvls ={0 : {"speed": [2,3],
-						"spawn_interval": 3},
+						"spawn_interval": 0},
 					1 : {"speed": [0],
 						"spawn_interval": 0},
 					2 : {"speed": [3, 4],
