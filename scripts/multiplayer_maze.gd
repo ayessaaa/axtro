@@ -16,3 +16,9 @@ func _process(delta: float) -> void:
 	static_body_2d.visible = Global.is_multiplayer_maze
 	if !Global.is_multiplayer_maze:
 		return
+	
+	if Input.is_action_just_pressed("q"):
+		Global.mm_player1_gravity = !Global.mm_player1_gravity
+		Global.mm_player2_gravity = !Global.mm_player2_gravity
+		
+	

@@ -112,3 +112,5 @@ var coral_spawn_interval = 8
 var fish_spawn_interval = 15
 
 var is_multiplayer_maze = false
+var mm_player1_gravity = true
+var mm_player2_gravity = false

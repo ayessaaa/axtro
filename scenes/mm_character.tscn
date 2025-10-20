@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://3xafk04g1tfm"]
+[gd_scene load_steps=12 format=3 uid="uid://3xafk04g1tfm"]
 
 [ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="1_5ywst"]
+[ext_resource type="Texture2D" uid="uid://f2568kl2f72f" path="res://assets/IMG_1559.PNG" id="1_amvwm"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="1_ter6y"]
 [ext_resource type="Texture2D" uid="uid://b36rh1yexg1go" path="res://assets/IMG_1568.PNG" id="3_amvwm"]
 [ext_resource type="Texture2D" uid="uid://c6pe5e688oljm" path="res://assets/IMG_1569.PNG" id="4_ecnv5"]
@@ -52,6 +53,13 @@ animations = [{
 [node name="MMCharacter" type="CharacterBody2D"]
 scale = Vector2(0.44781256, 0.44781256)
 
+[node name="Line" type="Sprite2D" parent="."]
+z_index = 20
+z_as_relative = false
+position = Vector2(-1.9323096, 4.4661713)
+scale = Vector2(0.56901103, 1.7456127)
+texture = ExtResource("1_amvwm")
+
 [node name="RedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35625, 0.35625)
 sprite_frames = SubResource("SpriteFrames_nn5ok")
@@ -59,10 +67,11 @@ animation = &"red"
 autoplay = "red"
 
 [node name="GreenSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.466154, 13.398463)
+position = Vector2(4.466154, 13.398463)
 scale = Vector2(0.36090362, 0.36090362)
 sprite_frames = SubResource("SpriteFrames_45501")
 autoplay = "default"
+frame_progress = 0.5377821
 flip_h = true
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
