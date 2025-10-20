@@ -61,6 +61,15 @@ func _process(delta: float) -> void:
 				#bg_player.play("angle_dash")
 				wip.visible = true
 			4:
+				selector.play("down_multiplayer")
+				#paper_bg_animation.play("multiplayer_maze")
+				bg_player.play("multiplayer_maze")
+				ocean_rhythm_music.stop()
+				bg_music.stop()
+				angle_dash_music.stop()
+				space_ray_music.stop()
+				wip.visible = false
+			5:
 				selector.play("down_ocean_rhythm")
 				#paper_bg_animation.play("space_ray")
 				bg_player.play("ocean_rhythm")
@@ -69,15 +78,7 @@ func _process(delta: float) -> void:
 				angle_dash_music.stop()
 				space_ray_music.stop()
 				wip.visible = false
-			5:
-				#selector.play("down_ocean_rhythm")
-				#paper_bg_animation.play("space_ray")
-				#bg_player.play("ocean_rhythm")
-				ocean_rhythm_music.stop()
-				bg_music.stop()
-				angle_dash_music.stop()
-				space_ray_music.stop()
-				wip.visible = false
+			
 				
 	if Input.is_action_just_pressed("move_up") and selected_index > 0:
 		selected_index -= 1
@@ -110,6 +111,15 @@ func _process(delta: float) -> void:
 				space_ray_music.play()
 				ocean_rhythm_music.stop()
 				wip.visible = true
+			4:
+				selector.play("up_multiplayer")
+				#paper_bg_animation.play("default")
+				bg_player.play("up_multiplayer")
+				angle_dash_music.stop()
+				bg_music.stop()
+				space_ray_music.stop()
+				ocean_rhythm_music.stop()
+				wip.visible = false
 
 				
 	if Input.is_action_just_pressed("enter"):
@@ -187,20 +197,6 @@ func _process(delta: float) -> void:
 				Global.is_angle_dash = false
 				Global.marathon = false
 				Global.is_space_ray = false
-				Global.is_ocean_rhythm = true
-				ocean_rhythm.play("ocean_rhythm_selected")
-				Global.selected_sound_played = false
-				ocean_rhythm_text.play("text_animation")
-				Global.is_mecha_flight_player_screen = false
-				#bg_music.stop()
-				#angle_dash.play("angle_dash_selected")
-				queue_free()
-				
-			5:
-				Global.start_screen = false
-				Global.is_angle_dash = false
-				Global.marathon = false
-				Global.is_space_ray = false
 				Global.is_ocean_rhythm = false
 				#ocean_rhythm.play("ocean_rhythm_selected")
 				Global.selected_sound_played = false
@@ -209,6 +205,20 @@ func _process(delta: float) -> void:
 				bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				Global.is_multiplayer_maze = true
+				queue_free()
+				
+			5:
+				Global.start_screen = false
+				Global.is_angle_dash = false
+				Global.marathon = false
+				Global.is_space_ray = false
+				Global.is_ocean_rhythm = true
+				ocean_rhythm.play("ocean_rhythm_selected")
+				Global.selected_sound_played = false
+				ocean_rhythm_text.play("text_animation")
+				Global.is_mecha_flight_player_screen = false
+				#bg_music.stop()
+				#angle_dash.play("angle_dash_selected")
 				queue_free()
 				
 			
