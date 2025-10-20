@@ -13,16 +13,19 @@ const SMOOTHNESS = 5.0
 @onready var red_sprite: AnimatedSprite2D = $RedSprite
 @onready var green_sprite: AnimatedSprite2D = $GreenSprite
 
+#func _ready() -> void:
+	#sprite_2d.texture = load("res://images/new_texture.png")
+
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
-	green_sprite.visible = false
-
-	if Input.is_action_pressed("move_up"):
+	red_sprite.visible = false
+	
+	if Input.is_action_pressed("arrow_up"):
 		velocity.y = lerp(velocity.y, MAX_UP_SPEED, delta * SMOOTHNESS)
 	else:
 		velocity.y = lerp(velocity.y, MAX_DOWN_SPEED, delta * (SMOOTHNESS / 2))
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction := Input.get_axis("arrow_left", "arrow_right")
 
 	if direction != 0:
 		velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCEL * delta)
@@ -33,12 +36,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = 0
 			
-	if Input.is_action_just_pressed("move_right"):
-		red_sprite.flip_h = false
+	if Input.is_action_just_pressed("arrow_right"):
+		green_sprite.flip_h = false
 		collision_right.disabled = false
 		collision_left.disabled = true
-	if Input.is_action_just_pressed("move_left"):
-		red_sprite.flip_h = true
+	if Input.is_action_just_pressed("arrow_left"):
+		green_sprite.flip_h = true
 		collision_right.disabled = true
 		collision_left.disabled = false
 

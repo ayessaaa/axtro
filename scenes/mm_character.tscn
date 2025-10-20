@@ -1,17 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://3xafk04g1tfm"]
+[gd_scene load_steps=11 format=3 uid="uid://3xafk04g1tfm"]
 
+[ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="1_5ywst"]
 [ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="1_ter6y"]
+[ext_resource type="Texture2D" uid="uid://b36rh1yexg1go" path="res://assets/IMG_1568.PNG" id="3_amvwm"]
+[ext_resource type="Texture2D" uid="uid://c6pe5e688oljm" path="res://assets/IMG_1569.PNG" id="4_ecnv5"]
+[ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="5_i82m5"]
+[ext_resource type="Texture2D" uid="uid://c5gf31j82rfp0" path="res://assets/IMG_2024.PNG" id="6_3t012"]
+[ext_resource type="Texture2D" uid="uid://bbut1jt0cvt1u" path="res://assets/IMG_2025.PNG" id="7_j2tpy"]
+[ext_resource type="Texture2D" uid="uid://da30fknlsr707" path="res://assets/IMG_2026.PNG" id="8_3hnnh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn5ok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5ywst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ter6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_amvwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ecnv5")
+}],
+"loop": true,
+"name": &"red",
+"speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45501"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_i82m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3t012")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j2tpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3hnnh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="MMCharacter" type="CharacterBody2D"]
 scale = Vector2(0.44781256, 0.44781256)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35625, 0.35625)
-texture = ExtResource("1_ter6y")
+sprite_frames = SubResource("SpriteFrames_nn5ok")
+animation = &"red"
+autoplay = "red"
+
+[node name="GreenSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.466154, 13.398463)
+scale = Vector2(0.36090362, 0.36090362)
+sprite_frames = SubResource("SpriteFrames_45501")
+autoplay = "default"
+flip_h = true
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-14, -9, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -5, 26, -11, 24)
+polygon = PackedVector2Array(-26.796928, -8.932309, -15.631541, -6.699232, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -8.932309, 24.56385, -11.165386, 20.097696, -24.56385, 20.097696)
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 13.398464, 0, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
+polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 15.631541, -6.699232, 26.796928, -6.699232, 24.56385, 20.097696, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
 disabled = true
