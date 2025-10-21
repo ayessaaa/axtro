@@ -80,6 +80,8 @@ func _ready() -> void:
 		progress_area_animation.play("fade_in_angle_dash")
 	elif Global.is_space_ray:
 		space_ray_bg.play()
+	elif Global.is_multiplayer_maze:
+		pass
 	else:
 		bg_music.play()
 		progress_area_animation.play("fade_in")

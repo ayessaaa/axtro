@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwwpjx7au0jyt"]
+[gd_scene load_steps=15 format=3 uid="uid://dwwpjx7au0jyt"]
 
 [ext_resource type="Script" uid="uid://bq33e52h36yo2" path="res://scripts/multiplayer_maze.gd" id="1_ihdka"]
 [ext_resource type="PackedScene" uid="uid://3xafk04g1tfm" path="res://scenes/mm_character.tscn" id="2_nb03k"]
@@ -9,7 +9,10 @@
 [ext_resource type="Script" uid="uid://c6br8ys4xs1p4" path="res://scenes/character_area_1.gd" id="6_cus8u"]
 [ext_resource type="Script" uid="uid://bbo1odtpr2lr7" path="res://scripts/spikes_collision.gd" id="7_2kqgs"]
 [ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="8_2kqgs"]
+[ext_resource type="Script" uid="uid://y5lhw3dx4uev" path="res://scripts/character_area_2.gd" id="8_52b5h"]
 [ext_resource type="PackedScene" uid="uid://dhxvli2gsjpq3" path="res://scenes/mm_meteor.tscn" id="9_e4flk"]
+[ext_resource type="Texture2D" uid="uid://dyn3w84bryw2s" path="res://assets/multiplayer_maze/aa.png" id="14_gwhpx"]
+[ext_resource type="Texture2D" uid="uid://bxx53k0h0t0yx" path="res://assets/multiplayer_maze/aaa.png" id="15_ndc02"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohnp"]
 size = Vector2(183, 86)
@@ -52,6 +55,7 @@ script = ExtResource("5_el1o4")
 
 [node name="CharacterArea2" type="Area2D" parent="MMCharacter2"]
 collision_layer = 32
+script = ExtResource("8_52b5h")
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="MMCharacter2/CharacterArea2"]
 polygon = PackedVector2Array(-26.796928, -8.932309, -15.631541, -6.699232, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -8.932309, 24.56385, -11.165386, 20.097696, -24.56385, 20.097696)
@@ -61,6 +65,7 @@ polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.96
 disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 z_index = 21
 collision_mask = 32
 
@@ -72,11 +77,10 @@ shape = SubResource("RectangleShape2D_pohnp")
 z_index = 20
 polygon = PackedVector2Array(4, 557, 126, 555, 136, 472, 323, 466, 326, 620, 845, 614, 835, 457, 968, 444, 974, 513, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1153, 510, 1153, 382, 1152, 236, 978, 243, 966, 312, 838, 309, 810, 34, 310, 27, 316, 337, 147, 332, 163, 247, 59, 245, 2, 254, 0, 441)
 
-[node name="MMMeteor" parent="." instance=ExtResource("9_e4flk")]
-position = Vector2(593, 482)
-type = "mm_meteor"
-
 [node name="Meteors" type="Node" parent="."]
+
+[node name="MMMeteor" parent="Meteors" instance=ExtResource("9_e4flk")]
+position = Vector2(593, 482)
 
 [node name="SpikesCollision" type="Area2D" parent="."]
 z_index = 21
@@ -136,5 +140,68 @@ theme_override_fonts/font = ExtResource("8_2kqgs")
 theme_override_font_sizes/font_size = 30
 text = "press q to switch player physics movement"
 horizontal_alignment = 1
+
+[node name="Keys" type="Node" parent="."]
+
+[node name="Player1Keys" type="Node" parent="Keys"]
+
+[node name="Player2Keys" type="Node" parent="Keys"]
+
+[node name="Key1" type="Sprite2D" parent="Keys"]
+visible = false
+z_index = 21
+position = Vector2(28.911404, 36.05272)
+scale = Vector2(0.12013823, 0.12013823)
+texture = ExtResource("14_gwhpx")
+
+[node name="Key1Collected" type="Label" parent="Keys"]
+z_index = 21
+offset_left = 43.911407
+offset_top = 26.052717
+offset_right = 83.91141
+offset_bottom = 53.05272
+theme_override_colors/font_color = Color(0.9411765, 0.34901962, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 37
+text = "0/1"
+
+[node name="Key1Text" type="Label" parent="Keys"]
+z_index = 21
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 58.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.9411765, 0.34901962, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 17
+text = "player 1 keys collected"
+
+[node name="Key2" type="Sprite2D" parent="Keys"]
+z_index = 21
+position = Vector2(1129.9999, 33.999996)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("15_ndc02")
+
+[node name="Key2Collected" type="Label" parent="Keys"]
+z_index = 21
+offset_left = 999.0
+offset_top = 6.0
+offset_right = 1138.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.2509804, 0.7254902, 0.43137255, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 17
+text = "player 2 keys collected"
+
+[node name="Key2Text" type="Label" parent="Keys"]
+z_index = 21
+offset_left = 1075.0
+offset_top = 23.0
+offset_right = 1115.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.2509804, 0.7254902, 0.43137255, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 37
+text = "0/1"
 
 [connection signal="area_entered" from="SpikesCollision" to="." method="_on_spikes_collision_area_entered"]
