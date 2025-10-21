@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwwpjx7au0jyt"]
+[gd_scene load_steps=12 format=3 uid="uid://dwwpjx7au0jyt"]
 
 [ext_resource type="Script" uid="uid://bq33e52h36yo2" path="res://scripts/multiplayer_maze.gd" id="1_ihdka"]
 [ext_resource type="PackedScene" uid="uid://3xafk04g1tfm" path="res://scenes/mm_character.tscn" id="2_nb03k"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bohseuqf1sqwe" path="res://assets/multiplayer_maze/Frame 6.png" id="3_2kqgs"]
 [ext_resource type="Script" uid="uid://bclypooslfnpc" path="res://scripts/mm_character.gd" id="3_x55ex"]
 [ext_resource type="Script" uid="uid://x7nvjuab1lat" path="res://scripts/mm_character_2.gd" id="5_el1o4"]
-[ext_resource type="PackedScene" uid="uid://dhxvli2gsjpq3" path="res://scenes/mm_meteor.tscn" id="6_rucfw"]
+[ext_resource type="Script" uid="uid://c6br8ys4xs1p4" path="res://scenes/character_area_1.gd" id="6_cus8u"]
+[ext_resource type="Script" uid="uid://bbo1odtpr2lr7" path="res://scripts/spikes_collision.gd" id="7_2kqgs"]
+[ext_resource type="FontFile" uid="uid://cdoo88wn7b68y" path="res://assets/vividly/Vividly-Regular.ttf" id="8_2kqgs"]
+[ext_resource type="PackedScene" uid="uid://dhxvli2gsjpq3" path="res://scenes/mm_meteor.tscn" id="9_e4flk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pohnp"]
 size = Vector2(183, 86)
@@ -28,16 +31,38 @@ texture = ExtResource("3_2kqgs")
 
 [node name="MMCharacter" parent="." instance=ExtResource("2_nb03k")]
 z_index = 21
-position = Vector2(64.00001, 533)
+position = Vector2(57, 471.00006)
 script = ExtResource("3_x55ex")
+
+[node name="CharacterArea1" type="Area2D" parent="MMCharacter"]
+collision_layer = 32
+script = ExtResource("6_cus8u")
+
+[node name="CollisionRight" type="CollisionPolygon2D" parent="MMCharacter/CharacterArea1"]
+polygon = PackedVector2Array(-26.796928, -8.932309, -15.631541, -6.699232, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -8.932309, 24.56385, -11.165386, 20.097696, -24.56385, 20.097696)
+
+[node name="CollisionLeft" type="CollisionPolygon2D" parent="MMCharacter/CharacterArea1"]
+polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 15.631541, -6.699232, 26.796928, -6.699232, 24.56385, 20.097696, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
+disabled = true
 
 [node name="MMCharacter2" parent="." instance=ExtResource("2_nb03k")]
 z_index = 21
-position = Vector2(1091, 476.00006)
+position = Vector2(1090.0001, 425.00003)
 script = ExtResource("5_el1o4")
 
+[node name="CharacterArea2" type="Area2D" parent="MMCharacter2"]
+collision_layer = 32
+
+[node name="CollisionRight" type="CollisionPolygon2D" parent="MMCharacter2/CharacterArea2"]
+polygon = PackedVector2Array(-26.796928, -8.932309, -15.631541, -6.699232, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -8.932309, 24.56385, -11.165386, 20.097696, -24.56385, 20.097696)
+
+[node name="CollisionLeft" type="CollisionPolygon2D" parent="MMCharacter2/CharacterArea2"]
+polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 15.631541, -6.699232, 26.796928, -6.699232, 24.56385, 20.097696, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
+disabled = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-z_index = 20
+z_index = 21
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(578.5, 200)
@@ -47,7 +72,69 @@ shape = SubResource("RectangleShape2D_pohnp")
 z_index = 20
 polygon = PackedVector2Array(4, 557, 126, 555, 136, 472, 323, 466, 326, 620, 845, 614, 835, 457, 968, 444, 974, 513, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1153, 510, 1153, 382, 1152, 236, 978, 243, 966, 312, 838, 309, 810, 34, 310, 27, 316, 337, 147, 332, 163, 247, 59, 245, 2, 254, 0, 441)
 
-[node name="Player1Meteors" type="Node" parent="."]
+[node name="MMMeteor" parent="." instance=ExtResource("9_e4flk")]
+position = Vector2(593, 482)
+type = "mm_meteor"
 
-[node name="MMMeteor" parent="Player1Meteors" instance=ExtResource("6_rucfw")]
-position = Vector2(418, 556)
+[node name="Meteors" type="Node" parent="."]
+
+[node name="SpikesCollision" type="Area2D" parent="."]
+z_index = 21
+collision_mask = 32
+script = ExtResource("7_2kqgs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(152, 333, 160, 342, 169, 333, 182, 343, 195, 337, 204, 348, 221, 339, 234, 346, 247, 340, 259, 346, 274, 343, 284, 348, 291, 341, 310, 343, 309, 333, 150, 327)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(146, 471, 167, 450, 171, 455, 178, 466, 188, 454, 191, 454, 199, 467, 211, 455, 215, 454, 221, 461, 235, 451, 252, 462, 264, 454, 276, 462, 293, 458, 317, 470)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(837, 455, 863, 433, 873, 443, 885, 430, 895, 437, 910, 429, 919, 437, 929, 431, 937, 439, 953, 428, 961, 443)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(838, 307, 852, 329, 864, 313, 872, 326, 884, 314, 894, 327, 903, 316, 917, 323, 927, 317, 937, 329, 947, 314, 958, 318, 966, 311)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(486, 159, 474, 168, 485, 177, 474, 194, 485, 203, 474, 228, 488, 234)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="SpikesCollision"]
+polygon = PackedVector2Array(670, 158, 683, 169, 672, 179, 680, 194, 673, 206, 684, 214, 669, 235)
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+offset_left = 446.0
+offset_top = 307.0
+offset_right = 725.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0.24313726, 0.2784314, 0.3764706, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 30
+text = "this is a work in progress!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+z_index = 20
+offset_left = 445.0
+offset_top = 334.0
+offset_right = 724.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(0.24313726, 0.2784314, 0.3764706, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 25
+text = "all art is a placeholder"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+z_index = 20
+offset_left = 364.0
+offset_top = 395.0
+offset_right = 830.0
+offset_bottom = 418.0
+theme_override_colors/font_color = Color(0.24313726, 0.2784314, 0.3764706, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 30
+text = "press q to switch player physics movement"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="SpikesCollision" to="." method="_on_spikes_collision_area_entered"]

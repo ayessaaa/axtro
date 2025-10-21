@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://p2tjmtkdvjvo"]
+
+[ext_resource type="Texture2D" uid="uid://dyn3w84bryw2s" path="res://assets/multiplayer_maze/aa.png" id="1_hufru"]
+
+[node name="MMKey1" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hufru")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, 14, -37, 15, -67, -8, -74, -27, -66, -61, -31, -84, 6, -79, 23, -49, 25, -30, 18, -3, 12, 4, 15, 12, 29, 5, 39, 9, 40, 17, 36, 24, 22, 32, 34, 62, 69, 43, 75, 56, 38, 83, 16, 79, -3, 24)

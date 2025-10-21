@@ -52,6 +52,7 @@ animations = [{
 
 [node name="MMCharacter" type="CharacterBody2D"]
 scale = Vector2(0.44781256, 0.44781256)
+collision_layer = 32
 
 [node name="Line" type="Sprite2D" parent="."]
 z_index = 20
@@ -71,7 +72,7 @@ position = Vector2(4.466154, 13.398463)
 scale = Vector2(0.36090362, 0.36090362)
 sprite_frames = SubResource("SpriteFrames_45501")
 autoplay = "default"
-frame_progress = 0.5377821
+frame_progress = 0.21836145
 flip_h = true
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]

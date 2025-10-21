@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 				bg_music.stop()
 				angle_dash_music.stop()
 				space_ray_music.stop()
-				wip.visible = false
+				wip.visible = true
 			5:
 				selector.play("down_ocean_rhythm")
 				#paper_bg_animation.play("space_ray")
@@ -119,7 +119,7 @@ func _process(delta: float) -> void:
 				bg_music.stop()
 				space_ray_music.stop()
 				ocean_rhythm_music.stop()
-				wip.visible = false
+				wip.visible = true
 
 				
 	if Input.is_action_just_pressed("enter"):
@@ -138,6 +138,7 @@ func _process(delta: float) -> void:
 				Global.selected_sound_played = false
 				Global.hearts = 2
 				Global.is_mecha_flight_player_screen = false
+				Global.is_multiplayer_maze = false
 				queue_free()
 			1:
 				Global.start_screen = false
@@ -153,6 +154,7 @@ func _process(delta: float) -> void:
 				Global.is_mecha_flight_player_screen = true
 				Global.selected_sound_played = false
 				animation_player.play("mf_fade_out")
+				Global.is_multiplayer_maze = false
 			2:
 				Global.start_screen = false
 				Global.is_angle_dash = true
@@ -164,6 +166,7 @@ func _process(delta: float) -> void:
 				angle_dash_music.stop()
 				Global.is_mecha_flight_player_screen = false
 				Global.direction = 0
+				Global.is_multiplayer_maze = false
 				queue_free()
 			3:
 				Global.start_screen = false
@@ -189,7 +192,7 @@ func _process(delta: float) -> void:
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				Global.is_mecha_flight_player_screen = false
-				
+				Global.is_multiplayer_maze = false
 				queue_free()
 				
 			4:
@@ -217,6 +220,7 @@ func _process(delta: float) -> void:
 				Global.selected_sound_played = false
 				ocean_rhythm_text.play("text_animation")
 				Global.is_mecha_flight_player_screen = false
+				Global.is_multiplayer_maze = false
 				#bg_music.stop()
 				#angle_dash.play("angle_dash_selected")
 				queue_free()

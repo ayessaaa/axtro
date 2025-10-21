@@ -14,6 +14,8 @@ const SPEED = 200
 @onready var red_sprite: AnimatedSprite2D = $RedSprite
 @onready var green_sprite: AnimatedSprite2D = $GreenSprite
 @onready var line: Sprite2D = $Line
+@onready var area_collision_right: CollisionPolygon2D = $CharacterArea2/CollisionRight
+@onready var area_collision_left: CollisionPolygon2D = $CharacterArea2/CollisionLeft
 
 #func _ready() -> void:
 	#sprite_2d.texture = load("res://images/new_texture.png")
@@ -54,16 +56,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-	
-	
-			
+		
 	if Input.is_action_just_pressed("arrow_right"):
 		green_sprite.flip_h = false
 		collision_right.disabled = false
+		area_collision_right.disabled = false
 		collision_left.disabled = true
+		area_collision_left.disabled = true
 	if Input.is_action_just_pressed("arrow_left"):
 		green_sprite.flip_h = true
 		collision_right.disabled = true
+		area_collision_right.disabled = true
 		collision_left.disabled = false
+		area_collision_left.disabled = false
+		
 
 	move_and_slide()
