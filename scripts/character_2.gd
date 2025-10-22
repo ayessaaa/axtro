@@ -206,15 +206,20 @@ func shoot():
 
 
 func _on_character_2_area_area_entered(area: Area2D) -> void:
-	if area.type == "player" and area.player_number == 1:
-		Global.mecha_flight_colliding_with_player = true
-	else:
-		Global.mecha_flight_colliding_with_player = false
+	if area.type == "player":
+		if area.player_number == 1:
+			Global.mecha_flight_colliding_with_player = true
+			return
+	
+	Global.mecha_flight_colliding_with_player = false
 
 
 func _on_character_2_area_area_exited(area: Area2D) -> void:
-	if area.type == "player" and area.player_number == 1:
-		Global.mecha_flight_colliding_with_player = false
+	if area.type == "player":
+		if area.player_number == 1:
+			Global.mecha_flight_colliding_with_player = false
+			return
+	
 		
 
 func revived():
