@@ -11,7 +11,7 @@ const SPEED = 200
 
 @onready var collision_right: CollisionPolygon2D = $CollisionRight
 @onready var collision_left: CollisionPolygon2D = $CollisionLeft
-@onready var red_sprite: AnimatedSprite2D = $RedSprite
+@onready var blue_sprite: AnimatedSprite2D = $BlueSprite
 @onready var green_sprite: AnimatedSprite2D = $GreenSprite
 @onready var line: Sprite2D = $Line
 @onready var area_collision_right: CollisionPolygon2D = $CharacterArea2/CollisionRight
@@ -22,7 +22,7 @@ const SPEED = 200
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
-	red_sprite.visible = false
+	blue_sprite.visible = false
 	
 	if Global.mm_player2_gravity:
 		line.visible = false

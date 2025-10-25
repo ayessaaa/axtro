@@ -1,29 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://3xafk04g1tfm"]
+[gd_scene load_steps=6 format=3 uid="uid://3xafk04g1tfm"]
 
-[ext_resource type="Texture2D" uid="uid://b6fr8jtfhqcv" path="res://assets/IMG_1566.PNG" id="1_5ywst"]
 [ext_resource type="Texture2D" uid="uid://f2568kl2f72f" path="res://assets/IMG_1559.PNG" id="1_amvwm"]
-[ext_resource type="Texture2D" uid="uid://djhdmtlelds34" path="res://assets/IMG_1567.PNG" id="1_ter6y"]
-[ext_resource type="Texture2D" uid="uid://b36rh1yexg1go" path="res://assets/IMG_1568.PNG" id="3_amvwm"]
-[ext_resource type="Texture2D" uid="uid://c6pe5e688oljm" path="res://assets/IMG_1569.PNG" id="4_ecnv5"]
-[ext_resource type="Texture2D" uid="uid://bsed4majt1kqa" path="res://assets/IMG_2023.PNG" id="5_i82m5"]
-[ext_resource type="Texture2D" uid="uid://c5gf31j82rfp0" path="res://assets/IMG_2024.PNG" id="6_3t012"]
-[ext_resource type="Texture2D" uid="uid://bbut1jt0cvt1u" path="res://assets/IMG_2025.PNG" id="7_j2tpy"]
-[ext_resource type="Texture2D" uid="uid://da30fknlsr707" path="res://assets/IMG_2026.PNG" id="8_3hnnh"]
+[ext_resource type="Texture2D" uid="uid://ctvy08pbjt7ee" path="res://assets/multiplayer_maze/IMG_2069.PNG" id="2_q1roi"]
+[ext_resource type="Texture2D" uid="uid://dyt4x2jmsu287" path="res://assets/multiplayer_maze/IMG_2070.PNG" id="3_wn348"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn5ok"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5ywst")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_ter6y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_amvwm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ecnv5")
+"texture": ExtResource("2_q1roi")
 }],
 "loop": true,
 "name": &"red",
@@ -34,16 +19,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_i82m5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_3t012")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_j2tpy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_3hnnh")
+"texture": ExtResource("3_wn348")
 }],
 "loop": true,
 "name": &"default",
@@ -61,23 +37,25 @@ position = Vector2(-1.9323096, 4.4661713)
 scale = Vector2(0.56901103, 1.7456127)
 texture = ExtResource("1_amvwm")
 
-[node name="RedSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.35625, 0.35625)
+[node name="BlueSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8.932312, -17.864618)
+scale = Vector2(0.47615352, 0.47615352)
 sprite_frames = SubResource("SpriteFrames_nn5ok")
 animation = &"red"
 autoplay = "red"
 
 [node name="GreenSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.466154, 13.398463)
-scale = Vector2(0.36090362, 0.36090362)
+position = Vector2(-8.932307, -17.864616)
+scale = Vector2(0.47573578, 0.47573578)
 sprite_frames = SubResource("SpriteFrames_45501")
 autoplay = "default"
 frame_progress = 0.21836145
 flip_h = true
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-26.796928, -8.932309, -15.631541, -6.699232, -11, -23, -3, -34, 27, -34, 55, -23, 72, -8, 75, 5, 70, 15, 58, 20, 19, 26, -8.932309, 24.56385, -11.165386, 20.097696, -24.56385, 20.097696)
+position = Vector2(-11.165386, -4.4661546)
+polygon = PackedVector2Array(-37.962315, -6.6992316, -29.030006, -13.398464, -17.864618, -17.864618, -24.56385, -42.428467, -4.466155, -66.99232, 35.729237, -69.225395, 55.82693, -46.894623, 51.36078, -24.56385, 62.526165, -20.097696, 72, -8, 75, 5, 70, 15, 58.06001, 29.030005, 22.330772, 40.195393, 0, 40.195393, -17.864618, 37.962315, -31.26308, 24.56385)
 
 [node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.962315, -31.263083, -6.699232, -35.729237, 4.4661546, -33.49616, 11.165386, -24.56385, 15.631541, -6.699232, 26.796928, -6.699232, 24.56385, 20.097696, 11.165386, 20.097696, 2.2330773, 26.796928, -37.962315, 24.56385, -64.75924, 17.864618, -73.69155, 6.699232)
+polygon = PackedVector2Array(-80.390785, -6.699232, -66.99232, -22.330772, -51.36078, -29.030005, -60.293087, -42.428467, -53.593857, -64.75924, -24.56385, -75.92463, 8.932309, -64.75924, 20.097696, -44.661545, 11.165386, -24.56385, 20.097696, -17.864618, 31.263083, -8.932309, 29.030005, 13.398464, 20.097696, 26.796928, 6.699232, 33.49616, -35.729237, 33.49616, -64.75924, 17.864618, -73.69155, 11.165386)
 disabled = true
