@@ -851,7 +851,6 @@ polygon = PackedVector2Array(-73.69155, -6.699232, -58.06001, -20.097696, -37.96
 disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 z_index = 21
 collision_mask = 32
 
@@ -861,7 +860,7 @@ shape = SubResource("RectangleShape2D_pohnp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 z_index = 20
-polygon = PackedVector2Array(8, 534, 105, 530, 127, 457, 302, 454, 311, 590, 825, 581, 816, 448, 995, 445, 1029, 518, 1146, 522, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1151, 520, 1153, 382, 1153, 207, 974, 214, 978, 275, 817, 276, 785, 20, 472, 14, 295, 20, 293, 291, 129, 287, 137, 224, 41, 224, 9, 221, 6, 440)
+polygon = PackedVector2Array(2, 517, 103, 516, 127, 457, 302, 454, 310, 572, 825, 565, 816, 433, 993, 430, 1027, 500, 1143, 507, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1151, 520, 1153, 382, 1153, 207, 974, 214, 978, 275, 817, 276, 785, 20, 472, 14, 295, 20, 293, 291, 129, 287, 137, 224, 41, 224, 9, 221, 6, 440)
 
 [node name="Meteors" type="Node" parent="."]
 

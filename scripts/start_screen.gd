@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 			4:
 				selector.play("down_multiplayer")
 				#paper_bg_animation.play("multiplayer_maze")
+				paper_bg_animation.play("default")
 				bg_player.play("multiplayer_maze")
 				ocean_rhythm_music.stop()
 				bg_music.stop()
@@ -71,7 +72,7 @@ func _process(delta: float) -> void:
 				wip.visible = true
 			5:
 				selector.play("down_ocean_rhythm")
-				#paper_bg_animation.play("space_ray")
+				paper_bg_animation.play("space_ray")
 				bg_player.play("ocean_rhythm")
 				ocean_rhythm_music.play()
 				bg_music.stop()
@@ -104,7 +105,7 @@ func _process(delta: float) -> void:
 				wip.visible = false
 			3:
 				selector.play("up_space_ray")
-				paper_bg_animation.play("default")
+				paper_bg_animation.play("space_ray")
 				bg_player.play("up_space_ray")
 				angle_dash_music.stop()
 				bg_music.stop()
@@ -113,7 +114,7 @@ func _process(delta: float) -> void:
 				wip.visible = true
 			4:
 				selector.play("up_multiplayer")
-				#paper_bg_animation.play("default")
+				paper_bg_animation.play("default")
 				bg_player.play("up_multiplayer")
 				angle_dash_music.stop()
 				bg_music.stop()
