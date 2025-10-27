@@ -262,6 +262,7 @@ func _process(delta: float) -> void:
 		Global.double_point_player2 = false
 		Global.shield_player1 = false
 		Global.shield_player2 = false
+		Global.is_multiplayer_maze = false
 		free_medkits()
 		get_tree().reload_current_scene()
 		

@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if !Global.is_multiplayer_maze:
+		return
 	if area.type == "player1" or area.type == "player2":
 		print("meteor dead")
 		get_tree().reload_current_scene()
