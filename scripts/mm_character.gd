@@ -27,8 +27,13 @@ func _physics_process(delta: float) -> void:
 		line.visible = false
 		
 		if Input.is_action_pressed("move_up"):
+			blue_sprite.play("up")
 			velocity.y = lerp(velocity.y, MAX_UP_SPEED, delta * SMOOTHNESS)
 		else:
+			if is_on_floor():
+				blue_sprite.play("default")
+			else:
+				blue_sprite.play("down")
 			velocity.y = lerp(velocity.y, MAX_DOWN_SPEED, delta * (SMOOTHNESS / 2))
 
 		var direction := Input.get_axis("move_left", "move_right")

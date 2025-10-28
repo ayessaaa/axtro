@@ -27,8 +27,13 @@ func _physics_process(delta: float) -> void:
 	if Global.mm_player2_gravity:
 		line.visible = false
 		if Input.is_action_pressed("arrow_up"):
+			green_sprite.play("up")
 			velocity.y = lerp(velocity.y, MAX_UP_SPEED, delta * SMOOTHNESS)
 		else:
+			if is_on_floor():
+				green_sprite.play("default")
+			else:
+				green_sprite.play("down")
 			velocity.y = lerp(velocity.y, MAX_DOWN_SPEED, delta * (SMOOTHNESS / 2))
 
 		var direction := Input.get_axis("arrow_left", "arrow_right")
@@ -51,6 +56,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 		var vertical := Input.get_axis("arrow_up", "arrow_down")
+		if Input.is_action_pressed("arrow_up"):
+			green_sprite.play("up")
+		elif Input.is_action_pressed("arrow_down"):
+			green_sprite.play("down")
+		else:
+			green_sprite.play("default")
 		if vertical:
 			velocity.y = vertical * SPEED
 		else:

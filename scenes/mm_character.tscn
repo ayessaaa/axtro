@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://3xafk04g1tfm"]
+[gd_scene load_steps=14 format=3 uid="uid://3xafk04g1tfm"]
 
 [ext_resource type="Texture2D" uid="uid://f2568kl2f72f" path="res://assets/IMG_1559.PNG" id="1_amvwm"]
 [ext_resource type="Texture2D" uid="uid://ctvy08pbjt7ee" path="res://assets/multiplayer_maze/IMG_2069.PNG" id="2_q1roi"]
+[ext_resource type="Texture2D" uid="uid://6jp21lubcdwo" path="res://assets/multiplayer_maze/IMG_2089.PNG" id="2_qbdkv"]
+[ext_resource type="Texture2D" uid="uid://jx2v3lrc8w1b" path="res://assets/multiplayer_maze/IMG_2090.PNG" id="3_5ywst"]
 [ext_resource type="Texture2D" uid="uid://dyt4x2jmsu287" path="res://assets/multiplayer_maze/IMG_2070.PNG" id="3_wn348"]
+[ext_resource type="Texture2D" uid="uid://c8lkfg6lrieov" path="res://assets/multiplayer_maze/IMG_2091.PNG" id="5_amvwm"]
+[ext_resource type="Texture2D" uid="uid://bx5f7vbjea877" path="res://assets/multiplayer_maze/IMG_2092.PNG" id="6_ecnv5"]
+[ext_resource type="Texture2D" uid="uid://don3lii18gbmm" path="res://assets/multiplayer_maze/IMG_2093.PNG" id="8_i82m5"]
+[ext_resource type="Texture2D" uid="uid://b0palov63bbuy" path="res://assets/multiplayer_maze/IMG_2094.PNG" id="9_3t012"]
+[ext_resource type="Texture2D" uid="uid://4ifhguke4moe" path="res://assets/multiplayer_maze/IMG_2095.PNG" id="10_j2tpy"]
+[ext_resource type="Texture2D" uid="uid://86jdonybia2" path="res://assets/multiplayer_maze/IMG_2096.PNG" id="11_3hnnh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn5ok"]
 animations = [{
@@ -11,8 +19,30 @@ animations = [{
 "texture": ExtResource("2_q1roi")
 }],
 "loop": true,
-"name": &"red",
+"name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qbdkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5ywst")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_amvwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ecnv5")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45501"]
@@ -24,6 +54,28 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_i82m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3t012")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_j2tpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3hnnh")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
 }]
 
 [node name="MMCharacter" type="CharacterBody2D"]
@@ -41,15 +93,14 @@ texture = ExtResource("1_amvwm")
 position = Vector2(-8.932312, -17.864618)
 scale = Vector2(0.47615352, 0.47615352)
 sprite_frames = SubResource("SpriteFrames_nn5ok")
-animation = &"red"
-autoplay = "red"
+autoplay = "default"
 
 [node name="GreenSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8.932307, -17.864616)
 scale = Vector2(0.47573578, 0.47573578)
 sprite_frames = SubResource("SpriteFrames_45501")
+animation = &"up"
 autoplay = "default"
-frame_progress = 0.21836145
 flip_h = true
 
 [node name="CollisionRight" type="CollisionPolygon2D" parent="."]

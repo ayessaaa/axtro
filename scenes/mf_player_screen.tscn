@@ -1193,51 +1193,51 @@ _data = {
 script = ExtResource("1_11de5")
 
 [node name="Bg" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(577.835, 326.25)
 scale = Vector2(0.528106, 0.439939)
 texture = ExtResource("1_1ucqv")
 
 [node name="Line2" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(259, -263)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_11de5")
 
 [node name="Line3" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(26.0001, -285)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_11de5")
 
 [node name="Line" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(952, -253)
 scale = Vector2(0.259259, 0.315162)
 texture = ExtResource("2_11de5")
 
 [node name="Cloud" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(128.966, 103.625)
 scale = Vector2(0.372423, 0.372423)
 texture = ExtResource("4_1h6qx")
 
 [node name="Star" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(949, 126)
 rotation = 0.23911
 scale = Vector2(0.384422, 0.384422)
 texture = ExtResource("5_1hisu")
 
 [node name="Axtro" type="AnimatedSprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(564, 133)
 scale = Vector2(0.334112, 0.334112)
 sprite_frames = SubResource("SpriteFrames_3hdam")
 autoplay = "default"
 
 [node name="MechaFlight" type="Label" parent="."]
-z_index = 50
+z_index = 51
 offset_left = 440.0
 offset_top = 224.0
 offset_right = 719.0
@@ -1250,19 +1250,19 @@ text = "MECHA FLIGHT"
 horizontal_alignment = 1
 
 [node name="SelectLine" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(280, 118.99989)
 scale = Vector2(0.259259, 0.13032375)
 texture = ExtResource("2_11de5")
 
 [node name="SelectLine2" type="Sprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(280, 632)
 scale = Vector2(0.259259, 0.13032375)
 texture = ExtResource("2_11de5")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = 50
+z_index = 51
 offset_left = 152.0
 offset_top = 272.0
 offset_right = 400.0
@@ -1273,7 +1273,7 @@ value = 100.0
 show_percentage = false
 
 [node name="ShipP1" type="AnimatedSprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(272, 352)
 scale = Vector2(0.34000003, 0.34000003)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
@@ -1281,21 +1281,21 @@ autoplay = "default"
 frame_progress = 0.4056074
 
 [node name="Ship2P2" type="AnimatedSprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(800, 344)
 scale = Vector2(0.32, 0.32)
 sprite_frames = SubResource("SpriteFrames_ub4ok")
 frame_progress = 0.26462582
 
 [node name="Ship1P2" type="AnimatedSprite2D" parent="."]
-z_index = 50
+z_index = 51
 position = Vector2(871.99994, 391.99994)
 scale = Vector2(0.32500002, 0.32500002)
 sprite_frames = SubResource("SpriteFrames_m5k4v")
 frame_progress = 0.7195688
 
 [node name="OnePlayer" type="Label" parent="."]
-z_index = 50
+z_index = 51
 offset_left = 136.0
 offset_top = 416.0
 offset_right = 415.0
@@ -1308,7 +1308,7 @@ text = "one player"
 horizontal_alignment = 1
 
 [node name="TwoPlayer" type="Label" parent="."]
-z_index = 50
+z_index = 51
 offset_left = 712.0
 offset_top = 432.0
 offset_right = 991.0
@@ -1321,7 +1321,7 @@ text = "two players"
 horizontal_alignment = 1
 
 [node name="ControlsLabel" type="Label" parent="."]
-z_index = 50
+z_index = 51
 offset_left = 200.0
 offset_top = 599.0
 offset_right = 951.0
