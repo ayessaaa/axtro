@@ -20,6 +20,8 @@ const SPEED = 200
 @onready var area_collision_left: CollisionPolygon2D = $CharacterArea1/CollisionLeft
 
 func _physics_process(delta: float) -> void:
+	if Global.mm_pause:
+		return
 	velocity.y += GRAVITY * delta
 	green_sprite.visible = false
 	
@@ -56,6 +58,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 		var vertical := Input.get_axis("move_up", "move_down")
+		if Input.is_action_pressed("move_up"):
+			blue_sprite.play("up")
+		elif Input.is_action_pressed("move_down"):
+			blue_sprite.play("down")
+		else:
+			blue_sprite.play("default")
 		if vertical:
 			velocity.y = vertical * SPEED
 		else:

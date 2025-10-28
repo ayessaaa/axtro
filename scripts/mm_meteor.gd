@@ -7,7 +7,7 @@ extends Area2D
 
 func _process(delta: float) -> void:
 	visible = Global.is_multiplayer_maze
-	if !Global.is_multiplayer_maze:
+	if !Global.is_multiplayer_maze or Global.mm_pause:
 		return
 	if Global.mm_player1_gravity:
 		position = position.move_toward(player2.position, 50 * delta)

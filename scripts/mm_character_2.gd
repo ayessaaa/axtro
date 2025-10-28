@@ -21,6 +21,8 @@ const SPEED = 200
 	#sprite_2d.texture = load("res://images/new_texture.png")
 
 func _physics_process(delta: float) -> void:
+	if Global.mm_pause:
+		return
 	velocity.y += GRAVITY * delta
 	blue_sprite.visible = false
 	

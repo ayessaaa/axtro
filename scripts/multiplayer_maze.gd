@@ -1,8 +1,9 @@
 extends Node
 
 @onready var bg_back: Sprite2D = $BgBack
-@onready var bg: Sprite2D = $Bg
-@onready var static_body_2d: StaticBody2D = $StaticBody2D
+@onready var bg_1: Sprite2D = $Bg1
+@onready var bg_2: Sprite2D = $Bg2
+@onready var static_body_2d_1: StaticBody2D = $Walls/StaticBody2D1
 @onready var mm_character: CharacterBody2D = $MMCharacter
 @onready var mm_character_2: CharacterBody2D = $MMCharacter2
 #@onready var mm_key_1: Area2D = $Keys/MMKey1
@@ -23,10 +24,12 @@ var keys_position = {1:{"player1": [Vector2(509.0, 80.0)], "player2": [Vector2(6
 var key_animation_done = false
 @onready var line_1: Sprite2D = $Keys/Line1
 @onready var line_2: Sprite2D = $Keys/Line2
-@onready var bg_1: Sprite2D = $Keys/Bg1
+@onready var keys_bg_1: Sprite2D = $Keys/Bg1
 @onready var line_3: Sprite2D = $Keys/Line3
 @onready var line_4: Sprite2D = $Keys/Line4
-@onready var bg_2: Sprite2D = $Keys/Bg2
+@onready var keys_bg_2: Sprite2D = $Keys/Bg2
+
+@onready var animation_player: AnimationPlayer = $LevelNode/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,10 +38,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	bg.visible = Global.is_multiplayer_maze
+	bg_1.visible = Global.is_multiplayer_maze && Global.mm_level == 1
+	bg_2.visible = Global.is_multiplayer_maze && Global.mm_level == 2
 	mm_character.visible = Global.is_multiplayer_maze
 	mm_character_2.visible = Global.is_multiplayer_maze
-	static_body_2d.visible = Global.is_multiplayer_maze
+	static_body_2d_1.visible = Global.is_multiplayer_maze
 	bg_back.visible = Global.is_multiplayer_maze
 	
 	key_1.visible = Global.is_multiplayer_maze
@@ -47,10 +51,10 @@ func _process(delta: float) -> void:
 	key_2_collected.visible = Global.is_multiplayer_maze
 	line_1.visible = Global.is_multiplayer_maze
 	line_2.visible = Global.is_multiplayer_maze
-	bg_1.visible = Global.is_multiplayer_maze
+	keys_bg_1.visible = Global.is_multiplayer_maze
 	line_3.visible = Global.is_multiplayer_maze
 	line_4.visible = Global.is_multiplayer_maze
-	bg_2.visible = Global.is_multiplayer_maze
+	keys_bg_2.visible = Global.is_multiplayer_maze
 	
 	if !Global.is_multiplayer_maze:
 		return
@@ -91,9 +95,15 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		Global.is_multiplayer_maze = false
 		
+	if Global.mm_keys1_collected == Global.mm_keys1_total && Global.mm_keys2_collected == Global.mm_keys2_total && !Global.mm_pause:
+		Global.mm_pause = true
+		animation_player.play("level_completed")
+		
 	
 
 
 func _on_spikes_collision_area_entered(area: Area2D) -> void:
 	if Global.is_multiplayer_maze:
+		Global.mm_keys1_collected = 0
+		Global.mm_keys2_collected = 0
 		get_tree().reload_current_scene()
