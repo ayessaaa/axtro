@@ -19,7 +19,8 @@ const KEY2 = preload("res://scenes/mm_key_2.tscn")
 @onready var player_2_keys: Node = $Keys/Player2Keys
 @onready var key_animation: AnimationPlayer = $Keys/KeyAnimation
 
-var keys_position = {1:{"player1": [Vector2(509.0, 80.0)], "player2": [Vector2(610.0, 80.0)]}}
+var keys_position = {1:{"player1": [Vector2(509.0, 80.0)], "player2": [Vector2(610.0, 80.0)]}, 2:{"player1": [Vector2(155.0, 63.0)], "player2": [Vector2(994.0, 63.0)]}, }
+var player_position = {1:{"player1": Vector2(80.0, 471.0), "player2": Vector2(1090.0, 425.0)}, 2:{"player1": Vector2(101.0, 590.0), "player2": Vector2(1061.0, 596.0)}, }
 
 var key_animation_done = false
 @onready var line_1: Sprite2D = $Keys/Line1
@@ -30,16 +31,31 @@ var key_animation_done = false
 @onready var keys_bg_2: Sprite2D = $Keys/Bg2
 
 @onready var animation_player: AnimationPlayer = $LevelNode/AnimationPlayer
+@onready var shape_1: CollisionShape2D = $Walls/StaticBody2D1/Shape1
+@onready var polygon_1: CollisionPolygon2D = $Walls/StaticBody2D1/Polygon1
+@onready var shape_2: CollisionShape2D = $Walls/StaticBody2D2/Shape2
+@onready var polygon_2: CollisionPolygon2D = $Walls/StaticBody2D2/Polygon2
+@onready var spike_disabler: AnimationPlayer = $Spikes/SpikeDisabler
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.mm_keys_spawned = false
+	Global.mm_keys1_collected = 0
+	Global.mm_keys2_collected = 0
+	mm_character.position = player_position[Global.mm_level]["player1"]
+	mm_character_2.position = player_position[Global.mm_level]["player2"]
+	spike_disabler.play("lvl_"+str(Global.mm_level))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	bg_1.visible = Global.is_multiplayer_maze && Global.mm_level == 1
 	bg_2.visible = Global.is_multiplayer_maze && Global.mm_level == 2
+	shape_1.disabled = Global.mm_level != 1
+	polygon_1.disabled = Global.mm_level != 1
+	shape_2.disabled = Global.mm_level != 2
+	polygon_2.disabled = Global.mm_level != 2
+	
 	mm_character.visible = Global.is_multiplayer_maze
 	mm_character_2.visible = Global.is_multiplayer_maze
 	static_body_2d_1.visible = Global.is_multiplayer_maze
@@ -95,14 +111,32 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		Global.is_multiplayer_maze = false
 		
-	if Global.mm_keys1_collected == Global.mm_keys1_total && Global.mm_keys2_collected == Global.mm_keys2_total && !Global.mm_pause:
-		Global.mm_pause = true
-		animation_player.play("level_completed")
+	if Global.mm_keys1_collected == Global.mm_keys1_total && Global.mm_keys2_collected == Global.mm_keys2_total:
+		if !Global.mm_pause:
+			Global.mm_pause = true
+			animation_player.play("level_completed")
+		if Input.is_action_just_pressed("enter"):
+			animation_player.play("fade_out")
+			Global.mm_level += 1
+			Global.mm_pause = false
+			Global.mm_keys1_collected = 0
+			Global.mm_keys2_collected = 0
+			mm_character.position = player_position[Global.mm_level]["player1"]
+			mm_character_2.position = player_position[Global.mm_level]["player2"]
+			spike_disabler.play("lvl_"+str(Global.mm_level))
+			Global.mm_keys_spawned = false
 		
 	
 
 
 func _on_spikes_collision_area_entered(area: Area2D) -> void:
+	if Global.is_multiplayer_maze:
+		Global.mm_keys1_collected = 0
+		Global.mm_keys2_collected = 0
+		get_tree().reload_current_scene()
+
+
+func _on_spikes_collision_2_area_entered(area: Area2D) -> void:
 	if Global.is_multiplayer_maze:
 		Global.mm_keys1_collected = 0
 		Global.mm_keys2_collected = 0

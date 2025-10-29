@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3xafk04g1tfm"]
+[gd_scene load_steps=15 format=3 uid="uid://3xafk04g1tfm"]
 
 [ext_resource type="Texture2D" uid="uid://f2568kl2f72f" path="res://assets/IMG_1559.PNG" id="1_amvwm"]
 [ext_resource type="Texture2D" uid="uid://ctvy08pbjt7ee" path="res://assets/multiplayer_maze/IMG_2069.PNG" id="2_q1roi"]
@@ -78,6 +78,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i82m5"]
+radius = 35.729237
+height = 111.65386
+
 [node name="MMCharacter" type="CharacterBody2D"]
 scale = Vector2(0.44781256, 0.44781256)
 collision_layer = 32
@@ -90,23 +94,19 @@ scale = Vector2(0.56901103, 1.7456127)
 texture = ExtResource("1_amvwm")
 
 [node name="BlueSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8.932312, -17.864618)
+position = Vector2(0, -17.864624)
 scale = Vector2(0.47615352, 0.47615352)
 sprite_frames = SubResource("SpriteFrames_nn5ok")
+animation = &"up"
 autoplay = "default"
 
 [node name="GreenSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8.932307, -17.864616)
+position = Vector2(2.3841858e-07, -17.86462)
 scale = Vector2(0.47573578, 0.47573578)
 sprite_frames = SubResource("SpriteFrames_45501")
 animation = &"up"
 autoplay = "default"
-flip_h = true
 
-[node name="CollisionRight" type="CollisionPolygon2D" parent="."]
-position = Vector2(-11.165386, -4.4661546)
-polygon = PackedVector2Array(-37.962315, -6.6992316, -29.030006, -13.398464, -17.864618, -17.864618, -24.56385, -42.428467, -4.466155, -66.99232, 35.729237, -69.225395, 55.82693, -46.894623, 51.36078, -24.56385, 62.526165, -20.097696, 72, -8, 75, 5, 70, 15, 58.06001, 29.030005, 22.330772, 40.195393, 0, 40.195393, -17.864618, 37.962315, -31.26308, 24.56385)
-
-[node name="CollisionLeft" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-80.390785, -6.699232, -66.99232, -22.330772, -51.36078, -29.030005, -60.293087, -42.428467, -53.593857, -64.75924, -24.56385, -75.92463, 8.932309, -64.75924, 20.097696, -44.661545, 11.165386, -24.56385, 20.097696, -17.864618, 31.263083, -8.932309, 29.030005, 13.398464, 20.097696, 26.796928, 6.699232, 33.49616, -35.729237, 33.49616, -64.75924, 17.864618, -73.69155, 11.165386)
-disabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_i82m5")

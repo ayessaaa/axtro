@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dwwpjx7au0jyt"]
+[gd_scene load_steps=36 format=3 uid="uid://dwwpjx7au0jyt"]
 
 [ext_resource type="Script" uid="uid://bq33e52h36yo2" path="res://scripts/multiplayer_maze.gd" id="1_ihdka"]
 [ext_resource type="Texture2D" uid="uid://bf5mjytw4bgt5" path="res://assets/multiplayer_maze/IMG_2067.PNG" id="2_52b5h"]
@@ -18,6 +18,444 @@
 [ext_resource type="Texture2D" uid="uid://dkp5uclncv201" path="res://assets/multiplayer_maze/IMG_2074.PNG" id="15_ndc02"]
 [ext_resource type="Texture2D" uid="uid://dqxwosnnwfd3g" path="res://assets/dfgdfg.PNG" id="17_kj47s"]
 [ext_resource type="Texture2D" uid="uid://sorig17y6wrg" path="res://assets/multiplayer_maze/IMG_2153.PNG" id="18_ne4hx"]
+
+[sub_resource type="Animation" id="Animation_jg17q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelNode/LevelBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelNode/LevelBg:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.036075186, 0.033168603)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelNode/BlackBg:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelNode/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LevelNode/Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LevelNode/Label5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelNode/Label3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LevelNode/Label6:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LevelNode/Label4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LevelNode/Label7:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LevelNode/Label8:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kj47s"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelNode/LevelBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelNode/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelNode/Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelNode/Label3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LevelNode/Label4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LevelNode/Label5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelNode/Label6:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LevelNode/Label7:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LevelNode/Label8:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LevelNode/BlackBg:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.33333334, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b3ow0"]
+resource_name = "level_completed"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelNode/LevelBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelNode/LevelBg:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.036075186, 0.033168603), Vector2(0.44823557, 0.4164321), Vector2(0.44588178, 0.40995705), Vector2(0.45029223, 0.41319454)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LevelNode/BlackBg:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.66),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5882353)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelNode/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.9, 1.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LevelNode/Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.4, 1.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LevelNode/Label5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.8666666, 2.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelNode/Label3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.3, 2.56),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LevelNode/Label6:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.7333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LevelNode/Label4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.2333333, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LevelNode/Label7:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.72, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LevelNode/Label8:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.32, 4.62),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhle1"]
+_data = {
+&"RESET": SubResource("Animation_jg17q"),
+&"fade_out": SubResource("Animation_kj47s"),
+&"level_completed": SubResource("Animation_b3ow0")
+}
+
+[sub_resource type="Animation" id="Animation_m0al6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label8:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [27]
+}
+
+[sub_resource type="Animation" id="Animation_dl14v"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label8:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [27, 28]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f16r8"]
+_data = {
+&"RESET": SubResource("Animation_m0al6"),
+&"default": SubResource("Animation_dl14v")
+}
 
 [sub_resource type="Animation" id="Animation_4gl3o"]
 length = 0.001
@@ -803,325 +1241,734 @@ _data = {
 &"player2": SubResource("Animation_rp7ia")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pohnp"]
-size = Vector2(183, 76)
-
-[sub_resource type="Animation" id="Animation_b3ow0"]
-resource_name = "level_completed"
-length = 5.0
+[sub_resource type="Animation" id="Animation_ne4hx"]
+resource_name = "lvl_1"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LevelNode/LevelBg:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LevelNode/LevelBg:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 0.8333333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.036075186, 0.033168603), Vector2(0.44823557, 0.4164321), Vector2(0.44588178, 0.40995705), Vector2(0.45029223, 0.41319454)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("LevelNode/BlackBg:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.66),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5882353)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LevelNode/Label:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.9, 1.2333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LevelNode/Label2:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.4, 1.6333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("LevelNode/Label5:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.8666666, 2.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("LevelNode/Label3:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(2.3, 2.56),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("LevelNode/Label6:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2.7333333, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("LevelNode/Label4:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(3.2333333, 3.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("LevelNode/Label7:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(3.72, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("LevelNode/Label8:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(4.32, 4.62),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_jg17q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LevelNode/LevelBg:modulate")
+tracks/0/path = NodePath("SpikesCollision2/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LevelNode/LevelBg:scale")
+tracks/1/path = NodePath("SpikesCollision2/CollisionPolygon2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.036075186, 0.033168603)]
+"update": 1,
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LevelNode/BlackBg:modulate")
+tracks/2/path = NodePath("SpikesCollision2/CollisionPolygon2D3:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("LevelNode/Label:modulate")
+tracks/3/path = NodePath("SpikesCollision2/CollisionPolygon2D4:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("LevelNode/Label2:modulate")
+tracks/4/path = NodePath("SpikesCollision2/CollisionPolygon2D5:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("LevelNode/Label5:modulate")
+tracks/5/path = NodePath("SpikesCollision2/CollisionPolygon2D6:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("LevelNode/Label3:modulate")
+tracks/6/path = NodePath("SpikesCollision2/CollisionPolygon2D7:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("LevelNode/Label6:modulate")
+tracks/7/path = NodePath("SpikesCollision2/CollisionPolygon2D8:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("LevelNode/Label4:modulate")
+tracks/8/path = NodePath("SpikesCollision2/CollisionPolygon2D9:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("LevelNode/Label7:modulate")
+tracks/9/path = NodePath("SpikesCollision2/CollisionPolygon2D10:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("LevelNode/Label8:modulate")
+tracks/10/path = NodePath("SpikesCollision1/CollisionPolygon2D6:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhle1"]
-_data = {
-&"RESET": SubResource("Animation_jg17q"),
-&"level_completed": SubResource("Animation_b3ow0")
-}
-
-[sub_resource type="Animation" id="Animation_dl14v"]
-resource_name = "default"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label8:theme_override_font_sizes/font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [27, 28]
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpikesCollision1/CollisionPolygon2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpikesCollision1/CollisionPolygon2D2:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpikesCollision1/CollisionPolygon2D3:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpikesCollision1/CollisionPolygon2D4:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SpikesCollision1/CollisionPolygon2D5:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_m0al6"]
+[sub_resource type="Animation" id="Animation_rhle1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label8:theme_override_font_sizes/font_size")
+tracks/0/path = NodePath("SpikesCollision2/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [27]
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpikesCollision2/CollisionPolygon2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpikesCollision2/CollisionPolygon2D3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpikesCollision2/CollisionPolygon2D4:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpikesCollision2/CollisionPolygon2D5:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpikesCollision2/CollisionPolygon2D6:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpikesCollision2/CollisionPolygon2D7:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpikesCollision2/CollisionPolygon2D8:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpikesCollision2/CollisionPolygon2D9:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SpikesCollision2/CollisionPolygon2D10:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SpikesCollision1/CollisionPolygon2D6:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpikesCollision1/CollisionPolygon2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpikesCollision1/CollisionPolygon2D2:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpikesCollision1/CollisionPolygon2D3:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpikesCollision1/CollisionPolygon2D4:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SpikesCollision1/CollisionPolygon2D5:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f16r8"]
-_data = {
-&"RESET": SubResource("Animation_m0al6"),
-&"default": SubResource("Animation_dl14v")
+[sub_resource type="Animation" id="Animation_f16r8"]
+resource_name = "lvl_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpikesCollision1/CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpikesCollision1/CollisionPolygon2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpikesCollision1/CollisionPolygon2D3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpikesCollision1/CollisionPolygon2D4:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpikesCollision1/CollisionPolygon2D5:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpikesCollision1/CollisionPolygon2D6:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpikesCollision2/CollisionPolygon2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpikesCollision2/CollisionPolygon2D2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SpikesCollision2/CollisionPolygon2D3:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SpikesCollision2/CollisionPolygon2D4:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SpikesCollision2/CollisionPolygon2D5:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SpikesCollision2/CollisionPolygon2D6:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpikesCollision2/CollisionPolygon2D7:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SpikesCollision2/CollisionPolygon2D8:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SpikesCollision2/CollisionPolygon2D9:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("SpikesCollision2/CollisionPolygon2D10:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjwbh"]
+_data = {
+&"RESET": SubResource("Animation_rhle1"),
+&"lvl_1": SubResource("Animation_ne4hx"),
+&"lvl_2": SubResource("Animation_f16r8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pohnp"]
+size = Vector2(183, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj47s"]
+size = Vector2(419, 102)
 
 [node name="MultiplayerMaze" type="Node"]
 script = ExtResource("1_ihdka")
+
+[node name="LevelNode" type="Node" parent="."]
+
+[node name="BlackBg" type="Sprite2D" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+position = Vector2(568, 323.75)
+scale = Vector2(2.1818182, 1.9077135)
+texture = ExtResource("17_kj47s")
+
+[node name="LevelBg" type="Sprite2D" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+position = Vector2(574, 309)
+scale = Vector2(0.036075186, 0.033168603)
+texture = ExtResource("18_ne4hx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelNode"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_rhle1")
+}
+
+[node name="Label" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 445.0
+offset_top = 220.0
+offset_right = 706.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
+theme_override_colors/font_outline_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 42
+text = "level completed"
+uppercase = true
+
+[node name="Label2" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 413.0
+offset_top = 281.0
+offset_right = 615.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "level number"
+
+[node name="Label3" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 413.0
+offset_top = 308.0
+offset_right = 532.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "time"
+
+[node name="Label4" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 413.0
+offset_top = 336.0
+offset_right = 543.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "deaths"
+
+[node name="Label5" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 642.0
+offset_top = 282.0
+offset_right = 844.0
+offset_bottom = 305.0
+theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "1"
+
+[node name="Label6" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 642.0
+offset_top = 309.0
+offset_right = 761.0
+offset_bottom = 332.0
+theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "2m 37s"
+
+[node name="Label7" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 642.0
+offset_top = 337.0
+offset_right = 772.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 29
+text = "17"
+
+[node name="Label8" type="Label" parent="LevelNode"]
+modulate = Color(1, 1, 1, 0)
+z_index = 22
+offset_left = 446.0
+offset_top = 395.0
+offset_right = 704.0
+offset_bottom = 418.0
+theme_override_colors/font_color = Color(0.57911557, 0.40955055, 0.26739484, 1)
+theme_override_fonts/font = ExtResource("8_2kqgs")
+theme_override_font_sizes/font_size = 27
+text = "press ENTER to continue"
+horizontal_alignment = 1
+
+[node name="TextAnimation" type="AnimationPlayer" parent="LevelNode"]
+libraries = {
+&"": SubResource("AnimationLibrary_f16r8")
+}
+autoplay = "default"
 
 [node name="BgBack" type="Sprite2D" parent="."]
 z_index = 20
@@ -1138,8 +1985,8 @@ texture = ExtResource("3_gwhpx")
 
 [node name="Bg2" type="Sprite2D" parent="."]
 z_index = 21
-position = Vector2(575, 336.5)
-scale = Vector2(0.49576274, 0.42865855)
+position = Vector2(576.50006, 336.5)
+scale = Vector2(0.52330506, 0.42865855)
 texture = ExtResource("4_4gl3o")
 
 [node name="MMCharacter" parent="." instance=ExtResource("2_nb03k")]
@@ -1160,7 +2007,7 @@ disabled = true
 
 [node name="MMCharacter2" parent="." instance=ExtResource("2_nb03k")]
 z_index = 21
-position = Vector2(1090.0001, 425.00003)
+position = Vector2(1090.0001, 559.00006)
 script = ExtResource("5_el1o4")
 
 [node name="CharacterArea2" type="Area2D" parent="MMCharacter2"]
@@ -1310,147 +2157,76 @@ z_index = 21
 collision_mask = 32
 script = ExtResource("7_2kqgs")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(202, 30, 190, 37, 192, 43, 205, 48, 191, 62, 193, 67, 207, 72, 206, 77, 193, 84, 194, 90, 214, 96, 218, 97, 210, 28)
+disabled = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(106, 115, 131, 126, 127, 133, 110, 139, 112, 144, 126, 149, 128, 154, 114, 163, 114, 172, 131, 178, 132, 184, 116, 195, 116, 203, 130, 207, 131, 212, 125, 218, 117, 222, 117, 229, 129, 235, 130, 239, 126, 243, 112, 249, 108, 241, 108, 227, 104, 123)
+disabled = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(236, 140, 246, 153, 251, 153, 256, 139, 270, 140, 279, 155, 286, 154, 293, 145, 306, 145, 315, 154, 323, 151, 328, 144, 341, 143, 346, 149, 351, 150, 360, 138, 360, 134, 238, 132)
+disabled = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(787, 133, 797, 146, 804, 146, 808, 140, 820, 141, 821, 148, 831, 153, 836, 149, 840, 142, 855, 143, 862, 153, 870, 153, 876, 144, 889, 145, 896, 153, 902, 152, 911, 137)
+disabled = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(943, 30, 959, 36, 959, 40, 944, 48, 946, 56, 962, 59, 962, 66, 946, 73, 947, 78, 966, 83, 966, 88, 951, 96, 944, 97, 939, 65, 939, 40)
+disabled = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(990, 270, 965, 282, 985, 291, 984, 302, 966, 309, 968, 314, 981, 319, 981, 331, 965, 337, 965, 342, 982, 351, 982, 361, 966, 368, 966, 375, 980, 381, 981, 393, 965, 398, 966, 404, 982, 411, 981, 420, 966, 430, 981, 440, 979, 451, 966, 454, 967, 461, 981, 468, 981, 479, 966, 484, 974, 490, 982, 494, 978, 503, 965, 510, 986, 524)
+disabled = true
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(1052, 110, 1030, 117, 1029, 122, 1046, 130, 1046, 139, 1033, 143, 1032, 148, 1046, 156, 1044, 169, 1029, 173, 1029, 177, 1044, 189, 1044, 196, 1030, 201, 1030, 206, 1043, 216, 1043, 224, 1031, 227, 1031, 233, 1048, 242, 1053, 234)
+disabled = true
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(761, 616, 770, 601, 778, 598, 786, 610, 797, 610, 803, 602, 810, 604, 815, 612, 827, 609, 835, 600, 842, 602, 852, 616, 824, 618, 783, 619)
+disabled = true
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(310, 622, 321, 605, 329, 604, 336, 619, 343, 619, 350, 609, 357, 610, 363, 618, 375, 618, 383, 606, 389, 607, 401, 621, 400, 624)
+disabled = true
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Spikes/SpikesCollision2"]
+polygon = PackedVector2Array(167, 262, 193, 274, 175, 281, 174, 291, 191, 300, 192, 306, 175, 311, 175, 323, 194, 332, 178, 342, 177, 354, 194, 360, 194, 365, 177, 373, 176, 384, 195, 391, 191, 398, 177, 401, 177, 411, 192, 420, 190, 427, 175, 431, 177, 441, 191, 445, 192, 449, 179, 459, 177, 470, 190, 474, 190, 478, 175, 486, 177, 495, 192, 501, 189, 508, 169, 515)
+disabled = true
+
+[node name="SpikeDisabler" type="AnimationPlayer" parent="Spikes"]
+libraries = {
+&"": SubResource("AnimationLibrary_qjwbh")
+}
+
 [node name="Walls" type="Node" parent="."]
 
 [node name="StaticBody2D1" type="StaticBody2D" parent="Walls"]
+visible = false
 z_index = 21
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D1"]
+[node name="Shape1" type="CollisionShape2D" parent="Walls/StaticBody2D1"]
 position = Vector2(560, 175)
 shape = SubResource("RectangleShape2D_pohnp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D1"]
+[node name="Polygon1" type="CollisionPolygon2D" parent="Walls/StaticBody2D1"]
 z_index = 20
 polygon = PackedVector2Array(2, 517, 103, 516, 127, 457, 302, 454, 310, 572, 825, 565, 816, 433, 993, 430, 1027, 500, 1143, 507, 1199, 510, 1199, 674, -21, 672, -17, -21, 1185, -33, 1199, 512, 1151, 520, 1153, 382, 1153, 207, 974, 214, 978, 275, 817, 276, 785, 20, 472, 14, 295, 20, 293, 291, 129, 287, 137, 224, 41, 224, 9, 221, 6, 440)
 
-[node name="LevelNode" type="Node" parent="."]
-
-[node name="BlackBg" type="Sprite2D" parent="LevelNode"]
-visible = false
-modulate = Color(1, 1, 1, 0)
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 z_index = 21
-position = Vector2(568, 323.75)
-scale = Vector2(2.1818182, 1.9077135)
-texture = ExtResource("17_kj47s")
+collision_mask = 32
 
-[node name="LevelBg" type="Sprite2D" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-position = Vector2(574, 309)
-scale = Vector2(0.036075186, 0.033168603)
-texture = ExtResource("18_ne4hx")
+[node name="Shape2" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(580.5, 308)
+shape = SubResource("RectangleShape2D_kj47s")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelNode"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_rhle1")
-}
-
-[node name="Label" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 445.0
-offset_top = 220.0
-offset_right = 706.0
-offset_bottom = 250.0
-theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
-theme_override_colors/font_outline_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 42
-text = "level completed"
-uppercase = true
-
-[node name="Label2" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 413.0
-offset_top = 281.0
-offset_right = 615.0
-offset_bottom = 304.0
-theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "level number"
-
-[node name="Label3" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 413.0
-offset_top = 308.0
-offset_right = 532.0
-offset_bottom = 331.0
-theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "time"
-
-[node name="Label4" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 413.0
-offset_top = 336.0
-offset_right = 543.0
-offset_bottom = 359.0
-theme_override_colors/font_color = Color(0.9372549, 0.49019608, 0.34117648, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "deaths"
-
-[node name="Label5" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 642.0
-offset_top = 282.0
-offset_right = 844.0
-offset_bottom = 305.0
-theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "1"
-
-[node name="Label6" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 642.0
-offset_top = 309.0
-offset_right = 761.0
-offset_bottom = 332.0
-theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "2m 37s"
-
-[node name="Label7" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 642.0
-offset_top = 337.0
-offset_right = 772.0
-offset_bottom = 360.0
-theme_override_colors/font_color = Color(0.69411767, 0.24705882, 0.3254902, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 29
-text = "17"
-
-[node name="Label8" type="Label" parent="LevelNode"]
-modulate = Color(1, 1, 1, 0)
-z_index = 21
-offset_left = 446.0
-offset_top = 395.0
-offset_right = 704.0
-offset_bottom = 418.0
-theme_override_colors/font_color = Color(0.57911557, 0.40955055, 0.26739484, 1)
-theme_override_fonts/font = ExtResource("8_2kqgs")
-theme_override_font_sizes/font_size = 27
-text = "press ENTER to continue"
-horizontal_alignment = 1
-
-[node name="TextAnimation" type="AnimationPlayer" parent="LevelNode"]
-libraries = {
-&"": SubResource("AnimationLibrary_f16r8")
-}
-autoplay = "default"
+[node name="Polygon2" type="CollisionPolygon2D" parent="Walls/StaticBody2D2"]
+polygon = PackedVector2Array(30, 16, 32, 110, 89, 112, 89, 258, 144, 256, 146, 530, 0, 530, 2, 636, 420, 635, 417, 578, 738, 576, 741, 633, 1152, 633, 1153, 530, 1013, 532, 1009, 254, 1072, 255, 1071, 120, 1130, 115, 1130, 12, 920, 14, 922, 122, 237, 127, 223, 15, 31, 15, 68, -36, 1170, -32, 1180, 674, -42, 678, -26, -32, 68, -36)
 
 [connection signal="area_entered" from="Spikes/SpikesCollision1" to="." method="_on_spikes_collision_area_entered"]
+[connection signal="area_entered" from="Spikes/SpikesCollision2" to="." method="_on_spikes_collision_2_area_entered"]

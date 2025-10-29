@@ -11,13 +11,9 @@ const MAX_DOWN_SPEED = 400.0
 const SMOOTHNESS = 5.0  
 const SPEED = 200
 
-@onready var collision_right: CollisionPolygon2D = $CollisionRight
-@onready var collision_left: CollisionPolygon2D = $CollisionLeft
 @onready var blue_sprite: AnimatedSprite2D = $BlueSprite
 @onready var green_sprite: AnimatedSprite2D = $GreenSprite
 @onready var line: Sprite2D = $Line
-@onready var area_collision_right: CollisionPolygon2D = $CharacterArea1/CollisionRight
-@onready var area_collision_left: CollisionPolygon2D = $CharacterArea1/CollisionLeft
 
 func _physics_process(delta: float) -> void:
 	if Global.mm_pause:
@@ -73,16 +69,8 @@ func _physics_process(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("move_right"):
 		blue_sprite.flip_h = false
-		collision_right.disabled = false
-		area_collision_right.disabled = false
-		collision_left.disabled = true
-		area_collision_left.disabled = true
 	if Input.is_action_just_pressed("move_left"):
 		blue_sprite.flip_h = true
-		collision_right.disabled = true
-		area_collision_right.disabled = true
-		collision_left.disabled = false
-		collision_left.disabled = false
 		
 	
 
