@@ -121,3 +121,4 @@ var mm_keys2_total = 1
 var mm_keys_spawned = false
 var mm_level = 1
 var mm_pause = false
+var mm_deaths = 0

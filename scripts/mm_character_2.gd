@@ -20,6 +20,7 @@ const SPEED = 200
 
 func _physics_process(delta: float) -> void:
 	if Global.mm_pause:
+		velocity.x = 0
 		return
 	velocity.y += GRAVITY * delta
 	blue_sprite.visible = false
